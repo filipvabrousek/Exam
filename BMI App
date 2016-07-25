@@ -1,0 +1,27 @@
+<!----Include Beta stylesheet !!!!----->
+
+
+<script src="http://yourjavascript.com/0650508217/beta.js"></script>
+<br>
+<h1 class="title-color">Count BMI</h1>
+<br><br><br>
+<input type="number" class="weight" placeholder="Enter height in meters"></input>
+<input type="number" class="height" placeholder="Enter weight in kilograms"></input>
+<button class="btn">Count it</button>
+<p class="article"></p>
+
+<script>
+
+B("button").on("click", function() {
+
+  var weight = B(".weight").val();
+  var height = B(".height").val();
+  var finalResult = Number(height / (weight * weight));
+
+  document.querySelector("p").innerHTML = "Your BMI is " + finalResult.toPrecision(4);
+});
+
+
+
+
+</script>

@@ -24,7 +24,7 @@ on()
 /*
 UNCOMPILED CODE :D
 
- function β(selector) {
+ function B(selector) {
     var self = {};
     self.selector = selector;
     self.element = document.querySelector(self.selector);

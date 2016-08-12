@@ -13,7 +13,7 @@ html()
 attr()
 on()
 
- β(".b").on("dblclick", function() {
+ B(".b").on("dblclick", function() {
     alert("It works");
   });
 

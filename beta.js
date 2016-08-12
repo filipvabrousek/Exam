@@ -17,6 +17,9 @@ RENDER()
     alert("It works");
   });
 
+B(".x").RENDER(
+  "<h2>Test heading</h2>"
+);
 
 
 */

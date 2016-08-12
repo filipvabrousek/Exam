@@ -1,4 +1,4 @@
-function B(e){var t={};return t.selector=e,t.element=document.querySelector(t.selector),t.show=function(){t.element.style.display="block"},t.hide=function(){t.element.style.display="none"},t.addClass=function(e){t.element.classList.add(e)},t.removeClass=function(e){t.element.classList.remove(e)},t.height=function(){return t.element.offsetHeight},t.width=function(){return t.element.offsetWidth},t.text=function(){return t.element.innerText},t.html=function(){return t.element.innerHTML},t.val=function(){return t.element.value},t.attr=function(e,n){return n?(t.element.setAttribute(e,n),t):t.element.getAttribute(e)},t.on=function(e,n){return t.element["on"+e]=n,t},t}
+function B(e){var t={};return t.selector=e,t.element=document.querySelector(t.selector),t.show=function(){t.element.style.display="block"},t.hide=function(){t.element.style.display="none"},t.addClass=function(e){t.element.classList.add(e)},t.removeClass=function(e){t.element.classList.remove(e)},t.height=function(){return t.element.offsetHeight},t.width=function(){return t.element.offsetWidth},t.text=function(){return t.element.innerText},t.html=function(){return t.element.innerHTML},t.val=function(){return t.element.value},t.attr=function(e,n){return n?(t.element.setAttribute(e,n),t):t.element.getAttribute(e)},t.on=function(e,n){return t.element["on"+e]=n,t},t.RENDER=function(e){t.element.innerHTML+=e},t}
 /*
 show()
 hide()
@@ -7,11 +7,11 @@ removeClass()
 width()
 height()
 val()
-
 text()
 html()
 attr()
 on()
+RENDER()
 
  B(".b").on("dblclick", function() {
     alert("It works");
@@ -22,7 +22,7 @@ on()
 */
 
 /*
-UNCOMPILED CODE :D
+UNCOMPILED CODE 
 
  function B(selector) {
     var self = {};
@@ -82,10 +82,16 @@ self.val = function(){
       self.element["on" + type] = callback;
       return self;
     }
+    
+    //RENDER function
+    self.RENDER = function(html){
+     self.element.innerHTML += html; 
+     
+    }
     return self;
 
   }
-}
+
 
 
 

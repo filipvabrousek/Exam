@@ -1,6 +1,7 @@
 function B(c){var a={};a.selector=c;a.element=document.querySelector(a.selector);a.show=function(){a.element.style.display="block"};a.hide=function(){a.element.style.display="none"};a.addClass=function(b){a.element.classList.add(b)};a.removeClass=function(b){a.element.classList.remove(b)};a.height=function(){return a.element.offsetHeight};a.width=function(){return a.element.offsetWidth};a.text=function(){return a.element.innerText};a.html=function(){return a.element.innerHTML};a.val=function(){return a.element.value};
 a.attr=function(b,c){if(!c)return a.element.getAttribute(b);a.element.setAttribute(b,c);return a};a.on=function(b,c){a.element["on"+b]=c;return a};a.RENDER=function(b){a.element.innerHTML+=b};return a}
 var BRender=function(c,a){for(var b=/<%([^%>]+)?%>/g,h=/(^( )?(if|for|else|switch|case|break|{|}))(.*)?/g,e="var r=[];\n",f=0,d,g=function(a,b){b?e+=a.match(h)?a+"\n":"r.push("+a+");\n":e+=""!=a?'r.push("'+a.replace(/"/g,'\\"')+'");\n':"";return g};d=b.exec(c);)g(c.slice(f,d.index))(d[1],!0),f=d.index+d[0].length;g(c.substr(f,c.length-f));e+='return r.join("");';return(new Function(e.replace(/[\r\t\n]/g,""))).apply(a)},template="<h1>Fruits</h1><%if(this.show) {%><%for(var index in this.fruits) {%><h2><%this.fruits[index]%></h2><%}%><%} else {%><p>Content of the template is hidden, set <b>show</b> property to <b>true</b></p><%}%>";
+
 /*
 show()
 hide()

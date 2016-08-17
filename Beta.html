@@ -1,9 +1,13 @@
+<head>
+<script src="https://closure-compiler.appspot.com/code/jsc5053ff5e4d9774898aec90a4832153bb/default.js"></script>
+
+</head>
+
 <body>
   <!--Include beta.js----->
 
-  <head>
-    <script src="http://yourjavascript.com/0650508217/beta.js"></script>
-  </head>
+ 
+   
   <style>
     * {
     margin: 0;
@@ -40,6 +44,7 @@
     margin-left: 40%;
     z-index: 4;
     padding: 20px;
+    display: none;
     }
     nav ul li {
     list-style-type: none;
@@ -95,7 +100,6 @@
     .title-jumbotron{
     font-size: 10em;
     color: black;
-
 margin-top: 190px;
             position: absolute;
         text-align: center;
@@ -225,6 +229,7 @@ background: #8EE3ED;
     @media only screen and (min-width: 956px) and (max-width: 1920px) {
     .header {
     margin-top: -328px;
+      }
     }
         
         /*-------------Alert styles----------------*/
@@ -235,7 +240,6 @@ background: #8EE3ED;
     color: white;
     }
         
-
     .warning{
     background: #F5D76E;
     }
@@ -260,7 +264,7 @@ background: #8EE3ED;
         }
         
         
-    }
+    
       
       /*--------------Progress bar---------------*/
       .progress{
@@ -336,8 +340,6 @@ background: #8EE3ED;
         border-radius: 4px;
       }
   </style>
-
-
   <!-----NAVIGATION AND TITLE SECTION---->
   <section class="intro-section">
     <button class="hider">X</button>
@@ -418,15 +420,15 @@ background: #8EE3ED;
   <br><br><br><br>
   <pre>Some           preformated text in     <b>pre</b> element</pre>
 
-<br>
-<kbd>Text in <b>kbd</b> element: CTRL+V</kbd>
+  <br>
+  <kbd>Text in <b>kbd</b> element: CTRL+V</kbd>
   <h2 class="form-title desc">Buttons</h2>
   <!-----BUTTONS---->
   <a class="btn hn" href="#">Normal button</a>
   <a class="btn warning hw" href="#">Warning button</a>
   <a class="btn error he" href="#">Error Button</a>
   <a class="btn success hs" href="#">Success Button</a>
-<button class="btn">Action button</button>
+  <button class="btn">Action button</button>
   <h2 class="form-title desc">Inputs</h2>
   <!-----INPUTS---->
   <input placeholder="Enter anything you want">
@@ -477,9 +479,14 @@ background: #8EE3ED;
   <footer>
     <p>&copy Your text 2016</p>
   </footer>
+
+ 
   <script>
     //custom javaScript
-    
+    function B(c){var a={};a.selector=c;a.element=document.querySelector(a.selector);a.show=function(){a.element.style.display="block"};a.hide=function(){a.element.style.display="none"};a.addClass=function(b){a.element.classList.add(b)};a.removeClass=function(b){a.element.classList.remove(b)};a.height=function(){return a.element.offsetHeight};a.width=function(){return a.element.offsetWidth};a.text=function(){return a.element.innerText};a.html=function(){return a.element.innerHTML};a.val=function(){return a.element.value};
+a.attr=function(b,c){if(!c)return a.element.getAttribute(b);a.element.setAttribute(b,c);return a};a.on=function(b,c){a.element["on"+b]=c;return a};a.RENDER=function(b){a.element.innerHTML+=b};return a}
+var BRender=function(c,a){for(var b=/<%([^%>]+)?%>/g,h=/(^( )?(if|for|else|switch|case|break|{|}))(.*)?/g,e="var r=[];\n",f=0,d,g=function(a,b){b?e+=a.match(h)?a+"\n":"r.push("+a+");\n":e+=""!=a?'r.push("'+a.replace(/"/g,'\\"')+'");\n':"";return g};d=b.exec(c);)g(c.slice(f,d.index))(d[1],!0),f=d.index+d[0].length;g(c.substr(f,c.length-f));e+='return r.join("");';return(new Function(e.replace(/[\r\t\n]/g,""))).apply(a)},template="<h1>Fruits</h1><%if(this.show) {%><%for(var index in this.fruits) {%><h2><%this.fruits[index]%></h2><%}%><%} else {%><p>Content of the template is hidden, set <b>show</b> property to <b>true</b></p><%}%>";
+
     B("#nav").hide();
     B(".hider").hide();
     
@@ -495,6 +502,8 @@ background: #8EE3ED;
       B(".hider").show();
     });
   </script>
+
+  
 </body>
 
 </html>

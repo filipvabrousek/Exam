@@ -125,7 +125,7 @@ self.val = function(){
   return new Function(code.replace(/[\r\t\n]/g, '')).apply(options);
 }
 
-//DEFINE TEMPLATE------------------------------------------------
+//DEFINE TEMPLATE------------You can remove this and define your own------------------------------------
 var template =
   '<h1>Fruits</h1>' +
   '<%if(this.show) {%>' +

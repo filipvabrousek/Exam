@@ -1,346 +1,372 @@
 <head>
-<script src="https://closure-compiler.appspot.com/code/jsc5053ff5e4d9774898aec90a4832153bb/default.js"></script>
-
+  <script src="https://closure-compiler.appspot.com/code/jsc5053ff5e4d9774898aec90a4832153bb/default.js"></script>
 </head>
 
 <body>
-  <!--Include beta.js----->
 
- 
-   
   <style>
-     * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    font-family: Arial;
-    }
-    .hider,
-    .shower {
-    font-size: 30px;
-    color: #67C4D9;
-    border: none;
-    background: white;
-    margin-left: 97%;
-    }
-    .btn,
-    nav ul li a {
-    text-decoration: none;
-    font-weight: 700;
-    }
-    .btn,
-    .subtitle,
-    nav ul li a {
-    font-weight: 700;
-    }
-    body {
-    line-height: 1;
-    font-size: 62.5%
-    }
-    nav {
-    margin-left: 40%;
-    z-index: 4;
-    padding: 20px;
-    display: none;
-    }
-    nav ul li {
-    list-style-type: none;
-    display: inline;
-    margin: 26px;
-    }
-    nav ul li a {
-    color: #27abc9;
-    font-family: Arial;
-    font-size: 3.1em;
-    }
-    nav ul li a:hover {
-    color: #67C4D9;
-    }
-    img {
-    width: 100%;
-    z-index: 2
-    }
-      
-      
-    /*Titles-------------------*/
-      
-      
-    .title,
-    .title-color {
-    text-align: left;
-    font-size: 20em;
-    z-index: 3;
-    position: absolute;
-    font-family: Arial
-    }
-    .title {
-    color: #fff;
-    margin-left: 6%;
-    margin-top: -220px
-    }
-    .intro,
-    .subtitle,
-    .title-color {
-    color: #27abc9;
-    margin-left: 6%
-    }
-    .title-color {
-    margin-top: 0px
-    }
-      
-      
-    /*Jumbotron-------------------*/ 
-      .intro-section{
-    margin-top: 0px;
-      }
-      
-    .title-jumbotron{
-    font-size: 10em;
-    color: black;
-margin-top: 190px;
-            position: absolute;
-        text-align: center;
-    }
-      
-      
-      #temp1{
-    margin-top: 0px;
-    padding-bottom: 600px;
-      }
-    .btn,
-    footer {
-    text-align: center
-    }
-    p {
-    font-family: Arial
-    }
-    .intro {
-    font-size: 3em;
-    padding: 21px;
-    }
-    .subtitle {
-    font-size: 6em;
-    padding: 21px;
-    }
-    .article,
-    footer {
-    padding: 10px;
-    font-size: 2em;
-    font-family: Arial
-    }
-    .article {
-    margin-left: 6%;
-    margin-right: 6%
-    }
-    .down {
-    margin-top: 200px;
-    }
-    .up {
-    margin-top: -4px
-    }
-    footer {
-    background: #27abc9;
-    color: #fff
-    }
-      
-      
-      
-      /*------Form, buttons----------*/
-      
-    .btn {
-    display: block;
-    font-family: Arial;
-    color: #fff;
-    background: #26C6DA;
-    padding: 20px;
-    border-radius: 4px;
-    width: 120px;
-    margin: 20px;
-    font-size: 1.6em
-    }
-    input,
-    textarea {
-    padding: 20px;
-    margin: 20px;
-    font-size: 16px
-    }
-    .hn:hover {
-background: #8EE3ED;
-    }
-      
-       .hw:hover{
-          background: #F2EA7E;
-      }
-      
-      .he:hover{
-        background: #FF8585;
-      }
-      
-      .hs:hover{
-        background: #92DEB7;
-      }
-     
-    input {
-    border-radius: 6px;
-    border: 3px solid #26C6DA;
-    }
-    input:active,
-    textarea:active {
-    border: 3px solid #4DD0E1;
-    }
-    textarea {
-    border-radius: 6px;
-    border: 3px solid #26C6DA;
-    font-family: Arial;
-    }
-    fieldset {
-    border: none
-    }
-    h2 {
-    font-family: Arial;
-    color: #4DD0E1
-    }
-    input[type=submit] {
-    border: none;
-    cursor: pointer;
-    background: #26C6DA;
-    color: #fff;
-    font-weight: 700;
-    }
-    .form-title {
-    font-size: 3em;
-    margin-left: 20px;
-    }
-    .desc {
-    color: grey;
-    font-size: 5em;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    }
-    
-/*EDIT------*/
-@media only screen and (min-width: 20px) and (max-width: 940px) {
-    .title,
-    .title-color {
-    font-size: 12em;
-    }
-    }
-    @media only screen and (min-width: 956px) and (max-width: 1920px) {
-    .header {
-    margin-top: -328px;
-      }
-    }
-        
-        /*-------------Alert styles----------------*/
-    .alert{
-    width: 100%;
-    padding: 19px;
-    font-size: 19px;
-    color: white;
-    }
-        
-    .warning{
-    background: #F5D76E;
-    }
-    .error{
-    background: #EC644B;
-    }
-    .success{
-    background: #03C9A9;
-    }
-    /*------------------Title-color definitions------------*/
-        
-        .green{
-            color: #03C9A9;
-        }
-        
-        .yellow{
-        color: #EC644B;
-        }
-        
-        .red{
-        color: #EC644B;
-        }
-        
-        
-    
-      
-      /*--------------Progress bar---------------*/
-      .progress{
-    width: 30%;
-          background:#03C9A9;
-          padding: 20px;
-          
-  
-      }
-      
-      .other{
-          width: 100%;
-          background: #D2D7D3;
-      }
-      
-      .progress-label{
-          font-size: 20px;
-          margin: 11px;
-      }
-      
-      /*---------Other elements--------*/
-      
-      mark, blockquote, q, summary, details, code, pre, kbd{
-                 margin-left: 6%;
-     margin-bottom: 30px;
-          
-         
-      }
-      mark{
-    background: #F2EA7E;
-    color: white;
-          font-size: 16px;
-          padding: 3px;
-                   font-weight: bold;
-        
-      }
-      
-      blockquote{
-    font-size: 3em;
-   
-          font-weight: bold;
-      }
-      
-      q{
-    font-size: 3em;
-      }
-      
-      summary, details{
-        font-size: 2em;
-      }
-      
-      
-      summary{
-        color: #26C6DA;
-      }
-      
-      code{
-    padding: 7px;
-    background: #EBEBEB;
-    font-size: 2em;
-    color: #F5A331;
-      }
-    
-      pre{
-    font-size: 2em;
-      }
-      
-      kbd{
-        font-size: 2em;
-        background: black;
-        color: white;
-        padding: 10px;
-        border-radius: 4px;
-      }
+ * {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   outline: 0;
+   font-size: 100%;
+   vertical-align: baseline;
+   font-family: Arial;
+ }
+ 
+ .hider,
+ .shower {
+   font-size: 30px;
+   color: #67C4D9;
+   border: none;
+   background: white;
+   margin-left: 97%;
+ }
+ 
+ .btn,
+ nav ul li a {
+   text-decoration: none;
+   font-weight: 700;
+ }
+ 
+ .btn,
+ .subtitle,
+ nav ul li a {
+   font-weight: 700;
+ }
+ 
+ body {
+   line-height: 1;
+   font-size: 62.5%
+ }
+ 
+ nav {
+   margin-left: 40%;
+   z-index: 4;
+   padding: 20px;
+   display: none;
+ }
+ 
+ nav ul li {
+   list-style-type: none;
+   display: inline;
+   margin: 26px;
+ }
+ 
+ nav ul li a {
+   color: #27abc9;
+   font-family: Arial;
+   font-size: 3.1em;
+ }
+ 
+ nav ul li a:hover {
+   color: #67C4D9;
+ }
+ 
+ img {
+   width: 100%;
+   z-index: 2
+ }
+ /*Titles-------------------*/
+ 
+ .title {
+   text-align: left;
+   font-size: 20em;
+   z-index: 3;
+   position: absolute;
+   color: #fff;
+   margin-left: 6%;
+   margin-top: -220px;
+ }
+ 
+ .intro,
+ .subtitle,
+ .title-color {
+   color: #27abc9;
+   margin-left: 6%;
+ }
+ 
+ .title-color {
+   margin-top: 0;
+   font-size: 10em;
+ }
+ /*Jumbotron-------------------*/
+ 
+ .intro-section {
+   margin-top: 0px;
+ }
+ 
+ .title-jumbotron {
+   font-size: 10em;
+   color: black;
+   margin-top: 190px;
+   position: absolute;
+   text-align: center;
+ }
+ 
+ #temp1 {
+   margin-top: 0px;
+   padding-bottom: 600px;
+ }
+ 
+ .btn,
+ footer {
+   text-align: center;
+ }
+ 
+ p {
+   font-family: Arial;
+ }
+ 
+ .intro {
+   font-size: 3em;
+   padding: 21px;
+ }
+ 
+ .subtitle {
+   font-size: 6em;
+   padding: 21px;
+ }
+ 
+ .article,
+ footer {
+   padding: 10px;
+   font-size: 2em;
+   font-family: Arial;
+ }
+ 
+ .article {
+   margin-left: 6%;
+   margin-right: 6%;
+ }
+ 
+ footer {
+   background: #27abc9;
+   color: #fff
+ }
+ /*------Form, buttons----------*/
+ 
+ .btn {
+   display: block;
+   font-family: Arial;
+   color: #fff;
+   background: #26C6DA;
+   padding: 20px;
+   border-radius: 4px;
+   width: 120px;
+   margin: 20px;
+   font-size: 1.6em
+ }
+ 
+ input,
+ textarea {
+   padding: 20px;
+   margin: 20px;
+   font-size: 16px
+ }
+ 
+ .hn:hover {
+   background: #8EE3ED;
+ }
+ 
+ .hw:hover {
+   background: #F2EA7E;
+ }
+ 
+ .he:hover {
+   background: #FF8585;
+ }
+ 
+ .hs:hover {
+   background: #92DEB7;
+ }
+ 
+ input {
+   border-radius: 6px;
+   border: 3px solid #26C6DA;
+ }
+ 
+ input:active,
+ textarea:active {
+   border: 3px solid #4DD0E1;
+ }
+ 
+ textarea {
+   border-radius: 6px;
+   border: 3px solid #26C6DA;
+   font-family: Arial;
+ }
+
+form{
+background: #ecf0f1
+}
+ 
+ fieldset {
+   border: none
+ }
+ 
+ h2 {
+   font-family: Arial;
+   color: #4DD0E1
+ }
+ 
+ input[type=submit] {
+   border: none;
+   cursor: pointer;
+   background: #26C6DA;
+   color: #fff;
+   font-weight: 700;
+ }
+ 
+ .form-title {
+   font-size: 3em;
+   margin-left: 20px;
+ }
+ 
+ .desc {
+   color: grey;
+   font-size: 5em;
+   padding-top: 20px;
+   padding-bottom: 20px;
+ }
+ 
+ .alert {
+   width: 100%;
+   padding: 19px;
+   font-size: 2em;
+   color: white;
+ }
+ 
+ .warning {
+   background: #F5D76E;
+ }
+ 
+ .error {
+   background: #EC644B;
+ }
+ 
+ .success {
+   background: #03C9A9;
+ }
+ /*------------------Title-color definitions------------*/
+ 
+ .green {
+   color: #03C9A9;
+ }
+ 
+ .yellow {
+   color: #EC644B;
+ }
+ 
+ .red {
+   color: #EC644B;
+ }
+ /*--------------Progress bar---------------*/
+ 
+ .progress {
+   width: 30%;
+   background: #03C9A9;
+   padding: 20px;
+ }
+ 
+ .other {
+   width: 100%;
+   background: #D2D7D3;
+ }
+ 
+ .progress-label {
+   font-size: 20px;
+   margin: 11px;
+ }
+ /*---------Other elements--------*/
+ 
+ mark,
+ blockquote,
+ q,
+ summary,
+ details,
+ code,
+ pre,
+ kbd {
+   margin-left: 6%;
+   margin-bottom: 30px;
+ }
+ 
+ mark {
+   background: #F2EA7E;
+   color: white;
+   font-size: 16px;
+   padding: 3px;
+   font-weight: bold;
+ }
+ 
+ blockquote {
+   font-size: 3em;
+   font-weight: bold;
+ }
+ 
+ q {
+   font-size: 3em;
+ }
+ 
+ summary,
+ details {
+   font-size: 2em;
+ }
+ 
+ summary {
+   color: #26C6DA;
+ }
+ 
+ code {
+   padding: 7px;
+   background: #EBEBEB;
+   font-size: 2em;
+   color: #F5A331;
+ }
+ 
+ pre {
+   font-size: 2em;
+ }
+ 
+ kbd {
+   font-size: 2em;
+   background: black;
+   color: white;
+   padding: 10px;
+   border-radius: 4px;
+ }
+ /*EDIT------*/
+ 
+ @media only screen and (min-width: 20px) and (max-width: 940px) {
+   .title,
+   .title-color {
+     font-size: 12em;
+   }
+   .subtitle {
+     font-size: 4em;
+   }
+   .title-jumbotron {
+     font-size: 7em;
+   }
+   .alert {
+     padding: 8px;
+   }
+   summary,
+   code {
+     font-size: 1.5em;
+   }
+   mark {
+     font-size: 2em;
+   }
+ }
+ 
+ @media only screen and (min-width: 956px) and (max-width: 1920px) {
+   .header {
+     margin-top: -328px;
+   }
+ }
   </style>
   <!-----NAVIGATION AND TITLE SECTION---->
   <section class="intro-section">
@@ -387,12 +413,16 @@ background: #8EE3ED;
     </article>
     <img src="http://cdn.paper4pc.com/images/snowy-mountain-peak-wallpaper-1.jpg">
   </section>
-  <h1 class="title-color up">Title</h1>
-  <article class="article down">
-    Fusce mollis turpis et justo ultricies viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam finibus tortor id diam pharetra aliquam. Praesent commodo non nibh a maximus. Vivamus quam dui, dictum
+  
+  <section class="intro-section">
+  <h1 class="title-color">Title</h1>
+  <article class="article">
+    Fuscea mollis turpis et justo ultricies viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam finibus tortor id diam pharetra aliquam. Praesent commodo non nibh a maximus. Vivamus quam dui, dictum
     ut nisi id, tempor vehicula nulla. Pellentesque sed enim nunc. Suspendisse hendrerit felis sed est venenatis eleifend. Nunc a nunc vitae metus dignissim ultricies et quis urna. Nullam ut libero lacinia, accumsan dui vitae, consectetur nulla. Vestibulum
     ante. Fusce mollis turpis et justo ultricies viverra.
   </article>
+    
+  </section>
 
 
   <h2 class="form-title desc">Text elements</h2>
@@ -482,7 +512,7 @@ background: #8EE3ED;
     <p>&copy Your text 2016</p>
   </footer>
 
- 
+
   <script>
     //custom javaScript
     function B(c){var a={};a.selector=c;a.element=document.querySelector(a.selector);a.show=function(){a.element.style.display="block"};a.hide=function(){a.element.style.display="none"};a.addClass=function(b){a.element.classList.add(b)};a.removeClass=function(b){a.element.classList.remove(b)};a.height=function(){return a.element.offsetHeight};a.width=function(){return a.element.offsetWidth};a.text=function(){return a.element.innerText};a.html=function(){return a.element.innerHTML};a.val=function(){return a.element.value};
@@ -505,7 +535,6 @@ var BRender=function(c,a){for(var b=/<%([^%>]+)?%>/g,h=/(^( )?(if|for|else|switc
     });
   </script>
 
-  
 </body>
 
 </html>

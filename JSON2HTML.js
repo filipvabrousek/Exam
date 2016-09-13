@@ -1,28 +1,4 @@
-var $scope = {};
-(function() {
-  var bindClasses = ["name"];
-  var attachEvent = function(classNames) {
-    classNames.forEach(function(className) {
-      var elements = document.getElementsByClassName(className);
-      for (var index in elements) {
-        elements[index].onkeyup = function() {
-          for (var index in elements) {
-            elements[index].innerHTML = this.value;
-          }
-        }
-      }
-      Object.defineProperty($scope, className, {
-        set: function(newValue) {
-          for (var index in elements) {
-            elements[index].value = newValue;
-          }
-        }
-      });
 
-    });
-  };
-  attachEvent(bindClasses);
-})();
 
 //render JSON to HTML
 //Copyright (c) 2016 Crystalline Technologies

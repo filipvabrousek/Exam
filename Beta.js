@@ -105,9 +105,10 @@ self.val = function(){
   }
   
   
-var Bjson = {
+
 
   /* ---------------------------------------- Public Methods ------------------------------------------------ */
+  var Bjson = {
   'transform': function(json, transform, _options) {
 
     //create the default output

@@ -1,115 +1,64 @@
-function B(b){var a={};a.selector=b;a.element=document.querySelector(a.selector);a.show=function(){a.element.style.display="block"};a.hide=function(){a.element.style.display="none"};a.addClass=function(c){a.element.classList.add(c)};a.removeClass=function(c){a.element.classList.remove(c)};a.height=function(){return a.element.offsetHeight};a.width=function(){return a.element.offsetWidth};a.text=function(){return a.element.innerText};a.html=function(){return a.element.innerHTML};a.val=function(){return a.element.value};
-a.attr=function(c,b){if(!b)return a.element.getAttribute(c);a.element.setAttribute(c,b);return a};a.on=function(c,b){a.element["on"+c]=b;return a};a.RENDER=function(c){a.element.innerHTML+=c};return a}
-var Bjson={transform:function(b,a,c){var e={events:[],html:""},d={events:!1},d=Bjson._extend(d,c);if(void 0!==a||void 0!==b)b="string"===typeof b?JSON.parse(b):b,e=Bjson._transform(b,a,d);return d.events?e:e.html},_extend:function(b,a){var c={},e;for(e in b)c[e]=b[e];for(e in a)c[e]=a[e];return c},_append:function(b,a){var c={html:"",event:[]};"undefined"!==typeof b&&"undefined"!==typeof a&&(c.html=b.html+a.html,c.events=b.events.concat(a.events));return c},_isArray:function(b){return"[object Array]"===
-Object.prototype.toString.call(b)},_transform:function(b,a,c){var e={events:[],html:""};if(Bjson._isArray(b))for(var d=b.length,k=0;k<d;++k)e=Bjson._append(e,Bjson._apply(b[k],a,k,c));else"object"===typeof b&&(e=Bjson._append(e,Bjson._apply(b,a,void 0,c)));return e},_apply:function(b,a,c,e){var d={events:[],html:""};if(Bjson._isArray(a))for(var k=a.length,g=0;g<k;++g)d=Bjson._append(d,Bjson._apply(b,a[g],c,e));else if("object"===typeof a){var h="<>";void 0===a[h]&&(h="tag");if(void 0!==a[h]){h=Bjson._getValue(b,
-a,h,c);d.html+="<"+h;var l={events:[],html:""};for(g in a)switch(g){case "tag":case "<>":break;case "children":case "html":var f=a[g];if(Bjson._isArray(f))l=Bjson._append(l,Bjson._apply(b,f,c,e));else if("function"===typeof f)switch(f=f.call(b,b,c),typeof f){case "object":void 0!==f.html&&void 0!==f.events&&(l=Bjson._append(l,f));break;case "function":case "undefined":break;default:l.html+=f}else k=Bjson._getValue(b,a,g,c);break;default:f=!1;if(2<g.length&&"on"==g.substring(0,2).toLowerCase()){if(e.events){var f=
-{action:a[g],obj:b,data:e.eventData,index:c},m=Bjson._guid();d.events[d.events.length]={id:m,type:g.substring(2),data:f};d.html+=" Bjson-event-id-"+g.substring(2)+"='"+m+"'"}f=!0}f||(f=Bjson._getValue(b,a,g,c),void 0!==f&&(f="string"===typeof f?'"'+f.replace(/"/g,"&quot;")+'"':f,d.html+=" "+g+"="+f))}d.html+=">";k&&(d.html+=k);d=Bjson._append(d,l);d.html+="</"+h+">"}}return d},_guid:function(){var b=function(){return(65536*(1+Math.random())|0).toString(16).substring(1)};return b()+b()+"-"+b()+b()+
-"-"+b()+b()},_getValue:function(b,a,c,e){var d="";a=a[c];c=typeof a;return"function"===c?a.call(b,b,e):d="string"===c?(new Bjson._tokenizer([/\$\{([^\}\{]+)\}/],function(a,c,d){return c?a.replace(d,function(a,c){for(var d=c.split("."),e=b,g="",k=d.length,h=0;h<k&&!(0<d[h].length&&(e=e[d[h]],null===e||void 0===e));++h);null!==e&&void 0!==e&&(g=e);return g}):a})).parse(a).join(""):a},_tokenizer:function(b,a){if(!(this instanceof Bjson._tokenizer))return new Bjson._tokenizer(b,a);this.tokenizers=b.splice?
-b:[b];a&&(this.doBuild=a);this.parse=function(a){this.src=a;this.ended=!1;this.tokens=[];do this.next();while(!this.ended);return this.tokens};this.build=function(a,b){a&&this.tokens.push(this.doBuild?this.doBuild(a,b,this.tkn):a)};this.next=function(){var a=this,b;a.findMin();b=a.src.slice(0,a.min);a.build(b,!1);a.src=a.src.slice(a.min).replace(a.tkn,function(b){a.build(b,!0);return""});a.src||(a.ended=!0)};this.findMin=function(){var a=0,b,d;this.min=-1;for(this.tkn="";void 0!==(b=this.tokenizers[a++]);)d=
-this.src[b.test?"search":"indexOf"](b),-1!=d&&(-1==this.min||d<this.min)&&(this.tkn=b,this.min=d);-1==this.min&&(this.min=this.src.length)}}};
-
-
-/*
-show()
-hide()
-addClass()
-removeClass()
-width()
-height()
-val()
-text()
-html()
-attr()
-on()
-RENDER()
-
- B(".b").on("dblclick", function() {
-    alert("It works");
-  });
-
-B(".x").RENDER(
-  "<h2>Test heading</h2>"
-);
-
-
-*/
-
-/*
-UNCOMPILED CODE 
-
- function B(selector) {
-    var self = {};
-    self.selector = selector;
-    self.element = document.querySelector(self.selector);
-
-    //HIDE and SHOW functions
-    self.show = function() {
-      self.element.style.display = "block";
-    }
-
-    self.hide = function() {
+function B(selector) {
+  var self = {};
+  self.selector = selector;
+  self.element = document.querySelector(self.selector);
+  //HIDE and SHOW functions
+  self.show = function() {
+    self.element.style.display = "block";
+  }
+  self.hide = function() {
       self.element.style.display = "none";
     }
-
     //ADDCLASS and REMOVECLASS
-    self.addClass = function(className) {
-      self.element.classList.add(className);
-    }
-
-    self.removeClass = function(className) {
+  self.addClass = function(className) {
+    self.element.classList.add(className);
+  }
+  self.removeClass = function(className) {
       self.element.classList.remove(className)
     }
-
     //WIDTH and HEIGHT functions
-    self.height = function() {
-      return self.element.offsetHeight;
-    }
-    
+  self.height = function() {
+    return self.element.offsetHeight;
+  }
 
-    self.width = function() {
+  self.width = function() {
       return self.element.offsetWidth;
     }
-
     //text function - RETURNS!! ONLY text value
-    self.text = function() {
+  self.text = function() {
       return self.element.innerText;
     }
-
     //html function - RETURNS!! html value
-    self.html = function() {
-      return self.element.innerHTML;
+  self.html = function() {
+    return self.element.innerHTML;
+  }
+  self.val = function() {
+      return self.element.value;
     }
-
-self.val = function(){
- return self.element.value;
-}
     //ATTR function
-    self.attr = function(name, value) {
+  self.attr = function(name, value) {
       if (!value) return self.element.getAttribute(name)
       self.element.setAttribute(name, value);
       return self;
     }
-
     //ON function
-    self.on = function(type, callback) {
-      self.element["on" + type] = callback;
-      return self;
-    }
-    
-    //RENDER function
-    self.RENDER = function(html){
-     self.element.innerHTML += html; 
-     
-    }
+  self.on = function(type, callback) {
+    self.element["on" + type] = callback;
     return self;
+  }
+
+  //RENDER function
+  self.RENDER = function(html) {
+    self.element.innerHTML += html;
 
   }
-  
-  
+  return self;
+}
 
-
-  /* ---------------------------------------- Public Methods ------------------------------------------------ */
-  var Bjson = {
+/* ---------------------------------------- Bjson -----------------------------------------
+------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------- */
+var Bjson = {
   'transform': function(json, transform, _options) {
 
     //create the default output
@@ -505,9 +454,7 @@ self.val = function(){
   }
 };
 
-
-/*
-
+//JSON 2 HTML
 var transform = {
   '<>': 'li',
   'html': '${name} (${age})'
@@ -527,8 +474,26 @@ var data = [{
   'age': 24
 }];
 
-var sf = document.querySelector(".JSON-OUTPUT");
-sf.innerHTML = Bjson.transform(data, transform);
+var outp = document.querySelector(".JSON-OUTPUT");
+outp.innerHTML = Bjson.transform(data, transform);
+B(".JSON-OUTPUT").addClass("gr")
 
+/*
+<div class="JSON-OUTPUT"></div>
+.gr{
+color: green;
+}
+15/9/16
+*/
 
+/*
+function B(b){var a={};a.selector=b;a.element=document.querySelector(a.selector);a.show=function(){a.element.style.display="block"};a.hide=function(){a.element.style.display="none"};a.addClass=function(c){a.element.classList.add(c)};a.removeClass=function(c){a.element.classList.remove(c)};a.height=function(){return a.element.offsetHeight};a.width=function(){return a.element.offsetWidth};a.text=function(){return a.element.innerText};a.html=function(){return a.element.innerHTML};a.val=function(){return a.element.value};
+a.attr=function(c,b){if(!b)return a.element.getAttribute(c);a.element.setAttribute(c,b);return a};a.on=function(c,b){a.element["on"+c]=b;return a};a.RENDER=function(c){a.element.innerHTML+=c};return a}
+var Bjson={transform:function(b,a,c){var e={events:[],html:""},d={events:!1},d=Bjson._extend(d,c);if(void 0!==a||void 0!==b)b="string"===typeof b?JSON.parse(b):b,e=Bjson._transform(b,a,d);return d.events?e:e.html},_extend:function(b,a){var c={},e;for(e in b)c[e]=b[e];for(e in a)c[e]=a[e];return c},_append:function(b,a){var c={html:"",event:[]};"undefined"!==typeof b&&"undefined"!==typeof a&&(c.html=b.html+a.html,c.events=b.events.concat(a.events));return c},_isArray:function(b){return"[object Array]"===
+Object.prototype.toString.call(b)},_transform:function(b,a,c){var e={events:[],html:""};if(Bjson._isArray(b))for(var d=b.length,k=0;k<d;++k)e=Bjson._append(e,Bjson._apply(b[k],a,k,c));else"object"===typeof b&&(e=Bjson._append(e,Bjson._apply(b,a,void 0,c)));return e},_apply:function(b,a,c,e){var d={events:[],html:""};if(Bjson._isArray(a))for(var k=a.length,g=0;g<k;++g)d=Bjson._append(d,Bjson._apply(b,a[g],c,e));else if("object"===typeof a){var h="<>";void 0===a[h]&&(h="tag");if(void 0!==a[h]){h=Bjson._getValue(b,
+a,h,c);d.html+="<"+h;var l={events:[],html:""};for(g in a)switch(g){case "tag":case "<>":break;case "children":case "html":var f=a[g];if(Bjson._isArray(f))l=Bjson._append(l,Bjson._apply(b,f,c,e));else if("function"===typeof f)switch(f=f.call(b,b,c),typeof f){case "object":void 0!==f.html&&void 0!==f.events&&(l=Bjson._append(l,f));break;case "function":case "undefined":break;default:l.html+=f}else k=Bjson._getValue(b,a,g,c);break;default:f=!1;if(2<g.length&&"on"==g.substring(0,2).toLowerCase()){if(e.events){var f=
+{action:a[g],obj:b,data:e.eventData,index:c},m=Bjson._guid();d.events[d.events.length]={id:m,type:g.substring(2),data:f};d.html+=" Bjson-event-id-"+g.substring(2)+"='"+m+"'"}f=!0}f||(f=Bjson._getValue(b,a,g,c),void 0!==f&&(f="string"===typeof f?'"'+f.replace(/"/g,"&quot;")+'"':f,d.html+=" "+g+"="+f))}d.html+=">";k&&(d.html+=k);d=Bjson._append(d,l);d.html+="</"+h+">"}}return d},_guid:function(){var b=function(){return(65536*(1+Math.random())|0).toString(16).substring(1)};return b()+b()+"-"+b()+b()+
+"-"+b()+b()},_getValue:function(b,a,c,e){var d="";a=a[c];c=typeof a;return"function"===c?a.call(b,b,e):d="string"===c?(new Bjson._tokenizer([/\$\{([^\}\{]+)\}/],function(a,c,d){return c?a.replace(d,function(a,c){for(var d=c.split("."),e=b,g="",k=d.length,h=0;h<k&&!(0<d[h].length&&(e=e[d[h]],null===e||void 0===e));++h);null!==e&&void 0!==e&&(g=e);return g}):a})).parse(a).join(""):a},_tokenizer:function(b,a){if(!(this instanceof Bjson._tokenizer))return new Bjson._tokenizer(b,a);this.tokenizers=b.splice?
+b:[b];a&&(this.doBuild=a);this.parse=function(a){this.src=a;this.ended=!1;this.tokens=[];do this.next();while(!this.ended);return this.tokens};this.build=function(a,b){a&&this.tokens.push(this.doBuild?this.doBuild(a,b,this.tkn):a)};this.next=function(){var a=this,b;a.findMin();b=a.src.slice(0,a.min);a.build(b,!1);a.src=a.src.slice(a.min).replace(a.tkn,function(b){a.build(b,!0);return""});a.src||(a.ended=!0)};this.findMin=function(){var a=0,b,d;this.min=-1;for(this.tkn="";void 0!==(b=this.tokenizers[a++]);)d=
+this.src[b.test?"search":"indexOf"](b),-1!=d&&(-1==this.min||d<this.min)&&(this.tkn=b,this.min=d);-1==this.min&&(this.min=this.src.length)}}};
 */

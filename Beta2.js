@@ -506,4 +506,29 @@ self.val = function(){
 };
 
 
+/*
+
+var transform = {
+  '<>': 'li',
+  'html': '${name} (${age})'
+};
+
+var data = [{
+  'name': 'Bob',
+  'age': 40
+}, {
+  'name': 'Frank',
+  'age': 15
+}, {
+  'name': 'Bill',
+  'age': 65
+}, {
+  'name': 'Robert',
+  'age': 24
+}];
+
+var sf = document.querySelector(".JSON-OUTPUT");
+sf.innerHTML = Bjson.transform(data, transform);
+
+
 */

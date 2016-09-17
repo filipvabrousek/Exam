@@ -456,23 +456,20 @@ var Bjson = {
 
 //JSON 2 HTML
 var transform = {
-  '<>': 'li',
-  'html': '${name} (${age})'
+  '<>': 'h2',
+  'html': '${product} (${price})'
 };
 
 var data = [{
-  'name': 'Bob',
-  'age': 40
-}, {
-  'name': 'Frank',
-  'age': 15
-}, {
-  'name': 'Bill',
-  'age': 65
-}, {
-  'name': 'Robert',
-  'age': 24
-}];
+    product: "iPhone 7",
+    price: 649
+  },
+
+  {
+    product: "iPhone 7S",
+    price: 769
+  }
+];
 
 var outp = document.querySelector(".JSON-OUTPUT");
 outp.innerHTML = Bjson.transform(data, transform);

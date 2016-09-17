@@ -454,7 +454,7 @@ var Bjson = {
   }
 };
 
-//JSON 2 HTML
+//Custom javascript
 var transform = {
   '<>': 'h2',
   'html': '${product} (${price})'
@@ -471,13 +471,13 @@ var data = [{
   }
 ];
 
-var outp = document.querySelector(".JSON-OUTPUT");
+var outp = document.querySelector(".json-outp");
 outp.innerHTML = Bjson.transform(data, transform);
-B(".JSON-OUTPUT").addClass("gr")
+B(".json-outp").addClass("green");
 
 /*
-<div class="JSON-OUTPUT"></div>
-.gr{
+<div class="json-outp"></div>
+.green{
 color: green;
 }
 15/9/16

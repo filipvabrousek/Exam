@@ -79,9 +79,8 @@
 <footer> &copy Your text 2017</footer>
 
 
-<!--
-
-/*                  reset               */
+<style>
+  /*                  reset               */
 
 * {
   margin: 0;
@@ -112,6 +111,7 @@ nav {
 .ul {
   list-style-type: none;
   display: none;
+ margin-top: 0;
 }
 
 .li {
@@ -138,7 +138,7 @@ img {
 
 .jumbotron {
   text-align: center;
-  margin-top: 3em;
+  margin-top: 5em;
   font-size: 4em;
 }
 
@@ -184,7 +184,7 @@ h2 {
 
 ul {
   display: block;
-  margin-top: 1.5em;
+  margin-top: 1em;
 }
 
 li {
@@ -200,12 +200,18 @@ b {
   color: #00BCD4;
 }
 
-@media only screen and (min-width:30px) and (max-width:567px) {
+
+@media only screen and (min-width:633px) and (max-width:864px) {
   .ul {
-    width: 2em;
-    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+   
     left: 1em;
-    top: 3em;
+  
+  }
+  
+  .li{
+ margin-left: -30px;
   }
   .intro {
     margin-top: 5em;
@@ -293,15 +299,30 @@ footer {
 }
 
 
+@media only screen and (min-width:20px) and (max-width:632px){
+  
+  .ul{
+  
+  margin-top: 6em;
+  }
+  
+  .hide{
+  margin-top: 5em;
+  }
+  
+  .li{
+  margin: 0px;
+  }
+}
 
 
 
+</style>
 
 
--->
 
-<!---
-var s = document.querySelector(".show");
+<script>
+  var s = document.querySelector(".show");
 var h = document.querySelector(".hide");
 var n = document.querySelector("ul");
 h.style.display = "none";
@@ -320,7 +341,7 @@ h.addEventListener("click", function() {
 
 /*MINIFIED Beta 2.js*/
 
-
+/*
 function B(b){var a={};a.selector=b;a.element=document.querySelector(a.selector);a.show=function(){a.element.style.display="block"};a.hide=function(){a.element.style.display="none"};a.addClass=function(c){a.element.classList.add(c)};a.removeClass=function(c){a.element.classList.remove(c)};a.height=function(){return a.element.offsetHeight};a.width=function(){return a.element.offsetWidth};a.text=function(){return a.element.innerText};a.html=function(){return a.element.innerHTML};a.val=function(){return a.element.value};
 a.attr=function(c,b){if(!b)return a.element.getAttribute(c);a.element.setAttribute(c,b);return a};a.on=function(c,b){a.element["on"+c]=b;return a};a.RENDER=function(c){a.element.innerHTML+=c};return a}
 var Bjson={transform:function(b,a,c){var e={events:[],html:""},d={events:!1},d=Bjson._extend(d,c);if(void 0!==a||void 0!==b)b="string"===typeof b?JSON.parse(b):b,e=Bjson._transform(b,a,d);return d.events?e:e.html},_extend:function(b,a){var c={},e;for(e in b)c[e]=b[e];for(e in a)c[e]=a[e];return c},_append:function(b,a){var c={html:"",event:[]};"undefined"!==typeof b&&"undefined"!==typeof a&&(c.html=b.html+a.html,c.events=b.events.concat(a.events));return c},_isArray:function(b){return"[object Array]"===
@@ -336,4 +357,5 @@ this.src[b.test?"search":"indexOf"](b),-1!=d&&(-1==this.min||d<this.min)&&(this.
 
 
 
--->
+*/
+</script>

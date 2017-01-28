@@ -1,5 +1,5 @@
-##Ello - Simple CSS Framework
 #Ello.js
+###Ello.js is small and simple Virtual DOM manipulating library
 ##Step 1: Define element
 
 ```javascript

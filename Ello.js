@@ -1,23 +1,21 @@
-var Ello = (function() {
+const Ello = ((() => {
 
-  var S = function(e) {
-    return document.querySelector(e);
-  };
+  const S = e => document.querySelector(e);
 
-  var render = function(type, props) {
+  const render = function(type, props) {
     for (var _len = arguments.length, children = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
       children[_key - 2] = arguments[_key];
     };
 
     return {
-      type: type,
+      type,
       props: props || {},
-      children: children
+      children
     };
 
   };
 
-  var setBooleanProp = function(target, name, value) {
+  const setBooleanProp = (target, name, value) => {
     if (value) {
       target.setAttribute(name, value);
       target[name] = true;
@@ -27,25 +25,19 @@ var Ello = (function() {
   };
 
   /*-----------------------------------------------REMOVE BOOLEAN PROP AND SMALL-------------------------------------*/
-  var removeBooleanProp = function(target, name) {
+  const removeBooleanProp = (target, name) => {
     target.removeAttribute(name);
     target[name] = false;
   };
 
-  var isEventProp = function(name) {
-    return /^on/.test(name);
-  };
+  const isEventProp = name => /^on/.test(name);
 
-  var extractEventName = function(name) {
-    return name.slice(2).toLowerCase();
-  };
+  const extractEventName = name => name.slice(2).toLowerCase();
 
-  var isCustomProp = function(name) {
-    return isEventProp(name) || name === 'forceUpdate';
-  };
+  const isCustomProp = name => isEventProp(name) || name === 'forceUpdate';
 
   /*-----------------------------------------------SET PROP-------------------------------------*/
-  var setProp = function(target, name, value) {
+  const setProp = (target, name, value) => {
     if (isCustomProp(name)) {
       return;
     } else if (name === 'className') {
@@ -58,7 +50,7 @@ var Ello = (function() {
   };
 
   /*-----------------------------------------------REMOVE PROP-------------------------------------*/
-  var removeProp = function(target, name, value) {
+  const removeProp = (target, name, value) => {
     if (isCustomProp(name)) {
       return;
     } else if (name === 'className') {
@@ -70,14 +62,14 @@ var Ello = (function() {
     }
   };
 
-  var setProps = function(target, props) {
-    Object.keys(props).forEach(function(name) {
+  const setProps = (target, props) => {
+    Object.keys(props).forEach(name => {
       setProp(target, name, props[name]);
     });
   };
 
   /*-----------------------------------------------UPDATE PROP-------------------------------------*/
-  var updateProp = function(target, name, newVal, oldVal) {
+  const updateProp = (target, name, newVal, oldVal) => {
     if (!newVal) {
       removeProp(target, name, oldVal);
     } else if (!oldVal || newVal !== oldVal) {
@@ -86,16 +78,16 @@ var Ello = (function() {
   };
 
   /*-----------------------------------------------UPDATE PROPS-------------------------------------*/
-  var updateProps = function(target, newProps) {
-    var oldProps = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-    var props = Object.assign({}, newProps, oldProps);
-    Object.keys(props).forEach(function(name) {
+  const updateProps = function(target, newProps) {
+    const oldProps = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+    const props = Object.assign({}, newProps, oldProps);
+    Object.keys(props).forEach(name => {
       updateProp(target, name, newProps[name], oldProps[name]);
     });
   };
 
-  var addEventListeners = function(target, props) {
-    Object.keys(props).forEach(function(name) {
+  const addEventListeners = (target, props) => {
+    Object.keys(props).forEach(name => {
       if (isEventProp(name)) {
         target.addEventListener(extractEventName(name), props[name]);
       }
@@ -103,11 +95,11 @@ var Ello = (function() {
   };
 
   /*-----------------------------------------------CREATE ELEMENT-------------------------------------*/
-  var createElement = function(node) {
+  const createElement = node => {
     if (typeof node === 'string') {
       return document.createTextNode(node);
     }
-    var el = document.createElement(node.type);
+    const el = document.createElement(node.type);
     setProps(el, node.props);
     addEventListeners(el, node.props);
     node.children.map(createElement).forEach(el.appendChild.bind(el));
@@ -115,14 +107,12 @@ var Ello = (function() {
   };
 
   /*-----------------------------------------------CHANGED-------------------------------------*/
-  var changed = function(node1, node2) {
-    return (typeof node1 === 'undefined' ? 'undefined' : _typeof(node1)) !== (typeof node2 === 'undefined' ? 'undefined' : _typeof(node2)) || typeof node1 === 'string' && node1 !== node2 || node1.type !== node2.type || node1.props && node1.props.forceUpdate;
-  };
+  const changed = (node1, node2) => (typeof node1 === 'undefined' ? 'undefined' : _typeof(node1)) !== (typeof node2 === 'undefined' ? 'undefined' : _typeof(node2)) || typeof node1 === 'string' && node1 !== node2 || node1.type !== node2.type || node1.props && node1.props.forceUpdate;
 
   /*-----------------------------------------------UPDATE ELEMENT-------------------------------------*/
   /*-----------------------------------------------UPDATE ELEMENT-------------------------------------*/
   function updateElement(parent, newNode, oldNode) {
-    var index = arguments.length <= 3 || arguments[3] === undefined ? 0 : arguments[3];
+    const index = arguments.length <= 3 || arguments[3] === undefined ? 0 : arguments[3];
     if (!oldNode) {
       parent.appendChild(createElement(newNode));
     } else if (!newNode) {
@@ -133,9 +123,9 @@ var Ello = (function() {
     } else if (newNode.type) {
       updateProps(parent.childNodes[index], newNode.props, oldNode.props);
 
-      var newLength = newNode.children.length;
-      var oldLength = oldNode.children.length;
-      for (var i = 0; i < newLength || i < oldLength; i++) {
+      const newLength = newNode.children.length;
+      const oldLength = oldNode.children.length;
+      for (let i = 0; i < newLength || i < oldLength; i++) {
         if (window.CP.shouldStopExecution(2)) {
           break;
         }
@@ -148,28 +138,26 @@ var Ello = (function() {
 
   /*MAKE ACCESSIBLE FROM OUTER SCOPE*/
   return {
-    S: S,
-    render: render,
-    removeBooleanProp: removeBooleanProp,
-    isEventProp: isEventProp,
-    extractEventName: extractEventName,
-    isCustomProp: isCustomProp,
-    setProp: setProp,
-    removeProp: removeProp,
-    setProps: setProps,
-    updateProp: updateProp,
-    updateProps: updateProps,
-    addEventListeners: addEventListeners,
-    createElement: createElement,
-    changed: changed,
-    updateElement: updateElement
+    S,
+    render,
+    removeBooleanProp,
+    isEventProp,
+    extractEventName,
+    isCustomProp,
+    setProp,
+    removeProp,
+    setProps,
+    updateProp,
+    updateProps,
+    addEventListeners,
+    createElement,
+    changed,
+    updateElement
   };
 
-})();
+}))();
 
 /*-----------------------------------------------CUSTOM-------------------------------------*/
-
-
 
 const el = Ello.render('h2', {
     className: 'title',
@@ -179,12 +167,12 @@ const el = Ello.render('h2', {
   },
   'Hello world! Click to change color.');
 
-var root = Ello.S('#container');
-var reload = Ello.S('#reload');
+const root = Ello.S('#container');
+const reload = Ello.S('#reload');
 
 Ello.updateElement(root, el);
 
-reload.addEventListener('click', function() {
+reload.addEventListener('click', () => {
   Ello.updateElement(root, el);
 });
 

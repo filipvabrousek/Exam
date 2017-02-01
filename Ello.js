@@ -203,7 +203,6 @@ button {
   color: #1abc9c;
   font-size: 1.6em;
 }
-26.12.2016 - 17:58
 */
 
 
@@ -280,4 +279,9 @@ btn.on("click", () => {
 /*
 ELLO DOM EXAMPLE:
 <button>Log greeting into console</button>
+
+*/
+
+/*
+Updated: 1/2/17
 */

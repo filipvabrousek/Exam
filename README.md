@@ -15,12 +15,13 @@ const el = Ello.render('h2', {
 ##Step 2: Connect DOM
 
 ```javascript
-var root = Ello.S('#container');
-var reload = Ello.S('#reload');
+const root = Ello.S('#container');
+const reload = Ello.S('#reload');
 
 Ello.updateElement(root, el);
 
-reload.addEventListener('click', function() {
+reload.addEventListener('click', () => {
   Ello.updateElement(root, el);
 });
+
 ```

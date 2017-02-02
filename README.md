@@ -10,10 +10,6 @@ onMouseOver: function foo() {
     }
   },
 "Hello! Hover me.");
-    
-    
-const root = Ello.S('#container');
-Ello.updateElement(root, el);
 ```
 
 ##Step 2: Connect DOM

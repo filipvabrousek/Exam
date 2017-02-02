@@ -268,7 +268,7 @@ function E(selector) {
 const name = "your-name-here";
 const btn = E("button");
 btn.on("click", () => {
-  console.log("Hello " + name + "! ");
+  console.log(`Hello ${name}`);
 });
 
 

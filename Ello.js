@@ -168,7 +168,8 @@ onMouseOver: function foo() {
   },
 "Hello! Hover me.");
     
-    
+const el2 = Ello.render('h2', {}, "Hello world!");
+
 const root = Ello.S('#container');
 Ello.updateElement(root, el);
 

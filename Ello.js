@@ -135,6 +135,7 @@ const Ello = ((() => {
     }
     console.log("Element updated!");
   };
+       
 
   /*MAKE ACCESSIBLE FROM OUTER SCOPE*/
   return {
@@ -155,26 +156,26 @@ const Ello = ((() => {
     updateElement
   };
 
+       
 }))();
 
 /*-----------------------------------------------CUSTOM-------------------------------------*/
 
 const el = Ello.render('h2', {
-    className: 'title',
-    onClick: function onClick() {
-      this.style.color = "green";
+onMouseOver: function foo() {
+    this.style.color = "green";
     }
   },
-  'Hello world! Click to change color.');
-
+"Hello! Hover me.");
+    
+    
 const root = Ello.S('#container');
-const reload = Ello.S('#reload');
-
 Ello.updateElement(root, el);
 
-reload.addEventListener('click', () => {
-  Ello.updateElement(root, el);
-});
+
+
+//you can add className tot the curly bracket
+    
 
 /*
 <div id="container">
@@ -283,5 +284,5 @@ ELLO DOM EXAMPLE:
 */
 
 /*
-Updated: 1/2/17
+Updated: 2/2/17
 */

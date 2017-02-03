@@ -1,5 +1,5 @@
 #Ello.js
-Ello.js is small and simple Virtual DOM manipulating library written in ES6
+Ello.js is simple, modern React-like virtual DOM manipulating experimental library written in ES6. ​
 
 ##Step 1: Define element
 

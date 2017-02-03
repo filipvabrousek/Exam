@@ -160,15 +160,8 @@ const Ello = ((() => {
 }))();
 
 /*-----------------------------------------------CUSTOM-------------------------------------*/
-
-const el = Ello.render('h2', {
-onMouseOver: function foo() {
-    this.style.color = "green";
-    }
-  },
-"Hello! Hover me.");
-    
-const el2 = Ello.render('h2', {}, "Hello world!");
+   
+const el = Ello.render('h2', {}, "Hello world!");
 
 const root = Ello.S('#container');
 Ello.updateElement(root, el);

@@ -11,5 +11,5 @@ const el = Ello.render('h2', {}, "Hello world!");
 
 ```javascript
 const root = Ello.S('#container');
-Ello.updateElement(root, el);
+Ello.update(root, el);
 ```

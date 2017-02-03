@@ -111,7 +111,7 @@ const Ello = ((() => {
 
   /*-----------------------------------------------UPDATE ELEMENT-------------------------------------*/
   /*-----------------------------------------------UPDATE ELEMENT-------------------------------------*/
-  function updateElement(parent, newNode, oldNode) {
+  function update(parent, newNode, oldNode) {
     const index = arguments.length <= 3 || arguments[3] === undefined ? 0 : arguments[3];
     if (!oldNode) {
       parent.appendChild(createElement(newNode));
@@ -130,7 +130,7 @@ const Ello = ((() => {
           break;
         }
 
-        updateElement(parent.childNodes[index], newNode.children[i], oldNode.children[i], i);
+        update(parent.childNodes[index], newNode.children[i], oldNode.children[i], i);
       }
     }
     console.log("Element updated!");
@@ -153,7 +153,7 @@ const Ello = ((() => {
     addEventListeners,
     createElement,
     changed,
-    updateElement
+    update
   };
 
        
@@ -164,11 +164,7 @@ const Ello = ((() => {
 const el = Ello.render('h2', {}, "Hello world!");
 
 const root = Ello.S('#container');
-Ello.updateElement(root, el);
-
-
-
-//you can add className tot the curly bracket
+Ello.update(root, el);
     
 
 /*

@@ -47,3 +47,26 @@ function report(s) {
 
 report(allStreets);
     
+
+
+
+/*                                                       EXTENDING ARRAY                              */
+
+class Stack extends Array{
+   constructor(length){
+      super(length);
+   }
+
+   top(){
+      return this[this.length - 1];
+   }
+}
+    
+
+var s = new Stack();   
+
+s.push("world");
+s.push("hello");
+console.log(s.top());  // "hello"
+console.log(s.length); // 2
+    

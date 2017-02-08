@@ -50,7 +50,7 @@ report(allStreets);
 
 
 
-/*                                                       EXTENDING ARRAY                              */
+/*---------------------------EXTENDING ARRAY-------------------------------*/
 
 class Stack extends Array{
    constructor(length){
@@ -70,3 +70,23 @@ s.push("hello");
 console.log(s.top());  // "hello"
 console.log(s.length); // 2
     
+
+/*---------------------------EMPTY CONSTRUCTOR-------------------------------*/
+
+class Parent {
+    constructor() {
+        if (new.target === Parent) {
+            console.log("Parent instantiated");
+        } else {
+            console.log("A child instantiated");
+        }
+    }
+}
+
+class Child extends Parent {}
+
+var a = new Parent();
+// Parent instantiated
+
+var b = new Child();
+// A child instantiated

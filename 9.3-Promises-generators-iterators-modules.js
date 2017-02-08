@@ -9,6 +9,9 @@ const m = timeout(5000).then(() => {
     console.log("done!");
 });
 
+
+
+
 /*--------------------ITERATORS-------------------*/
 var arr = [4, 5, 6, 7, 8, 9];
 

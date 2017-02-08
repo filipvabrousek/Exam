@@ -41,6 +41,31 @@ console.log(gen.next());
 console.log(gen.next());
 console.log(gen.next());
 console.log(gen.next());
+
+
+//next....
+function* foo() {
+    try {
+        yield 1;
+        yield 2;
+        yield 3;
+    } finally {
+        console.log("cleanup!");
+    }
+}
+
+for (var v of foo()) {
+    console.log(v);
+}
+// 1 2 3
+// cleanup!
+
+foo().next(); // { value: 1, done: false }
+foo().return(42); // cleanup!
+// { value: 42, done: true }
+
+
+    
     
 
 /*--------------------MODULES-------------------*/

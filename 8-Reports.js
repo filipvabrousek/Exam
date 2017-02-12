@@ -90,3 +90,26 @@ var a = new Parent();
 
 var b = new Child();
 // A child instantiated
+
+
+
+
+
+/*---------------------------Arrow functions do not create their own this????? Lecture 24-------------------------------*/
+    
+    this.a = 25;
+    
+    let print = function(){
+        this.a = 50; 
+        console.log(this.a); //50
+    }
+    
+    print();
+    
+    let arrowPrint = () => {
+        console.log(this.a); //50
+    }
+    
+    arrowPrint();    
+    
+    

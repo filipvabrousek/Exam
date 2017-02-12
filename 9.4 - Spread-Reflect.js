@@ -30,6 +30,24 @@ function foo(...args) {
     console.log(...args);
 }
 
+let n = [1000, 2000, 3000, 4000, 5000, 6000];
+let [a, ...b] = n;
+console.log(a, b);
+    
+    
+let people = ["Obama", "Filip", "Terka"];
+let [Obama, ...important] = people;
+console.log(important); //Filip, Terka
+    
+    
+let name = "Unnamed";
+let age = 0;
+let person = {name: "Filip", age: 17};
+({name, age} = person);
+console.log(name, age);
+
+
+
 
 
 /*-----------------------REFLECT----------------------*/

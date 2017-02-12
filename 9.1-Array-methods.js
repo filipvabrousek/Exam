@@ -17,18 +17,15 @@ names.fill("Me!");                  //Me!, Me!, Me!
 
     
 
-
-/*------------------------FILTER---------------*/
-function graterThan10(val){
-return val >= 10;
+let graterThan10 = (val) => {
+    return val > 10;
 }
     
 const filtered = [3,20].filter(graterThan10);
 console.log(filtered);
-    
-    
+     
 /*------------------------SOME, EVERY, FIND, SORT---------------*/
-function big(element, index, array) {
+let big = (element, index, array) => {
   return element > 10;
 }
 

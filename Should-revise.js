@@ -26,4 +26,4 @@ var sayHi = greet("Hi");
 sayHi("Tony");
 
 
-//Object.create + q10
+//Promises, generators, iterators, modules

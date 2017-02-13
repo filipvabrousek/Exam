@@ -26,4 +26,4 @@ var sayHi = greet("Hi");
 sayHi("Tony");
 
 
-//Promises, generators, iterators, modules
+// + Promises, generators, iterators, modules

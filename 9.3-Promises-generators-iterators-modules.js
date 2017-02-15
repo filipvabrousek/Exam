@@ -50,7 +50,10 @@ let win = (message) => new Promise((resolve, reject) => {
   
 //-> Finished. (Cleaned the room. Won an IceCream.)
 
-
+Promise.all([clean(), win()]).then(() => {
+    console.log("All are finished.");
+});
+//.race -> One of them is finished
 
 
 
@@ -105,8 +108,6 @@ import { generateRandom, sum } from 'utility';
 
 console.log(generateRandom()); //logs a random number
 console.log(sum(1, 2)); //3
-
-
 // var utils = {}   export default utils;
 
 

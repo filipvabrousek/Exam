@@ -1,3 +1,3 @@
 # JS Exam
-Trying to master JS :)
+übung macht den meister :)
 

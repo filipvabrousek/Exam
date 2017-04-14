@@ -9,5 +9,5 @@ JavaScript, not to be confused with Java, was created in 10 days in May 1995 by 
  ....
  
  
- 1st line of code (1.9.2015): document.getElementById("demo").innerHTMl = "Hello world";
+ 1st line of code (1.9.2015): document.getElementById("demo").innerHTML = "Hello world";
  

@@ -54,3 +54,26 @@ Promise.all([clean(), win()]).then(() => {
     console.log("All are finished.");
 });
 //.race -> One of them is finished
+
+
+
+
+/*--------------------MODULES-------------------*/
+
+//utility.js
+function generateRandom() {
+    return Math.random();
+}
+
+function sum(a, b) {
+    return a + b;
+}
+
+export { generateRandom, sum }
+
+//app.js
+import { generateRandom, sum } from 'utility';
+
+console.log(generateRandom()); //logs a random number
+console.log(sum(1, 2)); //3
+// var utils = {}   export default utils;

@@ -1,62 +1,3 @@
-/*------------------------PROMISES--------------1----------*/
-function timeout(duration) {
-    return new Promise((resolve, reject) => {
-        setTimeout(resolve, duration);
-    });
-}
-
-const m = timeout(5000).then(() => {
-    console.log("done!");
-});
-
-    
-/*------------------------PROMISES---------------2---------*/ 
-let P = new Promise((resolve, reject) => {
-    
-    //cleaning the room
-    let isClean = true;
-    
-    if (isClean){
-        resolve("CLEAN!");
-    } else {
-        reject("NOT CLEAN!");
-    }
-});
-    
-P.then(fromResolve => {
-    console.log(`The room is ${fromResolve}`);
-}).catch(fromReject => {
-    console.log(`The room is ${fromReject}`);
-});
-    
-//-> The room is CLEAN!
-    
-      
-/*------------------------PROMISES-----------------3-------*/ 
-let clean = (message) => new Promise((resolve, reject) => {
-  resolve("Cleaned the room.");  
-});
-    
- 
-let win = (message) => new Promise((resolve, reject) => {
-  resolve(`${message} Won an IceCream.`);  
-});
-    
- clean()
-     .then(res => win(res))
-     .then(res => {
-        console.log(`Finished. (${res})`);
-    });
-  
-//-> Finished. (Cleaned the room. Won an IceCream.)
-
-Promise.all([clean(), win()]).then(() => {
-    console.log("All are finished.");
-});
-//.race -> One of them is finished
-
-
-
 /*-----------------------ITERATORS------------1-----------*/
 var arr = [4, 5, 6, 7, 8, 9];
 
@@ -111,6 +52,32 @@ x; // 1
 y; // 2
 z; // 3
 w; // [4,5]
+
+
+/*-----------------------ITERATORS------------5-----------*/
+/* Overwrite species to the parent Array constructor
+For example, when using methods such as map() that return the default constructor,
+you want these methods to return a parent Array object, instead of the MyArray object.
+*/
+
+class coolArray extends Array{
+    static get[Symbol.species](){
+        return Array;
+    }
+}
+
+var x = new coolArray(1, 2, 3);
+var mapped = x.map(x => x*x);
+console.log(mapped);
+
+console.log(mapped instanceof coolArray); // false
+console.log(mapped instanceof Array);   // true
+
+
+
+
+
+
 
 
 

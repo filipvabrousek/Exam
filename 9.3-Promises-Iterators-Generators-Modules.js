@@ -57,7 +57,7 @@ Promise.all([clean(), win()]).then(() => {
 
 
 
-/*--------------------ITERATORS-------------------*/
+/*-----------------------ITERATORS------------1-----------*/
 var arr = [4, 5, 6, 7, 8, 9];
 
 arr[Symbol.iterator] = function*() {
@@ -74,7 +74,7 @@ for (var v of arr) {
 
 
 
-
+/*-----------------------ITERATORS------------2-----------*/
 var greeting = "hello world";
 var ita = greeting[Symbol.iterator]();
 
@@ -83,7 +83,7 @@ ita.next(); // { value: "e", done: false }
 
 
 
-
+/*-----------------------ITERATORS------------3-----------*/
 var m = new Map();
 m.set("foo", 42);
 m.set({

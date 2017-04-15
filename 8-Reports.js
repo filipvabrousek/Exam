@@ -95,21 +95,19 @@ var b = new Child();
 
 
 
-/*---------------------------Arrow functions do not create their own this????? Lecture 24-------------------------------*/
+/*---------------------------Arrow functions do not create their own this-------------------------------*/
     
-    this.a = 25;
-    
-    let print = function(){
-        this.a = 50; 
-        console.log(this.a); //50
-    }
-    
-    print();
-    
-    let arrowPrint = () => {
-        console.log(this.a); //50
-    }
-    
-    arrowPrint();    
-    
+  this.a = 25;
+
+let print = function(){
+    console.log(`this.a`, this.a);
+}
+
+print(); //UNDEFINED (print bound print`s THIS, which didnt exist)
+
+let arrowPrint = () => {
+    console.log(`this.a in arrowPrint`, this.a)
+}
+
+arrowPrint(); //25 (arrow functions don`t create their own this)
     

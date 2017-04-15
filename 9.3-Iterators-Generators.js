@@ -114,26 +114,3 @@ for (var v of bar()) {
 // 1 2 3
 // x: 4
 
-
-/*--------------------MODULES-------------------*/
-
-//utility.js
-function generateRandom() {
-    return Math.random();
-}
-
-function sum(a, b) {
-    return a + b;
-}
-
-export { generateRandom, sum }
-
-//app.js
-import { generateRandom, sum } from 'utility';
-
-console.log(generateRandom()); //logs a random number
-console.log(sum(1, 2)); //3
-// var utils = {}   export default utils;
-
-
-

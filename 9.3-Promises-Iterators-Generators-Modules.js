@@ -97,10 +97,24 @@ itb.next(); // { value: [ "foo", 42 ], done: false }
 itb.next(); // { value: [ "foo", 42 ], done: false }
     
 
+/*-----------------------ITERATORS------------4-----------*/
+var a = [1, 2, 3, 4, 5];
+var itd = a[Symbol.iterator]();
+
+var [x, y] = itd; // take just the first two elements from `it`
+var [z, ...w] = itd; // take the third, then the rest all at once
+
+// is `it` fully exhausted? Yep.
+itd.next(); // { value: undefined, done: true }
+
+x; // 1
+y; // 2
+z; // 3
+w; // [4,5]
 
 
 
-/*--------------------GENERATORS-------------------*/
+/*--------------------GENERATORS--------------1----------*/
 const myGen = function*(){
 const one = yield 1;
 const two = yield 2;
@@ -114,8 +128,25 @@ console.log(gen.next());
 console.log(gen.next());
 console.log(gen.next());
 
-    
-    
+/*--------------------GENERATORS--------------2----------*/    
+function* foo() {
+    yield 1;
+    yield 2;
+    yield 3;
+    return 4;
+}
+
+function* bar() {
+    var x = yield* foo();
+    console.log("x:", x);
+}
+
+for (var v of bar()) {
+    console.log(v);
+}
+// 1 2 3
+// x: 4
+
 
 /*--------------------MODULES-------------------*/
 

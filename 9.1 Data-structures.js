@@ -1,3 +1,86 @@
+var m = new Map();
+
+var x = {
+        id: 1
+    },
+    y = {
+        id: 2
+    };
+
+m.set(x, "foo");
+m.set(y, "bar");
+
+m.get(x); // "foo"
+m.get(y);
+
+
+m.delete(y);
+
+
+m.size;
+
+
+
+
+var m2 = new Map(m); // OR new Map( m.entries() );
+
+
+
+
+var x = {
+        id: 1
+    },
+    y = {
+        id: 2
+    };
+
+var m3 = new Map([
+    [x, "foo"],
+    [y, "bar"]
+]);
+
+m3.get(x); // "foo"
+m3.get(y); // "bar"
+
+
+
+
+var m4 = new Map();
+
+var x = {
+        id: 1
+    },
+    y = {
+        id: 2
+    };
+
+m4.set(x, "foo");
+m4.set(y, "bar");
+
+var vals = [...m4.entries()];
+
+vals[0][0] === x; // true
+vals[0][1]; // "foo"
+
+
+var keys = [...m4.keys()];
+
+keys[0] === x; // true
+keys[1] === y; // true
+m4.has(x);
+
+
+
+
+
+
+
+
+
+
+
+
+
 var m5 = new WeakMap();
 
 var x = {

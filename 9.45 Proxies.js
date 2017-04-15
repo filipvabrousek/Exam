@@ -1,24 +1,22 @@
-var validator = {
-  set (target, key, value) {
-    if (key === 'age') {
-      if (typeof value !== 'number' || Number.isNaN(value)) {
-        throw new TypeError('Age must be a number')
+let v = {
+  set(source, property, value) {
+    if (value === 'age') {
+      if (!Number.isInteger(value)) {
+        throw new TypeError('age is not a whole number');
       }
-      if (value <= 0) {
-        throw new TypeError('Age must be a positive number')
+      if (value > 200) {
+        throw new RangeError('Age is incorrect');
       }
     }
-    return true
+
+    // Obvyklé chování je uložit hodnotu
+    source[property] = value;
   }
-}
-var person = { age: 27 }
-var proxy = new Proxy(person, validator)
-proxy.age = 'foo'
-// <- TypeError: Age must be a number
-proxy.age = NaN
-// <- TypeError: Age must be a number
-proxy.age = 0
-// <- TypeError: Age must be a positive number
-proxy.age = 28
-console.log(person.age)
-// <- 28
+};
+
+let p = new Proxy({}, v);
+
+p.age = 100;
+console.log(p.age); // 100
+p.age = 'mladý'; // Vyhodí chybu
+p.age = 300; // Vyhodí chybu

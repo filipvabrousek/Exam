@@ -1,3 +1,4 @@
+/*------------------------------------------------*/
 var m = new Map();
 
 var x = {
@@ -15,17 +16,11 @@ m.get(y);
 
 
 m.delete(y);
-
-
 m.size;
 
 
-
-
+//-------------
 var m2 = new Map(m); // OR new Map( m.entries() );
-
-
-
 
 var x = {
         id: 1
@@ -45,6 +40,13 @@ m3.get(y); // "bar"
 
 
 
+
+
+
+
+
+
+/*--------------------------------------------------*/
 var m4 = new Map();
 
 var x = {
@@ -80,7 +82,7 @@ m4.has(x);
 
 
 
-
+/*-----------------------------------------------------*/
 var m5 = new WeakMap();
 
 var x = {
@@ -111,34 +113,10 @@ w = null; // { id: 4 } is not GC-eligible
 
 
 
-var m5 = new WeakMap();
-
-var x = {
-        id: 1
-    },
-    y = {
-        id: 2
-    },
-    z = {
-        id: 3
-    },
-    w = {
-        id: 4
-    };
-
-m5.set(x, y);
-
-x = null; // { id: 1 } is GC-eligible
-y = null; // { id: 2 } is GC-eligible
-// only because { id: 1 } is
-
-m5.set(z, w);
-
-w = null; // { id: 4 } is not GC-eligible
 
 
 
-
+/*-----------------------------------------------*/
 var s3 = new WeakSet();
 
 var x = {

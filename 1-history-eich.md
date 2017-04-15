@@ -1,6 +1,6 @@
 
  
- ## Brendan Eich
+ ## Brendan Eich (* 1961)
  * received his bachelor's degree in mathematics and computer science at Santa Clara University
  * started his career at Silicon Graphics
  * then MicroUnity Systems Engineering 

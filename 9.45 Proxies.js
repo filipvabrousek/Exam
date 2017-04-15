@@ -1,3 +1,7 @@
+/*
+If "c" is not present in a proxy, 37 is returned
+*/
+
 const manager = {
     get(source, prop) {
         if(prop in source){

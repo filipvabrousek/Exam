@@ -72,7 +72,34 @@ for (var v of arr) {
 }
 // 5 7 9 (just values from odd indexes)
 
+
+
+
+var greeting = "hello world";
+var ita = greeting[Symbol.iterator]();
+
+ita.next(); // { value: "h", done: false }
+ita.next(); // { value: "e", done: false }
+
+
+
+
+var m = new Map();
+m.set("foo", 42);
+m.set({
+    cool: true
+}, "hello world");
+
+var itb = m[Symbol.iterator]();
+var itb = m.entries();
+
+itb.next(); // { value: [ "foo", 42 ], done: false }
+itb.next(); // { value: [ "foo", 42 ], done: false }
     
+
+
+
+
 /*--------------------GENERATORS-------------------*/
 const myGen = function*(){
 const one = yield 1;

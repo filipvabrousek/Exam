@@ -9,14 +9,12 @@ Then, after sayHi creates new execution content, and find STH sitting there
 
 ```javascript
 function greet(sth){
-    return function(name){
-        console.log(sth + " " + name);
+    return name => {
+        console.log(`${sth} ${name}`);
     }
 }
 
-var sayHi = greet("Hi");
+const sayHi = greet("Hi");
 sayHi("Tony");
 
-
-// + Promises, generators, iterators, modules
 ```

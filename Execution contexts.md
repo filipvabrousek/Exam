@@ -5,19 +5,19 @@ Execution context is a concept in the language spec equates to the 'environment'
 
 # Phases:
 
-1) Creation phase
-A) Creation of the variable object (VO)
-B) Creation of the scope chain
-C) Determining value of "this" variable
+1) Creation phase  
+A) Creation of the variable object (VO)  
+B) Creation of the scope chain  
+C) Determining value of "this" variable  
 
-2) Execution phase
-Code is ran line by line.
+2) Execution phase    
+Code is ran line by line.  
 
 
 1)
-A) Argument object is created with all the parameters passed into function
-   Code is scanned for function declarations
-   Code is scanned for variable declarations (set to undefined)
+A) Argument object is created with all the parameters passed into function  
+   Code is scanned for function declarations  
+   Code is scanned for variable declarations (set to undefined)  
    
  B) ...
 

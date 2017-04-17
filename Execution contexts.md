@@ -12,7 +12,7 @@ Execution context is a concept in the language spec equates to the 'environment'
 
 # Phases:
 
-1) **Creation phase**
+1) **Creation phase**  
 A) Creation of the variable object (VO)  
 B) Creation of the scope chain  
 C) Determining value of "this" variable  

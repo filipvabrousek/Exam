@@ -1,4 +1,4 @@
-# How is the code executed
+# How the code is executed
 
 ![execution](http://i.imgur.com/2gXCI47.png)
 
@@ -34,7 +34,8 @@ A) Argument object is created with all the parameters passed into function
 Code is ran line by line
 
 
-# How Execution contexts work in closures
+--------------------------------------------------------------------------
+# How execution contexts work in closures
 After anonymous function returns, STH stays in memory
 Then, after sayHi creates new execution content, and find STH sitting there
 (due to SCOPE CHAIN, if variable isnt found in local function, it goes down in the scope chain and looks for it there)

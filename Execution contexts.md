@@ -21,7 +21,7 @@ C) Determining value of "this" variable
 Code is ran line by line.  
 --------------------------------------------------------------------------
 
-1)
+## Creation phase
 A) Argument object is created with all the parameters passed into function  
    Code is scanned for function declarations  
    Code is scanned for variable declarations (set to undefined) (hoisting) 
@@ -30,8 +30,8 @@ A) Argument object is created with all the parameters passed into function
  
  C) Value of "this is determined"  
 
-2) executing
-
+## Execution phase
+Code is ran line by line
 
 
 # How Execution contexts work in closures

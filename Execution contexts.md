@@ -19,9 +19,11 @@ A) Argument object is created with all the parameters passed into function
    Code is scanned for function declarations  
    Code is scanned for variable declarations (set to undefined)  
    
- B) ...
+ B) JS Engine goes all the way up of scope chain
+ 
+ C) Value of "this is determined"
 
-2)...
+2) executing
 
 
 

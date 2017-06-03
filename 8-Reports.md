@@ -1,4 +1,6 @@
+# Reports
 
+```javascript
 class E {
   constructor(name, built) {
     this.name = name;

@@ -48,11 +48,11 @@ function report(s) {
 }
 
 report(allStreets);
-    
+   ```
 
 
-
-/*---------------------------EXTENDING ARRAY-------------------------------*/
+# Extending arrays
+```javascript
 
 class Stack extends Array{
    constructor(length){
@@ -71,10 +71,10 @@ s.push("world");
 s.push("hello");
 console.log(s.top());  // "hello"
 console.log(s.length); // 2
-    
-
-/*---------------------------EMPTY CONSTRUCTOR-------------------------------*/
-
+   ```
+   
+ # Empty constructor
+   ```javascript
 class Parent {
     constructor() {
         if (new.target === Parent) {
@@ -92,12 +92,12 @@ var a = new Parent();
 
 var b = new Child();
 // A child instantiated
+```
 
 
+# Arrow functions dont create own "this"
+```javascript
 
-
-
-/*---------------------------Arrow functions do not create their own this-------------------------------*/
     
   this.a = 25;
 
@@ -113,3 +113,4 @@ let arrowPrint = () => {
 
 arrowPrint(); //25 (arrow functions don`t create their own this)
     
+```

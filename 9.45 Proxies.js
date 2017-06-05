@@ -1,7 +1,7 @@
-/*
-If "c" is not present in a proxy, 37 is returned
-*/
+# Proxy
+* If "c" is not present in a proxy, 37 is returned
 
+```javascript
 const manager = {
     get(source, prop) {
         if(prop in source){
@@ -18,3 +18,4 @@ p.b = undefined;
 
 console.log(p.a, p.b); // 1, undefined
 console.log('c' in p, p.c); // false, 37
+```

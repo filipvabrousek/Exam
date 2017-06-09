@@ -98,8 +98,7 @@ var b = new Child();
 # Arrow functions dont create own "this"
 ```javascript
 
-    
-  this.a = 25;
+this.a = 25;
 
 let print = function(){
     console.log(`this.a`, this.a);

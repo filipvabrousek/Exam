@@ -113,3 +113,16 @@ let arrowPrint = () => {
 arrowPrint(); //25 (arrow functions don`t create their own this)
     
 ```
+# Set
+```javascript
+let language = {
+  set curr(name) {
+    this.log.push(name);
+  },
+  log: []
+};
+
+language.curr = "EN";
+console.log(language.log); // ['EN']
+
+```

@@ -113,6 +113,15 @@ let arrowPrint = () => {
 arrowPrint(); //25 (arrow functions don`t create their own this)
     
 ```
+
+```javascript
+let greet = (msg = 'hello', name = 'world') => {
+console.log(msg,name);
+}
+
+greet();
+greet('hey');
+```
 # Set
 ```javascript
 let language = {

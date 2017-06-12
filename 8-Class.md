@@ -43,8 +43,8 @@ function report(s) {
   console.log(`Our ${s.length} streets have a total length of ${totalLength} km, with an average of ${avgLength} km.`);
   s.forEach(el => el.classify());
     
-    const i = s.map(el => el.length).findIndex(el => el >= 2);
-    console.log(`${s[i].name} is longer than 2km.`);
+  const i = s.map(el => el.length).findIndex(el => el >= 2);
+  console.log(`${s[i].name} is longer than 2km.`);
 }
 
 report(allStreets);

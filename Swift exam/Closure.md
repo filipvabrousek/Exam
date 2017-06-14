@@ -61,3 +61,4 @@ var completionHandlers: [() -> Void] = []
 func testFunctionWithEscapingClosure2(closure: @escaping () -> Void) {
     completionHandlers.append(closure)
 }
+```

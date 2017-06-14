@@ -15,14 +15,11 @@ reversedNames = names.sorted(by: { s1, s2 in s1 > s2 } )
 print(reversedNames)
 ```
 
-
-
-``
-/*--------CAPTURING VALUES
- A closure can capture constants and variables from the surrounding context in which it is defined.
+## 2
+*  A closure can capture constants and variables from the surrounding context in which it is defined.
  The closure can then refer to and modify the values of those constants and variables from within its body,
  even if the original scope that defined the constants and variables no longer exists.
- ----------------------------------------------------------------*/
+```swift
 func makeInc(for amount: Int) -> () -> Int {
     var t = 0
     func incrementer() -> Int {
@@ -42,15 +39,12 @@ incByTen()
 let alsoIncrementByTen = incByTen
 alsoIncrementByTen()
 // returns a value of 50 (reference type)
-
-
-
-
-/*--------Escaping closure compHs = completition handlers
- A closure is said to escape a function when the closure is passed as an argument to the function,
+```
+## 3 - Escaping closures - compHs = completition handlers
+ * A closure is said to escape a function when the closure is passed as an argument to the function,
  but is called after the function returns. When you declare a function that takes a closure as one of its parameters,
  you can write @escaping before the parameter’s type to indicate that the closure is allowed to escape.
- ----------------------------------------------------------------*/
+```swift
 func testFunctionWithNonescapingClosure(closure:() -> Void) {
     closure()
 }

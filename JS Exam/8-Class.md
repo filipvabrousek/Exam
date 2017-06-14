@@ -122,6 +122,15 @@ console.log(msg,name);
 greet();
 greet('hey');
 ```
+
+```javascript
+const Person = (name) => {
+  this.name = name;
+};
+
+let p = new Person('John');
+// TypeError: Person is not a constructor
+```
 # Set
 ```javascript
 let language = {

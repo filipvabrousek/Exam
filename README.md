@@ -5,5 +5,5 @@
 * talk about 20 minutes / question
 
 # Swift
-* talk about 15 minutes / question
+* talk about 20 minutes / question
 

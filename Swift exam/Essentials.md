@@ -11,7 +11,7 @@ let fullName: String = "Filip Vabrousek"
 let informalGreeting = "Hi \(nickName ?? fullName)"
 ```
 
-## for in
+## For in scores
 ```swift
 let individual = [75, 43, 103, 87, 12]
 var teamScore = 0

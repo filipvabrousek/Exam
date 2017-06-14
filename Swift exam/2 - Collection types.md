@@ -29,7 +29,7 @@ let evenDigits: Set = [0, 2, 4, 6, 10]
 oddDigits.intersection(evenDigits).sorted()
 
  
- var letters = Set<Character>()
+var letters = Set<Character>()
 letters.insert("A")
 print("letters is of type Set<Character> with \(letters.count) items.")
 

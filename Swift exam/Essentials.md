@@ -4,16 +4,18 @@
 print("Hello Swift 3!")
 ```
 
-
+## Optionals
 ```swift
 let nickName: String? = nil
 let fullName: String = "Filip Vabrousek"
 let informalGreeting = "Hi \(nickName ?? fullName)"
 ```
+
+## for in
 ```swift
-let individualScores = [75, 43, 103, 87, 12]
+let individual = [75, 43, 103, 87, 12]
 var teamScore = 0
-for score in individualScores {
+for score in individual {
     if score > 50 {
         teamScore += 3
     } else {
@@ -22,7 +24,7 @@ for score in individualScores {
 }
 print(teamScore)
 ```
-
+# Func
 ```swift
 func multiply(a:Double, b:Double) -> Double{
 return a*b
@@ -30,6 +32,7 @@ return a*b
 
 multiply(a: 3,b: 7)
 ```
+# Rest
 ```swift
 func sumOf(numbers: Int...) -> Int {
     var sum = 0
@@ -42,6 +45,7 @@ func sumOf(numbers: Int...) -> Int {
 sumOf(numbers: 21, 31, 71)
 ```
 
+# Matches
 ```swift
 func hasAnyMatches(list: [Int], condition: (Int) -> Bool) -> Bool {
     for item in list {
@@ -58,11 +62,14 @@ var numbers = [20, 19, 7, 12]
 hasAnyMatches(list: numbers, condition: lessThanTen)
 ```
 
+# Map (add more)
 ```swift
 let mappedNumbers = numbers.map({ number in 3 * number })
 print(mappedNumbers)
 
 ```
+
+# Switch
 ```swift
 let event = "hard race"
 
@@ -80,6 +87,7 @@ default:
 }
 ```
 
+# Loops
 ```swift
 var n = 2
 while n < 100 {

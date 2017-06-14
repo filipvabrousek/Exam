@@ -1,9 +1,15 @@
 # Exam
 > "Practice makes the master" - Patrick Rothfuss
 
-# JavaScript
-* talk about 20 minutes / question
+# HTML, CSS
+* talk 10 minutes / question
+* 8 questions
+
 
 # Swift
-* talk about 20 minutes / question
+* talk 20 minutes / question
+* 10 questions
 
+# JavaScript
+* talk 20 minutes / question
+* 20 questions

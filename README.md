@@ -1,5 +1,6 @@
 # Exam
-**"Practice makes the master" - Patrick Rothfuss
+**"Practice makes the master"** 
+Patrick Rothfuss
 
 # JS
 * talk about 20 minutes / question

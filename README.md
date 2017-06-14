@@ -1,4 +1,9 @@
-# JS Exam
-übung macht den meister :)
+# Exam
+**"Practice makes the master" - Patrick Rothfuss
 
-## static no need for "new"
+# JS
+* talk about 20 minutes / question
+
+# Swift
+* talk about 15 minutes / question
+

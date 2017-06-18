@@ -1,4 +1,4 @@
-## Let, const 
+# Let, const 
 * Let, const - block scoped
 * var - function scoped
 

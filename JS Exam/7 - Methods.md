@@ -1,7 +1,7 @@
 # Built-in methods
 
 ## String
-* constructor for strings, or a sequence of characters
+constructor for strings, or a sequence of characters
 
 * charAt
 * charCodeAt

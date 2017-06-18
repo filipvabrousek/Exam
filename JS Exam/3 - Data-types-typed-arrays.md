@@ -19,7 +19,7 @@
 * Keyed collections (Map, Set, WeakMap, WeakSet)
 * JSON
 
-** typeof ** operator can find type of the variable
+**typeof** operator can find type of the variable
 
 
 

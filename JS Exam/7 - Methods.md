@@ -1,24 +1,24 @@
 # Built-in methods
 
 ## String
-constructor for strings, or a sequence of characters
+* constructor for strings, or a sequence of characters
 
-* charAt
+* charAt
 * charCodeAt
 * repeat
-* 
+
 
 
 
 
 ## Number
-wrapper object allowing you to work with numerical values (* number constructor)
+* wrapper object allowing you to work with numerical values (* number constructor)
 
 
 
 
 ## Object
-Object constructor creates an object wrapper
+* Object constructor creates an object wrapper
 
 
 

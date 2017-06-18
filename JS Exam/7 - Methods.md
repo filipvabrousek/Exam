@@ -62,13 +62,35 @@ global object that is used in the construction of arrays
 * fill
 * filter
 * find
-* bind
-* call
-* apply
 * forEach
 * reverse
 * include
+* bind
+* call
+* apply
 * some
 * sort
 * slice
 * splice
+
+
+## Another object methods
+Date
+
+```javascript
+let d = new Date(99,6,20,20,28,00,0);
+```
+Math 
+
+* sin
+* cos
+* tan
+* pi
+* round
+* max
+* min
+* random
+* sqrt
+* pow
+
+

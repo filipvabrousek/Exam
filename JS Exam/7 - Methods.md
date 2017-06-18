@@ -1,6 +1,6 @@
 # Built-in methods
 
-## String
+# String
 constructor for strings, or a sequence of characters
 ```String.prototype``` returns object with all the methods (inheritenance)
 
@@ -39,7 +39,7 @@ wrapper object allowing you to work with numerical values (* number constructor)
 * valueOf
 
 
-## Object
+# Object
 Object constructor creates an object wrapper
 
 * hasOwnProperty
@@ -48,7 +48,7 @@ Object constructor creates an object wrapper
 * valueOf
 
 
-## Array 
+# Array 
 global object that is used in the construction of arrays
 
 * join
@@ -74,13 +74,17 @@ global object that is used in the construction of arrays
 * splice
 
 
-## Another object methods
-Date
+# Another object methods
+## Date
+
+* toString
+* toUTCString
+* toDateString
 
 ```javascript
 let d = new Date(99,6,20,20,28,00,0);
 ```
-Math 
+## Math 
 
 * sin
 * cos

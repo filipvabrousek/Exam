@@ -1,6 +1,8 @@
 # DOM
 
+```javascript
 
+```
 # BOM
 
 # JSON

@@ -26,7 +26,7 @@ constructor for strings, or a sequence of characters
 
 
 
-## Number
+# Number
 wrapper object allowing you to work with numerical values (* number constructor)
 ```Number.prototype``` returns object with all the methods (inheritenance)
 

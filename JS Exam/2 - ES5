@@ -1,0 +1,15 @@
+# ES5
+
+```javascript
+function Person(name, born){
+    this.name = name;
+    this.born = born;
+}
+
+Person.prototype.age = function(){
+    return 2017 - this.born;
+}
+
+var me = new Person("Filip", 1999);
+me.age();
+```

@@ -18,8 +18,8 @@
 * Keyed collections (Map, Set, WeakMap, WeakSet)
 * JSON
 
+# Comparing 
 * **typeof** returns a string indicating the type of the unevaluated operand
-
 * when comparing use ===
 
 

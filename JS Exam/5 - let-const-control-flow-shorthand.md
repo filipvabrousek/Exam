@@ -32,6 +32,7 @@ const obj = { a, b }
 * switch
 
 ## Switch
+* allows a program to evaluate an expression and attempt to match the expression's value to a case label
 ```javascript
 let salary = 3000
 

@@ -59,7 +59,7 @@ var max = Math.max.apply(null, numbers);
 
 
 # 1
-* the **this: terka object**, **argument: "evening"** 
+* **this: terka object**, **argument: "evening"** 
 
 ```javascript
 const filip = {

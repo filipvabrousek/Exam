@@ -19,7 +19,12 @@ console.log(a); // Reference error (same for const)
 console.log(a); // 3
 
 ```
-
+# Shorthand
+```javascript
+let a = 1;
+let b = 2;
+const obj = { a, b }
+```
 
 # Control-flow
 * while

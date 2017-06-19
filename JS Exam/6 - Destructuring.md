@@ -1,18 +1,21 @@
 # Destructuring
 * JS expression that makes it possible to extract data from arrays or objects using a syntax that mirrors the construction of array and object literals.
 
+
 # 1
 ```javascript
-let [a, , b] = [1,2,3];
-console.log("a:", a, "b:", b);
-// a:1, b:3
+let a, b, res;
+[a, b, ...rest] = [10, 20, 30, 40, 50];
+console.log(a); // 10
+console.log(b); // 20
+console.log(rest); // [30, 40, 50]
 ```
-
 
 # 2
 ```javascript
 let [a, , b] = [1,2,3];
 console.log("a:", a, "b:", b);
+// a:1, b:3
 ```
 
 # 3

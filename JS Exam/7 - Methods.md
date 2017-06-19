@@ -35,7 +35,7 @@ wrapper object allowing you to work with numerical values (* number constructor)
 * toExponential
 * toFixed
 * toString
-* toPrecision
+* toPrecision
 * valueOf
 
 

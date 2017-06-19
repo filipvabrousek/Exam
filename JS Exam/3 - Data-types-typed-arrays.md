@@ -28,8 +28,8 @@
 * differences from arrays:
 * same type of items 
 * contiguous (no holes)
+* iterable
 
-* are iterable
 ```javascript
 let ui8 = Uint8Array.of(0,1,2);
 for (let byte of ui8) {

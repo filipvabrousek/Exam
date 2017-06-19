@@ -3,8 +3,8 @@
 
 # 1
 ```javascript
-var a = 1;
-var b = 3;
+let a = 1;
+let b = 3;
 
 [a, b] = [b, a];
 console.log(a); // 3
@@ -22,7 +22,7 @@ console.log(rest); // [30, 40, 50]
 
 # 3
 ```javascript
-var {foo, bar} = {foo: 'lorem', bar: 'ipsum', choo: 'uhoh'};
+let {foo, bar} = {foo: 'lorem', bar: 'ipsum', choo: 'uhoh'};
 console.log("foo:", foo, "bar:", bar);
 ```
 

@@ -20,7 +20,7 @@ constructor for strings, or a sequence of characters
 * toString
 * trim
 * valueOf
-* match (E)
+* match - str.match(re) - re = regular expression
 
 
 

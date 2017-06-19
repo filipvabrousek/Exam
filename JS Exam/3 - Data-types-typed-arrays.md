@@ -2,26 +2,25 @@
 
 
 ## Primitive:
-* Boolean
 * Null
 * Undefined
+* Boolean
 * Number
 * String
 * Symbol
 
 
 ## Object:
-* normal objects
-* Functions
+* "Normal" objects
+* Functions (objects additional capability of being callable)
 * Dates
 * Indexed collections (Arrays, typed Arrays)
-* Dates
 * Keyed collections (Map, Set, WeakMap, WeakSet)
 * JSON
 
-**typeof** operator can find type of the variable
+* **typeof** returns a string indicating the type of the unevaluated operand
 
-
+* when comparing use ===
 
 
 

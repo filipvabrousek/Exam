@@ -11,8 +11,8 @@
 
 
 ## Object:
-* "Normal" objects
-* Functions (objects additional capability of being callable)
+* Objects
+* Functions - code snippet that can be called by other code or by itself, or a variable that refers to the function
 * Dates
 * Indexed collections (Arrays, typed Arrays)
 * Keyed collections (Map, Set, WeakMap, WeakSet)

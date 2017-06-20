@@ -1,12 +1,10 @@
-
+# Brendan Eich ( July 4, 1961 )
  
- ## Brendan Eich ( July 4, 1961 )
- 
- # Studies
+## Studies
  * Santa Clara University (from 1851, the oldest institution of higher learning in Cal.)
  => received bachelor's degree in mathematics and computer science
  
- # Carrer
+## Carrer
  * started his career at Silicon Graphics => MicroUnity Systems Engineering 
  * => April 1995 Netscape Communications Corporation  
  * intending to put Scheme (dialect of the Lisp language) "in the browser"
@@ -15,10 +13,12 @@
  * called Mocha => Sept. LiveScript => JS
  * 1996 - 1997 JS => ECMA standard
  
- # ECMA
  
+## ECMA
+ * 1961
  * located in Geneva
- * 
+ * aims to develop standards and technical reports to facilitate and standardize the use of information communication technology and consumer electronics
+ * < than 400 Ecma Standards
  
  
  

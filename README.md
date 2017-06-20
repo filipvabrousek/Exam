@@ -2,10 +2,10 @@
 > "Practice makes the master" - Patrick Rothfuss
 
 # HTML, CSS
-* talk 10 minutes / question (8 questions)
+* 10 min (2 pages / question)
 
 # Swift
-* talk 20 minutes / question (9 questions)
+* 20 min (3 pages / question)
 
 # JavaScript
-* talk 20 minutes / question (20 questions)
+* 20 min (3 pages / question)

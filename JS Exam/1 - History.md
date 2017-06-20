@@ -1,3 +1,5 @@
+# History 
+
 # Brendan Eich ( July 4, 1961 )
  
 ## Studies
@@ -18,7 +20,7 @@
  * ES 2   June 1998
  * ES 3   June 1999
  * ES 4   no release, but influenced later vesrion (Microsoft worked on JSScript)
- * ES 5   July 2008 (ES 3.1 - ES 5)
+ * ES 5   July 2008 (ES 3.1 => ES 5)
  * ES 5.1 June 2011
  * ES 2015 (ES6) - June 2015
  * ES 2016 - June 2016

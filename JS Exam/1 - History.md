@@ -1,6 +1,6 @@
 
  
- ## Brendan Eich (July 4, 1961 - )
+ ## Brendan Eich ( July 4, 1961 )
  
  # Studies
  * Santa Clara University (from 1851, the oldest institution of higher learning in Cal.)

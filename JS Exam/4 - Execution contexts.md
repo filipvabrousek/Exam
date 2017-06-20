@@ -19,7 +19,7 @@ C) Determining value of "this" variable
 
 2) **Execution phase**    
 Code is ran line by line.  
---------------------------------------------------------------------------
+
 
 ## Creation phase
 A) Argument object is created with all the parameters passed into function  
@@ -30,11 +30,10 @@ A) Argument object is created with all the parameters passed into function
  
  C) Value of "this is determined"  
 
+
 ## Execution phase
 Code is ran line by line
 
-
---------------------------------------------------------------------------
 # How execution contexts work in closures
 After anonymous function returns, STH stays in memory
 Then, after sayHi creates new execution content, and find STH sitting there

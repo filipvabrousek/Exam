@@ -16,14 +16,18 @@
  * June 1997 JS => ECMA standard
  
  ## JS Versions
- * ES     June 1997
- * ES 2   June 1998
- * ES 3   June 1999 (baseline for the modern JS)
- * ES 4   no release, but influenced later version (Microsoft worked on JSScript)
- * ES 5   Dec 2009 (ES 3.1 => ES 5)
- * ES 5.1 June 2011
- * ES 2015 (ES6) - June 2015
- * ES 2016 - June 2016
+ 
+ 
+| Version | Date |
+| ------------- | ------------- |
+| ES  | June 1997 |
+| ES2  | June 1998  |
+| ES3  | June 1999  |
+| ES4  | no release  |
+| ES5  | Dec 2009  |
+| ES5.1  | June 2011  |
+| ES 2015 (ES6) | June 2015  |
+| ES 2016 (ES7) | June 2016  |
  
  ## JS Engines
  * program or interpreter which executes JS code

@@ -1,5 +1,5 @@
 # Data types
-
+* high-level, dynamic, untyped, interpreted run-time language
 
 ## Primitive:
 * Null

@@ -146,7 +146,7 @@ for i in 0..<count {
     print("Person \(i + 1) is called \(names[i])")
 }
 ```
-## Enum
+## Switch
 ```swift
 let event = "hard race"
 
@@ -162,6 +162,30 @@ default:
     print("It will be something interesting")
     
 }
+```
+
+# Enum
+```swift
+enum Places: Int {
+    case first = 1
+    case second, third
+    
+    func desc() -> String {
+        switch self {
+        case .first:
+            return "8000"
+        case .second:
+            return "6000"
+        case .third:
+            return "3000"
+        default:
+            return "0"
+        }
+    }
+}
+
+let winnerRawValue = Places.first.rawValue
+
 ```
 # Codable
 ```swift

@@ -11,7 +11,7 @@
  * => April 1995 Netscape Communications Corporation  
  * intending to put Scheme (dialect of the Lisp language) in the browser
  * => instead commissioned to create JS (lang. that reassembled Java for the  Netscape Navigator Web browser)
- * first version was completed in ten days (May 1995) in order to accommodate the Navigator 2.0 Beta release schedule
+ * first version was completed in ten days in May 1995 (appeared in Dec.) in order to accommodate the Navigator 2.0 Beta release schedule
  * developed under **Mocha** officially called **LiveScript** => **JS**
  * June 1997 JS => ECMA standard
  

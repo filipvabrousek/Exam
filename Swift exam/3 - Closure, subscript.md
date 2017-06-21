@@ -73,7 +73,7 @@ struct TT {
         return m * index
     }
 }
-let 3TT = TT(multiplier: 3)
-print("six times three is \(3TT[6])")
+let threeTT = TT(multiplier: 3)
+print("six times three is \(threeTT[6])")
 // Prints "six times three is 18"
 ```

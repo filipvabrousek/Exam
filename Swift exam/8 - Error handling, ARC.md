@@ -87,6 +87,8 @@ print("\(country.name)'s capital city is called \(country.capitalCity.name)")
 ```
 
 # Access control
+* restricts access to parts of your code from code in other source files and modules
+* this feature enables you to hide the implementation details of your code
 ```swift
 
 public class SomePublicClass {}

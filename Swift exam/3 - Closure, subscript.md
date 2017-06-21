@@ -65,14 +65,15 @@ func testFunctionWithEscapingClosure2(closure: @escaping () -> Void) {
 
 
 # Subscript
+* enables you to query instances of a type by writing one or more values in square brackets after the instance name
 ```swift
-struct TimesTable {
-    let multiplier: Int
+struct TT {
+    let m: Int
     subscript(index: Int) -> Int {
-        return multiplier * index
+        return m * index
     }
 }
-let threeTimesTable = TimesTable(multiplier: 3)
-print("six times three is \(threeTimesTable[6])")
+let 3TT = TT(multiplier: 3)
+print("six times three is \(3TT[6])")
 // Prints "six times three is 18"
 ```

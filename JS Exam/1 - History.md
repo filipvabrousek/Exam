@@ -11,24 +11,24 @@
  * => April 1995 Netscape Communications Corporation  
  * intending to put Scheme (dialect of the Lisp language) in the browser
  * => instead commissioned to create JS (lang. that reassembled Java for the  Netscape Navigator Web browser)
- * first version was completed in ten days in May 1995 (appeared in Dec.) in order to accommodate the Navigator 2.0 Beta release schedule
+ * first version was completed in ten days in May 1995 (shipped in Sept.) - Navigator 2.0 Beta 
  * developed under **Mocha** officially called **LiveScript** => **JS**
  * June 1997 JS => ECMA standard
  
- ## Versions
+ ## JS Versions
  * ES     June 1997
  * ES 2   June 1998
- * ES 3   June 1999
- * ES 4   no release, but influenced later vesrion (Microsoft worked on JSScript)
- * ES 5   July 2008 (ES 3.1 => ES 5)
+ * ES 3   June 1999 (baseline for the modern JS)
+ * ES 4   no release, but influenced later version (Microsoft worked on JSScript)
+ * ES 5   Dec 2009 (ES 3.1 => ES 5)
  * ES 5.1 June 2011
  * ES 2015 (ES6) - June 2015
  * ES 2016 - June 2016
  
- ## Engines
+ ## JS Engines
  * program or interpreter which executes JS code
  * 2008 - 2009 JS Engine war
- * 2010 JS Engine race (Opera, Firefox, Safari, IE 9)
+ * 2010 - JS Engine race (Opera, Firefox, Safari, IE 9)
  
  
  

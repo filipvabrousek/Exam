@@ -44,6 +44,8 @@ Object constructor creates an object wrapper
 
 * hasOwnProperty
 * isPrototypeOf
+* getPrototypeOf
+* setProtoTypeOf
 * toString
 * valueOf
 * assign

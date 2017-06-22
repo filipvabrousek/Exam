@@ -23,7 +23,11 @@ constructor for strings, or a sequence of characters
 * match - str.match(re) - re = regular expression
 
 
-
+## repeat
+```javascript
+'oh '.repeat(2);
+"oh oh "
+```
 
 
 # Number

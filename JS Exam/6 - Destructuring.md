@@ -72,6 +72,17 @@ const {
 console.log(b);
 ```
 
-## + destructure object, deeply nested property, default paramaters
+```javascript
+const people = {
+  filip: "Filip",
+  friends: {
+    best: {
+      karel: 'Karel',
+      terka: 'Terka',
+    }
+  }
+};
 
-![http://untangled.io/in-depth-es6-destructuring-with-assembled-avengers/]
+const { friends: { best } } = people;
+best;
+```

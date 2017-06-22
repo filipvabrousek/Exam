@@ -47,6 +47,20 @@ Object constructor creates an object wrapper
 * toString
 * valueOf
 * assign
+
+## isPrototypeOf
+```javascript
+function A(){}
+function B(){}
+function C(){}
+
+B.prototype = Object.create(A.prototype)
+
+const c = new C();
+console.log(C.prototype.isPrototypeOf(c));
+```
+
+## Assign
 ```javascript
 const obj = { foo: 123 };
 Object.assign(obj, { bar: true });
@@ -93,6 +107,19 @@ var n = [65, 44, 12, 4];
 const sum = (total, num) => total + num;
 n.reduce(sum);
 ```
+
+## Entries
+```javascript
+const a = ['a', 'b', 'c'];
+const iterator = a.entries();
+
+console.log(iterator.next().value); // [0, 'a']
+console.log(iterator.next().value); // [1, 'b']
+console.log(iterator.next().value); // [2, 'c']
+```
+
+
+
 ## Filter, Some, Every
 ```javascript
 var ages = [22, 21, 17];

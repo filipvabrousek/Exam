@@ -79,18 +79,37 @@ global object that is used in the construction of arrays
 * slice
 * splice
 
+## shift, unshift
+```javascript
+const f = ["Terka", "Filip", "Karel", "Lucy"];
+f.shift(); // "Terka"
+f.unshift(); // 4
+```
+
+
 ## Reduce
 ```javascript
 var n = [65, 44, 12, 4];
 const sum = (total, num) => total + num;
 n.reduce(sum);
 ```
-
+## Filter, Some, Every
 ```javascript
 var ages = [22, 21, 17];
 const check = (age) => age >= 18;
 ages.filter(check);
 ```
+## Slice
+```javascript
+let p = ["Terka", "Filip", "Karel", "Lucy"];
+let boys = p.slice(1, 3);
+```
+## Splice
+```javascript
+let p = ["Terka", "Filip", "Karel", "Lucy"];
+let boys = p.splice(1, 2);
+```
+
 
 # Another object methods
 ## Date

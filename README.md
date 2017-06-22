@@ -5,7 +5,7 @@
 * 10 min (2 pages / question)
 
 # Swift
-* 20 min (3 pages / question)
+* 20 min (4 pages / question)
 
 # JavaScript
-* 20 min (3 pages / question)
+* 20 min (4 pages / question)

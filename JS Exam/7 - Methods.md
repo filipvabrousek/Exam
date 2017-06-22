@@ -46,6 +46,13 @@ Object constructor creates an object wrapper
 * isPrototypeOf
 * toString
 * valueOf
+* assign
+```javascript
+const obj = { foo: 123 };
+Object.assign(obj, { bar: true });
+console.log(JSON.stringify(obj));
+```
+
 
 
 # Array 
@@ -56,15 +63,14 @@ global object that is used in the construction of arrays
 * pop
 * shift
 * unshift
-* slice
-* reduce
-* entries
 * fill
 * filter
 * find
 * forEach
 * reverse
 * include
+* reduce
+* entries
 * bind
 * call
 * apply
@@ -73,6 +79,18 @@ global object that is used in the construction of arrays
 * slice
 * splice
 
+## Reduce
+```javascript
+var n = [65, 44, 12, 4];
+const sum = (total, num) => total + num;
+n.reduce(sum);
+```
+
+```javascript
+var ages = [22, 21, 17];
+const check = (age) => age >= 18;
+ages.filter(check);
+```
 
 # Another object methods
 ## Date

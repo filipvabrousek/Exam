@@ -42,4 +42,36 @@ set = new Set([...set].map(x => x * 2));
 ```
 
 
+# 6
+```javascript
+const people = [
+  'Filip', 
+  ['Terka', 'Lucka'] 
+];
 
+
+const [man, [g1, g2]] = people;
+console.log(g1);
+// Terka
+```
+
+# 7
+```javascript
+const people = {
+    filip: "Filip",
+    terka: "Terka",
+    lucka: "Lucka"
+};
+
+const { 
+  filip: a, 
+  terka: b, 
+  lucka: c 
+} = people;
+
+console.log(b);
+```
+
+## + destructure object, deeply nested property, default paramaters
+
+![http://untangled.io/in-depth-es6-destructuring-with-assembled-avengers/]

@@ -72,6 +72,7 @@ const {
 console.log(b);
 ```
 
+# 8
 ```javascript
 const people = {
   filip: "Filip",

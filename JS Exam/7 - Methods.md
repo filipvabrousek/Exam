@@ -81,6 +81,29 @@ const c = new C();
 console.log(C.prototype.isPrototypeOf(c));
 ```
 
+
+## setPrototypeOf, getPrototypeOf
+```javascript
+let P = {
+    g() {
+        return "Hello";
+    }
+};
+
+
+let F = {
+    g() {
+        return Object.getPrototypeOf(this).g.call(this) + ", hi!";
+    }
+};
+
+// set prototype to person
+Object.setPrototypeOf(F, P);
+console.log(F.g());                      // "Hello, hi!"
+console.log(Object.getPrototypeOf(F) === P);  // true
+```
+
+
 ## Assign
 ```javascript
 const obj = { foo: 123 };

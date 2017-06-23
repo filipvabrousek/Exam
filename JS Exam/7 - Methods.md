@@ -116,14 +116,17 @@ console.log(JSON.stringify(obj));
 # Array 
 global object that is used in the construction of arrays
 
+
 * join
 * push
 * pop
+* of
 * shift
 * unshift
 * fill
 * filter
 * find
+* from
 * forEach
 * reverse
 * include
@@ -136,6 +139,24 @@ global object that is used in the construction of arrays
 * sort
 * slice
 * splice
+
+## from
+
+```javascript
+function T() {
+    return Array.from(arguments, (value) => value + 1);
+}
+let numbers = T(1, 2, 3);
+console.log(numbers);               // 2,3,4
+```
+
+## find, findIndex
+```js
+let n = [8, 16];
+
+console.log(n.find(n => n > 10));         // 16
+console.log(n.findIndex(n => n > 10));    // 1
+```
 
 ## shift, unshift
 ```javascript

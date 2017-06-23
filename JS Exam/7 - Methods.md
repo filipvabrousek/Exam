@@ -4,7 +4,9 @@
 constructor for strings, or a sequence of characters
 ```String.prototype``` returns object with all the methods (inheritenance)
 
-
+* startsWith
+* endsWith
+* includes
 * charAt
 * charCodeAt
 * repeat
@@ -21,6 +23,7 @@ constructor for strings, or a sequence of characters
 * trim
 * valueOf
 * match - str.match(re) - re = regular expression
+* fromCodePoint
 
 
 ## repeat
@@ -29,7 +32,19 @@ constructor for strings, or a sequence of characters
 "oh oh "
 ```
 
+## String.fromCodePoint
+```javascript
+console.log(String.fromCodePoint(134071));
+```
 
+## Template literals
+```javascript
+let count = 10,
+    price = 0.25,
+    message = `${count} items cost $${(count * price).toFixed(2)}.`;
+
+console.log(message);       // "10 items cost $2.50."
+```
 # Number
 wrapper object allowing you to work with numerical values (* number constructor)
 ```Number.prototype``` returns object with all the methods (inheritenance)
@@ -143,6 +158,28 @@ let p = ["Terka", "Filip", "Karel", "Lucy"];
 let boys = p.splice(1, 2);
 ```
 
+## Raw
+```javascript
+function raw(literals, ...substitutions) {
+    let result = "";
+
+    // run the loop only for the substitution count
+    for (let i = 0; i < substitutions.length; i++) {
+        result += literals.raw[i];      // use raw values instead
+        result += substitutions[i];
+    }
+
+    // add the last literal
+    result += literals.raw[literals.length - 1];
+
+    return result;
+}
+
+let message = raw`Multiline\nstring`;
+
+console.log(message);           // "Multiline\\nstring"
+console.log(message.length);    // 17
+```
 
 # Another object methods
 ## Date

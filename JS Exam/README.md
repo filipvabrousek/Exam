@@ -1,2 +1,3 @@
 # JS Exam
-20 questions
+JS Part of the exam
+

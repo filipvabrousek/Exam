@@ -33,23 +33,38 @@ const obj = { a, b }
 
 ## Switch
 * allows a program to evaluate an expression and attempt to match the expression's value to a case label
-```javascript
-let salary = 3000
 
-switch (salary){
-    case 0:
-        console.log("You have no money");
-        break;
-    case 1000:
-        console.log("Not bad");
-        break;
-    case 3000:
-        console.log("You are rich!");
-        break;
-        
-    default: 
-        console.log("You have at least some money")
+```javascript
+function daysToMaturity(birth, country){
+    
+   let age = new Date().getFullYear() - birth; 
+   let daysAlive = age * 365.5; 
+   let maturityAge = 0; 
+    
+   let days = 0;
+    
+    switch(country){ // Czech
+        case "Czech":
+            maturityAge = 18;
+            days = maturityAge * 365.5 - daysAlive;
+            console.log(`You will be mature in ${days} days in Czech republic`);
+            break;
+            
+        case "USA":
+            maturityAge = 21;
+            days = maturityAge * 365.5 - daysAlive;
+            console.log(`You will be mature in ${days} days in USA`);
+            break;
+            
+        default: 
+            days = "I dont know";
+            console.log(`Days: ${days}`);
+            break;
+    }
 }
 
-// -> You are rich!
+
+daysToMaturity(2011, "USA");
+
+
 ```

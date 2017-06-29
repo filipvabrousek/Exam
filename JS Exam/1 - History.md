@@ -1,6 +1,10 @@
 # History 
 
-# Brendan Eich ( July 4, 1961 )
+
+## Theory
+*  dynamically typed (type is associated with each value)
+
+## Brendan Eich ( July 4, 1961 )
  
 ## Studies
  * Santa Clara University (from 1851, the oldest institution of higher learning in Cal.)

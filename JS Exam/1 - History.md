@@ -1,9 +1,5 @@
 # History 
 
-
-## Theory
-*  dynamically typed (type is associated with each value)
-
 ## Brendan Eich ( July 4, 1961 )
  
 ## Studies

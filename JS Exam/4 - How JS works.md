@@ -1,12 +1,6 @@
-# How the code is executed
-
-![execution](http://i.imgur.com/2gXCI47.png)
-
-
-
-
 # Execution contexts
 
+![execution](http://i.imgur.com/2gXCI47.png)
 
 Execution context is a concept in the language spec equates to the 'environment' a function executes in; that is, variable scope (and the scope chain, variables in closures from outer scopes), function arguments, and the value of the this object
 
@@ -35,12 +29,53 @@ Code is ran line by line
 * GLOBAL variables are deleted when you close the browser window (or tab), but remains available to new pages loaded into the same window
 
 ```js
+let a = "Hello ";
+first();
+
+function first(){
+    let b = "Hi! ";
+    second();
+    
+    function second(){
+        let c = "Hey! ";
+        third();
+    }
+}
+
+function third(){
+    let d = "Filip";
+    // console.log(c); -> ERROR
+    console.log(a + d);
+}
+
+// Hello Filip
+
+```
+------------------------------------------------------------------------------------------------------------
+## Hoisting
+* default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function)
+
+```js
+console.log(age);          // -> UNDEFINED (values ARE NOT hoisted)
+var age = 23;
+
+
+pow (2);                   // 4
+function pow(a){
+    console.log(a * a);
+}
+
+
+function foo(){
+    let age = 65;
+    console.log(age);
+}
+
+foo();
+console.log(age);             // 65, 23
 
 
 ```
-
-## Hoisting
-* default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function)
 
 
 ------------------------------------------------------------------------------------------------------------

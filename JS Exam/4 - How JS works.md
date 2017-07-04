@@ -131,18 +131,19 @@ the **this** keyword is only assigned a value, when the object calls the method
 ```js
 const filip = {
     birth: 1999,
-    calc(){
-    console.log(this);
-    console.log(2017 - this.birth); //18
-        
-    function inner(){
-        console.log(this);          //"window object"
+  
+    calc() {
+        console.log(this);
+        console.log(2017 - this.birth);   //18
+
+        function inner() {
+            console.log(this);            //"window object"
+        }
+        inner();
     }
-    inner();
-}
 }
 
-filip.calc();                       // 18
+filip.calc();                              // 18
 
 
 const terka = {
@@ -150,7 +151,7 @@ const terka = {
 };
 
 terka.calc = filip.calc
-terka.calc();                       //17 
+terka.calc();                             //17
 
 
 ```

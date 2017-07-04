@@ -25,7 +25,32 @@ console.log(a); // 3
 # Control flow
 * while
 * if, else if
+* for in
 * switch
+
+## while
+```js
+let i = 1;
+
+do {
+    i++;
+}
+while (i < 10);
+```
+
+## for in
+```js
+let filip = {
+    name: "Filip",
+    age: 18
+}
+
+for (prop in filip){
+    console.log(prop);
+}
+
+
+```
 
 ## Switch
 * allows a program to evaluate an expression and attempt to match the expression's value to a case label

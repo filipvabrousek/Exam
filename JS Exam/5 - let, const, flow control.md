@@ -55,10 +55,10 @@ for (prop in filip){
 
 ## for of
 ```js
-let arr = ["Filip", "Terka"];
+let values = [1, 2, 3];
 
-for (p of arr){
-    console.log(p);
+for (let num of values) {
+    console.log(num);
 }
 
 ```

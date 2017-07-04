@@ -29,7 +29,7 @@ Code is ran line by line
  a space in which the variable it defines are accessible  
  LOCAL - can be only acessed within the same function  
  GLOBAL variables are deleted when you close the browser window (or tab), but remains available to new pages loaded into the same window  
-* **Lexical scoping:** a function, that is lexically within another function,gets access to the scope of outer function
+LEXICAL SCOPING: a function, that is lexically within another function, gets access to the scope of outer function
 
 
 * **EXECUTION STACK:** order in which functions are *called*:

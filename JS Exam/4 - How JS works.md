@@ -6,8 +6,6 @@
 
 Execution context is a concept in the language spec equates to the 'environment' a function executes in; that is, variable scope (and the scope chain, variables in closures from outer scopes), function arguments, and the value of the this object
 
-# Phases:
-
 
 ## Creation phase
 A) Argument object is created with all the parameters passed into function  
@@ -21,6 +19,8 @@ A) Argument object is created with all the parameters passed into function
 
 ## Execution phase
 Code is ran line by line
+
+
 
 
 ------------------------------------------------------------------------------------------------------------
@@ -71,6 +71,10 @@ function third(){
 // Hello Filip
 
 ```
+
+
+
+
 ------------------------------------------------------------------------------------------------------------
 # Hoisting
 * default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function)
@@ -110,6 +114,8 @@ console.log(` age in the VO of the global EXC object: ${age}`);
 //  23
 
 ```
+
+
 
 
 ------------------------------------------------------------------------------------------------------------

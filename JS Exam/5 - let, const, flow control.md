@@ -76,7 +76,7 @@ function daysToMaturity(birth, country){
     
    let days = 0;
     
-    switch(country){ // Czech
+    switch(country){ 
         case "Czech":
             maturityAge = 18;
             days = maturityAge * 365.5 - daysAlive;

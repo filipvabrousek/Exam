@@ -1,14 +1,3 @@
-# Important terms
-## Scope
-
-* area with set of variables and objects you have access to 
-* LOCAL - can be only acessed within the same function
-* GLOBAL variables are deleted when you close the browser window (or tab), but remains available to new pages loaded into the same window
-
-## Hoisting
-* default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function)
-
-
 
 # Let, const 
 * Let, const - block scoped

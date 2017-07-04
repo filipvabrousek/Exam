@@ -24,7 +24,7 @@ Code is ran line by line
 
 
 ------------------------------------------------------------------------------------------------------------
-## Scope
+# Scope
 
 * a space in which the variable it defines are accessible
 * **LEXICAL SCOPING:** a function, that is lexically within another function,gets access to the scope of outer function
@@ -72,7 +72,7 @@ function third(){
 
 ```
 ------------------------------------------------------------------------------------------------------------
-## Hoisting
+# Hoisting
 * default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function)
 
 ```js

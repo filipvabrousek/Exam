@@ -31,8 +31,21 @@ Code is ran line by line
 * LOCAL - can be only acessed within the same function
 * GLOBAL variables are deleted when you close the browser window (or tab), but remains available to new pages loaded into the same window
 
-* **EXECUTION STACK:** order in which functions are *called*: Global EXC -> first() -> second() -> third()
-* **SCOPE CHAIN:** order in which functions are *written lexically*: Global Scope -> first() --> second() -> third()
+* **EXECUTION STACK:** order in which functions are *called*:
+```
+third()
+second()
+first()
+Global EXC 
+```
+* **SCOPE CHAIN:** order in which functions are *written lexically*:
+```
+Global Scope 
+   first() 
+      second() 
+    third()
+```
+
 * execution stack is **different** from the scope chain
 
 ```js

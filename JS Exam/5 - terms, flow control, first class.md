@@ -10,7 +10,7 @@
 
 
 
-## Let, const 
+# Let, const 
 * Let, const - block scoped
 * var - function scoped
 
@@ -31,14 +31,9 @@ console.log(a); // Reference error (same for const)
 console.log(a); // 3
 
 ```
-# Shorthand
-```javascript
-let a = 1;
-let b = 2;
-const obj = { a, b }
-```
 
-## Control-flow
+
+# Control flow
 * while
 * if, else if
 * switch
@@ -83,7 +78,7 @@ daysToMaturity(2011, "USA");
 
 
 
-## First class functions
+# First class functions
 ```js
 let years = [1990, 1999];
 

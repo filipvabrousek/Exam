@@ -35,3 +35,13 @@ A) Argument object is created with all the parameters passed into function
 Code is ran line by line
 
 
+
+
+# This
+
+"**this**" points in:
+* *regular function call* at global (Window) object
+* *method call* to the object, that is calling the method
+
+* the **this** keyword is not assigned a value until a function where it is defined is actually called 
+* (when the new execution context is created)

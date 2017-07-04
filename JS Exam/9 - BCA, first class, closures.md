@@ -1,4 +1,4 @@
-# Characteristics (B, C, A)
+# Characteristics 
 * Methods defined in the function prototype, which allow us to control what **this** is
 
 ```javascript
@@ -58,7 +58,7 @@ var max = Math.max.apply(null, numbers);
 
 
 
-# 1
+# Example
 * **this: terka object**, **argument: "evening"** 
 
 ```javascript

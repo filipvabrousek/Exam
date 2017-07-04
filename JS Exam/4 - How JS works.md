@@ -148,7 +148,7 @@ const terka = {
 };
 
 terka.calc = filip.calc
-terka.calc(); //17 
+terka.calc();                       //17 
 
 
 ```

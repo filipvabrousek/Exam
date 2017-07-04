@@ -26,6 +26,7 @@ console.log(a); // 3
 * while
 * if, else if
 * for in
+* for of (only iterable collections)
 * switch
 
 ## while
@@ -51,6 +52,17 @@ for (prop in filip){
 
 
 ```
+
+## for of
+```js
+let arr = ["Filip", "Terka"];
+
+for (p of arr){
+    console.log(p);
+}
+
+```
+
 
 ## Switch
 * allows a program to evaluate an expression and attempt to match the expression's value to a case label

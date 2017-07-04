@@ -78,31 +78,4 @@ daysToMaturity(2011, "USA");
 
 
 
-# First class functions
-```js
-let years = [1990, 1999];
 
-
-function AC(arr, fn){
-    var arrRes = [];
-    
-    for (var i = 0; i < arr.length; i++){
-        arrRes.push(fn(arr[i]));
-    }
-    
-    return arrRes;
-}
-
-
-function calc(el){
-    return 2017 - el;
-}
-
-
-let ages = AC(years, calc);
-console.log(ages);
-
-
-
-
-```

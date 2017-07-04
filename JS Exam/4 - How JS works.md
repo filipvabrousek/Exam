@@ -119,5 +119,30 @@ console.log(` age in the VO of the global EXC object: ${age}`);
 * *regular function call* at global (Window) object
 * *method call* to the object, that is calling the method
 
-* the **this** keyword is not assigned a value until a function where it is defined is actually called 
-* (when the new execution context is created)
+the **this** keyword is only assigned a value, when the object calls the method
+```js
+const filip = {
+    birth: 1999,
+    calc(){
+    console.log(this);
+    console.log(2017 - this.birth); //18
+        
+    function inner(){
+        console.log(this);          //"window object"
+    }
+    inner();
+}
+}
+
+filip.calc();                       // 18
+
+
+const terka = {
+    birth: 2000
+};
+
+terka.calc = filip.calc
+terka.calc(); //17 
+
+
+```

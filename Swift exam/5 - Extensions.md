@@ -3,8 +3,6 @@
 * add new functionality to an existing class, structure, enumeration, or protocol type
 * includes the ability to extend types for which you do not have access to the original source code
 ```swift
-/*--------Extensions
- ----------------------------------------------------------------*/
 
 extension Double {
     var km: Double{ return self * 1000.0 }
@@ -24,11 +22,11 @@ let aMarathon = 42.km + 195.m
 print("A marathon is \(aMarathon) meters long")
 // Prints "A marathon is 42195.0 meters long"
 
+```
 
 
-
-/*--------Rect
- ----------------------------------------------------------------*/
+## Rect struct
+```swift
 struct Size {
     var width = 0.0, height = 0.0
 }
@@ -58,11 +56,9 @@ let centerRect = Rect(center: Point(x: 4.0, y: 4.0),
                       size: Size(width: 3.0, height: 3.0))
 // centerRect's origin is (2.5, 2.5) and its size is (3.0, 3.0)
 
+```
 
-
-
-/*--------Repetitions
- ----------------------------------------------------------------*/
+```swift
 extension Int {
     func repetitions(task: () -> Void) {
         for _ in 0..<self {
@@ -77,10 +73,10 @@ extension Int {
 // Hello!
 // Hello!
 // Hello!
+```
 
-
-/*--------Square
- ----------------------------------------------------------------*/
+## Square
+```swift
 extension Int {
     mutating func square() {
         self = self * self
@@ -89,6 +85,4 @@ extension Int {
 var someInt = 3
 someInt.square()
 // someInt is now 9
-
-
 ```

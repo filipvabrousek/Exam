@@ -26,9 +26,14 @@ Code is ran line by line
 ------------------------------------------------------------------------------------------------------------
 ## Scope
 
-* area with set of variables and objects you have access to 
+* a space in which the variable it defines are accessible
+* **LEXICAL SCOPING: ** a function, that is lexically within another function,gets access to the scope of outer function
 * LOCAL - can be only acessed within the same function
 * GLOBAL variables are deleted when you close the browser window (or tab), but remains available to new pages loaded into the same window
+
+* **EXECUTION STACK:** order in which functions are *called*: Global EXC -> first() -> second() -> third()
+* **SCOPE CHAIN:** order in which functions are *written lexically*: Global Scope -> first() --> second() -> third()
+* execution stack is **different** from the scope chain
 
 ```js
 let a = "Hello ";
@@ -46,7 +51,7 @@ function first(){
 
 function third(){
     let d = "Filip";
-    // console.log(c); -> ERROR
+    // console.log(c); -> ERROR "c" is in different scope, in differentexecution context
     console.log(a + d);
 }
 
@@ -58,24 +63,38 @@ function third(){
 * default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function)
 
 ```js
-console.log(age);          // -> UNDEFINED (values ARE NOT hoisted)
-var age = 23;
+console.log(age);      // -> undefined (values ARE NOT HOISTED)
+var age = 23;          // if there was NO variable we would get NOT DEFINED error
 
 
-pow (2);                   // 4
+
+pow(2);               // 4 (functions declarations ARE HOISTED)
 function pow(a){
     console.log(a * a);
 }
 
 
-function foo(){
-    let age = 65;
-    console.log(age);
+pow2(3);               // -> ERROR pow2 is NOT DEFINED 
+let pow2 = function(a){
+    console.log(a * a);
 }
 
-foo();
-console.log(age);             // 65, 23
 
+
+
+function foo(){
+    console.log(age);
+    var age = 65;
+    console.log(` age in the VO of the EXC of the "foo()": ${age}`); 
+}
+//  UNDEFINED, 65
+
+
+
+
+foo();
+console.log(` age in the VO of the global EXC object: ${age}`);          
+//  23
 
 ```
 

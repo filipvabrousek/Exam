@@ -12,31 +12,38 @@ Execution context is a concept in the language spec equates to the 'environment'
 
 # Phases:
 
-1) **Creation phase**  
-A) Creation of the variable object (VO)  
-B) Creation of the scope chain  
-C) Determining value of "this" variable  
-
-2) **Execution phase**    
-Code is ran line by line.  
-
 
 ## Creation phase
 A) Argument object is created with all the parameters passed into function  
    Code is scanned for function declarations  
    Code is scanned for variable declarations (set to undefined) (hoisting) 
    
- B) JS Engine goes all the way up of scope chain
+ B) Creation of the scope chain
  
- C) Value of "this is determined"  
+ C) determining value of **this** 
 
 
 ## Execution phase
 Code is ran line by line
 
 
+------------------------------------------------------------------------------------------------------------
+## Scope
+
+* area with set of variables and objects you have access to 
+* LOCAL - can be only acessed within the same function
+* GLOBAL variables are deleted when you close the browser window (or tab), but remains available to new pages loaded into the same window
+
+```js
 
 
+```
+
+## Hoisting
+* default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function)
+
+
+------------------------------------------------------------------------------------------------------------
 # This
 
 "**this**" points in:

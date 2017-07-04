@@ -1,4 +1,16 @@
-# Let, const 
+# Important terms
+## Scope
+
+* area with set of variables and objects you have access to 
+* LOCAL - can be only acessed within the same function
+* GLOBAL variables are deleted when you close the browser window (or tab), but remains available to new pages loaded into the same window
+
+## Hoisting
+* default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function)
+
+
+
+## Let, const 
 * Let, const - block scoped
 * var - function scoped
 
@@ -26,7 +38,7 @@ let b = 2;
 const obj = { a, b }
 ```
 
-# Control-flow
+## Control-flow
 * while
 * if, else if
 * switch
@@ -65,6 +77,36 @@ function daysToMaturity(birth, country){
 
 
 daysToMaturity(2011, "USA");
+
+
+```
+
+
+
+## First class functions
+
+
+```js
+let years = [1990, 1999];
+
+
+function AC(arr, fn){
+    var arrRes = [];
+    for (var i = 0; i < arr.length; i++){
+        arrRes.push(fn(arr[i]));
+    }
+    return arrRes;
+}
+
+function calc(el){
+    return 2017 - el;
+}
+
+
+let ages = AC(years, calc);
+console.log(ages);
+
+
 
 
 ```

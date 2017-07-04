@@ -1,4 +1,6 @@
-# Execution contexts
+# Theory
+
+## Execution contexts
 
 ![execution](http://i.imgur.com/2gXCI47.png)
 

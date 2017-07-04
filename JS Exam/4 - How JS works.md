@@ -59,6 +59,7 @@ function first(){
     
     function second(){
         let c = "Hey! ";
+        console.log(a + b + c); 
         third();
     }
 }

@@ -27,9 +27,10 @@ Code is ran line by line
 # Scope
 
 * a space in which the variable it defines are accessible
-* **LEXICAL SCOPING:** a function, that is lexically within another function,gets access to the scope of outer function
-* LOCAL - can be only acessed within the same function
-* GLOBAL variables are deleted when you close the browser window (or tab), but remains available to new pages loaded into the same window
+LOCAL - can be only acessed within the same function
+GLOBAL variables are deleted when you close the browser window (or tab), but remains available to new pages loaded into the same window
+* **Lexical scoping:** a function, that is lexically within another function,gets access to the scope of outer function
+
 
 * **EXECUTION STACK:** order in which functions are *called*:
 ```
@@ -64,7 +65,7 @@ function first(){
 
 function third(){
     let d = "Filip";
-    // console.log(c); -> ERROR "c" is in different scope, in differentexecution context
+    // console.log(c); -> ERROR "c" is in different scope, in different execution context
     console.log(a + d);
 }
 

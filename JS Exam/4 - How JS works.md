@@ -2,9 +2,8 @@
 
 ## Execution contexts
 
-![execution](http://i.imgur.com/2gXCI47.png)
-
-Execution context is a concept in the language spec equates to the 'environment' a function executes in; that is, variable scope (and the scope chain, variables in closures from outer scopes), function arguments, and the value of the this object
+**Execution context** = 'environment' a function executes in  
+(variable scope, and the scope chain, variables in closures from outer scopes, args, value of **this**)
 
 
 ## Creation phase
@@ -12,15 +11,15 @@ A) Argument object is created with all the parameters passed into function
    Code is scanned for function declarations  
    Code is scanned for variable declarations (set to undefined) (hoisting) 
    
- B) Creation of the scope chain
+ B) Scope chain is created
  
- C) determining value of **this** 
+ C)value of **this**  is determined
 
 
 ## Execution phase
 Code is ran line by line
 
-
+![execution](http://i.imgur.com/2gXCI47.png)
 
 
 ------------------------------------------------------------------------------------------------------------

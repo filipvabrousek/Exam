@@ -1,5 +1,30 @@
 # DOM
+* "Document object Model"
 * connects web pages to scripts or programming languages
+
+## Document
+
+*  represents any web page loaded in the browser and serves as an entry point into the web page's content, which is the DOM tree
+
+
+```js document.prototype()``` returns object with methods 
+
+
+```js
+console.log(document.prototype);
+console.log(document.styleSheets);
+
+function q() {
+    return document.querySelectorAll.apply(document, arguments);
+}
+
+q.apply(document, ['body']);
+
+```
+
+
+
+
 
 # BOM
 **window.**
@@ -12,6 +37,8 @@
 # JSON
 * JavaScript Standart Object Notation
 
+
+# Local storage
 ```javascript
 let myObj, myJSON, text, obj;
 

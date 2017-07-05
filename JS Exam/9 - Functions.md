@@ -20,7 +20,7 @@ pow.apply(this, [6]);
 
 
 
-# Bind
+## Bind
 * creates a new function that, when called, has **this** set to the provided value
 * creates a new **bound function (BF)** - *boundGetX* - exotic function object that wraps the original function obj
 * calling a BF generally results in the execution of its wrapped function
@@ -39,21 +39,11 @@ retrieve(); // 9
 const boundGetX = retrieve.bind(module);
 boundGetX(); // 81
 ```
-# Call
+## Call
 * method calls a function with a given *this* (null) and args provided individually
 * the slice method from array prototype is **called** on args
 
 
-
-
-```js
-function pow(a){
-    return a * a;
-}
-
-pow.call(this, 6);
-
-```
 
 
 ```javascript
@@ -69,7 +59,7 @@ w(...students);
 ```
 
 
-# Apply
+## Apply
 * apply() method calls a function with a given **this** value, and args provided as an array (or an array-like object)
 * The first arg to apply() sets the **this**, but **this** is not defined in Math.max, so we pass null (non - existent)
 
@@ -83,8 +73,8 @@ var max = Math.max.apply(null, numbers);
 
 
 
-# Example
-* **this: terka object**, **argument: "evening"** 
+# Using with objects
+* **this:** terka object, **argument**: "evening" 
 
 ```javascript
 const filip = {

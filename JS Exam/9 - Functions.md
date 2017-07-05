@@ -1,11 +1,22 @@
-# Characteristics 
+# Functions
+
+
+## Call, Bind, Apply
 * Methods defined in the function prototype, which allow us to control what **this** is
 
-```javascript
-let func = function () {};
-Object.getPrototypeOf(func).hasOwnProperty('bind') //true
-```
+```js
+function pow(a){
+    return a * a;
+}
 
+
+pow.bind(this)(6);
+pow.call(this, 6);
+pow.apply(this, [6]);
+
+// 36
+
+```
 
 
 

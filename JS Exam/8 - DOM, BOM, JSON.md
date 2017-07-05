@@ -12,7 +12,7 @@
 console.log(document.styleSheets);
 
 function q() {
-    return document.querySelectorAll.apply(document, arguments);
+    return document.querySelectorAll(...arguments);
 }
 
 q.call(document, 'body');

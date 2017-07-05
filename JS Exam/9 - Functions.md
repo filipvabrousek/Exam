@@ -32,6 +32,19 @@ boundGetX(); // 81
 * method calls a function with a given *this* (null) and args provided individually
 * the slice method from array prototype is **called** on args
 
+
+
+
+```js
+function pow(a){
+    return a * a;
+}
+
+pow.call(this, 6);
+
+```
+
+
 ```javascript
 const students = ["Filip", "Tereza", "Kaja"];
 

@@ -1,9 +1,10 @@
-# Theory
 
-## Execution contexts
 
-**Execution context** = 'environment' a function executes in  
-(variable scope, and the scope chain, variables in closures from outer scopes, args, value of **this**)
+# Execution contexts
+
+**Execution context** = abstract concept of the environment in which the current code is being evaluated in  
+either *global* or *function*
+
 
 
 ## Creation phase

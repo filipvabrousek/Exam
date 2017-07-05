@@ -2,12 +2,12 @@
 * high-level, dynamic, untyped, interpreted run-time language
 
 ## Primitive:
-* Null
-* Undefined
-* Boolean
 * Number
 * String
+* Boolean
 * Symbol
+* Null
+* Undefined
 
 
 ## Object:
@@ -16,7 +16,7 @@
 * Dates
 * Indexed collections (Arrays, typed Arrays)
 * Keyed collections (Map, Set, WeakMap, WeakSet)
-* JSON
+* Reg - exp
 
 # Comparing 
 * **typeof** returns a string indicating the type of the unevaluated operand

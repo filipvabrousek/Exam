@@ -9,12 +9,12 @@ either *global* or *function*
 
 ## Creation phase
 A) Argument object is created with all the parameters passed into function  
-   Code is scanned for function declarations  
-   Code is scanned for variable declarations (set to undefined) (hoisting) 
+   Code is scanned for **function declarations** 
+   Code is scanned for **variable declarations** (set to undefined = hoisting happens)  
    
- B) Scope chain is created
+ B) **scope chain** is created
  
- C)value of **this**  is determined
+ C) **this** value is determined
 
 
 ## Execution phase
@@ -124,8 +124,8 @@ console.log(` age in the VO of the global EXC object: ${age}`);
 # This
 
 "**this**" points in:
-* *regular function call* at global (Window) object
-* *method call* to the object, that is calling the method
+* regular function call -  at global (Window) object
+* method call -  to the object, that is calling the method
 
 the **this** keyword is only assigned a value, when the object calls the method
 ```js

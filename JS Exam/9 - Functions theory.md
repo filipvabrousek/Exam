@@ -16,16 +16,16 @@ Object.getPrototypeOf(func).hasOwnProperty('bind') //true
 
 ```javascript
 this.x = 9;    
-var module = {
+const module = {
   x: 81,
-  getX: function() { return this.x; }
+  getX() { return this.x; }
 };
 
 module.getX(); // 81
 
-var retrieveX = module.getX;
-retrieveX(); // 9
-var boundGetX = retrieveX.bind(module);
+const retrieve = module.getX;
+retrieve(); // 9
+const boundGetX = retrieve.bind(module);
 boundGetX(); // 81
 ```
 # Call
@@ -40,7 +40,8 @@ function w(){
     console.log(`Welcome!  ${args.join(" ")}`);
 }
 
-w.apply(null, students);
+w(...students);
+//w.apply(null, students);
 ```
 
 

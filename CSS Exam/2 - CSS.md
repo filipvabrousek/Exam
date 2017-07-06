@@ -39,8 +39,23 @@ img {
 
 ## Counters
 
+```html
+
+
+<h2>Title</h2>
+<h2>Title</h2>
+<h2>Title</h2>
+```
+
 ```css
-...
+body {
+    counter-reset: section;
+}
+
+h2::before {
+    counter-increment: section;
+    content: "Section " counter(section) ": ";
+}
 ```
 
 

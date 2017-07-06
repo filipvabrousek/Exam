@@ -60,13 +60,26 @@ a:visited {
   transition: all 0.6s;
 }
 
-/*will make heart visible (opacity: 1)*/
+
 a:hover span:after {
   opacity: 1;
-  /*posune tlačítko o 36px doleva*/
   transition: all 0.6s;
   padding-left: 36px;
 }
 ```
 
 # Beziers
+```css
+    div {
+    	width: 3em;
+    	height: 1em;
+    	background: #1abc9c;
+    	animation: bezier 3s infinite;
+    	transition-timing-function: cubic-bezier(0.68, -0.30, 0.265);
+    }
+    @keyframes bezier {
+    	100% {
+    		transform: translateX(20rem);
+    	}
+    }
+```

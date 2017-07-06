@@ -3,20 +3,20 @@
 
 # Syntax
 ```css
-h1{
-color: red;
+h1 {
+    color: red;
 }
 
 ```
 
 # colors
 ```css
- h1{
-        color: "red";
-        color: rgba(102, 0, 218, 0.7);
-        color: #1abc9c;
-        color: hsl(99, 100%, 50%);
-    }
+ h1 {
+    color: "red";
+    color: rgba(102, 0, 218, 0.7);
+    color: #1abc9c;
+    color: hsl(99, 100%, 50%);
+}
 ```
 
 # Functions
@@ -24,17 +24,17 @@ color: red;
 ## Calc
 ```css
  div {
-        background: green;
-        width: calc(100% - 1em);
-    }
+    background: green;
+    width: calc(100% - 1em);
+}
 ```
 
 ## Filters 
 
 ```css
-img{
-     filter: blur(5px) grayscale(1);
-    }
+img {
+    filter: blur(5px) grayscale(1);
+}
 ```
 
 ## Counters

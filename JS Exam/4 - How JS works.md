@@ -8,8 +8,9 @@ either *global* or *function*
 
 
 ## Creation phase
-A) Argument object is created with all the parameters passed into function  
-   Code is scanned for **function declarations** 
+A)   
+Argument object is created with all the parameters passed into function    
+   Code is scanned for **function declarations**   
    Code is scanned for **variable declarations** (set to undefined = hoisting happens)  
    
  B) **scope chain** is created

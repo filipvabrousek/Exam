@@ -56,7 +56,9 @@
   
 ```
 
+# Pseudo classes
 
+## 1
 ```html
 <div>
 DIV
@@ -65,6 +67,7 @@ DIV
 
 
 ```
+
 
 ```css
 div {
@@ -82,4 +85,16 @@ div:hover p {
 }
 
 
+```
+
+## 2
+* a:link
+* a:visited
+* a:hover
+* a:active
+
+```css
+  p:first-child{
+        color: blue;
+    }
 ```

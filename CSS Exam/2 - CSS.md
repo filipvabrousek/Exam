@@ -60,7 +60,3 @@ h2::before {
 
 
 
-## Cubic beziers
-```css
-...
-```

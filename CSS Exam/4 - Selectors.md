@@ -29,3 +29,57 @@
     }
 ```
 # Selector combinations
+
+```html
+<div>
+<p>I am in!</p>
+<p>I am in!</p>
+</div>
+
+
+<p>I am out.</p>
+<p>I am out.</p>
+```
+
+
+```css
+  div + p {
+ 	color: green;
+ }
+ div ~ p {
+     color: orange;
+  }
+  
+  div > p {
+ 	color: cornflowerblue;
+ }
+  
+```
+
+
+```html
+<div>
+DIV
+<p>Hidden until hover</p>
+</div>
+
+
+```
+
+```css
+div {
+	width: 100vw;
+	height: 20px;
+	background: green;
+}
+
+p {
+	display: none;
+}
+
+div:hover p {
+	display: block;
+}
+
+
+```

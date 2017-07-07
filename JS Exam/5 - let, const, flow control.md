@@ -31,7 +31,7 @@ console.log(a); //16
 # Control flow
 * while
 * if, else if
-* for in
+* for in (never use in arrays)
 * for of (only iterable collections)
 * switch
 

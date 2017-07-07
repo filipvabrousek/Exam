@@ -1,7 +1,15 @@
 # Media queries
 
 ```css
-@media (max-width: 20em) {} @media (min-width: 20em) and (orientation: landscape) {} @media (min-width: 10em),
+@media (max-width: 20em) {
+    ...
+}
+
+@media (min-width: 20em) and (orientation: landscape) {
+    ...
+}
+
+@media (min-width: 10em),
 handheld and (orientation: landscape) {
     ...
 }

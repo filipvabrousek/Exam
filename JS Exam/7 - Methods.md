@@ -26,6 +26,7 @@ constructor for strings, or a sequence of characters
 * fromCodePoint
 
 
+
 ## repeat
 ```javascript
 'oh '.repeat(2);
@@ -45,6 +46,14 @@ let count = 10,
 
 console.log(message);       // "10 items cost $2.50."
 ```
+
+## raw
+* only method of template literals
+```js
+String.raw({ raw: 'test' }, 0, 1, 2);
+```
+
+
 # Number
 wrapper object allowing you to work with numerical values (* number constructor)
 ```Number.prototype``` returns object with all the methods (inheritenance)

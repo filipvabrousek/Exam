@@ -166,3 +166,37 @@ add(1, 2, 3) // returns 6
 
 
 ```
+
+
+# Function in array
+
+```js
+
+const arr = [1,
+    false,
+    {
+        name: "Filip",
+        adress: "111 Main st."
+    },
+
+    name => {
+        const g = "Hello ";
+        console.log(g + name);
+    }
+];
+
+
+console.log(arr);
+arr[3](arr[2].name);
+```
+
+# Defining own methods
+```js
+String.prototype.longerThan = function(limit){
+    return this.length > limit;
+}
+
+console.log("Car".longerThan(2));
+
+
+```

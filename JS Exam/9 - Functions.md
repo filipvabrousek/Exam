@@ -1,7 +1,7 @@
 # Functions
 
 
-## Call, Bind, Apply
+# Call, Bind, Apply
 * Methods defined in the function prototype, which allow us to control what **this** is
 
 ```js
@@ -151,6 +151,7 @@ sayHi("Tony");
 
 ```
 
+------------------------------------------------------------------------------------------------------
 # Functions without arguments
 
 ```js
@@ -168,8 +169,8 @@ add(1, 2, 3) // returns 6
 ```
 
 
+------------------------------------------------------------------------------------------------------
 # Function in array
-
 ```js
 
 const arr = [1,
@@ -189,7 +190,7 @@ const arr = [1,
 console.log(arr);
 arr[3](arr[2].name);
 ```
-
+------------------------------------------------------------------------------------------------------
 # Defining own methods
 ```js
 String.prototype.longerThan = function(limit){

@@ -80,7 +80,7 @@ section {
 </section>
 ```
 
-# Grid layout 1
+## Grid layout 1
 ```css
  * {
     font-family: Arial;

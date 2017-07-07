@@ -21,6 +21,12 @@ console.log(a); // 3
 
 ```
 
+```js
+let b = false; 
+let c = 16;
+let a = b || c;
+console.log(a); //16
+```
 
 # Control flow
 * while

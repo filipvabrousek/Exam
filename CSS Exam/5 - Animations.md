@@ -100,14 +100,12 @@ a:hover span:after {
         </ul>
     </nav>
 
-
     <input type="checkbox" id="nav-trigger" class="nav-trigger" />
     <label for="nav-trigger"></label>
 
 
 
 
-    <!----------------------------SITE WRAPPER AND CONTENT------------------------------>
     <div class="site-wrap">
         <h1>Title</h1>
     </div>

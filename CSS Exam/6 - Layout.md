@@ -1,5 +1,31 @@
 # Flexbox
+```css
+* {
+	margin: 0;
+	padding: 0;
+}
 
+section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+div {
+	width: 10em;
+	height: 10em;
+	background: #1abc9c;
+	margin: 1em;
+}
+
+@media only screen and (max-width: 30em) {
+	section {
+		flex-direction: column;
+	}
+}
+
+```
 
 
 # Grid

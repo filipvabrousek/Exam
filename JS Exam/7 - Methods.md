@@ -47,16 +47,43 @@ let count = 10,
 console.log(message);       // "10 items cost $2.50."
 ```
 
-## raw
+## Raw - 1
 * only method of template literals
 ```js
 String.raw({ raw: 'test' }, 0, 1, 2);
 ```
+## Raw - 2
+```javascript
+function raw(literals, ...substitutions) {
+    let result = "";
+
+    // run the loop only for the substitution count
+    for (let i = 0; i < substitutions.length; i++) {
+        result += literals.raw[i];      // use raw values instead
+        result += substitutions[i];
+    }
+
+    // add the last literal
+    result += literals.raw[literals.length - 1];
+
+    return result;
+}
+
+let message = raw`Multiline\nstring`;
+
+console.log(message);           // "Multiline\\nstring"
+console.log(message.length);    // 17
+```
 
 
+
+
+
+
+----------------------------------------------------------------------------------
 # Number
-wrapper object allowing you to work with numerical values (* number constructor)
-```Number.prototype``` returns object with all the methods (inheritenance)
+wrapper object allowing you to work with numerical values (number constructor)
+```Number.prototype``` returns object with all the methods (inheritenance))
 
 * isFinite
 * isNaN
@@ -67,6 +94,8 @@ wrapper object allowing you to work with numerical values (* number constructor)
 * valueOf
 
 
+
+----------------------------------------------------------------------------------
 # Object
 Object constructor creates an object wrapper
 
@@ -122,6 +151,7 @@ console.log(JSON.stringify(obj));
 
 
 
+----------------------------------------------------------------------------------
 # Array 
 global object that is used in the construction of arrays
 
@@ -211,31 +241,9 @@ let p = ["Terka", "Filip", "Karel", "Lucy"];
 let boys = p.splice(1, 2);
 ```
 
-## Raw
-```javascript
-function raw(literals, ...substitutions) {
-    let result = "";
 
-    // run the loop only for the substitution count
-    for (let i = 0; i < substitutions.length; i++) {
-        result += literals.raw[i];      // use raw values instead
-        result += substitutions[i];
-    }
-
-    // add the last literal
-    result += literals.raw[literals.length - 1];
-
-    return result;
-}
-
-let message = raw`Multiline\nstring`;
-
-console.log(message);           // "Multiline\\nstring"
-console.log(message.length);    // 17
-```
-
-# Another object methods
-## Date
+----------------------------------------------------------------------------------
+# Date
 
 * toString
 * toUTCString
@@ -245,7 +253,7 @@ console.log(message.length);    // 17
 let d = new Date(99,6,20,20,28,00,0);
 // Tue Jul 20 1999 20:28:00 GMT+0200 (CEST)
 ```
-## Math 
+# Math 
 
 * sin
 * cos

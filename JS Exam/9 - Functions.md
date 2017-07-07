@@ -151,4 +151,18 @@ sayHi("Tony");
 
 ```
 
+# Functions without arguments
 
+```js
+function add() {
+    let sum = 0;
+    for (let i = 0, len = arguments.length; i < len; ++i) {
+        sum += arguments[i];
+    }
+    return sum;
+}
+
+add(1, 2, 3) // returns 6
+
+
+```

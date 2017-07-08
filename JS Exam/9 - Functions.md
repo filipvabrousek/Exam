@@ -2,7 +2,7 @@
 
 
 # Call, Bind, Apply
-* Methods defined in the function prototype, which allow us to control what **this** is
+* methods defined in the function prototype, which allow us to control what **this** is
 
 ```js
 function pow(a){
@@ -134,6 +134,8 @@ console.log(ages);
 ------------------------------------------------------------------------------------------------------
 
 # Closures
+* =  combination of a function and the lexical environment within which that function was declared
+
 After anonymous function returns, STH stays in memory
 Then, after sayHi creates new execution content, and find STH sitting there
 (due to SCOPE CHAIN, if variable isnt found in local function, it goes down in the scope chain and looks for it there)

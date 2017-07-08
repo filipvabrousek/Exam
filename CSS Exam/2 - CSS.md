@@ -1,15 +1,24 @@
 # CSS
 
 
-# Syntax
+## Syntax
 ```css
 h1 {
     color: red;
 }
 
 ```
+# Block model
+* width
+* height
+* min-width
+* max-width
+* padding
+* margin
+* box-sizing (border-box) to all elements
 
-# colors
+----------------------------------------------------------------------
+## colors
 ```css
  h1 {
     color: "red";
@@ -65,6 +74,41 @@ div {
   background-repeat: no-repeat;
   background-blend-mode: hard-light;
 }
+```
+
+
+## Mix-blend-mode
+```html
+<div>
+  <h1>TEXT</h1>
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/chicago.jpg">
+</div>
+
+```
+
+```css
+div {
+  text-align: center;
+  position: relative;
+  background: #fff;
+}
+
+.light h1 {
+  margin: 0;
+  font-size: 20vw;
+  font-family: Arial;
+  line-height: 1.9;
+}
+
+div img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  mix-blend-mode: lighten;
+}
+
+
 ```
 
 ## Counters

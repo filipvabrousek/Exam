@@ -24,16 +24,46 @@ h1 {
 ## Calc
 ```css
  div {
-    background: green;
+    background: #1abc9c;
     width: calc(100% - 1em);
 }
 ```
 
 ## Filters 
-
+* sepia
+* grayscale
+* opacity
+* saturate
+* blur
+* contrast
+* hue-rotate
+* invert
 ```css
 img {
     filter: blur(5px) grayscale(1);
+}
+```
+
+## Background blend mode
+possible to combine with filters
+* screen
+* overlay
+* color-dodge
+* color-burn
+* hard-light
+* soft-light
+* hue
+* color
+* luminosity
+
+```css
+div {
+  display: block;
+  width: 90em;
+  height: 15em;
+  background: linear-gradient(to right, orange, blue), url("http://i.imgur.com/ndjf9K9.jpg");
+  background-repeat: no-repeat;
+  background-blend-mode: hard-light;
 }
 ```
 

@@ -143,13 +143,13 @@ Then, after sayHi creates new execution content, and find STH sitting there
 
 ```javascript
 function greet(sth){
-    return name => {
+    return (name) => {
         console.log(`${sth} ${name}`);
     }
 }
 
 const sayHi = greet("Hi");
-sayHi("Tony");
+sayHi("Filip");
 
 ```
 

@@ -165,7 +165,7 @@ function add() {
     return sum;
 }
 
-add(1, 2, 3) // returns 6
+add(1, 2, 3) // 6
 
 
 ```

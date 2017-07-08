@@ -8,7 +8,7 @@ h1 {
 }
 
 ```
-# Block model
+## Block model
 * width
 * height
 * min-width
@@ -17,7 +17,7 @@ h1 {
 * margin
 * box-sizing (border-box) to all elements
 
-----------------------------------------------------------------------
+
 ## colors
 ```css
  h1 {
@@ -28,7 +28,7 @@ h1 {
 }
 ```
 
-# Functions
+-------------------------------------------------------------------------------
 
 ## Calc
 ```css
@@ -64,6 +64,10 @@ possible to combine with filters
 * hue
 * color
 * luminosity
+
+## gradient
+* linear
+* radial
 
 ```css
 div {

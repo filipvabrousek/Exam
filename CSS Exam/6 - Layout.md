@@ -201,4 +201,52 @@ section {
 
 
 ```
+# Float
 
+```html
+<section>
+
+<article class="left">
+    <img src="http://placehold.it/200x200" class="right" /> 
+    .................
+</article>
+
+  <footer>Footer</footer>
+</section>
+
+```
+
+
+```css
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+  margin: 1em;
+}
+
+section{
+  width: 80%;
+  margin: 0 auto;
+}
+
+article {
+  width: 70%;
+}
+
+footer {
+  width: 100%;
+  height: 3em;
+  clear: both;
+  background: #1abc9c;
+}
+
+
+```

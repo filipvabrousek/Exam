@@ -1,5 +1,5 @@
 # Selectors
-
+* would select "ex" and "example" (~ matches the whole word) ```a[href*="example"] {}```
 ```html
 <a href="https://www.google.com">Link</a>
 <a href="#home">Home</a>
@@ -27,6 +27,8 @@
     a[href*="example"] {
         color: violet;
     }
+    
+    
 ```
 # Selector combinators
 
@@ -63,20 +65,16 @@
 ```html
 <div class="content">
 	<h2 lang="es">La casa Milá</h2>
-	<p>Text: <em>emphasized</em> <em>emphasized</em></p>Text 2: <em>emphasized 2</em> <em>emphasized 2</em>
-	<p></p>
+	<p>Text: <em>emphasized</em> <em>emphasized</em></p> <!---THIS (2nd)--->
+	Text 2: <em>emphasized 2</em> <em>emphasized 2</em>
 </div>
 	
 	
 <div class="con">
 	<h2 lang="es">La sagrada familia</h2>
-	<p>Text 3: <em>emphasized 3</em> <em>emphasized 3</em></p>
+	<p>Text 3: <em>emphasized 3</em> <em>emphasized 3</em></p> <!-----THIS (2nd)------>
 </div>
 	
-
-
-
-
 ```
 
 ```css

@@ -69,13 +69,9 @@
     </ul>
   </fieldset>
 
-
   <fieldset>
     <input type="submit">
-
-
   </fieldset>
-
 
 </form>
 

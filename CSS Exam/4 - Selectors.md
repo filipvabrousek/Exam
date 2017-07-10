@@ -56,6 +56,35 @@
   
 ```
 
+
+
+-------------------------------------------------
+
+```html
+<div class="content">
+	<h2 lang="es">La casa Milá</h2>
+	<p>Text: <em>emphasized</em> <em>emphasized</em></p>Text 2: <em>emphasized 2</em> <em>emphasized 2</em>
+	<p></p>
+</div>
+	
+	
+<div class="con">
+	<h2 lang="es">La sagrada familia</h2>
+	<p>Text 3: <em>emphasized 3</em> <em>emphasized 3</em></p>
+</div>
+	
+
+
+
+
+```
+
+```css
+div[class*="con"] h2[lang|="es"] + p em:nth-of-type(2n) {
+    color: green;
+  }
+```
+
 # Pseudo classes
 
 ## 1

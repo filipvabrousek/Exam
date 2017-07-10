@@ -28,12 +28,22 @@
 * lives in Oslo Norway
 
 --------------------------------------------------------
+
+
+# HTML - layout tags
+* hgroup
+* header
+* nav
+* article
+* section
+* aside
+* footer
+
+
 # HTML - modern tags
 * abbr
 * adress
 * area
-* article
-* aside
 * audio
 * blockquote
 * figure

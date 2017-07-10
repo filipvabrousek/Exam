@@ -65,7 +65,7 @@
 ```html
 <div class="content">
 	<h2 lang="es">La casa Milá</h2>
-	<p>Text: <em>emphasized</em> <em>emphasized</em></p> <!---THIS (2nd)--->
+	<p>Text: <em>emphasized</em> <em>emphasized</em></p> <!-----THIS (2nd)----->
 	Text 2: <em>emphasized 2</em> <em>emphasized 2</em>
 </div>
 	

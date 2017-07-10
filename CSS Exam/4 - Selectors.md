@@ -101,7 +101,7 @@ div:hover p {
 
 
 ## 3
-````html
+```html
 <div>
 <p>some text</p>
 <p>some text</p>

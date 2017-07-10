@@ -27,3 +27,57 @@
 * Østfold University College, West Georgia College, and MIT Media Lab
 * lives in Oslo Norway
 
+--------------------------------------------------------
+# HTML - modern tags
+* abbr
+* adress
+* area
+* article
+* aside
+* audio
+* blockquote
+* figure
+* figcaption
+* fieldset
+* time
+* cite
+* q
+* blockquote
+* mark
+* dfn
+* pre
+* code
+* ins
+* del
+* u
+* wbr - opportunity to line break
+* ruby, rp, rt - note about pronounciation in asia languages
+
+
+
+# HTML form
+```html
+<form method="post" action="process.php" enctype="multipart/form-data">
+
+  <fieldset>
+    <h2>Account</h2>
+    <ul>
+      <li>
+        <label for="name">Name:</label>
+        <input type="text" id="jmeno" name="jmeno" placeholder="enter name" required>
+      </li>
+    </ul>
+  </fieldset>
+
+
+  <fieldset>
+    <input type="submit">
+
+
+  </fieldset>
+
+
+</form>
+
+
+```

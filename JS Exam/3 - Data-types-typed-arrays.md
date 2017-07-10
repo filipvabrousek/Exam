@@ -54,17 +54,6 @@ let normalArray = [...typedArray]; // [5,1,2]
 ```
 
 
-## Convert typed array to normal
-```javascript
-let tarr = new Uint8Array([0,1,2]);
-
-Array.from(tarr)
-[ 0, 1, 2 ]
-
-Array.prototype.slice.call(tarr)
-[ 0, 1, 2 ]
-```
-
 ## Static typed array methods
 ```javascript
 TypedArray.of(...items)

@@ -64,15 +64,16 @@
 
 ```html
 <div class="content">
-	<h2 lang="es">La casa Milá</h2>
-	<p>Text: <em>emphasized</em> <em>emphasized</em></p> <!--THIS (2nd)-->
-	Text 2: <em>emphasized 2</em> <em>emphasized 2</em>
+  <h2 lang="es">La casa Milá</h2>
+  <p>T: <em>em</em> <em>em</em></p>
+  <!--THIS (2nd)-->
+  <p>T2: <em>em 2</em> <em>em 2</em></p>
 </div>
-	
-	
+
+
 <div class="con">
-	<h2 lang="es">La sagrada familia</h2>
-	<p>Text 3: <em>emphasized 3</em> <em>emphasized 3</em></p> <!--THIS (2nd)-->
+  <h2 lang="es">La sagrada familia</h2>
+  <p>T <em>em 3</em> <em>em 3</em></p> <!--THIS (2nd)-->
 </div>
 	
 ```

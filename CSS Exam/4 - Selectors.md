@@ -65,8 +65,7 @@
 ```html
 <div class="content">
   <h2 lang="es">La casa Milá</h2>
-  <p>T: <em>em</em> <em>em</em></p>
-  <!--THIS (2nd)-->
+  <p>T: <em>em</em> <em>em</em></p> <!--THIS (2nd)-->
   <p>T2: <em>em 2</em> <em>em 2</em></p>
 </div>
 

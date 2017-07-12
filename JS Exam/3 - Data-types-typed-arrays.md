@@ -63,3 +63,9 @@ TypedArray.of(...items)
 Int8Array.of(127, 126, 125).map(x => 2 * x)
 Int8Array [ -2, -4, -6 ]
 ```
+
+# Formatting text in console 
+```js
+console.log("%cDo you %c♥%c web? → %cjoinUs();", "color: #ADADAD; font-weight: bold; font-size: 18px;", "color: #f63939; font-weight: bold; font-size: 22px;", "color: #ADADAD; font-weight: bold; font-size: 18px;", "color: #4ac366; font-weight: bold; font-size: 18px;")
+
+```

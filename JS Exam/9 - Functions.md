@@ -135,20 +135,28 @@ console.log(ages);
 
 # Closures
 
-* finally understand !!!!!!
+* B() has lexical scope access to scope of A() 
+* After we excute A(), we assign the value it returned (inner B() function) to a variable called F()
+* F() invokes inner B(), but in this case, B() it's executed outside of its declared lexical scope
+* after A() executed, normally we would expect the inner scope of A() go away, because of the engine's Garbage collector
+* but the magic of closures won't let it happen
+* the inner scope is still in use - by B() function
+* B() has a lexical scope closure over the inner scope of A(), which keeps the scope alive for B() to reference it any time
+* B() still has a reference to that scope, and this is called the CLOSURE
+
 ```js
 function A() {
-	let a = 3;
+	let x = 3;
 
 	function B() {
-		console.log(a);
+		console.log(x);
 	}
 
 	return B;
 }
 
-let C = A();
-C();              // 3 
+let F = A();
+F();              // 3 
 
 ```
 

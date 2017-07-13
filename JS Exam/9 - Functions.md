@@ -135,14 +135,14 @@ console.log(ages);
 
 # Closures
 
-* B() has lexical scope access to scope of A() 
-* After we excute A(), we assign the value it returned (inner B() function) to a variable called F()
-* F() invokes inner B(), but in this case, B() it's executed outside of its declared lexical scope
-* after A() executed, normally we would expect the inner scope of A() go away, because of the engine's Garbage collector
-* but the magic of closures won't let it happen
-* the inner scope is still in use - by B() function
-* B() has a lexical scope closure over the inner scope of A(), which keeps the scope alive for B() to reference it any time
-* B() still has a reference to that scope, and this is called the CLOSURE
+* B() has lexical scope access to scope of A()   
+* After we excute A(), we assign the value it returned (inner B() function) to a variable called F()  
+* F() invokes inner B(), but in this case, B() it's executed outside of its declared lexical scope  
+* after A() executed, normally we would expect the inner scope of A() go away, because of the engine's Garbage collector  
+* but the magic of closures won't let it happen  
+* the inner scope is still in use - by B() function  
+* B() has a lexical scope closure over the inner scope of A(), which keeps the scope alive for B() to reference it any time  
+* B() still has a reference to that scope, and this is called the CLOSURE  
 
 ```js
 function A() {
@@ -164,17 +164,14 @@ F();              // 3
 # Functions without arguments
 
 ```js
-function A() {
-	let x = 3;
-
-	function B() {
-		console.log(x);
+function sum() {
+	let sum = 0;
+	for (const arg of arguments) {
+		sum += arg;
 	}
-	return B;
+	console.log(sum);
 }
-
-let F = A();
-F(); // 3
+sum(1, 2, 3);
 ```
 
 # Mean
@@ -189,14 +186,12 @@ mean([1, 2, 3]);        // 2
 ```
 
 ------------------------------------------------------------------------------------------------------
-# Function in array
+# Function in an array
 ```js
 
-const arr = [1,
-    false,
+const arr = [
     {
         name: "Filip",
-        adress: "111 Main st."
     },
 
     name => {
@@ -207,6 +202,6 @@ const arr = [1,
 
 
 console.log(arr);
-arr[3](arr[2].name);
+arr[1](arr[0].name);
 ```
 

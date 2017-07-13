@@ -156,14 +156,17 @@ C();              // 3
 # Functions without arguments
 
 ```js
-function add() {
-	let sum = 0;
-	for (let i of arguments) {
-		sum += i;
+function A() {
+	let x = 3;
+
+	function B() {
+		console.log(x);
 	}
-	console.log(sum);
+	return B;
 }
-add(1, 2, 3) // 6
+
+let F = A();
+F(); // 3
 ```
 
 # Mean

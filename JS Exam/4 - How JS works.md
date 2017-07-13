@@ -156,3 +156,44 @@ terka.calc();                             //17
 
 
 ```
+---------------------------------------------------------------------------
+# Inheritenance
+
+* JS has one construct: objects
+* each object has a private property - [[Prototype]] (holds a link to another object called its prototype)
+* that prototype object has a prototype of its own, and so on until an object is reached with **null** as its prototype (end of the chain)
+
+## .prototype vs __proto__
+* just functions have **prototype**  
+* **__proto__** is something all objects have including constructors  - (shouldn't be accessible) 
+
+## Object.create
+* creates a new object 
+* prototype of this object is the first argument of the function
+
+```javascript
+let a = {a: 1}; 
+```
+ a ---> Object.prototype ---> null
+```javascript
+let b = Object.create(a);
+console.log(b.a); // 1 (inherited)
+```
+ b ---> a ---> Object.prototype ---> null
+
+```javascript
+let c = Object.create(b);
+console.log(c.a); // 1 (inherited)
+```
+ c ---> b ---> a ---> Object.prototype ---> null
+
+
+```javascript
+let d = Object.create(null);
+console.log(d.hasOwnProperty); 
+```
+ d ---> null
+ undefined, because d doesn't inherit from Object.prototype
+
+
+

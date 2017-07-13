@@ -135,8 +135,8 @@ console.log(ages);
 
 # Closures
 
-* B() has lexical scope access to scope of A()   
-* After we excute A(), we assign the value it returned (inner B() function) to a variable called F()  
+* B() has lexical scope access to scope of A()  
+* after we excute A(), we assign the value it returned (inner B() function) to a variable called F()  
 * F() invokes inner B(), but in this case, B() it's executed outside of its declared lexical scope  
 * after A() executed, normally we would expect the inner scope of A() go away, because of the engine's Garbage collector  
 * but the magic of closures won't let it happen  

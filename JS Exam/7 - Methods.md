@@ -61,13 +61,17 @@ wrapper object allowing you to work with numerical values (number constructor)
 ```Number.prototype``` returns object with all the methods (inheritenance))
 
 * isFinite
-* isSafeInteger - between between -(2<sup>53</sup> - 1) and 2<sup>53</sup> - 1).
 * isNaN
 * toExponential
 * toFixed
 * toString
 * toPrecision
 * valueOf
+* isSafeInteger - number between -(2<sup>53</sup> - 1) and (2<sup>53</sup> - 1)
+
+## Properties
+* MAX_SAFE_INTEGER
+* MAX_SAFE_INTEGER
 
 
 

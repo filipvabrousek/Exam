@@ -196,4 +196,40 @@ console.log(d.hasOwnProperty);
  undefined, because d doesn't inherit from Object.prototype
 
 
+---------
+# LHS, RHS
 
+## RHS = Right-hand side assignment
+we are looking up for the value of "a"
+
+```js console.log(a);```
+
+
+## LHS - Left-hand side assignment
+we dont care about value, we simply want to find the variable as a target for the assignment operation
+
+```js a = 2 ```
+
+## Coversation
+
+```js
+function F(a){
+    console.log(a);
+}
+
+F(2);
+
+
+```
+
+- Egine: I have an RHS refrence for "F()". Ever heard of it?
+- Scope: Yes I have. Compiler declared it just a second ago
+- Engine: Hey, Scope, I've got an LHS reference for "a", ever heard of it?
+- Scope: Why yes, I have. Compiler declared it as a formal parameter to "F()" just recently. Here you go.
+- Engine: Now, time to assign 2 to a.
+- Engine: I need RHS look up for the console
+- Scope: OK
+- Engine: Perfect. Looking up log(..) OK its a function
+- Engine: Can you help mi with RHS refernce with "a"? I just want to double check.
+- Scope: Hasn't changed
+- Engine: Cool. Passing the value of a which is 2 into log(..)

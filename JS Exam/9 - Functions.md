@@ -141,7 +141,7 @@ function A() {
 	let a = 3;
 
 	function B() {
-		console.log( a );
+		console.log(a);
 	}
 
 	return B;

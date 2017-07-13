@@ -79,7 +79,6 @@ console.log(message.length);    // 17
 
 
 
-
 ----------------------------------------------------------------------------------
 # Number
 wrapper object allowing you to work with numerical values (number constructor)
@@ -265,5 +264,19 @@ let d = new Date(99,6,20,20,28,00,0);
 * random
 * sqrt
 * pow
+-----------------------------------------------------
+
+## Defining own methods
+
+
+```js
+String.prototype.longerThan = function(limit){
+    return this.length > limit;
+}
+
+console.log("Car".longerThan(2));
+```
+
+
 
 

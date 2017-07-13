@@ -61,6 +61,7 @@ wrapper object allowing you to work with numerical values (number constructor)
 ```Number.prototype``` returns object with all the methods (inheritenance))
 
 * isFinite
+* isSafeInteger - between between -(2<sup>53</sup> - 1) and 2<sup>53</sup> - 1).
 * isNaN
 * toExponential
 * toFixed
@@ -234,6 +235,11 @@ let d = new Date(99,6,20,20,28,00,0);
 * random - from interval <0, 1)
 * sqrt
 * pow
+
+```js
+let e = Math.pow(9, 3);
+console.log(e);
+```
 -----------------------------------------------------
 
 ## Defining own methods

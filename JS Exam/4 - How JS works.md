@@ -1,11 +1,12 @@
-
-
 # Execution contexts
 
 **Execution context** = abstract concept of the environment in which the current code is being evaluated in  
 either *global* or *function*
 
-
+## Perform execution
+* Engine
+* Compiler
+* Scope
 
 ## Creation phase
 A)   

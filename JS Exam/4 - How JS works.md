@@ -219,7 +219,6 @@ function F(a){
 
 F(2);
 
-
 ```
 
 - Egine: I have an RHS refrence for "F()". Ever heard of it?
@@ -229,7 +228,7 @@ F(2);
 - Engine: Now, time to assign 2 to a.
 - Engine: I need RHS look up for the console
 - Scope: OK
-- Engine: Perfect. Looking up log(..) OK its a function
+- Engine: Perfect. Looking up log(..). OK, it's a function.
 - Engine: Can you help mi with RHS refernce with "a"? I just want to double check.
 - Scope: Hasn't changed
-- Engine: Cool. Passing the value of a which is 2 into log(..)
+- Engine: Cool. Passing the value of "a" which is "2" into "log(..)"

@@ -158,18 +158,25 @@ sayHi("Filip");
 
 ```js
 function add() {
-    let sum = 0;
-    for (let i = 0, len = arguments.length; i < len; ++i) {
-        sum += arguments[i];
-    }
-    return sum;
+	let sum = 0;
+	for (let i of arguments) {
+		sum += i;
+	}
+	console.log(sum);
 }
-
 add(1, 2, 3) // 6
-
-
 ```
 
+# Mean
+```js
+function mean(arr){
+    let len = arr.length;
+    let avg = arr.reduce((sum, val) => sum + val, 0) / len;
+    console.log(avg);
+}
+
+mean([1, 2, 3]);        // 2
+```
 
 ------------------------------------------------------------------------------------------------------
 # Function in array
@@ -192,14 +199,4 @@ const arr = [1,
 console.log(arr);
 arr[3](arr[2].name);
 ```
-------------------------------------------------------------------------------------------------------
-# Defining own methods
-```js
-String.prototype.longerThan = function(limit){
-    return this.length > limit;
-}
 
-console.log("Car".longerThan(2));
-
-
-```

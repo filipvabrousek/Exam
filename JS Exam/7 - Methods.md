@@ -52,30 +52,6 @@ console.log(message);       // "10 items cost $2.50."
 ```js
 String.raw({ raw: 'test' }, 0, 1, 2);
 ```
-## Raw - 2
-```javascript
-function raw(literals, ...substitutions) {
-    let result = "";
-
-    // run the loop only for the substitution count
-    for (let i = 0; i < substitutions.length; i++) {
-        result += literals.raw[i];      // use raw values instead
-        result += substitutions[i];
-    }
-
-    // add the last literal
-    result += literals.raw[literals.length - 1];
-
-    return result;
-}
-
-let message = raw`Multiline\nstring`;
-
-console.log(message);           // "Multiline\\nstring"
-console.log(message.length);    // 17
-```
-
-
 
 
 
@@ -130,7 +106,7 @@ let P = {
 
 let F = {
     g() {
-        return Object.getPrototypeOf(this).g.call(this) + ", hi!";
+        return `${Object.getPrototypeOf(this).g.call(this)}, hi!`;
     }
 };
 
@@ -174,6 +150,8 @@ global object that is used in the construction of arrays
 * call
 * apply
 * some
+* every
+* all
 * sort
 * slice
 * splice
@@ -206,20 +184,12 @@ f.unshift(); // 4
 
 ## Reduce
 ```javascript
-var n = [65, 44, 12, 4];
-const sum = (total, num) => total + num;
+const n = [65, 44, 12, 4];
+let sum = (total, num) => total + num;
 n.reduce(sum);
 ```
 
-## Entries
-```javascript
-const a = ['a', 'b', 'c'];
-const iterator = a.entries();
 
-console.log(iterator.next().value); // [0, 'a']
-console.log(iterator.next().value); // [1, 'b']
-console.log(iterator.next().value); // [2, 'c']
-```
 
 
 
@@ -261,7 +231,7 @@ let d = new Date(99,6,20,20,28,00,0);
 * round
 * max
 * min
-* random
+* random - from interval <0, 1)
 * sqrt
 * pow
 -----------------------------------------------------

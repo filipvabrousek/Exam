@@ -3,10 +3,6 @@
 **Execution context** = abstract concept of the environment in which the current code is being evaluated in  
 either *global* or *function*
 
-## Perform execution
-* Engine
-* Compiler
-* Scope
 
 ## Creation phase
 A)   
@@ -23,11 +19,14 @@ Argument object is created with all the parameters passed into function
 Code is ran line by line
 
 ![execution](http://i.imgur.com/2gXCI47.png)
+## Perform execution
+* Engine - responsible for start to finish compilation
+* Compiler - one of engine's friends, handlers parsing and code generation
+* Scope - maintains list of variables and enforces accessibility rules
 
 
 ------------------------------------------------------------------------------------------------------------
 # Scope
-
  a space in which the variable it defines are accessible  
  LOCAL - can be only acessed within the same function  
  GLOBAL variables are deleted when you close the browser window (or tab), but remains available to new pages loaded into the same window  
@@ -207,11 +206,11 @@ we are looking up for the value of "a"
 
 
 ## LHS - Left-hand side assignment
-we dont care about value, we simply want to find the variable as a target for the assignment operation
+we don't care about value, we simply want to find the variable as a target for the assignment operation
 
 ```js a = 2 ```
 
-## Coversation
+## Conversation
 
 ```js
 function F(a){
@@ -230,6 +229,6 @@ F(2);
 - Engine: I need RHS look up for the console
 - Scope: OK
 - Engine: Perfect. Looking up log(..). OK, it's a function.
-- Engine: Can you help mi with RHS refernce with "a"? I just want to double check.
+- Engine: Can you help me with RHS refernce with "a"? I just want to double check.
 - Scope: Hasn't changed
 - Engine: Cool. Passing the value of "a" which is "2" into "log(..)"

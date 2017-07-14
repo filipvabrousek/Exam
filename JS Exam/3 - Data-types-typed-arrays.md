@@ -1,7 +1,7 @@
 # Data types  
 * JS is high-level, dynamic, untyped, interpreted run-time language  
 * variables don't have types - value have types  
-* has 7 data types (6 primitives + Object)  
+* has 7 data types (6 primitives + Object)
 ----------------------------------------------------------------------------------------
 ### Number 
 ### String
@@ -34,15 +34,6 @@
 * Error()
 * Symbol()
 ----------------------------------------------------------------------------------------
-
-
-
-
-
-# Comparing 
-* **typeof** returns a string indicating the type of the unevaluated operand
-* when comparing use ===
-
 
 
 # Typed arrays
@@ -100,4 +91,16 @@ b; // ReferenceError: b is not defined
 
 typeof a; // UNDEFINED
 typeof b; // UNDEFINED
+```
+
+
+# Coercion
+* JSON.stringify will omit undefined, function and symbol values
+* will be coerced to false: undefined, null, false, +0, -0, NaN
+* **typeof** returns a string indicating the type of the unevaluated operand
+* when comparing use === (won't allow coercion)
+
+```js
+let d = new Date( "Mon, 18 Aug 2014 08:53:06 CDT" );
++d; // 1408369986000
 ```

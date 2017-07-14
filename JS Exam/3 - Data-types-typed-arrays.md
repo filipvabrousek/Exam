@@ -70,3 +70,14 @@ Int8Array [ -2, -4, -6 ]
 console.log("%cDo you %c♥%c web? → %cjoinUs();", "color: #ADADAD; font-weight: bold; font-size: 18px;", "color: #f63939; font-weight: bold; font-size: 22px;", "color: #ADADAD; font-weight: bold; font-size: 18px;", "color: #4ac366; font-weight: bold; font-size: 18px;")
 
 ```
+
+# Undefined
+```js
+var a;
+
+a; // undefined
+b; // ReferenceError: b is not defined
+
+typeof a; // UNDEFINED
+typeof b; // UNDEFINED
+```

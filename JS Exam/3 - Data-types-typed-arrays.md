@@ -2,15 +2,15 @@
 * JS is high-level, dynamic, untyped, interpreted run-time language  
 * variables don't have types - value have types  
 * has 7 data types (6 primitives + Object)  
---------------------------------------------
-**Number**  
-**String**  
-**Boolean**  
-**Symbol**  
-**Null**  
-**Undefined**
+----------------------------------------------------------------------------------------
+### Number 
+### String
+### Boolean 
+### Symbol
+### Null  
+### Undefined
 
-**Object**  
+### Object  
      1) regular objects  
      2) Function - code snippet that can be called by other code or by itself, or a variable that refers to the function  
      3) Date  
@@ -33,7 +33,7 @@
 * Date()
 * Error()
 * Symbol()
-
+----------------------------------------------------------------------------------------
 
 
 

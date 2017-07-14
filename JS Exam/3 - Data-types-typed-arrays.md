@@ -1,22 +1,22 @@
-# Data types
-* JS is high-level, dynamic, untyped, interpreted run-time language
-* variables don't have types - value have types
-* JS has 7 data types (6 primitives + Object)
-
-* **Number**
-* **String**
-* **Boolean**
-* **Symbol**
-* **Null**
-* **Undefined**
-* **Object**
-     * regular objects
-     * Function - code snippet that can be called by other code or by itself, or a variable that refers to the function
-     * Date
-     * Error
-     * indexed collections (Arrays, typed Arrays)
-     * keyed collections (Map, Set, WeakMap, WeakSet)
-     * RegExp
+# Data types  
+JS is high-level, dynamic, untyped, interpreted run-time language  
+variables don't have types - value have types  
+JS has 7 data types (6 primitives + Object)  
+--------------------------------------------
+**Number**  
+**String**  
+**Boolean**  
+**Symbol**  
+**Null**  
+**Undefined**  
+**Object**  
+     * regular objects  
+     * Function - code snippet that can be called by other code or by itself, or a variable that refers to the function  
+     * Date  
+     * Error  
+     * indexed collections (Arrays, typed Arrays)  
+     * keyed collections (Map, Set, WeakMap, WeakSet)  
+     * RegExp  
 
 
 

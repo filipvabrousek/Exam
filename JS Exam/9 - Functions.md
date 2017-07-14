@@ -1,6 +1,5 @@
 # Functions
 
-
 # Call, Bind, Apply
 * methods defined in the function prototype, which allow us to control what **this** is
 
@@ -204,4 +203,9 @@ const arr = [
 console.log(arr);
 arr[1](arr[0].name);
 ```
-
+------------------------------------------------------------
+# Creating new Function
+```js
+var e = new Function( "a", "return a * 2;" );
+e(4);
+```

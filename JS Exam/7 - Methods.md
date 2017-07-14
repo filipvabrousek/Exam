@@ -59,6 +59,7 @@ String.raw({ raw: 'test' }, 0, 1, 2);
 # Number
 wrapper object allowing you to work with numerical values (number constructor)
 ```Number.prototype``` returns object with all the methods (inheritenance))
+integer (10 and 10.0 - no decimal value)
 
 * isFinite
 * isNaN

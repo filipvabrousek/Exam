@@ -1,5 +1,6 @@
 # Data types
 * JS is high-level, dynamic, untyped, interpreted run-time language
+* variables don't have types - value have types
 
 ## Primitive:
 * Number

@@ -1,24 +1,42 @@
 # Data types
 * JS is high-level, dynamic, untyped, interpreted run-time language
 * variables don't have types - value have types
-* JS has 7 data types
+* JS has 7 data types (6 primitives + Object)
 
-## Primitive:
-* Number
-* String
-* Boolean
-* Symbol
-* Null
-* Undefined
+* **Number**
+* **String**
+* **Boolean**
+* **Symbol**
+* **Null**
+* **Undefined**
+* **Object**
+     * regular objects
+     * Function - code snippet that can be called by other code or by itself, or a variable that refers to the function
+     * Date
+     * Error
+     * indexed collections (Arrays, typed Arrays)
+     * keyed collections (Map, Set, WeakMap, WeakSet)
+     * RegExp
 
 
-## Object:
-* regular objects
-* functions - code snippet that can be called by other code or by itself, or a variable that refers to the function
-* dates
-* indexed collections (Arrays, typed Arrays)
-* keyed collections (Map, Set, WeakMap, WeakSet)
-* reg - exp
+
+
+## Common natives (in constructors)
+* String()
+* Number()
+* Boolean()
+* Array()
+* Object()
+* Function ()
+* RegExp()
+* Date()
+* Error()
+* Symbol()
+
+
+
+
+
 
 # Comparing 
 * **typeof** returns a string indicating the type of the unevaluated operand

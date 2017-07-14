@@ -47,10 +47,22 @@ let count = 10,
 console.log(message);       // "10 items cost $2.50."
 ```
 
-## Raw - 1
+## Raw 
 * only method of template literals
 ```js
 String.raw({ raw: 'test' }, 0, 1, 2);
+```
+## get vowels
+```js
+function vowels(str) {
+	let matches;
+
+	if (str && (matches = str.match( /[aeiou]/g ))) {
+		return matches;
+	}
+}
+
+vowels("Hello!"); // ["e","o"]
 ```
 
 
@@ -74,7 +86,17 @@ integer (10 and 10.0 - no decimal value)
 * MAX_SAFE_INTEGER
 * MAX_SAFE_INTEGER
 
+```js
+(2).toFixed(2);
+```
+```js
+if (!Number.isNaN){
+    Number.isNaN = function(n) {
+        return n !== n
+    }
+}
 
+```
 
 ----------------------------------------------------------------------------------
 # Object

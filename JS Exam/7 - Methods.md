@@ -135,7 +135,7 @@ console.log(JSON.stringify(obj));
 ----------------------------------------------------------------------------------
 # Array 
 global object that is used in the construction of arrays
-
+array with empty lots (holes) = sparse array
 
 * join
 * push

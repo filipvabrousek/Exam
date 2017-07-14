@@ -133,6 +133,7 @@ console.log(ages);
 ------------------------------------------------------------------------------------------------------
 
 # Closures
+- **Closure is when a function can remember and access its lexical scope even when it's invoked outside its lexical scope**
 
 - B() has lexical scope access to scope of A()  
 - after we excute A(), we assign the value it returned (inner B() function) to a variable called F()

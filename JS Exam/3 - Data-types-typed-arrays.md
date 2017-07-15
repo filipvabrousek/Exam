@@ -54,10 +54,6 @@ for (let byte of ui8) {
 ```
 
 
-
-
-
-
 ```javascript
 let typedArray = new Uint8Array([0,1,2]);
 console.log(typedArray.length); // 3
@@ -65,32 +61,19 @@ typedArray[0] = 5;
 let normalArray = [...typedArray]; // [5,1,2]
 ```
 
-
-## Static typed array methods
 ```javascript
 TypedArray.of(...items)
 ```
 
 ```javascript
 Int8Array.of(127, 126, 125).map(x => 2 * x)
-Int8Array [ -2, -4, -6 ]
+Int8Array // [ -2, -4, -6 ]
 ```
 
 # Formatting text in console 
 ```js
 console.log("%cDo you %c♥%c web? → %cjoinUs();", "color: #ADADAD; font-weight: bold; font-size: 18px;", "color: #f63939; font-weight: bold; font-size: 22px;", "color: #ADADAD; font-weight: bold; font-size: 18px;", "color: #4ac366; font-weight: bold; font-size: 18px;")
 
-```
-
-# Undefined
-```js
-var a;
-
-a; // undefined
-b; // ReferenceError: b is not defined
-
-typeof a; // UNDEFINED
-typeof b; // UNDEFINED
 ```
 
 

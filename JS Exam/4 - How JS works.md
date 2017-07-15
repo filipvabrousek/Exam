@@ -118,8 +118,15 @@ console.log(` age in the VO of the global EXC object: ${age}`);
 
 ```
 
+```js
+var a;
 
+a; // undefined
+b; // ReferenceError: b is not defined
 
+typeof a; // UNDEFINED
+typeof b; // UNDEFINED
+```
 
 ------------------------------------------------------------------------------------------------------------
 # This

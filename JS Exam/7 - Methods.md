@@ -52,6 +52,18 @@ console.log(message);       // "10 items cost $2.50."
 ```js
 String.raw({ raw: 'test' }, 0, 1, 2);
 ```
+
+```js
+function F(strings, ...values){
+    console.log(strings);
+    console.log(values);
+}
+
+let desc = `Filip`
+F`I am ${desc}`;
+```
+
+
 ## get vowels
 ```js
 function vowels(str) {

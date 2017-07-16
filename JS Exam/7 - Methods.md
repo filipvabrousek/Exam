@@ -118,6 +118,7 @@ Object constructor creates an object wrapper
 * isPrototypeOf
 * getPrototypeOf
 * setProtoTypeOf
+* getOwnPropertyDescriptors
 * preventExtensions
 * toString
 * valueOf
@@ -151,7 +152,8 @@ Object.assign(obj, { bar: true });
 console.log(JSON.stringify(obj));
 ```
 
-## defineProperty
+## Property descriptors - defineProperty
+* enumerable - will be included if the object's properties are iterated through
 ```js
 let obj = {
     a: 2
@@ -187,6 +189,21 @@ console.log(obj.name); // Terka
 Object.freeze(obj);
 obj.name = "Terka";
 console.log(obj.name);
+
+
+```
+## Get 
+```js
+let obj = {
+   arr: ["Filip", "Terka"],
+    get latest(){
+        if (this.arr.length !== 0){
+            return this.arr[this.arr.length - 1];
+        }
+    }
+}
+
+console.log(obj.latest);
 
 
 ```

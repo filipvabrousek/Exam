@@ -37,15 +37,16 @@ q.call(document, 'body');
 
 # Local storage
 ```javascript
-let myObj, myJSON, text, obj;
+let obj = {
+    name: "Filip",
+    age: 17
+}
 
-//Storing data:
-myObj = { "name":"Filip", "age":17, "city":"Zlin" };
-myJSON = JSON.stringify(myObj);
-localStorage.setItem("testJSON", myJSON);
+let JSONData = JSON.stringify(obj);
+localStorage.setItem("data", JSONData);
 
-//Retrieving data:
-text = localStorage.getItem("testJSON");
-obj = JSON.parse(text);
-console.log(obj.name);
+
+let text = localStorage.getItem("data");
+let res = JSON.parse(text);
+console.log(res.name);
 ```

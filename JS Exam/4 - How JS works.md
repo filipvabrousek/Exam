@@ -163,24 +163,21 @@ terka.calc();                             //17
 
 
 ```
+## 4 Rules of "this" binding
 
-**Rules:**:
-1) default binding - inside function at global object  
-2) implicit binding
+1) ```new``` binding
 ```js
-function foo() {
-	console.log( this.a );
+function foo(a) {
+	this.a = a;
 }
 
-var obj = {
-	a: 2,
-	foo: foo
-};
+var bar = new foo( 2 );
+console.log( bar.a ); // 2
 
-obj.foo(); // 2
 
 ```
-3) explicit binding
+
+2) explicit binding
 
 ```js
 function foo() {
@@ -194,17 +191,33 @@ var obj = {
 foo.call( obj ); // 2
 ```
 
-4) ```new``` binding
+3) implicit binding
 ```js
-function foo(a) {
-	this.a = a;
+function foo() {
+	console.log( this.a );
 }
 
-var bar = new foo( 2 );
-console.log( bar.a ); // 2
+var obj = {
+	a: 2,
+	foo: foo
+};
 
+obj.foo(); // 2
 
 ```
+
+
+4) default binding - inside function or at global object - (Window object), "undefined" in strict mode
+
+```js
+console.log(this.a);
+```
+
+
+
+
+
+
 ---------------------------------------------------------------------------
 # Inheritenance
 

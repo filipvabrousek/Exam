@@ -3,16 +3,16 @@
 ## Brendan Eich ( July 4, 1961 )
  
 ## Studies
- * Santa Clara University (from 1851, the oldest institution of higher learning in Cal.)
- => received bachelor's degree in mathematics and computer science
+* raised in Palo Alto -> Ellwood P. Cubberley High School
+* Santa Clara University (from 1851, the oldest institution of higher learning in Cal.)
+* received bachelor's degree in mathematics and computer science
  
 ## Carrer
- * started at Silicon Graphics => MicroUnity Systems Engineering 
+ * started at Silicon Graphics (7 years, OS and network code) => MicroUnity Systems Engineering 
  * => April 1995 Netscape Communications Corporation  
  * intending to put Scheme (dialect of the Lisp language) in the browser
  * => instead commissioned to create JS (lang. that reassembled Java for the  Netscape Navigator Web browser)
- * first version was completed in ten days in May 1995 (shipped in Sept.) - Navigator 2.0 Beta 
- * developed under **Mocha** officially called **LiveScript** => **JS**
+ * developed under **Mocha** (May 1995) officially called **LiveScript** (Sept. 1995 Navigator 2.0) => **JS** (dec.)
  * June 1997 JS => ECMA standard
  
  ## JS Versions

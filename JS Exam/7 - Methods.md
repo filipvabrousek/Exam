@@ -118,9 +118,16 @@ Object constructor creates an object wrapper
 * isPrototypeOf
 * getPrototypeOf
 * setProtoTypeOf
+* preventExtensions
 * toString
 * valueOf
 * assign
+* defineProperty
+* seal
+* freeze
+* isSealed
+* isFrozen
+
 
 ## isPrototypeOf
 ```javascript
@@ -135,36 +142,48 @@ console.log(C.prototype.isPrototypeOf(c));
 ```
 
 
-## setPrototypeOf, getPrototypeOf
-```javascript
-let P = {
-    g() {
-        return "Hello";
-    }
-};
 
 
-let F = {
-    g() {
-        return `${Object.getPrototypeOf(this).g.call(this)}, hi!`;
-    }
-};
-
-// set prototype to person
-Object.setPrototypeOf(F, P);
-console.log(F.g());                      // "Hello, hi!"
-console.log(Object.getPrototypeOf(F) === P);  // true
-```
-
-
-## Assign
+## assign
 ```javascript
 const obj = { foo: 123 };
 Object.assign(obj, { bar: true });
 console.log(JSON.stringify(obj));
 ```
 
+## defineProperty
+```js
+let obj = {
+    a: 2
+};
 
+
+Object.defineProperty(obj, "a", {
+    value: 4,
+    writable: false, // not writable
+    configurable: true, 
+    enumerable: true
+});
+
+
+obj.a; // 4
+obj.a = 6;
+obj.a; // 4
+```
+## seal
+```js
+const obj = {
+    name: "Filip";
+}
+
+obj.seal();
+obj.age = 18;
+console.log(obj.age);
+//Object.freeze() - nothing can be added or removed
+
+
+
+```
 
 ----------------------------------------------------------------------------------
 # Array 

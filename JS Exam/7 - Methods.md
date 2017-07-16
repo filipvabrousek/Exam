@@ -170,17 +170,23 @@ obj.a; // 4
 obj.a = 6;
 obj.a; // 4
 ```
-## seal
+## freeze, seal
 ```js
-const obj = {
-    name: "Filip";
-}
+let obj = {
+    name: "Filip"
+};
 
-obj.seal();
-obj.age = 18;
-console.log(obj.age);
-//Object.freeze() - nothing can be added or removed
+// prevents addign or deleting
+Object.seal(obj);
+obj.a = "Text";
+console.log(obj.a); // Undefined
+obj.name = "Terka";
+console.log(obj.name); // Terka
 
+// same as seal, but prevents changing existing properties
+Object.freeze(obj);
+obj.name = "Terka";
+console.log(obj.name);
 
 
 ```

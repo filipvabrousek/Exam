@@ -15,7 +15,7 @@
  * developed under **Mocha** (May 1995) officially called **LiveScript** (Sept. 1995 Navigator 2.0) => **JS** (dec.)
  * June 1997 JS => ECMA standard
  
- ## JS Versions
+## JS Versions
  
  
 | Version | Date |
@@ -37,9 +37,9 @@
  
  
 ## ECMA
- * 1961
- * located in Geneva
- * aims to develop standards and technical reports to facilitate and standardize the use of information communication technology and consumer electronics
- * < than 400 Ecma Standards
+* 1961
+* located in Geneva
+* aims to develop standards and technical reports to facilitate and standardize the use of information communication technology and consumer electronics
+* < than 400 Ecma Standards
  
  

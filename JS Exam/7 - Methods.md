@@ -3,7 +3,7 @@
 # String
 constructor for strings, or a sequence of characters
 ```String.prototype``` returns object with all the methods (inheritenance)
-
+when using ``` "Text".length;``` JS automatically boxes the value (wraps to ```String(...)```)
 * startsWith
 * endsWith
 * includes

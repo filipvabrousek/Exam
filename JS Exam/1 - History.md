@@ -29,10 +29,10 @@
 | ES 2015 (ES6) | June 2015  |
 | ES 2016 (ES7) | June 2016  |
  
- ## JS Engines
- * program or interpreter which executes JS code
- * 2008 - 2009 JS Engine war
- * 2010 - JS Engine race (Opera, Firefox, Safari, IE 9)
+## JS Engines
+* program or interpreter which executes JS code
+* 2008 - 2009 JS Engine war
+* 2010 - JS Engine race (Opera, Firefox, Safari, IE 9)
  
  
  

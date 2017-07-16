@@ -23,6 +23,12 @@ Code is ran line by line
 * Engine - responsible for start to finish compilation
 * Compiler - one of engine's friends, handlers parsing and code generation
 * Scope - maintains list of variables and enforces accessibility rules
+```js
+var a = 2;
+
+```
+* JS Engine sees 2 statements: ```var a``` and ```a = 2```
+* 1st: compiler phase task, 2nd: execution phase task
 
 
 ------------------------------------------------------------------------------------------------------------

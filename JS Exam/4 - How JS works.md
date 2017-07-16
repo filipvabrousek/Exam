@@ -163,6 +163,48 @@ terka.calc();                             //17
 
 
 ```
+
+**Rules:**:
+1) default binding - inside function at global object  
+2) implicit binding
+```js
+function foo() {
+	console.log( this.a );
+}
+
+var obj = {
+	a: 2,
+	foo: foo
+};
+
+obj.foo(); // 2
+
+```
+3) explicit binding
+
+```js
+function foo() {
+	console.log( this.a );
+}
+
+var obj = {
+	a: 2
+};
+
+foo.call( obj ); // 2
+```
+
+4) ```new``` binding
+```js
+function foo(a) {
+	this.a = a;
+}
+
+var bar = new foo( 2 );
+console.log( bar.a ); // 2
+
+
+```
 ---------------------------------------------------------------------------
 # Inheritenance
 

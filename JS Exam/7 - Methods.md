@@ -292,6 +292,15 @@ let p = ["Terka", "Filip", "Karel", "Lucy"];
 let boys = p.splice(1, 2);
 ```
 
+## isArray polyfill
+```js
+if (!Array.isArr){
+    Array.isArr = function(arg){
+        return Object.prototype.toString.call(arg) === "[object Array]";
+    };
+}
+```
+
 
 ----------------------------------------------------------------------------------
 # Date

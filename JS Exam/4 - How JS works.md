@@ -173,12 +173,13 @@ terka.calc();                             //17
 
 1) ```new``` binding
 ```js
-function foo(a) {
+
+function F(a) {
 	this.a = a;
 }
 
-var bar = new foo( 2 );
-console.log( bar.a ); // 2
+let bar = new F(2);
+console.log(bar.a); // 2
 
 
 ```
@@ -186,30 +187,29 @@ console.log( bar.a ); // 2
 2) explicit binding
 
 ```js
-function foo() {
-	console.log( this.a );
+function F() {
+	console.log(this.a);
 }
 
-var obj = {
+let obj = {
 	a: 2
 };
 
-foo.call( obj ); // 2
+F.call(obj); // 2
 ```
 
 3) implicit binding
 ```js
-function foo() {
-	console.log( this.a );
+function F() {
+	console.log(this.a);
 }
 
-var obj = {
+let obj = {
 	a: 2,
-	foo: foo
+	F: F
 };
 
-obj.foo(); // 2
-
+obj.F();
 ```
 
 

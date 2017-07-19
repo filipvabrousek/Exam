@@ -270,13 +270,17 @@ console.log(d.hasOwnProperty);
 ## RHS = Right-hand side assignment
 we are looking up for the value of "a"
 
-```js console.log(a);```
+```js 
+console.log(a);
+```
 
 
 ## LHS - Left-hand side assignment
 we don't care about value, we simply want to find the variable as a target for the assignment operation
 
-```js a = 2 ```
+```js
+a = 2 
+```
 
 ## Conversation
 

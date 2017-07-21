@@ -207,14 +207,37 @@ function wait(m){
 wait("Hi");
 
 ```
-* usage with for loop
+
+* doesn't work ):
+
 ```js
-for (let i = 1; i <= 5; i++) {
-    setTimeout(() => {
-        console.log(i);
-    }, i * 1000);
+for (var i=1; i<=5; i++) {
+	setTimeout( function timer(){
+		console.log( i );
+	}, i*1000 );
 }
 ```
+* does work :)
+```js
+for (var i=1; i<=5; i++) {
+	(function(j){
+		setTimeout( function timer(){
+			console.log( j );
+		}, j*1000 );
+	})( i );
+}
+```
+
+```js
+for (let i=1; i<=5; i++) {
+	setTimeout( function timer(){
+		console.log( i );
+	}, i*1000 );
+}
+```
+
+
+
 ------------------------------------------------------------------------------------------------------
 # Functions without arguments
 

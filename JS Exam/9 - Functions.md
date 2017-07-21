@@ -195,6 +195,19 @@ F();              // 3
 
 ```
 
+* ```timer()``` has a scope closure over the scope of ```wait()```, keeping and using reference to the "m" variable
+* a 1000ms after we executed ```wait()``` and its inner scope should otherwise be long gone, the ```timer()``` still has a refrence over that scope (has a **closure**)
+```js
+function wait(m){
+    setTimeout(function timer(){
+        console.log(m);
+    }, 1000);
+}
+
+wait("Hi");
+
+```
+
 ```js
 for (let i = 1; i <= 5; i++) {
 
@@ -202,19 +215,7 @@ for (let i = 1; i <= 5; i++) {
         console.log(i);
     }, i * 1000);
 }
-```
 
-```js
-let funcs = [];
-
-for (let i = 0; i < 5; i++) {
-	funcs.push( function(){
-		console.log( i );
-	} );
-}
-
-funcs[3]();		// 3
-```
 
 ------------------------------------------------------------------------------------------------------
 # Functions without arguments

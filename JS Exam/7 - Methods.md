@@ -110,6 +110,13 @@ if (!Number.isNaN){
 
 ```
 
+## binary and octal literals
+```js
+0b111110111 === 503 // true
+0o767 === 503 // true
+
+```
+
 ----------------------------------------------------------------------------------
 # Object
 Object constructor creates an object wrapper

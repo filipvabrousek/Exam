@@ -207,16 +207,14 @@ function wait(m){
 wait("Hi");
 
 ```
-
+* usage with for loop
 ```js
 for (let i = 1; i <= 5; i++) {
-
     setTimeout(() => {
         console.log(i);
     }, i * 1000);
 }
-
-
+```
 ------------------------------------------------------------------------------------------------------
 # Functions without arguments
 

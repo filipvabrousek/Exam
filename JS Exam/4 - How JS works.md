@@ -171,7 +171,7 @@ terka.calc();                             //17
 ```
 ## 4 Rules of "this" binding
 
-1) ```new``` binding
+1) ```new``` binding - using the newly constructed object
 ```js
 
 function F(a) {
@@ -184,7 +184,7 @@ console.log(bar.a); // 2
 
 ```
 
-2) explicit binding
+2) explicit binding - using the specified object
 
 ```js
 function F() {
@@ -198,7 +198,7 @@ let obj = {
 F.call(obj); // 2
 ```
 
-3) implicit binding
+3) implicit binding - using the context object
 ```js
 function F() {
 	console.log(this.a);

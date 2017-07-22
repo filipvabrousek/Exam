@@ -264,7 +264,41 @@ console.log(d.hasOwnProperty);
  undefined, because d doesn't inherit from Object.prototype
 
 
----------
+## Beware
+* The ability of a JS function to access ```call(..)```, ```apply(..)```, and ```bind(..)``` is because functions themselves are objects, and function-objects also have a ```[[Prototype]]``` linkage, to the ```Function.prototype``` object, which defines those default methods that any function object can delegate to. (You can acces them too !)
+```js
+function Foo(name) {
+	this.name = name;
+}
+
+Foo.prototype.myName = function() {
+	return this.name;
+};
+
+function Bar(name,label) {
+	Foo.call( this, name );
+	this.label = label;
+}
+
+// here, we make a new `Bar.prototype`
+// linked to `Foo.prototype`
+Bar.prototype = Object.create( Foo.prototype );
+
+// Beware! Now `Bar.prototype.constructor` is gone,
+// and might need to be manually "fixed" if you're
+// in the habit of relying on such properties!
+
+Bar.prototype.myLabel = function() {
+	return this.label;
+};
+
+var a = new Bar( "a", "obj a" );
+
+console.log(a.myName()); // "a"
+console.log(a.myLabel()); // "obj a"
+```
+
+-------------------------
 # LHS, RHS
 
 ## RHS = Right-hand side assignment

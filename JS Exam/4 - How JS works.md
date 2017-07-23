@@ -298,6 +298,55 @@ console.log(a.myName()); // "a"
 console.log(a.myLabel()); // "obj a"
 ```
 
+## Prototype chain
+```js
+
+let P = function n(name){
+    this.name = name;
+}
+
+let me = new P("Filip");
+console.log(me.prototype); // undefined
+console.log(me.constructor); // function n {}
+
+
+
+function F(a){
+    return a * a;
+}
+
+console.log(F.prototype); // Object {constructor: function}
+console.log(F.constructor); // function Function() { [native code] }
+console.log(F.prototype.constructor); // Function F(a){return a * a;}
+console.log(F.prototype.constructor.prototype); //  Object {constructor: function}
+console.log(F.__proto__); // function () { [native code] }
+console.log(F.call);
+
+
+
+
+
+let S = "Some text";
+console.log(S);
+console.log(S.prototype); // undefined - just functions have prototype
+console.log(S.constructor); //function String()
+console.log(S.constructor.constructor); // function Function()
+console.log(S.constructor.prototype); //String object with all STRING methods
+
+console.log(S.constructor.prototype.constructor.raw); // function raw() { [native code] }
+console.log(S.constructor.prototype.toString); // function toString() { [native code] }
+console.log(S.constructor.prototype.constructor.toString); // function toString() { [native code] }
+
+
+console.log(S.__proto__); // Object with all the STRING methods
+console.log(S.__proto__.__proto__); // Object with all the OBJECTS methods
+console.log(S.__proto__.__proto__.__proto__); // null
+
+
+```
+
+
+
 -------------------------
 # LHS, RHS
 

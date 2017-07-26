@@ -1,4 +1,4 @@
-# Built-in methods
+# METHODS
 
 # String
 constructor for strings, or a sequence of characters

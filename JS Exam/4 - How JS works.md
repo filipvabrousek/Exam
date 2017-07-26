@@ -1,4 +1,4 @@
-# Execution contexts
+# EXECUTION CONTEXTS
 
 **Execution context** = abstract concept of the environment in which the current code is being evaluated in  
 either *global* or *function*
@@ -32,7 +32,7 @@ var a = 2;
 
 
 ------------------------------------------------------------------------------------------------------------
-# Scope
+# SCOPE
  a space in which the variable it defines are accessible  
  LOCAL - can be only acessed within the same function  
  GLOBAL variables are deleted when you close the browser window (or tab), but remains available to new pages loaded into the same window  
@@ -85,7 +85,7 @@ function third(){
 
 
 ------------------------------------------------------------------------------------------------------------
-# Hoisting
+# HOISTING
 * default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function)
 
 ```js
@@ -135,7 +135,7 @@ typeof b; // UNDEFINED
 ```
 
 ------------------------------------------------------------------------------------------------------------
-# This
+# THIS
 
 "**this**" points in:
 * regular function call -  at global (Window) object
@@ -225,7 +225,7 @@ console.log(this.a);
 
 
 ---------------------------------------------------------------------------
-# Inheritenance
+# INHERITENANCE
 
 * JS has one construct: objects
 * each object has a private property - [[Prototype]] (holds a link to another object called its prototype)

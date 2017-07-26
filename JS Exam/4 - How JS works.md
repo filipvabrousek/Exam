@@ -348,8 +348,6 @@ console.log(S.__proto__.__proto__.__proto__); // null
 
 
 -------------------------
-# LHS, RHS
-
 ## RHS = Right-hand side assignment
 we are looking up for the value of "a"
 

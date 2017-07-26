@@ -1,4 +1,4 @@
-# DESTRUCTUIRNG
+# DESTRUCTURING
 * JS expression that makes it possible to extract data from arrays or objects using a syntax that mirrors the construction of array and object literals.
 
 # 1

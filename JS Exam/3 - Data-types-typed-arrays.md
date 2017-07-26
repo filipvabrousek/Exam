@@ -1,4 +1,4 @@
-# Data types  
+# DATA TYPES
 * JS is high-level, dynamic, untyped, interpreted run-time language  
 * variables don't have types - value have types  
 * has 7 data types (6 primitives + Object)

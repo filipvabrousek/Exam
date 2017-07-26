@@ -1,5 +1,5 @@
 
-# Let, const 
+# LET, CONST
 * Let, const - block scoped
 * var - function scoped
 
@@ -28,7 +28,7 @@ let a = b || c;
 console.log(a); //16
 ```
 
-# Control flow
+# CONTROL FLOW
 * while
 * if, else if
 * for in (never use in arrays)

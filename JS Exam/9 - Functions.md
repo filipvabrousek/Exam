@@ -1,4 +1,4 @@
-# Functions
+# FUNCTIONS
 
 # Call, Bind, Apply
 * methods defined in the function prototype, which allow us to control what **this** is

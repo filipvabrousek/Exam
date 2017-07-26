@@ -269,7 +269,16 @@ const f = ["Terka", "Filip", "Karel", "Lucy"];
 f.shift(); // "Terka"
 f.unshift(); // 4
 ```
-
+## Slice
+```javascript
+let p = ["Terka", "Filip", "Karel", "Lucy"];
+let boys = p.slice(1, 3);
+```
+## Splice
+```javascript
+let p = ["Terka", "Filip", "Karel", "Lucy"];
+let boys = p.splice(1, 2);
+```
 
 ## Reduce
 ```javascript
@@ -281,23 +290,13 @@ n.reduce(sum);
 
 
 
-
 ## Filter, Some, Every
 ```javascript
 var ages = [22, 21, 17];
 const check = (age) => age >= 18;
 ages.filter(check);
 ```
-## Slice
-```javascript
-let p = ["Terka", "Filip", "Karel", "Lucy"];
-let boys = p.slice(1, 3);
-```
-## Splice
-```javascript
-let p = ["Terka", "Filip", "Karel", "Lucy"];
-let boys = p.splice(1, 2);
-```
+
 
 ## isArray polyfill
 ```js

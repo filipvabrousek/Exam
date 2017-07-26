@@ -134,7 +134,7 @@ F.bynd(this)(2);
 
 ------------------------------------------------------------------------------------------------------
 
-# First class functions
+# FIRST CLASS FUNCTION
 ```js
 let years = [1990, 1999];
 
@@ -166,7 +166,7 @@ console.log(ages);
 
 ------------------------------------------------------------------------------------------------------
 
-# Closures
+# CLOSURES
 - **Closure is when a function can remember and access its lexical scope even when it's invoked outside its lexical scope**
 
 - B() has lexical scope access to scope of ```A()```  

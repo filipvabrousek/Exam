@@ -1,4 +1,4 @@
-# Destructuring
+# DESTRUCTUIRNG
 * JS expression that makes it possible to extract data from arrays or objects using a syntax that mirrors the construction of array and object literals.
 
 # 1
@@ -33,8 +33,16 @@ let [a = 1, b = 2, c = 3, d] = list;
 console.log( a,  b,  c,  d);
 // 7, 42, 3, undefined
 ```
-
 # 5
+```js
+let colors = [ "red" ];
+let [ a, b = "green" ] = colors;
+console.log(a);        // "red"
+console.log(b);       // "green"
+
+```
+
+# 6
 ```javascript
 let set = new Set([1, 2, 3]);
 set = new Set([...set].map(x => x * 2));
@@ -42,7 +50,7 @@ set = new Set([...set].map(x => x * 2));
 ```
 
 
-# 6
+# 7
 ```javascript
 const people = [
   'Filip', 
@@ -55,7 +63,7 @@ console.log(g1);
 // Terka
 ```
 
-# 7
+# 8
 ```javascript
 const people = {
     filip: "Filip",
@@ -72,7 +80,7 @@ const {
 console.log(b);
 ```
 
-# 8
+# 9
 ```javascript
 const people = {
   filip: "Filip",

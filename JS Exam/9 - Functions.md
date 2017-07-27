@@ -97,39 +97,7 @@ filip.P.apply(terka, ["evening"]);
 
 ```
 
-## Bind poylfill
 
-```js
-Function.prototype.bynd = function(oThis) {
-        const args = Array.prototype.slice.call( arguments, 1 );
-        const fToBind = this;
-        const fNOP = function(){};
-
-        const fBound = function(){
-            return fToBind.apply(
-                (
-                    this instanceof fNOP &&
-                    oThis ? this : oThis
-                ),
-                args.concat( Array.prototype.slice.call( arguments ) )
-            );
-        };
-
-        fNOP.prototype = this.prototype;
-        fBound.prototype = new fNOP();
-
-        return fBound;
-    };
-
-
-
-function F(a){
-    return a * a;
-}
-
-F.bynd(this)(2);
-
-```
 
 
 ------------------------------------------------------------------------------------------------------

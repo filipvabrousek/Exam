@@ -374,7 +374,7 @@ F(2);
 
 ```
 
-- Egine: I have an RHS refrence for "F()". Ever heard of it?
+- Engine: I have an RHS refrence for "F()". Ever heard of it?
 - Scope: Yes I have. Compiler declared it just a second ago
 - Engine: Hey, Scope, I've got an LHS reference for "a", ever heard of it?
 - Scope: Why yes, I have. Compiler declared it as a formal parameter to "F()" just recently. Here you go.

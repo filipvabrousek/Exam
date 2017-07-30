@@ -176,7 +176,7 @@ wait("Hi");
 
 ```
 
-* doesn't work ):
+* doesn't work ): - (works with ```let```)
 
 ```js
 for (var i=1; i<=5; i++) {
@@ -185,7 +185,7 @@ for (var i=1; i<=5; i++) {
 	}, i*1000 );
 }
 ```
-* does work :)
+* does work :) 
 ```js
 for (var i=1; i<=5; i++) {
 	(function(j){
@@ -196,13 +196,7 @@ for (var i=1; i<=5; i++) {
 }
 ```
 
-```js
-for (let i=1; i<=5; i++) {
-	setTimeout( function timer(){
-		console.log( i );
-	}, i*1000 );
-}
-```
+
 
 
 

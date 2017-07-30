@@ -35,6 +35,8 @@ console.log(a); //16
 * for of (only iterable collections)
 * switch
 
+
+
 ## while
 ```js
 let i = 1;
@@ -130,3 +132,32 @@ switch(a){
 ```
 
 
+## For
+
+* deprecated approach
+```js
+
+let old = [1, 2, 12, 20];
+let olds = [];
+const powers = n => n*n;
+
+for(let i = 0; i < old.length; i++){
+    if (old[i] > 10){
+    olds.push(powers(old[i]));
+    }
+}
+
+console.log(olds);
+```
+
+
+```js
+let arr = [1, 2, 12, 20];
+let s = [];
+
+const isBig = n => n > 10;
+const power = n => n*n;
+const sum = arr.filter(isBig).map(power);
+console.log(sum);
+
+```

@@ -138,16 +138,16 @@ switch(a){
 ```js
 
 let old = [1, 2, 12, 20];
-let olds = [];
-const powers = n => n*n;
+let s = [];
+const power = n => n*n;
 
 for(let i = 0; i < old.length; i++){
     if (old[i] > 10){
-    olds.push(powers(old[i]));
+    s.push(power(old[i]));
     }
 }
 
-console.log(olds);
+console.log(old);
 ```
 
 

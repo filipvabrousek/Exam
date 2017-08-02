@@ -26,17 +26,18 @@ pow.apply(this, [6]);
 
 ```javascript
 this.x = 9;    
-const module = {
+
+const M = {
   x: 81,
-  getX() { return this.x; }
+  get() { return this.x; }
 };
 
-module.getX(); // 81
+M.get(); // 81
 
-const retrieve = module.getX;
+const retrieve = M.get;
 retrieve(); // 9
-const boundGetX = retrieve.bind(module);
-boundGetX(); // 81
+const boundGet = retrieve.bind(M);
+boundGet(); // 81
 ```
 ## Call
 * method calls a function with a given *this* (null) and args provided individually

@@ -104,29 +104,7 @@ filip.P.apply(terka, ["evening"]);
 ------------------------------------------------------------------------------------------------------
 
 # FIRST CLASS FUNCTION
-```js
-let years = [1990, 1999];
 
-
-function AC(arr, fn){
-    var arrRes = [];
-    
-    for (var i = 0; i < arr.length; i++){
-        arrRes.push(fn(arr[i]));
-    }
-    
-    return arrRes;
-}
-
-
-function calc(el){
-    return 2017 - el;
-}
-
-
-let ages = AC(years, calc);
-console.log(ages);
-```
 
 ```js
 let years = [1990, 2009];
@@ -137,7 +115,6 @@ let calc = el => 2018 - el;
 
 let res = C(years, calc); 
 console.log(res); //28, 9
-
 ```
 
 

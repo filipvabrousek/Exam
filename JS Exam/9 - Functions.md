@@ -126,9 +126,17 @@ function calc(el){
 
 let ages = AC(years, calc);
 console.log(ages);
+```
 
+```js
+let years = [1990, 2009];
 
+let C = (arr, fn) => arr.map(fn);
+   
+let calc = el => 2018 - el;
 
+let res = C(years, calc); 
+console.log(res); //28, 9
 
 ```
 

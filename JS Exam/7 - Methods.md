@@ -180,22 +180,24 @@ obj.a = 6;
 obj.a; // 4
 ```
 ## freeze, seal
+* seal: prevents addign or deleting
+* freeze: same as seal, but prevents changing existing properties
 ```js
 let obj = {
     name: "Filip"
 };
 
-// prevents addign or deleting
+
 Object.seal(obj);
 obj.a = "Text";
 console.log(obj.a); // Undefined
 obj.name = "Terka";
 console.log(obj.name); // Terka
 
-// same as seal, but prevents changing existing properties
+
 Object.freeze(obj);
-obj.name = "Terka";
-console.log(obj.name);
+obj.name = "Kaja";
+console.log(obj.name); //Terka
 
 
 ```

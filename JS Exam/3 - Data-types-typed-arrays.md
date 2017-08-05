@@ -78,8 +78,8 @@ console.log("%cDo you %c♥%c web? → %cjoinUs();", "color: #ADADAD; font-weigh
 
 
 # Coercion
-* JSON.stringify will omit undefined, function and symbol values
-* will be coerced to false: undefined, null, false, +0, -0, NaN
+* ```JSON.stringify``` will omit ```undefined```, ```function``` and ```symbol``` values
+* will be coerced to false: ```undefined```, ```null```, ```false```, ```+0```, ```-0```, ```NaN```
 * **typeof** returns a string indicating the type of the unevaluated operand
 * when comparing use === (won't allow coercion)
 

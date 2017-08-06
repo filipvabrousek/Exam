@@ -165,40 +165,110 @@ print(alsoUltra.w) // 0 (h: 20)
 ```
 
 ---------------------------------------------------------------------
-## INITIALIZATION
+## INITIALIZATION, TYPE CASTING
 
 
 ```swift
-//this HAS initializer by deafult
-class V {
-    var wheels = 0
-    var desc: String {
-        return "\(wheels) wheel(s)"
+
+
+
+class MI{
+    var title: String
+    var year: Int
+    
+    init(title: String, year:Int){
+        self.title = title
+        self.year = year
+    }
+    
+    convenience init(){
+        self.init(title: "[Untitled]", year:0)
     }
 }
 
-//override overwrites DEFAULT initializer from above
-class Bicycle: V {
-    override init() {
+
+
+class S:MI{
+    
+    var desc: String{
+        var output = "\(year) - \(title)"
+        output += year >= 2000 ? " ✔" : " ✘"
+        return output
+    }
+    
+}
+
+var database = [
+    S(),
+    S(title: "Mission: Impossible", year: 1996),
+    S(title: "Mission: Impossible 6", year: 2018)
+]
+
+
+var count = 0
+
+for item in database{
+    if item is S{
+        count += 1;
+    }
+}
+
+
+
+for item in database{
+    print(item.desc)
+}
+
+
+print("There are \(count) movies in the database")
+
+
+
+
+
+
+
+
+
+
+
+
+```
+
+```swift
+class P{
+    var born = 0
+}
+
+class DIR:P{
+    override init(){
         super.init()
-        wheels = 2
+        born = 1968
     }
 }
 
-let bicycle = Bicycle()
-print("Bicycle: \(bicycle.desc)")
-// Bicycle: 2 wheel(s)
+
+let me2 = DIR()
+print(me2.born)
+
 
 
 
 ```
 
 
-
 ```swift
 
+struct PS{
+    let title: String
+    init?(title: String){
+        if title.isEmpty {return nil}
+        self.title = title
+    }
+}
 
 
-
+let me3 = PS(title: "")
+print(me3 == nil)
 
 ```

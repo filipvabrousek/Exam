@@ -7,7 +7,7 @@
 ```swift
 
 
-class S{
+ class S{
     var name: String
     init(name: String){
         self.name = name
@@ -86,6 +86,29 @@ mix.square = SQ(len: 50, name: "large square")
 print(mix.triangle.len) // 50
 
 
+
+
+
+```
+
+
+
+### Convenience init
+
+```swift
+class P{
+    var name: String
+    init(name: String){
+        self.name = name
+    }
+    
+    convenience init(){
+        self.init(name: "[Unnamed]")
+    }
+}
+
+let me = P()
+me.name
 
 
 

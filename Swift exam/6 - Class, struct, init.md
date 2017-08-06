@@ -166,3 +166,39 @@ print(alsoUltra.w) // 0 (h: 20)
 
 ---------------------------------------------------------------------
 ## INITIALIZATION
+
+
+```swift
+//this HAS initializer by deafult
+class V {
+    var wheels = 0
+    var desc: String {
+        return "\(wheels) wheel(s)"
+    }
+}
+
+//override overwrites DEFAULT initializer from above
+class Bicycle: V {
+    override init() {
+        super.init()
+        wheels = 2
+    }
+}
+
+let bicycle = Bicycle()
+print("Bicycle: \(bicycle.desc)")
+// Bicycle: 2 wheel(s)
+
+
+
+```
+
+
+
+```swift
+
+
+
+
+
+```

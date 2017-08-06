@@ -53,4 +53,27 @@ func makeArray<Item>(repeating item: Item, numberOfTimes: Int) -> [Item] {
 makeArray(repeating: "knock", numberOfTimes:4)
 ```
 
+## Stack
+
+```swift
+struct S<Element>{
+    var items = [Element]()
+    
+    mutating func push(_ item: Element){
+        items.append(item)
+    }
+    
+    mutating func pop() -> Element{
+        return items.removeLast()
+    }
+    
+}
+
+var stack = S<String>()
+stack.push("Filip")
+stack.push("Terka")
+
+let top = stack.pop()
+
+```
 

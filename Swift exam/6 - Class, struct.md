@@ -1,4 +1,12 @@
-# Class
+# Class, Struct
+
+## Class
+* reference type, not copied (reference to the same, existing instance)
+
+## Struct
+* copied
+* use for few simple data values
+* ```String```, ```Array```, ```Dictionary```
 
 ```swift
 

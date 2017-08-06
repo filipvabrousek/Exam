@@ -89,3 +89,46 @@ print(mix.triangle.len) // 50
 
 
 # Struct
+
+```swift
+
+
+struct RES {
+    var w = 0
+    var h = 0
+}
+
+
+let hd = RES(w: 1920, h: 1080)
+var ultra = hd
+ultra.w = 3160
+
+
+
+
+let a = "hd has \(hd.w) and  ultra has \(ultra.w)"
+print(a)
+
+
+
+
+class AUltra{
+    var w = 0
+    var h = 0
+    
+    init(w: Int, h:Int){
+        self.w = w
+        self.h = h
+    }
+}
+
+
+let mode = AUltra(w: 100, h: 100)
+mode.h = 20
+
+var alsoUltra = mode
+alsoUltra.w = 0
+print(alsoUltra.w) // 0 (h: 20)
+
+
+```

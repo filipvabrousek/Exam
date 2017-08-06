@@ -1,12 +1,8 @@
-# Class, Struct
+# CLASS, STRUCT, INIT
 
-## Class
+## CLASS
 * reference type, not copied (reference to the same, existing instance)
 
-## Struct
-* copied
-* use for few simple data values
-* ```String```, ```Array```, ```Dictionary```
 
 ```swift
 
@@ -95,8 +91,12 @@ print(mix.triangle.len) // 50
 
 ```
 
+---------------------------------------------------------------------
+## STRUCT
+* copied
+* use for few simple data values
+* ```String```, ```Array```, ```Dictionary```
 
-# Struct
 
 ```swift
 
@@ -140,3 +140,6 @@ print(alsoUltra.w) // 0 (h: 20)
 
 
 ```
+
+---------------------------------------------------------------------
+## INITIALIZATION

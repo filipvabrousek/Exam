@@ -169,9 +169,6 @@ print(alsoUltra.w) // 0 (h: 20)
 
 
 ```swift
-
-
-
 class MI{
     var title: String
     var year: Int
@@ -198,6 +195,9 @@ class S:MI{
     
 }
 
+
+
+/*---------------------------------------------------------------------*/
 var database = [
     S(),
     S(title: "Mission: Impossible", year: 1996),
@@ -211,26 +211,18 @@ for item in database{
     if item is S{
         count += 1;
     }
+    
+    if let movie = item as? S{
+        print("Movie was released in \(movie.year)")
+    }
 }
 
+print("There are \(count) movies in the database")
 
 
 for item in database{
     print(item.desc)
 }
-
-
-print("There are \(count) movies in the database")
-
-
-
-
-
-
-
-
-
-
 
 
 ```

@@ -86,3 +86,6 @@ print(mix.triangle.len) // 50
 
 
 ```
+
+
+# Struct

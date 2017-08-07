@@ -51,5 +51,42 @@ print("Here's a random number: \(generator.random())")
 
 
 
+```swift
+protocol P{
+    var desc: String { get }
+    mutating func adjust()
+}
+
+//---------------Simple class derived from example porotocol--------------
+class C: P{
+    var desc: String = "Simple class."
+    var prop: Int = 69105
+    func adjust() {
+        desc += " 100% adjusted."
+    }
+}
+var a = C()
+a.adjust()
+let aDesc = a.desc
+
+
+//------------------------------Extension of example protocol---------------------
+extension Int: P {
+    var desc: String {
+        return "The number \(self)"
+    }
+    mutating func adjust() {
+        self += 42
+    }
+}
+
+print(7.desc)
+
+let protocolValue: P = a
+print(protocolValue.desc)
+```
+
+
+
 
 

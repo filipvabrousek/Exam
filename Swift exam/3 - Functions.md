@@ -1,4 +1,4 @@
-# Functions
+# FUNCTIONS
 
 ## 1
 ```swift

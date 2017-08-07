@@ -67,6 +67,14 @@ for airportCode in a2.keys {
 let airportNames = [String](a2.values)
 ```
 
-# METHODS, TUPLES
+# METHODS
 
+* do
 
+## Tuples
+
+```swift
+var tuple = (a: 1, b:2)
+tuple  = (0, 2)
+// tuple = (x:1, y:2) -> Error
+```

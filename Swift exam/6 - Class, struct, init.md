@@ -91,6 +91,50 @@ print(mix.triangle.len) // 50
 
 ```
 
+
+## INHERITANCE
+* ```final``` - pervents property from being overriden
+```swift
+
+class V {
+    var speed = 0.0
+    
+    var desc: String{
+        return "speed: \(speed)"
+    }
+}
+
+
+class CAR: V{
+    var hp = 1
+    override var desc: String{
+        return super.desc + " hp: \(hp)"
+    }
+}
+
+let car = CAR()
+car.speed = 320
+car.hp = 250
+print(car.desc)
+
+
+class AUTOMATIC: CAR{
+    override var speed: Double{
+        didSet{
+            hp = Int(speed / 10.0 + 1)
+        }
+    }
+}
+
+
+
+
+
+
+
+
+```
+
 ## Property observers
 * willSet - called just before the value is stored
 * didSet - called imediatelly after new value is stored

@@ -216,6 +216,25 @@ print(alsoUltra.w) // 0 (h: 20)
 
 ```
 
+
+```swift
+
+struct Point {
+    var x = 0.0, y =  0.0
+    mutating func moveBy(y deltaX: Double, y deltaY:Double){
+        x += deltaX
+        y += deltaY
+    }
+}
+
+var some = Point(x: 1.0, y: 1.0)
+some.moveBy(y: 2, y: 3)
+
+print("Coords: \(some.x), \(some.y)")
+
+
+```
+
 ---------------------------------------------------------------------
 ## INITIALIZATION, TYPE CASTING
 

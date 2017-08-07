@@ -102,6 +102,39 @@ default:
 
 # Enum
 * defines a common type for a group of related values and enables you to work with those values in a type-safe way within your code
+
+```swift
+
+
+enum Climate{
+    case Iceland
+    case Santorini
+}
+
+var season = Climate.Iceland
+
+
+
+switch season {
+    
+case .Iceland:
+    print("Climate is cold")
+    
+case .Santorini:
+    print("Climate is hot")
+    
+default:
+    "Climate is not predictable"
+}
+
+
+
+
+
+
+
+
+```
 ```swift
 enum Places: Int {
     case first = 1

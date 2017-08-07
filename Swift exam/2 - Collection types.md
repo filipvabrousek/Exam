@@ -1,4 +1,4 @@
-# Collections types
+# COLLECTION TYPES
 
 ## 1
 * .union, .substracting, .symmetricDifference

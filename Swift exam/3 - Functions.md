@@ -1,4 +1,4 @@
-# CLOSURES
+# Functions
 
 ## 1
 ```swift

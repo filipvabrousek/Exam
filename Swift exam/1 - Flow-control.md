@@ -123,6 +123,17 @@ enum Places: Int {
 
 let winnerRawValue = Places.first.rawValue
 
+
+struct Results {
+    var places: Places
+    
+    func desc() -> String {
+        return "Winner has won \(places.desc()) USD"
+    }
+}
+
+let winnerPriceMoney = Results(places: .first).desc()
+
 ```
 # Codable
 ```swift

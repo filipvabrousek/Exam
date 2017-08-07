@@ -9,7 +9,7 @@ return a*b
 
 multiply(a: 3,b: 7)
 ```
-# Rest
+## Rest
 ```swift
 func sumOf(numbers: Int...) -> Int {
     var sum = 0

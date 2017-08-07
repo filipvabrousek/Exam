@@ -109,8 +109,30 @@ let someInternalConstant = 0            // implicitly internal
 
 
 ```
-# not my
 
+# OPTIONAL CHAINING
+
+```swift
+class P {
+    var amount: Money?
+}
+
+class Money{
+    var value = 2000
+}
+
+
+let Filip = P()
+Filip.amount = Money()
+
+if let money = Filip.amount?.value{
+    print("I have \(money) USD")
+}
+```
+
+
+------------------------------------------------------------------------------------------
+## not my
 ```swift
 /**
  *  Animate

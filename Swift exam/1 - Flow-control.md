@@ -1,4 +1,4 @@
-# FUNCTIONS
+# FLOW CONTROL
 
 
 
@@ -155,47 +155,3 @@ let rowHeight = contentHeight + (hasHeader ? 50 : 20)
 ```
 
 
-## Func
-```swift
-func multiply(a:Double, b:Double) -> Double{
-return a*b
-}
-
-multiply(a: 3,b: 7)
-```
-# Rest
-```swift
-func sumOf(numbers: Int...) -> Int {
-    var sum = 0
-    for number in numbers {
-        sum += number
-    }
-    return sum
-}
-
-sumOf(numbers: 21, 31, 71)
-```
-
-## Matches
-```swift
-func hasAnyMatches(list: [Int], condition: (Int) -> Bool) -> Bool {
-    for item in list {
-        if condition(item) {
-            return true
-        }
-    }
-    return false
-}
-func lessThanTen(number: Int) -> Bool {
-    return number < 10
-}
-var numbers = [20, 19, 7, 12]
-hasAnyMatches(list: numbers, condition: lessThanTen)
-```
-
-## Map (add more)
-```swift
-let mappedNumbers = numbers.map({ number in 3 * number })
-print(mappedNumbers)
-
-```

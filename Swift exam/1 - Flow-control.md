@@ -4,27 +4,14 @@
 
 ## Optionals
 ```swift
-let possibleNumber = "123"
-let convertedNumber = Int(possibleNumber)
+let pos = "123"
+let conv = Int(pos)
 
-if let actualNumber = Int(possibleNumber) {
-    print("\"\(possibleNumber)\" has an integer value of \(actualNumber)")
+
+if let act = Int(pos){
+    print(" act has int value of \(act)")
 } else {
-    print("\"\(possibleNumber)\" could not be converted to an integer")
-}
-
-
-let possibleString: String? = "An optional string."
-let forcedString: String = possibleString! // requires an exclamation mark
-let assumedString: String! = "An implicitly unwrapped optional string."
-let implicitString: String = assumedString // no need for an exclamation mark
-
-if assumedString != nil {
-    print(assumedString)
-}
-// Prints "An implicitly unwrapped optional string."
-if let definiteString = assumedString {
-    print(definiteString)
+    print("cannot be converted")
 }
 ```
 
@@ -128,13 +115,8 @@ default:
 }
 
 
-
-
-
-
-
-
 ```
+
 ```swift
 enum Places: Int {
     case first = 1

@@ -1,7 +1,7 @@
 # FUNCTIONS
 
 
-## Func
+## 1
 ```swift
 func multiply(a:Double, b:Double) -> Double{
 return a*b
@@ -39,6 +39,29 @@ var numbers = [20, 19, 7, 12]
 hasAnyMatches(list: numbers, condition: lessThanTen)
 ```
 
+## Contains
+
+```swift
+var isOpen = false
+let content = ["milk", "eggs"]
+
+func contains(_ food: String) -> Bool{
+isOpen = true
+    
+    defer {
+    isOpen = false
+    }
+    
+    let result = content.contains(food)
+    return result
+}
+
+contains("milk")
+print(isOpen)
+
+```
+
+
 ## Map (add more)
 ```swift
 let mappedNumbers = numbers.map({ number in 3 * number })
@@ -60,7 +83,7 @@ reversedNames = names.sorted(by: { s1, s2 in s1 > s2 } )
 print(reversedNames)
 ```
 
-## capturing
+## Capturing
 *  A closure can capture constants and variables from the surrounding context in which it is defined.
  The closure can then refer to and modify the values of those constants and variables from within its body,
  even if the original scope that defined the constants and variables no longer exists.

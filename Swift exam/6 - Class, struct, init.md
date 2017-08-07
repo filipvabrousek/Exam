@@ -90,6 +90,38 @@ print(mix.triangle.len) // 50
 
 
 ```
+
+## Property observers
+* willSet - called just before the value is stored
+* didSet - called imediatelly after new value is stored
+
+
+```swift
+class S {
+    var total: Int = 0{
+        willSet(new){
+            print("about to set total to \(new)")
+        }
+        
+        didSet{
+            if total > oldValue{
+                print("Added \(total - oldValue) steps")
+            }
+        }
+    }
+    
+    
+}
+
+
+
+let sc = S()
+sc.total = 200
+sc.total = 360
+
+
+
+```
 ---------------------------------------------------------------------
 ## STRUCT
 * copied

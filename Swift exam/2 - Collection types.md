@@ -34,7 +34,14 @@ letters.insert("A")
 print("letters is of type Set<Character> with \(letters.count) items.")
 
 ```
+
 ## 3
+```swift
+var list = ["Filip", "Terka", "Karel", "Kája"]
+list[2...3] = ["X", "X"]
+list
+```
+## 4
 ```swift
 var a2 = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]
 
@@ -45,4 +52,5 @@ for airportCode in a2.keys {
 
 let airportNames = [String](a2.values)
 ```
+
 

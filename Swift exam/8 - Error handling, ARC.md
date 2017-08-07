@@ -1,4 +1,4 @@
-# Error handling
+# ERROR HANDLING
 
 ```swift
 enum loginError: Error {

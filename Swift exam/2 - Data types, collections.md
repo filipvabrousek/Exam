@@ -1,3 +1,11 @@
+# DATA TYPES
+
+### Int
+### Floating point
+### Character
+### String
+### Collection types - Array, Set, Dictionary
+
 # COLLECTION TYPES
 
 ## 1

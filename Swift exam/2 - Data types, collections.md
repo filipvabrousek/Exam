@@ -1,10 +1,16 @@
 # DATA TYPES
 
-### Int
-### Floating point
-### Character
-### String
-### Collection types - Array, Set, Dictionary
+* String
+* Boolean
+* Rang
+* Int
+* Double
+* Floating point
+* Array
+* Set
+* Dictionary
+* Character
+
 
 # COLLECTION TYPES
 

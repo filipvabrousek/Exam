@@ -12,7 +12,7 @@
 * Character
 
 
-# COLLECTION TYPES
+# COLLECTIONS
 
 ## 1
 * .union, .substracting, .symmetricDifference
@@ -66,5 +66,7 @@ for airportCode in a2.keys {
 
 let airportNames = [String](a2.values)
 ```
+
+# METHODS
 
 

@@ -2,23 +2,26 @@
 
 
 ```swift
-
-protocol Named {
+protocol N {
     var name: String { get }
 }
-protocol Aged {
+
+protocol A {
     var age: Int { get }
 }
-struct Person1: Named, Aged {
+
+struct P: N, A{
     var name: String
     var age: Int
 }
-func wishHappyBirthday(to celebrator: Named & Aged) {
-    print("Happy birthday, \(celebrator.name), you're \(celebrator.age)!")
+
+func W(to celebrator: N & A){
+    print("Happy birthday \(celebrator.name), you are \(celebrator.age) !")
 }
-let birthdayPerson = Person1(name: "Malcolm", age: 21)
-wishHappyBirthday(to: birthdayPerson)
-// Prints "Happy birthday, Malcolm, you're 21!"
+
+let me = P(name: "Filip", age: 18)
+W(to: me)
+
 ```
 
 # RNG

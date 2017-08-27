@@ -15,7 +15,7 @@ var AL = CLLocation(latitude: 0, longitude: 0)
 var AL2  = CLLocationCoordinate2D(latitude: 0, longitude: 0)
 let date = Date()
 let formatter = DateFormatter()
-
+let a = [Double: Double]()
 
 // needed arrays
 var activities: [Any] = []
@@ -40,6 +40,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     var startLocation:CLLocation!
     var lastLocation: CLLocation!
     var distanceString = ""
+    var secDuration = 0.0
+    
     
     // arrays
     lazy var locations = [CLLocation]()
@@ -72,32 +74,99 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         LM.startUpdatingLocation()
         
         travelled = 0
+        secDuration = 0
     }
     
     
     /*-----------------------------------------------------------FINISH---------------------------------------------------------*/
     
     @IBAction func finishRun(_ sender: Any) {
+      
+        
+        
         LM.stopUpdatingLocation()
         timer.invalidate()
         
+        // data
         let dividedDistance = travelled / 1000
         formatter.dateFormat = "dd.MM.yyyy"
         let result = formatter.string(from: date)
         let distS = String(dividedDistance)
-        
-        
-        
         let llat = AL.coordinate.latitude
         let llon = AL.coordinate.longitude
+        let dur = Int(secDuration)
         
+        // appending to activities - checking if we have some value
+
+        if Double(dividedDistance) != 0.000000{
+          
         
-        let run = Run(date: result, distance: distS, lat: llat, lon: llon)
+
+        let run = Run(date: result, distance: distS, lat: llat, lon: llon, duration: dur)
         activities.append(run)
+        
+        
+        
+        
+        //--------DIS NO CRASH----------
+        let dis = run.distance
+        let itemsObject = UserDefaults.standard.object(forKey: "DISTANCE")
+        var items1: [String]
+        
+      
+        if let tempItems = itemsObject as? [String]{
+        
+        items1 = tempItems
+        items1.append(dis)
+        } else {
+        items1 = [dis]
+        }
+        
+        UserDefaults.standard.set(items1, forKey: "DISTANCE")
+        
+        
+        //--------DUR NO CRASH----------
+        let durs = String(run.duration)
+        let itemsObject2 = UserDefaults.standard.object(forKey: "DURATION")
+        var items2: [String]
+        
+        
+        if let tempItems = itemsObject2 as? [String]{
+            
+            items2 = tempItems
+            items2.append(durs)
+        } else {
+            items2 = [durs]
+        }
+        
+        UserDefaults.standard.set(items2, forKey: "DURATION")
+        
+        //--------DT NO CRASH----------
+        let dt = String(run.date)
+        let itemsObject3 = UserDefaults.standard.object(forKey: "DATE")
+        var items3: [String]
+        
+        
+        if let tempItems = itemsObject3 as? [String]{
+            
+            items3 = tempItems
+            items3.append(dt!)
+        } else {
+            items3 = [dt!]
+        }
+        
+        UserDefaults.standard.set(items3, forKey: "DATE")
+
         
         let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: activities)
         UserDefaults.standard.set(encodedData, forKey: "ACTIVITIES")
-        UserDefaults.standard.synchronize() 
+        UserDefaults.standard.synchronize()
+        
+        
+        
+        
+    }
+    
     }
     
     
@@ -105,10 +174,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     /*-----------------------------------------------------------TIMER---------------------------------------------------------*/
     func increaseTimer(){
+       
+        secDuration += 1
         
         if sec < 60{
             sec += 1
             timerLabel.text = String(minutes) + ":" + String(sec)
+            
+            if sec < 10 && minutes < 10{
+            timerLabel.text = String("0\(minutes):0\(sec)")
+            }
             
         } else {
             sec = 0
@@ -116,23 +191,32 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             timerLabel.text = String(minutes) + ":" + String(sec)
             
         }
+        
+        
+       
+        
     }
     
-}
+    
+    
+    
+    
+   
+
+
+
 
 ```
     
     
  
 ## VC - UPDATE LOCATION
+* 1 - Show location on the map
+* 2 - add polyline
+* 3 - update distance and save location to "locations" array
+
 ```swift
- /*-----------------------------------------------------------UPDATE LOCATION---------------------------------------------------------
-     1 - Show location on the map
-     2 - add polyline
-     3 - update distance and save location to "locations" array
-     */
-    
-    
+ 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         //  1
@@ -182,11 +266,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
     }
     
+   
+
+
+    
 
 ```
     
   ## VC - RENDERER 
  ```swift
+   
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay is MKPolyline{
             let gradientColors = [UIColor.green, UIColor.blue, UIColor.yellow, UIColor.red]
@@ -199,11 +288,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     
+   
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+}
     
  ```
     
@@ -214,11 +308,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 
 
 # History View Controller
-* 1 - Fetch data
-* 2 - count total
-* 3 - display progress
+
 
 ```swift
+
 import UIKit
 import CoreData
 
@@ -232,32 +325,70 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet var tableView: UITableView!
     @IBOutlet var progressBar: UIProgressView!
     @IBOutlet var goalLabel: UILabel!
+    @IBOutlet var progressLabel: UILabel!
     
     
     var total:Double = 0.0
     var progressVal = 0
-      
-
+    
+    //******
+    var items1: [String] = []
+    var items2: [String] = []
+    var items3: [String] = []
+    
+    
     /*-----------------------------------------------------------TABLE VIEW---------------------------------------------------------*/
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return decodedRuns.count
+        //return decodedRuns.count
+        return items1.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
-        cell.textLabel?.text = String(describing: decodedRuns[indexPath.row].date)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ActivityTableViewCell
+        i = indexPath.row
+        
+        
+        var distl = ""
+        
+        if let tempLabel = items1[indexPath.row] as? String{
+            distl = tempLabel
+        }
+        
+        cell.distanceLabel.text = distl
+        
+        
+        var dist2 = ""
+        
+        if let tempLabel = items2[indexPath.row] as? String{
+            dist2 = tempLabel
+        }
+        
+        cell.durationLabel.text = dist2
+        
+        
+        var dist3 = ""
+        
+        if let tempLabel = items3[indexPath.row] as? String{
+            dist3 = tempLabel
+        }
+        
+        cell.durationLabel.text = dist3
+        cell.imgView.image = UIImage(named: "runner.jpg")
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        
+        
         if editingStyle == UITableViewCellEditingStyle.delete{
-            decodedRuns.remove(at: indexPath.row)
+            items1.remove(at: indexPath.row)
+            items2.remove(at: indexPath.row)
+            items3.remove(at: indexPath.row)
+            UserDefaults.standard.set(items1, forKey: "DISTANCE")
             tableView.reloadData()
-            
-             let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: decodedRuns)
-            UserDefaults.standard.set(encodedData, forKey: "ACTIVITIES")
-            
         }
     }
     
@@ -267,45 +398,76 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         performSegue(withIdentifier: "toActivityDetail", sender: nil)
     }
     
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         goalLabel.alpha = 0
     }
     
     
+    
+    
     /*-----------------------------------------------------------VIEW DID APPEAR---------------------------------------------------------
      */
     override func viewDidAppear(_ animated: Bool) {
-      
-      
         
-        
-        let progress = UserDefaults.standard.value(forKey: "PROGRESS")
-        progressBar.setProgress(progress as! Float, animated: false) //between 0.0 (0) and 0.1 (100)
-        
-        if let tempProgress = UserDefaults.standard.value(forKey: "PROGRESS"){
-        progressVal = tempProgress as! Int
+        //--------------------
+        let itemsObject = UserDefaults.standard.object(forKey: "DISTANCE")
+        if let tempItems = itemsObject as? [String]{
+            items1 = tempItems
         }
         
-       
+        
+        let itemsObject2 = UserDefaults.standard.object(forKey: "DURATION")
+        if let tempItems = itemsObject as? [String]{
+            items2 = tempItems
+        }
+        
+        let itemsObject3 = UserDefaults.standard.object(forKey: "DATE")
+        if let tempItems = itemsObject as? [String]{
+            items3 = tempItems
+        }
+        
+        
+        //---------------------
+        
+        
+        if let progress = UserDefaults.standard.value(forKey: "PROGRESS") {
+            progressBar.setProgress(progress as! Float, animated: false) //between 0.0 (0) and 0.1 (100)
+        }
+        
+        
+        if let tempProgress = UserDefaults.standard.value(forKey: "PROGRESS"){
+            progressVal = tempProgress as! Int
+        }
+        
+        
+        
+        
+        
+        
+        
         if (progressVal * 100) > 100{
-        progressBar.progressTintColor = UIColor.green
-      
-        UIView.animate(withDuration: 1, animations: {
-            self.goalLabel.alpha = 1
-            self.goalLabel.isHighlighted = true
-        })
+            progressBar.progressTintColor = UIColor.green
+            
+            UIView.animate(withDuration: 1, animations: {
+                self.goalLabel.alpha = 1
+                self.goalLabel.isHighlighted = true
+                self.progressLabel.alpha = 0
+            })
         }
         
         
         let decoded = UserDefaults.standard.object(forKey: "ACTIVITIES") as! Data
         if let dec =  NSKeyedUnarchiver.unarchiveObject(with: decoded) as? [Run] {
-        decodedRuns = dec
+            decodedRuns = dec
         }
-               
+        
+        
         tableView.reloadData()
-
+        
+        
+        
     }
     
     
@@ -318,20 +480,27 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
 }
 
+
 ```
 
 
 
 
 # Activity View Controller
-* 1 - Fetch data
-* 2 - display data from specific index
+* 1 - decode runs
+* 2 - add date and distance
+* 3 - display duration
+* 4 - get pace
+* 5 - dipsplay location on map
+* 6 - get location title
+* 7 - count total ran km's
 
 ```swift
 
 import UIKit
 import MapKit
 import CoreLocation
+
 
 
 class ActivityViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
@@ -341,25 +510,116 @@ class ActivityViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var distanceLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
+    @IBOutlet var durationLabel: UILabel!
+    @IBOutlet var paceLabel: UILabel!
     @IBOutlet var map: MKMapView!
     
     var total = 0.0
     
-     
-    /*-----------------------------------------------------------VIEW DID LOAD---------------------------------------------------------*/
+    
+    
+   
+    /*-----------------------------------------------------------VIEW DID LOAD---------------------------------------------------------
+    1 - 7
+     */
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
+        //  1
         let decoded = UserDefaults.standard.object(forKey: "ACTIVITIES") as! Data
         if let dec =  NSKeyedUnarchiver.unarchiveObject(with: decoded) as? [Run] {
             decodedRuns = dec
         }
         
         
+        //  2
         dateLabel.text = String(decodedRuns[i].date)
         distanceLabel.text = decodedRuns[i].distance
         
+        
+        
+        
+        //  3
+        let sec  = decodedRuns[i].duration
+        
+        func createTime(seconds: Int) -> (Int, Int, Int){
+        return (seconds / 3600, (seconds % 3600) / 60, seconds % 60)
+        }
+        
+        func printTime(seconds: Int) -> String{
+        let (h, m, s) = createTime(seconds: sec)
+            
+    
+        var strHr = String(h)
+        var strMin = String(m)
+        var strSec = String(s)
+        
+            if h < 10 {
+                strHr = "0\(h)"
+            }
+            
+            if m < 10{
+            strMin = "0\(m)"
+            }
+            
+            if s < 10{
+            strSec = "0\(s)"
+            }
+            
+            
+            
+            
+        return "\(strHr):\(strMin):\(strSec)"
+        }
+        
+        
+        
+        
+        let time = printTime(seconds: sec)
+        durationLabel.text = String(time)
+        
+        
+        // 4
+        func getPace(min:Double, sec:Double, dist:Double) -> Double{
+            return ((min * 60) + sec) / dist
+        }
+        
+        
+        let m = Double(sec / 60)
+        let d = Double(decodedRuns[i].distance)
+        
+        func printPace() -> String{
+        let pace = getPace(min: m, sec: 0, dist: d!)
+        let mins = pace / 60
+        let roundedMins = Double(floor(mins))
+        let decimalSec = mins - roundedMins
+        let intPace = Int(floor(roundedMins))
+        let seconds = Int(floor(decimalSec * 60))
+        var strSec = String(seconds)
+            
+            
+            
+            if seconds < 10 {
+                strSec = "0\(seconds)"
+            }
+            
+            
+            
+            return "\(intPace):\(strSec)"
+        }
+        
+        var min = Double(decodedRuns[i].duration / 60)
+        var dist = Double(decodedRuns[i].distance)
+        
+        paceLabel.text = printPace()
+        
+        
+        
+        
+        // 5
         let deg1 = CLLocationDegrees(decodedRuns[i].lat)
         let deg2 = CLLocationDegrees(decodedRuns[i].lon)
         let loc = CLLocationCoordinate2D(latitude: deg1, longitude: deg2)
@@ -369,11 +629,13 @@ class ActivityViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         let region = MKCoordinateRegion(center: loc, span: span)
         self.map.setRegion(region, animated: true)
         
-        print(loc)
+        
+        
+       
         
         
         
-        //--------------------------------------------------
+        //  6 - Display location
         
         let geoLoc = CLLocation(latitude: deg1, longitude: deg2)
         
@@ -400,7 +662,7 @@ class ActivityViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             
             
             if title == "" {
-                title = "Added \(NSDate())"
+                title = "Unknown adress"
             }
             
             
@@ -409,58 +671,117 @@ class ActivityViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
         
         
-        //--------------------------------------------------
+        // 7 - calculate total
         total = total + Double(decodedRuns[i].distance)!
+        
         
         let progressTotal = Float(total / 100) //1 km will be 0.01 :  10 will be 0.1
         var deserveReward = false
         
         
-        if progressTotal == 1{
+        if progressTotal == 1 {
             deserveReward = true
         }
         
         UserDefaults.standard.set(progressTotal, forKey: "PROGRESS")
         UserDefaults.standard.set(deserveReward, forKey: "REWARD")
         
-    }   
+        
+        
+    }
+    
+    
+    
+    /*--------------------------------------SHARE--------------------------------------*/
+    @IBAction func share(_ sender: Any) {
+
+        let item = "I ran \(decodedRuns[i].distance) km with app Runny"
+        let share = UIActivityViewController(activityItems: [item], applicationActivities: nil)
+        present(share, animated: true, completion: nil)
+    }
+    
+    
+    
+    
 }
+
+```
+
+# ActivityTableViewCell
+
+```swift
+import UIKit
+
+class ActivityTableViewCell: UITableViewCell {
+
+    
+    @IBOutlet var imgView: UIImageView!
+    @IBOutlet var distanceLabel: UILabel!
+    @IBOutlet var durationLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    
+    
+    
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
+}
+
 
 ```
 
 # Run.swift
 
 ```swift
+
 import Foundation
-import CoreLocation
 
 class Run: NSObject, NSCoding {
     
+    
+    // HAS TO BE A STRING !!
     struct Keys {
       
         static let date = "date"
         static let distance = "distance"
         static let lat = "lat"
         static let lon = "lon"
-        
+        static let duration = "duration" // in seconds
+
     }
     
+    
+   
     
     private var _date = ""
     private var _distance = ""
     private var _lat = 0.0
     private var _lon = 0.0
- 
+    private var _duration = 0 // in seconds
+
+    
     
     override init() {}
     
-    
-    init(date: String, distance: String, lat:Double, lon:Double) {
+   
+    /*---------------------------------------------------------------------------------------------------------*/
+    init(date: String, distance: String, lat:Double, lon:Double, duration: Int) {
         
         self._date = date
         self._distance = distance
         self._lat = lat
         self._lon = lon
+        self._duration = duration
        
     }
     
@@ -483,7 +804,14 @@ class Run: NSObject, NSCoding {
         if let lonObject = aDecoder.decodeDouble(forKey: Keys.lon) as? Double{
             _lon = lonObject
         }
+        
+        if let durationObject = aDecoder.decodeInteger(forKey: Keys.duration) as? Int{
+        _duration = durationObject
+        }
     }
+    
+    
+    
     
     
     func encode(with aCoder: NSCoder) {
@@ -492,6 +820,7 @@ class Run: NSObject, NSCoding {
         aCoder.encode(_distance, forKey: Keys.distance)
         aCoder.encode(_lat, forKey: Keys.lat)
         aCoder.encode(_lon, forKey: Keys.lon)
+        aCoder.encode(_duration, forKey: Keys.duration)
     }
     
     
@@ -536,9 +865,22 @@ class Run: NSObject, NSCoding {
             _lon = newValue
         }
     }
+    
+    var duration: Int {
+        get {
+        return _duration
+        }
+        
+        set{
+        _duration = newValue
+        }
+    }
 
     
 }
+
+
+
 
 ```
 
@@ -580,16 +922,6 @@ class Run: NSObject, NSCoding {
     
     
     
-    
-    /*---------------------------------------------------------DRAW--------------------------------------------------------------
-     
-     1 - create a gradient
-     2 - define path properties
-     3 - replace path with stroked version, so we can clip
-     4 - create bounding box
-     5 - draw gradient in the clipped context of the path
-     
-     */
     
     override func draw(_ mapRect: MKMapRect, zoomScale: MKZoomScale, in context: CGContext) {
         

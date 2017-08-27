@@ -1,4 +1,4 @@
-# Runny - v3
+# Runny
 
 # View controller
 ```swift

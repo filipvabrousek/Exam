@@ -20,6 +20,48 @@ print(str2)         // "Hello"
 
 
 ## 2
+```swift
+func genericAdder<T: Strideable>(number: T) -> T {
+    return number + 1
+}
+
+genericAdder(number: 15)
+genericAdder(number: 15.0)
+```
+
+## 3
+```swift
+func doubleMultiplier(lhs: Double, rhs: Double) -> Double {
+    return lhs * rhs
+}
+
+intMultiplier(lhs: 2, rhs: 5)
+doubleMultiplier(lhs: 2.0, rhs: 5.0)
+
+//: Create a protocol to handle multiplication
+//: so we can use generics
+protocol Numeric {
+    func *(lhs: Self, rhs: Self) -> Self
+}
+// Add extensions to the types we want to support
+extension Double: Numeric {}
+extension Float: Numeric {}
+extension Int: Numeric {}
+
+//: Now genericMultiplier will work with any number
+//: type we have extended (In this case, Double, Float
+//: and Int)
+func genericMultiplier<T: Numeric>(lhs: T, rhs: T) -> T {
+    return lhs * rhs
+}
+
+genericMultiplier(lhs: 2.1, rhs: 5)
+genericMultiplier(lhs: 5, rhs: 5)
+
+
+```
+
+## 4
 
 * not every type can be compared => equatable
 ```swift

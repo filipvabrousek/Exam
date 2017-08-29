@@ -3,6 +3,18 @@
 
 
 
+## Adder
+
+```swift
+
+func adder<T: Strideable>(n: T) -> T {
+return n + 1
+}
+
+adder(n: 8)
+
+```
+
 ## Swap
 ```swift
 func swap<T>(_ a: inout T, _ b: inout T){
@@ -19,45 +31,24 @@ print(str2)         // "Hello"
 ```
 
 
-## 2
-```swift
-func genericAdder<T: Strideable>(number: T) -> T {
-    return number + 1
-}
 
-genericAdder(number: 15)
-genericAdder(number: 15.0)
-```
 
 ## 3
 ```swift
-func doubleMultiplier(lhs: Double, rhs: Double) -> Double {
-    return lhs * rhs
+protocol N {
+    func *(a: Self, b:Self) -> Self
 }
 
-intMultiplier(lhs: 2, rhs: 5)
-doubleMultiplier(lhs: 2.0, rhs: 5.0)
+extension Double: N {}
+extension Float: N {}
+extension Int: N {}
 
-//: Create a protocol to handle multiplication
-//: so we can use generics
-protocol Numeric {
-    func *(lhs: Self, rhs: Self) -> Self
-}
-// Add extensions to the types we want to support
-extension Double: Numeric {}
-extension Float: Numeric {}
-extension Int: Numeric {}
 
-//: Now genericMultiplier will work with any number
-//: type we have extended (In this case, Double, Float
-//: and Int)
-func genericMultiplier<T: Numeric>(lhs: T, rhs: T) -> T {
-    return lhs * rhs
+func m<T:N>(a: T, b:T) -> T{
+return a * b
 }
 
-genericMultiplier(lhs: 2.1, rhs: 5)
-genericMultiplier(lhs: 5, rhs: 5)
-
+m(a: 2, b: 3)
 
 ```
 
@@ -81,7 +72,7 @@ print(index)        // 1
 
 ```
 
-## 3
+## 5
 ```swift
 func make<I>(repeating item: I, num: Int) -> [I]{
     var res = [I]()

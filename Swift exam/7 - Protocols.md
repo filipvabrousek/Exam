@@ -1,6 +1,6 @@
 # Protocols
 
-
+## 1
 ```swift
 protocol N {
     var name: String { get }
@@ -24,7 +24,7 @@ W(to: me)
 
 ```
 
-# RNG
+## 2
 ```swift
 protocol RNG {
     func random() -> Double
@@ -53,7 +53,7 @@ print("Here's a random number: \(generator.random())")
 ```
 
 
-
+## 3
 ```swift
 protocol P{
     var desc: String { get }
@@ -70,7 +70,7 @@ class C: P{
 }
 var a = C()
 a.adjust()
-let aDesc = a.desc
+print(a.desc)
 
 
 //------------------------------Extension of example protocol---------------------
@@ -89,7 +89,7 @@ let protocolValue: P = a
 print(protocolValue.desc)
 ```
 
-
+## 4
 ```swift
 
 protocol A: CustomStringConvertible{

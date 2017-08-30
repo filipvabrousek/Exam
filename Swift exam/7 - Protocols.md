@@ -91,103 +91,73 @@ print(protocolValue.desc)
 
 
 ```swift
-//: ## Devslopes POP
-//: ### Protocol Oriented Programming
-//: Protocols
 
-import UIKit
-
-protocol Vehicle: CustomStringConvertible {
-    var isRunning: Bool { get set }
+protocol A: CustomStringConvertible{
+    
+    var isActive: Bool { get set}
     var description: String { get }
-    mutating func start()
-    mutating func turnOff()
+    mutating func activate()
+    
 }
 
-struct SportsCar: Vehicle {
-    var isRunning: Bool = false
+
+
+struct U1:A{
+    var isActive: Bool = false
     
     var description: String {
-        if isRunning {
-            return "Sports car currently running"
+        if isActive{
+            return "active"
         } else {
-            return "Sports car currently turned off"
+            return "non-active"
         }
     }
     
-    mutating func start() {
-        if isRunning {
-            print("Already started!")
+    mutating func activate() {
+        if isActive {
+            print("already active")
         } else {
-            isRunning = true
-            print("Vrooom")
+            isActive = true
+            print("just activated")
         }
-    }
-    
-    mutating func turnOff() {
-        if isRunning {
-            isRunning = false
-            print("Crickets")
-        } else {
-            print("Already dead")
-        }
-        
     }
 }
 
-class SemiTruck: Vehicle {
-    var isRunning: Bool = false
+
+class U2:A{
+    var isActive: Bool = false
+    
     var description: String {
-        if isRunning {
-            return "Semi truck currently running"
+        if isActive{
+            return "active"
         } else {
-            return "Semi truck currently shut down"
+            return "non-active"
         }
     }
     
-    func start() {
-        if isRunning {
-            print("Already started!")
+    func activate() {
+        if isActive {
+            print("already active")
         } else {
-            isRunning = true
-            print("Rumble")
+            isActive = true
+            print("just activated")
         }
-    }
-    
-    func turnOff() {
-        if isRunning {
-            isRunning = false
-            print("put..put...silence")
-        } else {
-            print("Already shut down!")
-        }
-    }
-    
-    func blowAirHorn() {
-        print("TOOOOOOT :)")
     }
 }
 
+var user = U1()
+user.activate()
 
-var car1 = SportsCar()
-var truck1 = SemiTruck()
+var user2 = U2()
+user2.activate()
 
-car1.start()
-truck1.start()
-truck1.blowAirHorn()
 
-car1.turnOff()
-truck1.turnOff()
 
-var vehicleArray: Array<Vehicle> = [car1, truck1]
-for vehicle in vehicleArray {
-    print("\(vehicle.description)")
-//    if let vehicle = vehicle as? SemiTruck {
-//        print("\(vehicle.description)")
-//    }
+var arr: Array<A> = [user, user2]
+
+for account in arr{
+    print("\(account.description)")
 }
-
-
 
 ```
 

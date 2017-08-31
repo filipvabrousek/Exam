@@ -22,6 +22,22 @@ func sumOf(numbers: Int...) -> Int {
 sumOf(numbers: 21, 31, 71)
 ```
 
+## Factorial
+
+```swift
+func factorial(num: Int) -> Int{
+    
+    if num == 1{
+        return 1
+    } else {
+        return num * factorial(num: num - 1)
+    }
+}
+
+factorial(num: 8)
+```
+
+
 ## Matches
 ```swift
 func hasAnyMatches(list: [Int], condition: (Int) -> Bool) -> Bool {

@@ -22,8 +22,20 @@ func sumOf(numbers: Int...) -> Int {
 sumOf(numbers: 21, 31, 71)
 ```
 
-## Factorial
 
+## Recursive 
+```swift
+ func printRec(max: Int){
+    if max > 0{
+        printRec(max: max - 1)
+    }
+    
+    print(max)
+ }
+ 
+ printRec(max: 3)
+
+```
 ```swift
 func factorial(num: Int) -> Int{
     

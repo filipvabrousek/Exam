@@ -113,10 +113,7 @@ struct STACK<E>: C{
     
 }
 
-```
 
-## stack extension
-```swift
 extension STACK where E: Equatable{
     func isTop(_ item: E) -> Bool{
         guard let topItem = items.last else {

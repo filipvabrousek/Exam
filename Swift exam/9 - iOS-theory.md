@@ -1,9 +1,8 @@
-# UIKit app
+# Experiments app
 
 * autolayout
 * MVC
-* downlaoding images, webcontent
-* audioplayer
-* speech recignotion
-* animations, transformations, gesture
-* use Firi 
+* animations, transformations
+* gesture recognizers
+* speech recognition
+

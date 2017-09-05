@@ -3,7 +3,7 @@
 * speech
 
 ```swift
-    let city = "London"
+        let city = "London"
         let url = URL(string: "http://samples.openweathermap.org/data/2.5/weather?q=" + city.replacingOccurrences(of: "", with: "%20") + ",uk&appid=c6c1e68cdb11c2d42cd5b7b57027c7d3")!
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in

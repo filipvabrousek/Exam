@@ -121,10 +121,12 @@ public class Pulse: CALayer{
         super.init(coder: aDecoder)
     }
     
+    
+    
+    
     init(numberOfPulses:Float = Float.infinity, radius: CGFloat, position: CGPoint){
         
         super.init()
-        
         
         self.backgroundColor = UIColor.black.cgColor
         self.contentsScale = UIScreen.main.scale

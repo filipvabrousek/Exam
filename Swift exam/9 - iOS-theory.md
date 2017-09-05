@@ -8,7 +8,7 @@
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             
-            if error != nil{
+            if error != nil {
                 print(error)
             } else {
                 if let urlContent = data{

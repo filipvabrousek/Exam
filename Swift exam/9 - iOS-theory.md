@@ -100,6 +100,14 @@
 
 ## Pulse.swift
 ```swift
+//
+//  Pulse.swift
+//  Experiments
+//
+//  Created by Filip Vabroušek on 05.09.17.
+//  Copyright © 2017 Filip Vabroušek. All rights reserved.
+//
+
 import UIKit
 
 public class Pulse: CALayer{
@@ -121,12 +129,10 @@ public class Pulse: CALayer{
         super.init(coder: aDecoder)
     }
     
-    
-    
-    
     init(numberOfPulses:Float = Float.infinity, radius: CGFloat, position: CGPoint){
         
         super.init()
+        
         
         self.backgroundColor = UIColor.black.cgColor
         self.contentsScale = UIScreen.main.scale
@@ -176,10 +182,9 @@ public class Pulse: CALayer{
         self.animationGroup.timingFunction = defaultCurve
         self.animationGroup.animations = [createScaleAnimation(), createOpacityAnimation()]
     }
-    
-   
-    
+
 }
+
 
 
 
@@ -190,10 +195,30 @@ public class Pulse: CALayer{
 
 ## Adding Pulse
 ```swift
-func addPulse(){
-    let pulse = Pulse(numberOfPulses: 1, radius: 110, position: imgView.center)
-    pulse.dur = 0.8
-    pulse.backgroundColor = UIColor.black.cgColor
-    self.view.layer.insertSublayer(pulse, below: imgView.layer)
+func blend(){
+        let pulse = Pulse(numberOfPulses: 3, radius: 110, position: square.center)
+        pulse.dur = 0.8
+        pulse.backgroundColor = UIColor.orange.cgColor
+        self.view.layer.insertSublayer(pulse, below: square.layer)
+    }
+```
+
+
+```swift
+    
+func propertyAnimator(){
+         let timing = UICubicTimingParameters(animationCurve: .easeInOut)
+         let animator = UIViewPropertyAnimator(duration: 1.0, timingParameters: timing)
+            
+          animator.addAnimations {
+                self.square.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            }
+            
+          animator.addAnimations { _ in
+                self.square.alpha = 0.8
+            }
+          
+         animator.startAnimation()
+
     }
 ```

@@ -100,14 +100,6 @@
 
 ## Pulse.swift
 ```swift
-//
-//  Pulse.swift
-//  Experiments
-//
-//  Created by Filip Vabroušek on 05.09.17.
-//  Copyright © 2017 Filip Vabroušek. All rights reserved.
-//
-
 import UIKit
 
 public class Pulse: CALayer{
@@ -193,9 +185,9 @@ public class Pulse: CALayer{
 ```
 
 
-## Adding Pulse
+## Animations
 ```swift
-func blend(){
+func pulse(){
         let pulse = Pulse(numberOfPulses: 3, radius: 110, position: square.center)
         pulse.dur = 0.8
         pulse.backgroundColor = UIColor.orange.cgColor

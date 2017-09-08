@@ -206,19 +206,68 @@ func blend(){
 
 ```swift
     
-func propertyAnimator(){
-         let timing = UICubicTimingParameters(animationCurve: .easeInOut)
-         let animator = UIViewPropertyAnimator(duration: 1.0, timingParameters: timing)
-            
-          animator.addAnimations {
-                self.square.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-            }
-            
-          animator.addAnimations { _ in
-                self.square.alpha = 0.8
-            }
-          
-         animator.startAnimation()
-
+ func blend(){
+        let pulse = Pulse(numberOfPulses: 3, radius: 110, position: square.center)
+        pulse.dur = 0.8
+        pulse.backgroundColor = UIColor.orange.cgColor
+        self.view.layer.insertSublayer(pulse, below: square.layer)
     }
+```
+
+```swift
+    
+    func propertyAnimator(){
+        let timing = UICubicTimingParameters(animationCurve: .easeInOut)
+        let animator = UIViewPropertyAnimator(duration: 1.0, timingParameters: timing)
+        
+        animator.addAnimations {
+            self.square.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        }
+        
+        animator.addAnimations { _ in
+            self.square.alpha = 0.8
+        }
+        animator.startAnimation()
+        
+    }
+ ```
+ 
+ 
+ ```swift
+    
+    
+    func rotator(){
+        let animator = UIViewPropertyAnimator(duration: 3, curve: .easeInOut) {
+            
+            for _ in 0..<10{
+                let rotation = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+                self.square.transform = self.square.transform.concatenating(rotation)
+            }
+        }
+        
+        animator.startAnimation()
+    }
+    
+```    
+    
+```swift    
+    func opacityAnimator(){
+        let timing = UICubicTimingParameters(animationCurve: .easeInOut)
+        let animator = UIViewPropertyAnimator(duration: 3, timingParameters: timing)
+        
+        animator.addAnimations {
+            self.square.alpha = 0.1
+        }
+        animator.startAnimation()
+    }
+    
+```    
+ ```swift 
+    func blur(){
+        
+        let blur = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        blur.frame = imgView.bounds
+        imgView.addSubview(blur)
+    }
+
 ```

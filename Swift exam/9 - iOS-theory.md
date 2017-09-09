@@ -185,81 +185,89 @@ public class Pulse: CALayer{
 ```
 
 
-## Animations
-```swift
-func pulse(){
-        let pulse = Pulse(numberOfPulses: 3, radius: 110, position: square.center)
-        pulse.dur = 0.8
-        pulse.backgroundColor = UIColor.orange.cgColor
-        self.view.layer.insertSublayer(pulse, below: square.layer)
-    }
-```
-
+## Motion library
 
 ```swift
-    
- func blend(){
-        let pulse = Pulse(numberOfPulses: 3, radius: 110, position: square.center)
-        pulse.dur = 0.8
-        pulse.backgroundColor = UIColor.orange.cgColor
-        self.view.layer.insertSublayer(pulse, below: square.layer)
-    }
-```
-
-```swift
-    
-    func propertyAnimator(){
-        let timing = UICubicTimingParameters(animationCurve: .easeInOut)
-        let animator = UIViewPropertyAnimator(duration: 1.0, timingParameters: timing)
-        
-        animator.addAnimations {
-            self.square.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-        }
-        
-        animator.addAnimations { _ in
-            self.square.alpha = 0.8
-        }
-        animator.startAnimation()
-        
-    }
- ```
- 
- 
- ```swift
-    
-    
-    func rotator(){
-        let animator = UIViewPropertyAnimator(duration: 3, curve: .easeInOut) {
-            
-            for _ in 0..<10{
-                let rotation = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
-                self.square.transform = self.square.transform.concatenating(rotation)
-            }
-        }
-        
-        animator.startAnimation()
-    }
-    
-```    
-    
-```swift    
-    func opacityAnimator(){
-        let timing = UICubicTimingParameters(animationCurve: .easeInOut)
-        let animator = UIViewPropertyAnimator(duration: 3, timingParameters: timing)
-        
-        animator.addAnimations {
-            self.square.alpha = 0.1
-        }
-        animator.startAnimation()
-    }
-    
-```    
- ```swift 
-    func blur(){
-        
+func blury(){
         let blur = UIVisualEffectView(effect: UIBlurEffect(style: .light))
         blur.frame = imgView.bounds
         imgView.addSubview(blur)
     }
+    
+    
+    func fadeOut(){
+        self.square.move(x: 200, dur: 2)
+        self.square.opacitySpring(amount: 0, dur: 2)
+    }
+    
+    
+    @IBAction func animate(_ sender: UIButton) {
+        sender.opacitySpring(amount: 0.3, dur: 2)
+    }
+
+```
+
+
+```swift
+import UIKit
+
+extension UIView {
+    
+    
+    /*---------------------------------------------OPACITY---------------------------------------------*/
+    
+    func expand(size: CGFloat, dur:TimeInterval){
+        
+        UIView.animate(withDuration: dur, animations: {
+            let rect = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: size, height: self.frame.height)
+            self.frame = rect
+        })
+    }
+    
+    
+    
+    /*---------------------------------------------OPACITY---------------------------------------------*/
+    func opacity(amount: CGFloat, dur: TimeInterval){
+        
+        let timing = UICubicTimingParameters(animationCurve: .easeInOut)
+        let animator = UIViewPropertyAnimator(duration: dur, timingParameters: timing)
+        
+        animator.addAnimations {
+            self.alpha = amount
+        }
+        animator.startAnimation()
+    }
+    
+    
+    /*---------------------------------------------OPACITY---------------------------------------------*/
+    func opacitySpring(amount: CGFloat, dur: TimeInterval){
+        
+        let timing = UISpringTimingParameters(dampingRatio: 2)
+        let animator = UIViewPropertyAnimator(duration: dur, timingParameters: timing)
+        
+        animator.addAnimations {
+            self.alpha = amount
+        }
+        
+        animator.startAnimation()
+    }
+    
+    
+    /*---------------------------------------------MOVE---------------------------------------------*/
+    func move(x: CGFloat, dur: TimeInterval) {
+        let yPos = self.frame.origin.y
+        
+        let height = self.frame.height
+        let width = self.frame.width
+        
+        UIView.animate(withDuration: dur) {
+            self.frame = CGRect(x: x, y: yPos, width: width, height: height)
+        }
+    }
+    
+    
+    
+}
+
 
 ```

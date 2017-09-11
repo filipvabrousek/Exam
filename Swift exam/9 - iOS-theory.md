@@ -182,6 +182,24 @@ extension UIButton {
         }
     }
     
+    /*-----------------------------------------CHANGE BACKGROUND-----------------------------------------*/
+    func changeBackground(to color: UIColor, dur:TimeInterval){
+        
+        UIView.animate(withDuration: dur) {
+            self.backgroundColor = color
+        }
+    }
+    
+    /*-----------------------------------------CHANGE BORDER-----------------------------------------*/
+    func changeBorder(to color: CGColor, width width:CGFloat,  dur: TimeInterval){
+        
+        UIView.animate(withDuration: dur) {
+            self.layer.borderWidth = width
+            self.layer.borderColor = color
+            
+            
+        }
+    }
     
 }
 

@@ -137,3 +137,26 @@ if database.isTop("Terka"){
 
 ```
 
+
+## sin wave
+
+
+```swift
+let sinArr = 64
+let f = 4.0
+let phase = 0.0
+
+let amplitude = 1.0
+
+let wave = (0..<sinArr).map {
+    amplitude * sin(2.0 * M_PI / Double(sinArr) * Double($0) * f + phase)   
+}
+
+func plot<T>(arr:Array<T>, title: String){
+    for curr in arr {
+        XCPCaptureValue(identifier: title, value: curr)
+    }   
+}
+
+plot(arr: wave, title: "wave")
+```

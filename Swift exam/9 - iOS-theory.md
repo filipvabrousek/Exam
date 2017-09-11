@@ -105,21 +105,21 @@
 
     
     
-      func custom(){
+  func custom(){
         
-        let b = Blend(numberOfPulses: 1, radius: 50, position: btn.center)
-        b.dur = 1
-        b.backgroundColor = UIColor.white.cgColor
-        self.view.layer.insertSublayer(b, above: btn.layer)
+   let b = Blend(numberOfPulses: 1, radius: 50, position: btn.center)
+   b.dur = 1
+   b.backgroundColor = UIColor.white.cgColor
+   self.view.layer.insertSublayer(b, above: btn.layer)
 
-        btn.alpha = 0.6
-        btn.resize(to: 200, dur: 2)
+    btn.alpha = 0.6
+    btn.resize(to: 200, dur: 2)
     }
     
     func blury(){
-        let blur = UIVisualEffectView(effect: UIBlurEffect(style: .light))
-        blur.frame = imgView.bounds
-        imgView.addSubview(blur)
+     let blur = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+     blur.frame = imgView.bounds
+     imgView.addSubview(blur)
     }
 
 ```

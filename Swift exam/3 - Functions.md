@@ -92,6 +92,7 @@ print(isOpen)
 
 ## Map (add more)
 ```swift
+let numbers = [2, 4, 6]
 let mappedNumbers = numbers.map({ number in 3 * number })
 print(mappedNumbers)
 

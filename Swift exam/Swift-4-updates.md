@@ -93,6 +93,13 @@ if let springTemp = seasons["Spring"]{
     //seasons["Spring"] = springTemp + 6
     seasons["Spring", default: 0] += 6
 }
+
+let f1 = seasons.mapValues{$0 * 2}
+let f2 = seasons.filter{$0.value > 20}
+
+print(f1)
+print(f2)
+
 ```
 
 ## Dictionaries

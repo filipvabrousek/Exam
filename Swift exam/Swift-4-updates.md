@@ -110,7 +110,7 @@ print(grouped)
 
 ```
 
-## Strings
+## One side ranges
 ```swift
 
 let string = "Hi Filip!"

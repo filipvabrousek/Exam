@@ -1,4 +1,5 @@
-import UIKit
+## Codable
+
 ```swift
 class P:Codable{
     let name:String
@@ -31,16 +32,16 @@ print(myAge)
 
 ```
 
+
+## Filtering
 ```swift
-
-
 let scores = ["ba", "c"]
 let filtered =  scores.filter({$0.hasSuffix("a")})
 print(filtered)
 
 ```
 
-
+## Extension
 ```swift
 
 let primeNumbers = [3, 7, 5, 19, 11, 13]
@@ -68,6 +69,7 @@ let onlyLast = greetings["Goodbye", "Hi"] //    "Hi"
 
 ```
 
+## Array
 ```swift
 let arr = [2, 4, 6]
 let half = (arr.count - 1) / 2
@@ -82,6 +84,8 @@ print(anotherDict)
 
 ```
 
+
+## How to call it? :D
 ```swift
 var seasons = ["Spring": 20, "Summer": 30]
 
@@ -91,6 +95,7 @@ if let springTemp = seasons["Spring"]{
 }
 ```
 
+## Dictionaries
 ```swift
 let scores = [7, 20, 5, 30]
 let grouped = Dictionary(grouping: scores, by: {String($0).count})
@@ -98,6 +103,7 @@ print(grouped)
 
 ```
 
+## Strings
 ```swift
 
 let string = "Hi Filip!"

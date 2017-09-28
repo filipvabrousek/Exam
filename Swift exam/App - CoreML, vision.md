@@ -9,6 +9,7 @@ func detect(){
             fatalError("Failed to load model")
         }
         
+        // 1
         let request = VNCoreMLRequest(model: model) {[weak self] request, error in
             guard let results = request.results as? [VNClassificationObservation],
                 let topResult = results.first
@@ -17,7 +18,7 @@ func detect(){
             }
             
             
-
+            // 2
             DispatchQueue.main.async { [weak self] in
                 self?.resultLabel.text = "\(topResult.identifier) with \(Int(topResult.confidence * 100))% confidence"
             }
@@ -26,9 +27,7 @@ func detect(){
         guard let ciImage = CIImage(image: self.imgView.image!)
             else { fatalError("Can`t create CIImage from UIImage") }
         
-        
-        
-    
+        // 3
         let handler = VNImageRequestHandler(ciImage: ciImage)
         DispatchQueue.global().async {
             do {
@@ -41,10 +40,4 @@ func detect(){
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        imgView.image = UIImage(named: "car.png")
-    }
-
 ```

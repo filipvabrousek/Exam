@@ -41,3 +41,5 @@ func detect(){
     }
     
 ```
+
+* load image in viewDidLoad()

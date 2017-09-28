@@ -9,7 +9,6 @@ func detect(){
             fatalError("Failed to load model")
         }
         
-        // Create a vision request
         let request = VNCoreMLRequest(model: model) {[weak self] request, error in
             guard let results = request.results as? [VNClassificationObservation],
                 let topResult = results.first
@@ -18,7 +17,7 @@ func detect(){
             }
             
             
-            // Update the Main UI Thread with our result
+
             DispatchQueue.main.async { [weak self] in
                 self?.resultLabel.text = "\(topResult.identifier) with \(Int(topResult.confidence * 100))% confidence"
             }
@@ -29,7 +28,7 @@ func detect(){
         
         
         
-        // Run the googlenetplaces classifier
+    
         let handler = VNImageRequestHandler(ciImage: ciImage)
         DispatchQueue.global().async {
             do {

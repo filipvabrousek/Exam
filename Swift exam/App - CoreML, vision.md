@@ -43,3 +43,64 @@ func detect(){
 ```
 
 * load image in viewDidLoad()
+
+
+## Face recognition
+
+```swift
+func detectFaces(){
+        
+        guard let imageToDetect = imgView.image else { return }
+        
+        let request = VNDetectFaceRectanglesRequest { (request, error) in
+            if let error = error {
+                print(error)
+            }
+            
+            if let results = request.results as? [VNFaceObservation]{
+                
+                for face in results{
+                    print(face.boundingBox)
+                    
+                    
+                    DispatchQueue.main.async {
+                        
+                        let imageRect = self.imgView.frame
+                        let boundingBox = face.boundingBox
+                        
+                        let width = boundingBox.size.width * imageRect.width
+                        let height = boundingBox.size.height * imageRect.height
+                        let x = boundingBox.origin.x * imageRect.width
+                        let y = (1 - boundingBox.origin.y) * imageRect.height - height
+                        
+                        let faceView = UIView(frame: CGRect(x: x, y: y, width: width, height: height))
+                        faceView.backgroundColor = UIColor.orange
+                        faceView.alpha = 0.5
+                        faceView.layer.cornerRadius = 15
+                        faceView.clipsToBounds = true
+                        faceView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
+                        self.view.addSubview(faceView)
+                    }
+                    
+                }
+            }
+        }
+        
+        
+        guard let cgImage = imageToDetect.cgImage else { return }
+        
+        DispatchQueue.global().async {
+            let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+            
+            
+            do {
+                try handler.perform([request])
+            }
+                
+            catch {
+                print(error)
+            }
+        }
+    }
+    
+```

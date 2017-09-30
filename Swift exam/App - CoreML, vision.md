@@ -43,7 +43,7 @@ func detect(){
 ```
 
 * load image in viewDidLoad()
-
+* import Model from developer.apple.com
 
 ## Face recognition
 

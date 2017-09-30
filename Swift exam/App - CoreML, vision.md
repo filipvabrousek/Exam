@@ -45,7 +45,7 @@ func detect(){
 * load image in viewDidLoad()
 * import Model from developer.apple.com
 
-## Face recognition
+# Face recognition
 
 ```swift
 func detectFaces(){
@@ -103,4 +103,89 @@ func detectFaces(){
         }
     }
     
+```
+
+# Object tracking
+
+```swift
+import UIKit
+import AVKit
+import Vision
+
+class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
+    
+    @IBOutlet var cameraView: UIView!
+    @IBOutlet var resultLabel: UILabel!
+    
+    
+    
+     /*------------------------------------------------------------------------------------------------------
+     1 - get input from the device
+     2 - get output from the camera
+     3 - display the output
+     */
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // 1
+        let session = AVCaptureSession()
+        guard let device = AVCaptureDevice.default(for: .video) else { return }
+        
+        guard let input = try? AVCaptureDeviceInput(device: device) else { return }
+        session.addInput(input)
+        session.startRunning()
+        
+        // get output from camare
+        let cameraOutput = AVCaptureVideoDataOutput()
+        cameraOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "video"))
+        session.addOutput(cameraOutput)
+        
+        
+        // display the output
+        let preview = AVCaptureVideoPreviewLayer(session: session)
+        preview.frame = CGRect(x: 0, y: 0, width: cameraView.frame.size.width, height: cameraView.frame.size.width)
+        cameraView.layer.addSublayer(preview)
+    }
+    
+    
+    
+    /*------------------------------------------------------------------------------------------------------*/
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        detect(pixelBuffer: pixelBuffer)
+    }
+    
+    
+    
+    
+     /*------------------------------------------------------------------------------------------------------*/
+    func detect(pixelBuffer: CVPixelBuffer){
+        
+        guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else { return }
+        
+        let request = VNCoreMLRequest(model: model) { (request, error) in
+            guard let results = request.results as? [VNClassificationObservation] else { return }
+            
+            guard let first = results.first else { return }
+            print(first.identifier)
+            
+            DispatchQueue.main.async {
+                self.resultLabel.text = first.identifier
+            }
+            
+        }
+        
+        let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:])
+        
+        DispatchQueue.global().async {
+            try? handler.perform([request])
+        }
+        
+    }
+    
+    
+}
+
+
 ```

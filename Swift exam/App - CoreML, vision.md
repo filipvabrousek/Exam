@@ -189,7 +189,77 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
 
 
 ```
+# ARKit
 
+```swift
+//
+//  ViewController.swift
+//  ARKitBasics
+//
+//  Created by Jared Davidson on 7/26/17.
+//  Copyright © 2017 Archetapp. All rights reserved.
+//
+
+import UIKit
+import SceneKit
+import ARKit
+
+class ViewController: UIViewController, ARSCNViewDelegate {
+    
+    @IBOutlet var sceneView: ARSCNView!
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        sceneView.delegate = self
+        sceneView.showsStatistics = true
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let configuration = ARWorldTrackingConfiguration()
+        sceneView.session.run(configuration)
+    }
+    
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        sceneView.session.pause()
+    }
+    
+    
+    
+    
+    /*-----------------------------------------------TOUCHES BEGAN-------------------------------------------------------*/
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        guard let touch = touches.first else { return }
+        let results = sceneView.hitTest(touch.location(in: sceneView), types: [ARHitTestResult.ResultType.featurePoint])
+        guard let hitFeature = results.last else { return }
+        
+        let hitTransform = SCNMatrix4(hitFeature.worldTransform)
+        let hitPosition = SCNVector3Make(hitTransform.m41,
+                                         hitTransform.m42,
+                                         hitTransform.m43)
+        createBall(hitPosition: hitPosition)
+    }
+    
+    
+    /*-----------------------------------------------CREATE BALL-------------------------------------------------------*/
+    func createBall(hitPosition : SCNVector3) {
+        let newBall = SCNSphere(radius: 0.01)
+        let newBallNode = SCNNode(geometry: newBall)
+        newBallNode.position = hitPosition
+        self.sceneView.scene.rootNode.addChildNode(newBallNode)
+    }
+     
+}
+
+
+```
 
 # Drag and drop
 

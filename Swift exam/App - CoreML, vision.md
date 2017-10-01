@@ -105,12 +105,13 @@ func detectFaces(){
     
 ```
 
-# Object tracking
+# Object tracking + barcode reading
 
 ```swift
 import UIKit
 import AVKit
 import Vision
+import SafariServices
 
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
@@ -154,12 +155,13 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         detect(pixelBuffer: pixelBuffer)
+        readBarcode(pixelBuffer: pixelBuffer)
     }
     
     
     
     
-     /*------------------------------------------------------------------------------------------------------*/
+    /*------------------------------------------------------------------------------------------------------*/
     func detect(pixelBuffer: CVPixelBuffer){
         
         guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else { return }
@@ -185,6 +187,36 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     }
     
     
+    /*------------------------------------------------------------------------------------------------------*/
+    func readBarcode(pixelBuffer: CVPixelBuffer){
+        let barcodeRequest = VNDetectBarcodesRequest { (request, error) in
+            if let error = error{
+                print(error)
+            }
+            
+            for result in  request.results! {
+                
+                if let barcode = result as? VNBarcodeObservation{
+                    
+                    if let payload = barcode.payloadStringValue{
+                        print(payload)
+                        
+                        let url = URL(string: payload)
+                        let svc = SFSafariViewController(url: url!)
+                        self.present(svc, animated: true, completion: nil)
+                    }
+                    
+                }
+                
+            }
+        }
+        
+        let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [ : ])
+        DispatchQueue.global().async {
+            try? handler.perform([barcodeRequest])
+        }
+        
+    } 
 }
 
 
@@ -192,14 +224,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
 # ARKit
 
 ```swift
-//
-//  ViewController.swift
-//  ARKitBasics
-//
-//  Created by Jared Davidson on 7/26/17.
-//  Copyright © 2017 Archetapp. All rights reserved.
-//
-
 import UIKit
 import SceneKit
 import ARKit

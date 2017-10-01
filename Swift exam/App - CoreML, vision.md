@@ -295,8 +295,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tagger.enumerateTags(in: range, unit: .word, scheme: .nameType, options: omitOptions) { (tag, range, stop) in
             
             guard let tag = tag, tags.contains(tag) else { return }
-            
-            
+             
             let nameType = (tagger.string as! NSString).substring(with: range)
             print("\(nameType) - \(tag.rawValue)")
         }

@@ -15,9 +15,9 @@ swap(&str, &str2)
 print(str2)         // "Hello"
 
 
+```
 
-
-
+```swift
 
 protocol Sum { static func +(lhs:Self, rhs: Self) -> Self }
 
@@ -33,6 +33,7 @@ extension String: Sum{}
 let addStr = add(a: "Hi, ", b: "Filip")
 
 
+```
 
 
 
@@ -45,8 +46,7 @@ let addStr = add(a: "Hi, ", b: "Filip")
 
 
 
-
-
+```swift
 
 struct Q<Element: Equatable>{
     fileprivate var arr: [Element] = []
@@ -115,13 +115,13 @@ valentine.wrap()
 
 
 
+```
 
 
 
 
 
-
-
+```swift
 
 
 func find<T: Equatable>(of value: T, in array:[T]) -> Int?  {

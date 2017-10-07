@@ -1,22 +1,8 @@
 # GENERICS
 
 
-
-
-## Adder
-
 ```swift
 
-func adder<T: Strideable>(n: T) -> T {
-return n + 1
-}
-
-adder(n: 8)
-
-```
-
-## Swap
-```swift
 func swap<T>(_ a: inout T, _ b: inout T){
     let tempA = a
     a = b
@@ -28,34 +14,115 @@ var str2 = "world"
 swap(&str, &str2)
 print(str2)         // "Hello"
 
-```
 
 
 
 
-## 3
-```swift
-protocol N {
-    func *(a: Self, b:Self) -> Self
+
+protocol Sum { static func +(lhs:Self, rhs: Self) -> Self }
+
+extension Int:Sum {}
+
+func add<T: Sum>(a:T, b: T) -> T{
+    return a + b
 }
 
-extension Double: N {}
-extension Float: N {}
-extension Int: N {}
+let f = add(a: 20, b: 10)
+
+extension String: Sum{}
+let addStr = add(a: "Hi, ", b: "Filip")
 
 
-func m<T:N>(a: T, b:T) -> T{
-return a * b
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+struct Q<Element: Equatable>{
+    fileprivate var arr: [Element] = []
+    
+    mutating func enqueue(new: Element){
+        arr.append(new)
+    }
+    
+    mutating func dequeue() -> Element? {
+        guard !arr.isEmpty else { return nil }
+        return arr.remove(at: 0)
+    }
+    
+    
+    
 }
 
-m(a: 2, b: 3)
 
-```
+extension Q {
+    func isHomogenous() -> Bool {
+        guard let first = arr.first else {return true}
+        return !arr.contains {$0 != first}
+    }
+}
 
-## 4
+var q = Q<Int>()
+q.enqueue(new: 4)
+q.enqueue(new: 2)
+q.isHomogenous()
 
-* not every type can be compared => equatable
-```swift
+
+q.dequeue()
+q.dequeue()
+
+q.isHomogenous()
+
+class Box<T>{
+    
+}
+
+class Gift<T>: Box<T>{
+    func wrap(){
+        print("plain paper wrap")
+    }
+}
+
+class Rose{
+    
+}
+
+class Valentine: Gift<Rose>{
+    override func wrap(){
+        print("Wrap with ♥♥♥ paper")
+    }
+}
+
+
+let gift = Gift<Rose>()
+let valentine = Valentine()
+gift.wrap()
+valentine.wrap()
+
+
+// plain paper wrap
+// Wrap with ♥♥♥ paper
+
+
+
+
+
+
+
+
+
+
+
 
 func find<T: Equatable>(of value: T, in array:[T]) -> Int?  {
     for (i, val) in array.enumerated(){
@@ -69,71 +136,6 @@ func find<T: Equatable>(of value: T, in array:[T]) -> Int?  {
 
 let index = find(of: "B", in: ["A", "B", "C"])
 print(index)        // 1
-
-```
-
-## 5
-```swift
-func make<I>(repeating item: I, num: Int) -> [I]{
-    var res = [I]()
-    
-    for _ in 0..<num{
-        res.append(item)
-    }
-    
-    return res
-}
-
-make(repeating: "knock", num: 3)
-```
-
-## Stack
-
-```swift
-protocol C{
-    associatedtype Item
-    mutating func push(_ item: Item)
-    subscript(i: Int) -> Item {get}
-}
-
-
-struct STACK<E>: C{
-    var items = [E]()
-    
-    mutating func push(_ item: E) {
-        items.append(item)
-    }
-    
-    
-    subscript(i: Int) -> E{
-        return items[i]
-    }
-    
-    
-    
-}
-
-
-extension STACK where E: Equatable{
-    func isTop(_ item: E) -> Bool{
-        guard let topItem = items.last else {
-            return false
-        }
-        return topItem == item
-    }
-}
-
-var database = STACK<String>()
-database.push("Filip")
-database.push("Terka")
-
-let e = database[1]
-print(e)
-
-if database.isTop("Terka"){
-    print("Terka is top!")
-}
-
 
 ```
 

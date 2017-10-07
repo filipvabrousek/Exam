@@ -21,7 +21,7 @@ print(str2)         // "Hello"
 
 protocol Sum { static func +(lhs:Self, rhs: Self) -> Self }
 
-extension Int:Sum {}
+extension Int: Sum {}
 
 func add<T: Sum>(a:T, b: T) -> T {
     return a + b

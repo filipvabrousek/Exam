@@ -1,6 +1,6 @@
 # GENERICS
 
-
+## Swap
 ```swift
 
 func swap<T>(_ a: inout T, _ b: inout T){
@@ -36,16 +36,7 @@ let addStr = add(a: "Hi, ", b: "Filip")
 ```
 
 
-
-
-
-
-
-
-
-
-
-
+## Equatable
 ```swift
 
 struct Q<Element: Equatable>{
@@ -120,7 +111,7 @@ valentine.wrap()
 
 
 
-
+## find
 ```swift
 
 

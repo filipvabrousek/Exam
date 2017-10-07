@@ -23,7 +23,7 @@ protocol Sum { static func +(lhs:Self, rhs: Self) -> Self }
 
 extension Int:Sum {}
 
-func add<T: Sum>(a:T, b: T) -> T{
+func add<T: Sum>(a:T, b: T) -> T {
     return a + b
 }
 

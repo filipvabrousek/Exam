@@ -16,6 +16,18 @@ let feet = 3.ft
 print(feet)
 ```
 
+## String extension
+```swift
+import UIKit
+
+extension String {
+    func replace(target:String, with:String) -> String{
+        return self.replacingOccurrences(of: target, with: with)
+    }
+}
+
+let s = "Hi there".replace(target: "Hi", with: "Hallo")
+```
 
 ## Repetitions
 ```swift

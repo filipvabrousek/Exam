@@ -67,6 +67,54 @@ for airportCode in a2.keys {
 let airportNames = [String](a2.values)
 ```
 
+## 5
+
+```swift
+let arr = [2, 4, 6]
+let half = (arr.count - 1) / 2
+let openFirstHalf = arr[0..<half] // [2]
+
+
+let tuples = [("Mon", 21), ("Tue", 21)]
+let dict = Dictionary(uniqueKeysWithValues: tuples)
+let anotherDict = Dictionary(uniqueKeysWithValues: zip(1..., tuples))
+print(dict)
+print(anotherDict)
+```
+## 6
+```swift
+var seasons = ["Spring": 20, "Summer": 30]
+
+if let springTemp = seasons["Spring"]{
+    //seasons["Spring"] = springTemp + 6
+    seasons["Spring", default: 0] += 6
+}
+
+let f1 = seasons.mapValues{$0 * 2}
+let f2 = seasons.filter{$0.value > 20}
+
+print(f1)
+print(f2)
+
+```
+
+## 7
+```swift
+let scores = [7, 20, 5, 30]
+let grouped = Dictionary(grouping: scores, by: {String($0).count})
+print(grouped)
+
+```
+
+## 8
+```swift
+
+let string = "Hi Filip!"
+let index = string.index(of: " ")
+let substr = string[..<index!]
+
+```
+
 # METHODS
 
 

@@ -69,7 +69,14 @@ let airportNames = [String](a2.values)
 
 # METHODS
 
-* do
+
+```swift
+let scores = ["ba", "c"]
+let filtered =  scores.filter({$0.hasSuffix("a")})
+print(filtered)
+
+```
+
 
 ## Tuples
 

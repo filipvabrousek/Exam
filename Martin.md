@@ -44,7 +44,7 @@ array.forEach(function(a) {
 ```
             
 ## Objects
-```
+```js
 var P = {
   name: "Martin",
   age: 18

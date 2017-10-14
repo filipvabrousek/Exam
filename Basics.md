@@ -6,11 +6,16 @@
 
 ## Basics
 ```js
-console.log("Hello world");
+console.log("I can code! :D");
+```
 
-var a = 8;
-if (a > 8){
+```js
+// "a" je 3! :D
+var a = 3;
 console.log(a * 3);
+
+if (a > 2){
+console.log("a is bigger than 2");
 }
 ```
 

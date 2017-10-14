@@ -1,10 +1,6 @@
-//
-//  ViewController.swift
-//  Drag-and-drop
-//
-//  Created by Filip Vabroušek on 01.10.17.
-//  Copyright © 2017 Filip Vabroušek. All rights reserved.
-//
+## Drag & Drop
+
+```swift
 
 import UIKit
 

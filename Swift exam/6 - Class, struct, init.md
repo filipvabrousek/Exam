@@ -335,3 +335,37 @@ let me3 = PS(title: "")
 print(me3 == nil)
 
 ```
+
+## Codable
+
+```swift
+class P:Codable{
+    let name:String
+    let age:Double
+    
+    init(name:String, age:Double){
+        self.name = name
+        self.age = age
+    }
+    
+}
+
+let me = P(name: "Filip", age: 18)
+
+
+
+let encoder = JSONEncoder()
+let data = try encoder.encode(me)
+let str = String(data:data, encoding: .utf8)
+
+
+let decoder = JSONDecoder()
+let decodedMe = try decoder.decode(P.self, from: data)
+let info = "\(decodedMe.name)"
+print(info)
+
+let ageKeyPath = \P.age
+let myAge = me[keyPath: ageKeyPath]
+print(myAge)
+
+```

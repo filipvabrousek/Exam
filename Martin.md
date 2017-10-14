@@ -15,7 +15,7 @@ console.log(a * 3);
 ```
 
 ## Functions
-```
+```js
 function count(a, b){
     return a * b;
 }

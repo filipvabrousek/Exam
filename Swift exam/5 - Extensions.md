@@ -102,3 +102,31 @@ show(n) // - 0 +
 
 
 ```
+
+## Subscript
+```swift
+
+let primeNumbers = [3, 7, 5, 19, 11, 13]
+
+extension Array where Element: Comparable {
+    
+    subscript(minValue: Element, maxValue: Element) -> [Element] {
+        var array: [Element] = []
+        if let minimum = self.min(), minimum == minValue {
+            array.append(minValue)
+        }
+        if let maximum = self.max(), maximum == maxValue {
+            array.append(maxValue)
+        }
+        return array
+    }
+}
+
+
+let greetings = ["Hello", "Hey", "Hi", "Goodbye", "Bye"]
+
+let onlyMin = primeNumbers[3, 13] //    3
+let onlyLast = greetings["Goodbye", "Hi"] //    "Hi"
+
+
+```

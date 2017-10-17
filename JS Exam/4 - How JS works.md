@@ -263,6 +263,39 @@ console.log(d.hasOwnProperty);
  d ---> null
  undefined, because d doesn't inherit from Object.prototype
 
+## Cats
+```js
+// Example A
+var catA = {name: "Fluffy", color: "White", age: 0};
+
+// Example B
+var catB = Object.create(new Object());
+catB.name = "Fluffy";
+catB.color = "White";
+catB.age = 0;
+
+// Example C
+function Cat(name, color) {
+  this.name = name;
+  this.color = color;
+}
+Cat.prototype.age = 0;
+
+var catC = new Cat("Fluffy", "White");
+
+
+
+console.log(catA.__proto__); // Same as Object.prototype, {constructor: ƒ, __defineGetter_ }
+console.log(catB.__proto__); 
+console.log(catC.__proto__); // {age: 0, constructor: ƒ}
+
+console.log(Object.__proto__); // ƒ () { [native code] }
+```
+
+
+
+
+
 
 ## Beware
 * The ability of a JS function to access ```call(..)```, ```apply(..)```, and ```bind(..)``` is because functions themselves are objects, and function-objects also have a ```[[Prototype]]``` linkage, to the ```Function.prototype``` object, which defines those default methods that any function object can delegate to. (You can acces them too !)

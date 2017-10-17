@@ -70,7 +70,11 @@ var max = Math.max.apply(null, numbers);
 // max = Math.max(numbers) -> NaN
 ```
 
-
+```js
+let str = "bigger";
+let b = String.prototype.toUpperCase.apply(str);
+console.log(b); // BIGGER
+```
 
 
 # Using with objects

@@ -266,7 +266,7 @@ console.log(d.hasOwnProperty);
 ## Explained
 ```js
 //proto moves us one level lower in the prorotype chain
-// Function.prototype is use to create an object.  (Function was created by the Brendan Eich)
+// Function.prototype is used to create an object.  (Function was created by the Brendan Eich)
 
 
 function Point(x, y){

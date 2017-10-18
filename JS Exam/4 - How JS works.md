@@ -263,120 +263,45 @@ console.log(d.hasOwnProperty);
  d ---> null
  undefined, because d doesn't inherit from Object.prototype
 
-## Cats
+## Explained
 ```js
-// Example A
-var catA = {name: "Fluffy", color: "White", age: 0};
+//proto moves us one level lower in the prorotype chain
+// Function.prototype is use to create an object.  (Function was created by the Brendan Eich)
 
-// Example B
-var catB = Object.create(new Object());
-catB.name = "Fluffy";
-catB.color = "White";
-catB.age = 0;
 
-// Example C
-function Cat(name, color) {
-  this.name = name;
-  this.color = color;
+function Point(x, y){
+    this.x = x;
+    this.y = y;
 }
-Cat.prototype.age = 0;
 
-var catC = new Cat("Fluffy", "White");
+var coord = new Point(1,1);
+console.log(coord.__proto__ == Point.prototype); // true
+console.log(coord.__proto__.__proto__ == Object.prototype); // true
+console.log(coord.__proto__.constructor.prototype == Point.prototype); // true (if we ad more.constructor.prototype , the RESULT WILL BE THE SAME!)
+// same as
+let same = Point.prototype.constructor.prototype;
 
 
 
-console.log(catA.__proto__); // Same as Object.prototype, {constructor: ƒ, __defineGetter_ }
-console.log(catB.__proto__); 
-console.log(catC.__proto__); // {age: 0, constructor: ƒ}
+console.log(Point.__proto__ == Function.prototype); // true (Point is the function, so it has the same prototype)
+console.log(Point.prototype.__proto__); // Object object
 
-console.log(Object.__proto__); // ƒ () { [native code] }
+
+// constructors DO NOT have prototype
+// __proto__ non standard way of accessing prototype chain
+
+let e = new Number(0);
+console.log(e.__proto__); // "Number {}". IT DOES NOT HAVE THE PROTOTYPE just "Number {}" with all the methods
+console.log(e.__proto__.toExponential.constructor) // function, prototype of this is also a function
+
 ```
-
-
 
 
 
 
 ## Beware
 * The ability of a JS function to access ```call(..)```, ```apply(..)```, and ```bind(..)``` is because functions themselves are objects, and function-objects also have a ```[[Prototype]]``` linkage, to the ```Function.prototype``` object, which defines those default methods that any function object can delegate to. (You can acces them too !)
-```js
-function Foo(name) {
-	this.name = name;
-}
 
-Foo.prototype.myName = function() {
-	return this.name;
-};
-
-function Bar(name,label) {
-	Foo.call( this, name );
-	this.label = label;
-}
-
-// here, we make a new `Bar.prototype`
-// linked to `Foo.prototype`
-Bar.prototype = Object.create( Foo.prototype );
-
-// Beware! Now `Bar.prototype.constructor` is gone,
-// and might need to be manually "fixed" if you're
-// in the habit of relying on such properties!
-
-Bar.prototype.myLabel = function() {
-	return this.label;
-};
-
-var a = new Bar( "a", "obj a" );
-
-console.log(a.myName()); // "a"
-console.log(a.myLabel()); // "obj a"
-```
-
-## Prototype chain
-```js
-
-let P = function n(name){
-    this.name = name;
-}
-
-let me = new P("Filip");
-console.log(me.prototype); // undefined
-console.log(me.constructor); // function n {}
-
-
-
-function F(a){
-    return a * a;
-}
-
-console.log(F.prototype); // Object {constructor: function}
-console.log(F.constructor); // function Function() { [native code] }
-console.log(F.prototype.constructor); // Function F(a){return a * a;}
-console.log(F.prototype.constructor.prototype); //  Object {constructor: function}
-console.log(F.__proto__); // function () { [native code] }
-console.log(F.call);
-
-
-
-
-
-let S = "Some text";
-console.log(S);
-console.log(S.prototype); // undefined - just functions have prototype
-console.log(S.constructor); //function String()
-console.log(S.constructor.constructor); // function Function()
-console.log(S.constructor.prototype); //String object with all STRING methods
-
-console.log(S.constructor.prototype.constructor.raw); // function raw() { [native code] }
-console.log(S.constructor.prototype.toString); // function toString() { [native code] }
-console.log(S.constructor.prototype.constructor.toString); // function toString() { [native code] }
-
-
-console.log(S.__proto__); // Object with all the STRING methods
-console.log(S.__proto__.__proto__); // Object with all the OBJECTS methods
-console.log(S.__proto__.__proto__.__proto__); // null
-
-
-```
 
 
 

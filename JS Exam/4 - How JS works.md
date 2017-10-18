@@ -295,6 +295,11 @@ console.log(e.__proto__); // "Number {}". IT DOES NOT HAVE THE PROTOTYPE just "N
 console.log(e.__proto__.toExponential.constructor) // function, prototype of this is also a function
 
 ```
+
+```js
+function Animal() { }
+var animal = new Animal();
+```
 ![diagram](https://i.imgur.com/jIUcjCy.jpg)
 
 

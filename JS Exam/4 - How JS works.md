@@ -232,8 +232,10 @@ console.log(this.a);
 * that prototype object has a prototype of its own, and so on until an object is reached with **null** as its prototype (end of the chain)
 
 ## .prototype vs __proto__
-* just functions have **prototype**  
-* **__proto__** is something all objects have including constructors  - (shouldn't be accessible) 
+* PROTOTYPE is a property belonging only to functions
+* it is used to build __proto__ when the function is used with the ```new``` keyword
+* all objects have __proto__ which shouldnt be accessible
+
 
 ## Object.create
 * creates a new object 

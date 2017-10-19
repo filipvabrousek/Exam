@@ -265,9 +265,9 @@ console.log(d.hasOwnProperty);
 
 ## Explained
 ```js
-//proto moves us one level lower in the prorotype chain
-// Function.prototype is used to create an object.  (Function was created by the Brendan Eich)
 
+
+// Prototype is a property on a constructor function that sets what will become the _proto__ property on the constructed object
 
 function Point(x, y){
     this.x = x;
@@ -275,6 +275,47 @@ function Point(x, y){
 }
 
 var coord = new Point(1,1);
+
+
+console.log(Point.prototype) //object (constructor is the Point() function)
+console.log(Point.constructor) //regular function
+console.log(Point.prototype
+            .__proto__ // Object object
+                .constructor // Object function
+                    .__proto__.call // function object with (eg. call)
+           ); 
+
+console.log(Point.prototype.constructor == coord.constructor); // TRUE, Point(x, y){ this.x = x....}
+console.log(coord.prototype) // undefined (just functions have prototype)
+
+console.log(coord
+            .__proto__ // constructor object with constructor function (.constructor.prototype LOOP!!!!)
+                .__proto__ // Object object (with eg. hasOwnProperty)
+                    .__proto__ // NULL 
+           );
+
+
+
+
+
+console.log(coord
+            .__proto__ // Point(x,y) constructor 
+                .constructor// Point(x,y) function definition  this constructor has another __proto__
+                    .__proto__ // function ƒ () { [native code] }
+                        .__proto__ // Object object
+                            .__proto__ // NULL 
+             
+           );
+
+
+
+
+
+
+
+
+
+
 console.log(coord.__proto__ == Point.prototype); // true
 console.log(coord.__proto__.__proto__ == Object.prototype); // true
 console.log(coord.__proto__.constructor.prototype == Point.prototype); // true (if we ad more.constructor.prototype , the RESULT WILL BE THE SAME!)
@@ -285,15 +326,17 @@ let same = Point.prototype.constructor.prototype;
 
 console.log(Point.__proto__ == Function.prototype); // true (Point is the function, so it has the same prototype)
 console.log(Point.prototype.__proto__); // Object object
+```
 
+* constructors DO NOT have prototype
+* __proto__ non standard way of accessing prototype chain
+```js
 
-// constructors DO NOT have prototype
-// __proto__ non standard way of accessing prototype chain
 
 let e = new Number(0);
 console.log(e.__proto__); // "Number {}". IT DOES NOT HAVE THE PROTOTYPE just "Number {}" with all the methods
 console.log(e.__proto__.toExponential.constructor) // function, prototype of this is also a function
-
+```
 ```
 
 ```js

@@ -312,10 +312,6 @@ console.log(coord
 
 
 
-
-
-
-
 console.log(coord.__proto__ == Point.prototype); // true
 console.log(coord.__proto__.__proto__ == Object.prototype); // true
 console.log(coord.__proto__.constructor.prototype == Point.prototype); // true (if we ad more.constructor.prototype , the RESULT WILL BE THE SAME!)
@@ -324,8 +320,21 @@ let same = Point.prototype.constructor.prototype;
 
 
 
+
+
+
 console.log(Point.__proto__ == Function.prototype); // true (Point is the function, so it has the same prototype)
 console.log(Point.prototype.__proto__); // Object object
+
+
+
+
+
+
+console.log(Point.prototype.__proto__.__proto__ === Point.__proto__.__proto__.__proto__); // null === null
+console.log(Point.__proto__.__proto__.__proto__ === coord.__proto__.__proto__.__proto__); // true
+console.log(coord.__proto__ === Point.prototype); // true
+
 ```
 
 * constructors DO NOT have prototype

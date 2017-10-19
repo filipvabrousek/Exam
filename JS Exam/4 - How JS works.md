@@ -336,8 +336,10 @@ console.log(Point.prototype.__proto__); // Object object
 let e = new Number(0);
 console.log(e.__proto__); // "Number {}". IT DOES NOT HAVE THE PROTOTYPE just "Number {}" with all the methods
 console.log(e.__proto__.toExponential.constructor) // function, prototype of this is also a function
+
 ```
-```
+
+
 
 ```js
 function Animal() { }
@@ -351,7 +353,9 @@ var animal = new Animal();
 ## Beware
 * The ability of a JS function to access ```call(..)```, ```apply(..)```, and ```bind(..)``` is because functions themselves are objects, and function-objects also have a ```[[Prototype]]``` linkage, to the ```Function.prototype``` object, which defines those default methods that any function object can delegate to. (You can acces them too !)
 
-
+```js
+Window.prototype.__proto__ == Window.prototype.constructor.prototype.__proto__ // true
+```
 
 
 -------------------------

@@ -391,3 +391,29 @@ F(2);
 - Engine: Can you help me with RHS refernce with "a"? I just want to double check.
 - Scope: Hasn't changed
 - Engine: Cool. Passing the value of "a" which is "2" into "log(..)"
+
+
+## New 
+```js
+function Person(name){
+    this.name = name;
+}
+
+Person.prototype.greet = function(){
+    console.log("I am", this.name);
+}
+
+function shiny(constructor){
+    let obj = {}
+    Object.setPrototypeOf(obj, constructor.prototype);
+    let argsArr = Array.from(arguments);
+    constructor.apply(obj, argsArr.slice(1));
+    return obj
+}
+
+
+
+let filip = shiny(Person, "Filip");
+filip.greet();
+
+```

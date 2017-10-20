@@ -236,7 +236,7 @@ console.log(this.a);
 * it is used to build __proto__ when the function is used with the ```new``` keyword
 * ALL objects have __proto__ which shouldnt be accessible  (allows real inheritenance)
 * ___proto___ chain goes to the null (some functions o the way have prototype and constructor (loop))
-
+*  ___proto___ points to the object that the current object actually will use when doing lookups on the prototype chain
 ## Object.create
 * creates a new object 
 * prototype of this object is the first argument of the function

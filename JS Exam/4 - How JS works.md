@@ -260,6 +260,8 @@ console.log(d.hasOwnProperty);
 ## Explained
 
 ```js
+
+
 let cat = {breed: "munchkin"}
 let caty = {name: "Fluffy"}
 Object.setPrototypeOf(caty, cat);
@@ -283,6 +285,10 @@ console.log(doggy.breed); // Bulldog
 console.log(doggy.__proto__); // {breed: "Bulldog", constructor: ƒ} refernce to the SAme object
 console.log(doggy.prototype); // UNDEFINED just functions have prototype
 
+console.log(Dog.__proto__); // ƒ () { [native code] }
+console.log(Dog.prototype); // {breed: "Bulldog", constructor: ƒ} __proto__ of this is an object
+console.log(Dog.prototype.prototype); // doesnt make sense (undefined :))
+
 
 
 
@@ -296,9 +302,6 @@ let koala = {};
 console.log(koala.__proto__ === Object.prototype); // true
 Object.prototype.roar = "uaaaaaaaa"
 console.log(koala.roar); //uaaaaaaaa
-
-
-console.log(Dog.prototype.prototype); // doesnt make sense (undefined :))
 ```
 
 

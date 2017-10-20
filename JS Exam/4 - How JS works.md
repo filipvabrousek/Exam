@@ -264,18 +264,20 @@ console.log(filip.__proto__) 	// {group: "Diblastica", age: 18}
 console.log(filip.age) 		// 18
 
 ```
-* PROTOTYPE: created just on functions in case you want to use the constructors with "new"
-*  should be called "PrototypeToUse" 
-*  it is a protototype of things constructed with the function (NOT ITS PROTOTYPE) 
+
+* **PROTOTYPE** is created just on functions in case you want to use the constructors with "new"
+* should be called "PrototypeToUse" 
+* it is a protototype of things constructed with the function (NOT ITS PROTOTYPE) 
 * The prototype is a property on a constructor function that sets what will become the __proto__ property on the constructed object
 * __proto__ is sometimes called [[Prototype]]
+
 ```js
 function Person() {}
 Person.prototype.name = "Karel";
 
 let karel = new Person();
 console.log(karel.name)
-console.log(karel.__proto__) 	 // {name: "Karel", constructor: ƒ} Karel has no prototype
+console.log(karel.__proto__) 	 // {name: "Karel", constructor: ƒ} ,Karel has no prototype
 
 console.log(Person.prototype)	 // {name: "Karel", constructor: ƒ}
 console.log(Person.__proto__) 	 // ƒ () { [native code] }

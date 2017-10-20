@@ -267,7 +267,6 @@ console.log(filip.age) 		// 18
 
 * **PROTOTYPE** is created just on functions in case you want to use the constructors with "new"  
 * sets what will become the __proto__ property on the constructed object  
-* should be called "PrototypeToUse"  
 * it is a protototype of things constructed with the function (NOT ITS PROTOTYPE)   
 * __proto__ is sometimes called [[Prototype]]  
 

@@ -241,67 +241,44 @@ console.log(this.a);
 * creates a new object 
 * prototype of this object is the first argument of the function
 
-```js
-let a = {a: 1}; 
-```
- a ---> Object.prototype ---> null
-```js
-let b = Object.create(a);
-console.log(b.a); // 1 (inherited)
-```
-b ---> a ---> Object.prototype ---> null
-```js
-let d = Object.create(null);
-console.log(d.hasOwnProperty); 
-```
- d ---> null
- undefined, because d doesn't inherit from Object.prototype
+
 
 ## Explained
 
 ```js
 
+let human = {
+    group: "Diblastica"
+}
 
-let cat = {breed: "munchkin"}
-let caty = {name: "Fluffy"}
-Object.setPrototypeOf(caty, cat);
-console.log(caty.breed); // munchin
+let filip = {
+    name: "Filip"
+}
 
-
-
-console.log(caty.__proto__); // {breed: "munchkin"} refrence to the SAME object
-cat.tail = 15; // chnaging original cat
-console.log(caty.__proto__); // {breed: "munchkin", tail: 15} refrence to SAME
-console.log(caty.tail); // 15
+Object.setPrototypeOf(filip, human); // this actually sets the __proto__ !!!!!!
+human.age = 18;
 
 
-// prototype: created just on functions in case you want to use the constructors with "new"
-// should be called "PrototypeToUse"
-function Dog() {}
-Dog.prototype.breed = "Bulldog" // prototype of objects created by dog
+console.log(filip.group) 	// Diblastica
+console.log(filip.__proto__) 	// {group: "Diblastica", age: 18}
+console.log(filip.age) 		// 18
 
-let doggy = new Dog();
-console.log(doggy.breed); // Bulldog
-console.log(doggy.__proto__); // {breed: "Bulldog", constructor: ƒ} refernce to the SAme object
-console.log(doggy.prototype); // UNDEFINED just functions have prototype
+```
+* PROTOTYPE: created just on functions in case you want to use the constructors with "new"
+*  should be called "PrototypeToUse" 
+*  it is a protototype of things constructed with the function (NOT ITS PROTOTYPE) 
+* The prototype is a property on a constructor function that sets what will become the __proto__ property on the constructed object
+* __proto__ is sometimes called [[Prototype]]
+```js
+function Person() {}
+Person.prototype.name = "Karel";
 
-console.log(Dog.__proto__); // ƒ () { [native code] }
-console.log(Dog.prototype); // {breed: "Bulldog", constructor: ƒ} __proto__ of this is an object
-console.log(Dog.prototype.prototype); // doesnt make sense (undefined :))
+let karel = new Person();
+console.log(karel.name)
+console.log(karel.__proto__) 	 // {name: "Karel", constructor: ƒ} Karel has no prototype
 
-
-
-
-function Giraffe(){}
-console.log(Giraffe.prototype) // {}
-
-
-
-let koala = {};
-// Does not have prototype
-console.log(koala.__proto__ === Object.prototype); // true
-Object.prototype.roar = "uaaaaaaaa"
-console.log(koala.roar); //uaaaaaaaa
+console.log(Person.prototype)	 // {name: "Karel", constructor: ƒ}
+console.log(Person.__proto__) 	 // ƒ () { [native code] }
 ```
 
 
@@ -316,42 +293,12 @@ var animal = new Animal();
 
 
 ## Beware
-* The ability of a JS function to access ```call(..)```, ```apply(..)```, and ```bind(..)``` is because functions themselves are objects, and function-objects also have a ```[[Prototype]]``` linkage, to the ```Function.prototype``` object, which defines those default methods that any function object can delegate to. (You can acces them too !)
+* The ability of a JS function to access ```call(..)```, ```apply(..)```, and ```bind(..)``` is because functions themselves are objects, and function-objects also have a ```[[Prototype]]``` linkage, to the ```Function.prototype``` object, which defines those default methods that any function object can delegate to. 
 
 ```js
 Window.prototype.__proto__ == Window.prototype.constructor.prototype.__proto__ // true
 ```
 
-```js
-function Point(x, y){
-    this.x = x;
-    this.y = y;
-}
-
-var coord = new Point(1,1);
-
-
-console.log(Point.prototype) //object (constructor is the Point() function)
-console.log(Point.constructor) //regular function
-console.log(Point.prototype
-            .__proto__ // Object object
-                .constructor // Object function
-                    .__proto__.call // function object with (eg. call)
-           ); 
-
-console.log(Point.prototype.constructor == coord.constructor); // TRUE, Point(x, y){ this.x = x....}
-
-console.log(coord
-            .__proto__ // constructor object with constructor function (.constructor.prototype LOOP!!!!)
-                .__proto__ // Object object (with eg. hasOwnProperty)
-                    .__proto__ // NULL 
-           );
-
-console.log(coord.__proto__ === Point.prototype); // true
-
-
-
-```
 
 -------------------------
 ## RHS = Right-hand side assignment

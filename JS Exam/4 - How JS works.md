@@ -298,7 +298,7 @@ Object.prototype.roar = "uaaaaaaaa"
 console.log(koala.roar); //uaaaaaaaa
 
 
-console.log(Dog.prototype.prototype); // doesnt make sense (undefoned :))
+console.log(Dog.prototype.prototype); // doesnt make sense (undefined :))
 ```
 
 

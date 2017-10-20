@@ -234,31 +234,23 @@ console.log(this.a);
 ## .prototype vs __proto__
 * PROTOTYPE is a property belonging only to functions
 * it is used to build __proto__ when the function is used with the ```new``` keyword
-* all objects have __proto__ which shouldnt be accessible
-
+* ALL objects have __proto__ which shouldnt be accessible  (allows real inheritenance)
+* ___proto___ chain goes to the null (some functions o the way have prototype and constructor (loop))
 
 ## Object.create
 * creates a new object 
 * prototype of this object is the first argument of the function
 
-```javascript
+```js
 let a = {a: 1}; 
 ```
  a ---> Object.prototype ---> null
-```javascript
+```js
 let b = Object.create(a);
 console.log(b.a); // 1 (inherited)
 ```
- b ---> a ---> Object.prototype ---> null
-
-```javascript
-let c = Object.create(b);
-console.log(c.a); // 1 (inherited)
-```
- c ---> b ---> a ---> Object.prototype ---> null
-
-
-```javascript
+b ---> a ---> Object.prototype ---> null
+```js
 let d = Object.create(null);
 console.log(d.hasOwnProperty); 
 ```

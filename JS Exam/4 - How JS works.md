@@ -258,88 +258,47 @@ console.log(d.hasOwnProperty);
  undefined, because d doesn't inherit from Object.prototype
 
 ## Explained
+
 ```js
+let cat = {breed: "munchkin"}
+let caty = {name: "Fluffy"}
+Object.setPrototypeOf(caty, cat);
+console.log(caty.breed); // munchin
 
 
-// Prototype is a property on a constructor function that sets what will become the _proto__ property on the constructed object
 
-function Point(x, y){
-    this.x = x;
-    this.y = y;
-}
-
-var coord = new Point(1,1);
+console.log(caty.__proto__); // {breed: "munchkin"} refrence to the SAME object
+cat.tail = 15; // chnaging original cat
+console.log(caty.__proto__); // {breed: "munchkin", tail: 15} refrence to SAME
+console.log(caty.tail); // 15
 
 
-console.log(Point.prototype) //object (constructor is the Point() function)
-console.log(Point.constructor) //regular function
-console.log(Point.prototype
-            .__proto__ // Object object
-                .constructor // Object function
-                    .__proto__.call // function object with (eg. call)
-           ); 
+// prototype: created just on functions in case you want to use the constructors with "new"
+// should be called "PrototypeToUse"
+function Dog() {}
+Dog.prototype.breed = "Bulldog" // prototype of objects created by dog
 
-console.log(Point.prototype.constructor == coord.constructor); // TRUE, Point(x, y){ this.x = x....}
-console.log(coord.prototype) // undefined (just functions have prototype)
-
-console.log(coord
-            .__proto__ // constructor object with constructor function (.constructor.prototype LOOP!!!!)
-                .__proto__ // Object object (with eg. hasOwnProperty)
-                    .__proto__ // NULL 
-           );
+let doggy = new Dog();
+console.log(doggy.breed); // Bulldog
+console.log(doggy.__proto__); // {breed: "Bulldog", constructor: ƒ} refernce to the SAme object
+console.log(doggy.prototype); // UNDEFINED just functions have prototype
 
 
 
 
-
-console.log(coord
-            .__proto__ // Point(x,y) constructor 
-                .constructor// Point(x,y) function definition  this constructor has another __proto__
-                    .__proto__ // function ƒ () { [native code] }
-                        .__proto__ // Object object
-                            .__proto__ // NULL 
-             
-           );
+function Giraffe(){}
+console.log(Giraffe.prototype) // {}
 
 
 
+let koala = {};
+// Does not have prototype
+console.log(koala.__proto__ === Object.prototype); // true
+Object.prototype.roar = "uaaaaaaaa"
+console.log(koala.roar); //uaaaaaaaa
 
 
-
-console.log(coord.__proto__ == Point.prototype); // true
-console.log(coord.__proto__.__proto__ == Object.prototype); // true
-console.log(coord.__proto__.constructor.prototype == Point.prototype); // true (if we ad more.constructor.prototype , the RESULT WILL BE THE SAME!)
-// same as
-let same = Point.prototype.constructor.prototype;
-
-
-
-
-
-
-console.log(Point.__proto__ == Function.prototype); // true (Point is the function, so it has the same prototype)
-console.log(Point.prototype.__proto__); // Object object
-
-
-
-
-
-
-console.log(Point.prototype.__proto__.__proto__ === Point.__proto__.__proto__.__proto__); // null === null
-console.log(Point.__proto__.__proto__.__proto__ === coord.__proto__.__proto__.__proto__); // true
-console.log(coord.__proto__ === Point.prototype); // true
-
-```
-
-* constructors DO NOT have prototype
-* __proto__ non standard way of accessing prototype chain
-```js
-
-
-let e = new Number(0);
-console.log(e.__proto__); // "Number {}". IT DOES NOT HAVE THE PROTOTYPE just "Number {}" with all the methods
-console.log(e.__proto__.toExponential.constructor) // function, prototype of this is also a function
-
+console.log(Dog.prototype.prototype); // doesnt make sense (undefoned :))
 ```
 
 

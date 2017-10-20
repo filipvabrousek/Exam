@@ -322,6 +322,36 @@ var animal = new Animal();
 Window.prototype.__proto__ == Window.prototype.constructor.prototype.__proto__ // true
 ```
 
+```js
+function Point(x, y){
+    this.x = x;
+    this.y = y;
+}
+
+var coord = new Point(1,1);
+
+
+console.log(Point.prototype) //object (constructor is the Point() function)
+console.log(Point.constructor) //regular function
+console.log(Point.prototype
+            .__proto__ // Object object
+                .constructor // Object function
+                    .__proto__.call // function object with (eg. call)
+           ); 
+
+console.log(Point.prototype.constructor == coord.constructor); // TRUE, Point(x, y){ this.x = x....}
+
+console.log(coord
+            .__proto__ // constructor object with constructor function (.constructor.prototype LOOP!!!!)
+                .__proto__ // Object object (with eg. hasOwnProperty)
+                    .__proto__ // NULL 
+           );
+
+console.log(coord.__proto__ === Point.prototype); // true
+
+
+
+```
 
 -------------------------
 ## RHS = Right-hand side assignment

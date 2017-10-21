@@ -228,18 +228,10 @@ console.log(this.a);
 # INHERITENANCE
 
 * JS has one construct: objects
-* each object has a private property - [[Prototype]] (holds a link to another object called its prototype)
-* that prototype object has a prototype of its own, and so on until an object is reached with **null** as its prototype (end of the chain)
+* each object has a private property - __proto__ (holds a link to another object called its prototype)
+* that prototype object has a __proto__ of its own, and so on until an object is reached with **null** as its __proto__ (end of the chain)
 
-## .prototype vs __proto__
-* PROTOTYPE is a property belonging only to functions
-* it is used to build __proto__ when the function is used with the ```new``` keyword
-* ALL objects have __proto__ which shouldnt be accessible  (allows real inheritenance)
-* ___proto___ chain goes to the null (some functions o the way have prototype and constructor (loop))
-*  ___proto___ points to the object that the current object actually will use when doing lookups on the prototype chain
-## Object.create
-* creates a new object 
-* prototype of this object is the first argument of the function
+* ```setPrototypeOf``` methods sets the __proto__ NOT THE **.prototype ** !!!!!!!!
 
 
 

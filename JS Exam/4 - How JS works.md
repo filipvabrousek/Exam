@@ -228,9 +228,17 @@ console.log(this.a);
 # INHERITENANCE
 
 * JS has one construct: objects
-* each object has a private property - __proto__ (holds a link to another object called its prototype)
+
+### __proto__
+* each object has a private property - __proto__ (holds a link to another object down in the prototype chain)
 * that prototype object has a __proto__ of its own, and so on until an object is reached with **null** as its __proto__ (end of the chain)
+* sometimes called [[Prototype]]  
 * ```setPrototypeOf``` methods sets the __proto__ (it has **NOTHING** to do with the **.prototype** !!!!)
+
+### PROTOTYPE 
+* is created just on functions in case you want to use the constructors with "new"  
+* sets what will become the __proto__ property on the constructed object  
+* it is a protototype of things constructed with the function (NOT ITS PROTOTYPE)   
 
 
 
@@ -255,11 +263,6 @@ console.log(filip.__proto__) 	// {group: "Diblastica", age: 18}
 console.log(filip.age) 		// 18
 
 ```
-
-* **PROTOTYPE** is created just on functions in case you want to use the constructors with "new"  
-* sets what will become the __proto__ property on the constructed object  
-* it is a protototype of things constructed with the function (NOT ITS PROTOTYPE)   
-* __proto__ is sometimes called [[Prototype]]  
 
 ```js
 function Person() {}

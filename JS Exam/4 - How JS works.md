@@ -242,7 +242,7 @@ console.log(this.a);
 ```js
 
 let human = {
-    group: "Diblastica"
+    group: "Triblastica"
 }
 
 let filip = {

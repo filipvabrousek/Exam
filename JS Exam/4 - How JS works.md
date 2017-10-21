@@ -283,7 +283,20 @@ var animal = new Animal();
 ![diagram](https://i.imgur.com/jIUcjCy.jpg)
 
 
+## Prototype is an Object
+```js
+function Foo() { /* .. */ }
 
+Foo.prototype = { /* .. */ }; // create a new prototype object
+
+var a1 = new Foo();
+console.log(a1.constructor === Foo) // FALSE because we set the prototype to Object
+console.log(a1.constructor === Object)// TRUE because we set the prototype to Object
+
+
+
+
+```
 
 ## Beware
 * The ability of a JS function to access ```call(..)```, ```apply(..)```, and ```bind(..)``` is because functions themselves are objects, and function-objects also have a ```[[Prototype]]``` linkage, to the ```Function.prototype``` object, which defines those default methods that any function object can delegate to. 

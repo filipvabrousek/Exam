@@ -229,10 +229,9 @@ console.log(this.a);
 
 * JS has one construct: objects
 
-### __proto__
+### __proto__  or [[Prototype]] 
 * each object has a private property - __proto__ (holds a link to another object down in the prototype chain)
-* that prototype object has a __proto__ of its own, and so on until an object is reached with **null** as its __proto__ (end of the chain)
-* sometimes called [[Prototype]]  
+* that prototype object has a __proto__ of its own, and so on until an object is reached with **null** as its __proto__ (end of the chain)  
 * ```setPrototypeOf``` methods sets the __proto__ (it has **NOTHING** to do with the **.prototype** !!!!)
 
 ### .prototype 

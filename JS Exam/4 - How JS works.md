@@ -230,7 +230,6 @@ console.log(this.a);
 * JS has one construct: objects
 * each object has a private property - __proto__ (holds a link to another object called its prototype)
 * that prototype object has a __proto__ of its own, and so on until an object is reached with **null** as its __proto__ (end of the chain)
-
 * ```setPrototypeOf``` methods sets the __proto__ (it has **NOTHING** to do with the **.prototype** !!!!)
 
 
@@ -268,7 +267,8 @@ Person.prototype.name = "Karel";
 
 let karel = new Person();
 console.log(karel.name)
-console.log(karel.__proto__) 	 // {name: "Karel", constructor: ƒ} ,Karel has no prototype
+console.log(Person.prototype === karel.__proto__) // TRUE karel.__proto__ is {name: "Karel", constructor: ƒ} 
+console.log(Person.__proto__ === Function.prototype) // TRUE
 
 console.log(Person.prototype)	 // {name: "Karel", constructor: ƒ}
 console.log(Person.__proto__) 	 // ƒ () { [native code] }

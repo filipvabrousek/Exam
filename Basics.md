@@ -10,7 +10,7 @@ console.log("I can code! :D");
 ```
 
 ```js
-// "a" je 3! :D
+
 var a = 3;
 console.log(a * 3);
 

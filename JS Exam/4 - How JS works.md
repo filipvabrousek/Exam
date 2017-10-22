@@ -272,13 +272,30 @@ console.log(Person.prototype)	 // {name: "Karel", constructor: ƒ}
 console.log(Person.__proto__) 	 // ƒ () { [native code] }
 ```
 
-
-
+## Another example
 ```js
-function Animal() { }
-var animal = new Animal();
+// this happens behind the scenes (when you create a number)
+let a = new Number(9);
+let b = 9;
+console.log(Number.prototype === b.__proto__); // TRUE
+
+
+console.log(a == b); // TRUE
+console.log(a === b); // FALSE 
+
+
+
+
+function P(name){
+    this.name = name;
+}
+
+P.prototype.age = 18;
+
+let w = new P("Terka")
+console.log(w.__proto__.age === P.prototype.age) // TRUE
 ```
-![diagram](https://i.imgur.com/jIUcjCy.jpg)
+
 
 
 ## Prototype is an Object
@@ -290,9 +307,6 @@ Foo.prototype = { /* .. */ }; // create a new prototype object
 var a1 = new Foo();
 console.log(a1.constructor === Foo) // FALSE because we set the prototype to Object
 console.log(a1.constructor === Object)// TRUE because we set the prototype to Object
-
-
-
 
 ```
 

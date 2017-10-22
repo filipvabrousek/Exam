@@ -274,7 +274,7 @@ console.log(Person.__proto__) 	 // ƒ () { [native code] }
 
 ## Another example
 ```js
-// this happens behind the scenes (when you create a number)
+// .prototype sets what will become the proto property on the constructed object
 let a = new Number(9);
 let b = 9;
 console.log(Number.prototype === b.__proto__); // TRUE

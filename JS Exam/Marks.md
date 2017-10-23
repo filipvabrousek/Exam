@@ -4,45 +4,55 @@
 ```js
 var dataCtrl = (() => {
 
-  class Mark {
-    constructor(value, weight) {
-      this.value = value;
-      this.weight = weight;
+    class Mark {
+        constructor(value, weight) {
+            this.value = value;
+            this.weight = weight;
+        }
     }
-  }
 
 
-
-  var storage = [];
-
-
-  const calc = (data) => {
-    const sum = data.reduce((prev, curr) => prev + curr, 0);
-    return [sum, sum / data.length];
-  };
-
-  const calca = (s) => {
-
-    const l = s.map(el => el.val);
-    const [total, avg] = calc(l);
-    console.log(total);
-  }
-
-
-  return {
-
-    addMark(val, weight) {
-
-      let newMark = new Mark(val, weight);
-      storage.push(newMark);
-      calca(storage);
-    },
-
-    getData() {
-      console.log(storage);
+    let storage = {
+        data: {
+            marks: []
+        },
+        totals: {
+            total: 0,
+            avg: 0
+        }
     }
-  }
 
+
+
+
+    return {
+
+        addMark(val, weight) {
+
+            let newMark = new Mark(val, weight);
+            storage.data["marks"].push(newMark)
+
+        },
+
+
+        calc() {
+            let sum = 0;
+            storage.data["marks"].forEach(cur => {
+                sum += cur.value;
+            });
+            storage.totals["total"] = sum;
+            return storage.totals["total"]
+        },
+
+
+        getData() {
+            //  console.log(storage);
+            this.calc();
+
+            console.log(storage.totals["total"]);
+
+        }
+    }
 
 
 
@@ -53,6 +63,5 @@ var dataCtrl = (() => {
 dataCtrl.addMark(1, 10);
 dataCtrl.addMark(2, 10);
 dataCtrl.getData();
-
 
 ```

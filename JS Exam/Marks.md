@@ -37,10 +37,17 @@ var dataCtrl = (() => {
 
         calc() {
             let sum = 0;
+            let avg = 0;
+            
+            
             storage.data["marks"].forEach(cur => {
                 sum += cur.value;
             });
+            
+            avg = sum / storage.data["marks"].length;
+         
             storage.totals["total"] = sum;
+            storage.totals["avg"] = avg;
             return storage.totals["total"]
         },
 
@@ -49,6 +56,7 @@ var dataCtrl = (() => {
             //  console.log(storage);
             this.calc();
             console.log(storage.totals["total"]);
+            console.log(storage.totals["avg"]);
 
         }
     }
@@ -61,6 +69,6 @@ var dataCtrl = (() => {
 
 dataCtrl.addMark(1, 10);
 dataCtrl.addMark(2, 10);
+dataCtrl.addMark(5, 10);
 dataCtrl.getData();
-
 ```

@@ -41,7 +41,7 @@ var dataCtrl = (() => {
             
             
             storage.data["marks"].forEach(cur => {
-                sum += cur.value;
+                sum += cur.value * cur.weight * 0.1;
             });
             
             avg = sum / storage.data["marks"].length;
@@ -55,7 +55,6 @@ var dataCtrl = (() => {
         getData() {
             //  console.log(storage);
             this.calc();
-            console.log(storage.totals["total"]);
             console.log(storage.totals["avg"]);
 
         }
@@ -68,7 +67,7 @@ var dataCtrl = (() => {
 
 
 dataCtrl.addMark(1, 10);
-dataCtrl.addMark(2, 10);
+dataCtrl.addMark(1, 10);
 dataCtrl.addMark(5, 10);
 dataCtrl.getData();
 ```

@@ -48,7 +48,6 @@ var dataCtrl = (() => {
         getData() {
             //  console.log(storage);
             this.calc();
-
             console.log(storage.totals["total"]);
 
         }

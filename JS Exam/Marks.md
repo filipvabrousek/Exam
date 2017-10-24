@@ -89,7 +89,7 @@ var UICtrl = ((dataCtrl) => {
 
     addToDOM() {
       let input = UICtrl.getInput();
-      console.log(input.weight);
+      console.log(`input weight: ${input.weight}`);
 
     },
 

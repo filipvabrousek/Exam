@@ -72,40 +72,40 @@ var UICtrl = ((dataCtrl) => {
     marks: "#marks",
     val: "#value",
     weight: "#weight",
-    button: "button"
-  }
+    btn: "#btn"
+  };
 
-
+ 
 
   return {
 
     getInput() {
       return {
-        value: 1, //parseFloat(document.querySelector(DOMStrings.val).value),
-        weight: 10 //parseFloat(document.querySelector(DOMStrings.weight).value)
-      };
+        value: parseFloat(document.querySelector(DOMStrings.val).value),
+        weight: parseFloat(document.querySelector(DOMStrings.weight).value)
+      }
     },
 
 
-    addToDOM() {
+    add2DOM() {
       let input = UICtrl.getInput();
       console.log(`input weight: ${input.weight}`);
-
     },
 
-    log() {
-      console.log("EL works! ");
+     
+      
+        addELs() {
+ document.querySelector(DOMStrings.btn).addEventListener("click", this.add2DOM);
     },
-
-    addELs() {
-      document.querySelector(DOMStrings.button).addEventListener("click", this.log)
-    },
+ 
+   
+      
     init() {
       UICtrl.addELs();
     }
   }
 
-})(UICtrl);
+})(dataCtrl);
 
 
 
@@ -114,5 +114,6 @@ var UICtrl = ((dataCtrl) => {
 dataCtrl.addMark(1, 10);
 dataCtrl.addMark(5, 10);
 dataCtrl.getData();
-UICtrl.addToDOM(); // got from input
+//UICtrl.add2DOM(); // got from input
+UICtrl.init(); // why ???
 ```

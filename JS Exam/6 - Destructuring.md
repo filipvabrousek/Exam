@@ -46,7 +46,8 @@ console.log(b);       // "green"
 ```javascript
 let set = new Set([1, 2, 3]);
 set = new Set([...set].map(x => x * 2));
-//{2, 4, 6}
+console.log(set);
+// 2, 4, 6
 ```
 
 

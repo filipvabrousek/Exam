@@ -117,3 +117,59 @@ dataCtrl.getData();
 //UICtrl.add2DOM(); // got from input
 UICtrl.init(); // why ???
 ```
+
+```html
+
+
+	<script src="revise.js">
+	</script>
+
+
+
+
+    <section id="input">
+
+
+
+<input type="number" id = "value" placeholder="Enter mark" value="1" />
+<input type="number" id = "weight" placeholder="Enter weight" value="10" />
+
+<button id="btn">+</button>
+    
+    </section>
+
+
+
+
+
+
+
+<section id="marks">
+
+<!-----This will be managed by the app------>
+</section>
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    }
+    
+    input {
+        padding: 1em;
+    }
+    
+    button {
+        background: orange;
+        color: #fff;
+        border: none;
+        padding: 1.3em;
+        border-radius: 50%;
+        margin: 1em;
+    }
+
+  
+</style>
+
+
+```

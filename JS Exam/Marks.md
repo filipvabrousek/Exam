@@ -4,7 +4,7 @@
 ```js
 /*------------------------------------------------------------------------------------*/
 
-var dataCtrl = (() => {
+const dataCtrl = (() => {
 
   class Mark {
     constructor(value, weight) {
@@ -65,7 +65,7 @@ var dataCtrl = (() => {
 
 
 /*------------------------------------------------------------------------------------*/
-var UICtrl = ((dataCtrl) => {
+const UICtrl = ((dataCtrl) => {
 
 
   const DOMStrings = {
@@ -95,11 +95,10 @@ var UICtrl = ((dataCtrl) => {
      
       
         addELs() {
- document.querySelector(DOMStrings.btn).addEventListener("click", this.add2DOM);
+            document.querySelector(DOMStrings.btn).addEventListener("click", this.add2DOM);
     },
  
    
-      
     init() {
       UICtrl.addELs();
     }
@@ -121,22 +120,12 @@ UICtrl.init(); // why ???
 ```html
 
 
-	<script src="revise.js">
-	</script>
-
-
-
-
-    <section id="input">
-
-
-
 <input type="number" id = "value" placeholder="Enter mark" value="1" />
 <input type="number" id = "weight" placeholder="Enter weight" value="10" />
 
 <button id="btn">+</button>
     
-    </section>
+
 
 
 
@@ -170,6 +159,10 @@ UICtrl.init(); // why ???
 
   
 </style>
+
+<!---ALWAYS AT THE BOTTOM!!!!!!!!!!!---->
+<script src="practice.js">
+	</script>
 
 
 ```

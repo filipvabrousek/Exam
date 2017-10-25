@@ -3,58 +3,57 @@
 
 ```js
 /*------------------------------------------------------------------------------------*/
-
 const dataCtrl = (() => {
 
-  class Mark {
-    constructor(value, weight) {
-      this.value = value;
-      this.weight = weight;
+    class Mark {
+        constructor(value, weight) {
+            this.value = value;
+            this.weight = weight;
+        }
     }
-  }
 
-  let storage = {
-    data: {
-      marks: []
-    },
-    totals: {
-      total: 0,
-      avg: 0
+    let storage = {
+        data: {
+            marks: []
+        },
+        totals: {
+            total: 0,
+            avg: 0
+        }
     }
-  }
 
 
-  return {
-    addMark(val, weight) {
+    return {
+        addMark(val, weight) {
 
-      let newMark = new Mark(val, weight);
-      storage.data["marks"].push(newMark)
-    },
-
-
-    calc() {
-      let sum = 0;
-      let avg = 0;
+            let newMark = new Mark(val, weight);
+            storage.data["marks"].push(newMark)
+        },
 
 
-      storage.data["marks"].forEach(cur => {
-        sum += cur.value * cur.weight * 0.1;
-      });
-
-      avg = sum / storage.data["marks"].length;
-
-      storage.totals["total"] = sum;
-      storage.totals["avg"] = avg;
-      return storage.totals["total"]
-    },
+        calc() {
+            let sum = 0;
+            let avg = 0;
 
 
-    getData() {
-      //  console.log(storage);
-      this.calc();
-      console.log(storage.totals["avg"]);
+            storage.data["marks"].forEach(cur => {
+                sum += cur.value * cur.weight * 0.1;
+            });
+
+            avg = sum / storage.data["marks"].length;
+
+            storage.totals["total"] = sum;
+            storage.totals["avg"] = avg;
+            return storage.totals["total"]
+        },
+
+
+        getData() {
+            //  console.log(storage);
+            this.calc();
+            console.log(storage.totals["avg"]);
+        }
     }
-  }
 
 
 
@@ -68,44 +67,48 @@ const dataCtrl = (() => {
 const UICtrl = ((dataCtrl) => {
 
 
-  const DOMStrings = {
-    marks: "#marks",
-    val: "#value",
-    weight: "#weight",
-    btn: "#btn"
-  };
-
- 
-
-  return {
-
-    getInput() {
-      return {
-        value: parseFloat(document.querySelector(DOMStrings.val).value),
-        weight: parseFloat(document.querySelector(DOMStrings.weight).value)
-      }
-    },
+    const DOMStrings = {
+        marks: "#marks",
+        val: "#value",
+        weight: "#weight",
+        btn: "#btn"
+    };
 
 
-    add2DOM() {
-      let input = UICtrl.getInput();
-      console.log(`input weight: ${input.weight}`);
-    },
 
-     
-      
+    return {
+
+        getInput() {
+            return {
+                value: parseFloat(document.querySelector(DOMStrings.val).value),
+                weight: parseFloat(document.querySelector(DOMStrings.weight).value)
+            }
+        },
+
+
+        add2DOM() {
+            let input = UICtrl.getInput();
+            console.log(`input value: ${input.value} input weight: ${input.weight} `);
+
+            let html = "<h2>" + input.value + "(" + input.weight + ")" + "</h2>";
+            document.querySelector(DOMStrings.marks).insertAdjacentHTML("afterBegin", html);
+            // get weighted average
+            dataCtrl.getData();
+        },
+
+
+
         addELs() {
             document.querySelector(DOMStrings.btn).addEventListener("click", this.add2DOM);
-    },
- 
-   
-    init() {
-      UICtrl.addELs();
+        },
+
+
+        init() {
+            UICtrl.addELs();
+        }
     }
-  }
 
 })(dataCtrl);
-
 
 
 
@@ -113,20 +116,18 @@ const UICtrl = ((dataCtrl) => {
 dataCtrl.addMark(1, 10);
 dataCtrl.addMark(5, 10);
 dataCtrl.getData();
+
 //UICtrl.add2DOM(); // got from input
 UICtrl.init(); // why ???
 ```
 
 ```html
 
-
-<input type="number" id = "value" placeholder="Enter mark" value="1" />
-<input type="number" id = "weight" placeholder="Enter weight" value="10" />
+<input type="number" id = "value" placeholder="Enter mark" value="1" min="1" max="5" />
+<input type="number" id = "weight" placeholder="Enter weight" value="10" min = "1" max = "10"/>
 
 <button id="btn">+</button>
     
-
-
 
 
 
@@ -157,12 +158,14 @@ UICtrl.init(); // why ???
         margin: 1em;
     }
 
+    #marks {
+        padding: 1em;
+    }
   
 </style>
 
-<!---ALWAYS AT THE BOTTOM!!!!!!!!!!!---->
+<!-------ALWAYS AT THE BOTTOM--------->
 <script src="practice.js">
 	</script>
-
 
 ```

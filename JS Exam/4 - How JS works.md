@@ -174,12 +174,12 @@ terka.calc();                             //17
 1) ```new``` binding - using the newly constructed object
 ```js
 
-function F(a) {
-	this.a = a;
+function N(name) {
+	this.name = name;
 }
 
-let bar = new F(2);
-console.log(bar.a); // 2
+let me = new N("Filip");
+console.log(me.name);       // "Filip"
 
 
 ```
@@ -187,15 +187,15 @@ console.log(bar.a); // 2
 2) explicit binding - using the specified object
 
 ```js
-function F() {
-	console.log(this.a);
+function P() {
+	console.log(this.age);
 }
 
-let obj = {
-	a: 2
+let p = {
+	age: 18
 };
 
-F.call(obj); // 2
+P.call(p);        // 2
 ```
 
 3) implicit binding - using the context object

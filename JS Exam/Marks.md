@@ -51,7 +51,9 @@ const dataCtrl = (() => {
         getData() {
             //  console.log(storage);
             this.calc();
-            console.log(storage.totals["avg"]);
+            let res = storage.totals["avg"].toPrecision(3);
+            console.log(res);
+            return res;
         }
     }
 
@@ -69,6 +71,7 @@ const UICtrl = ((dataCtrl) => {
 
     const DOMStrings = {
         marks: "#marks",
+        avg: "#avg",
         val: "#value",
         weight: "#weight",
         btn: "#btn"
@@ -79,10 +82,15 @@ const UICtrl = ((dataCtrl) => {
     return {
 
         getInput() {
+
+            let selected = document.querySelector(DOMStrings.val);
+            let index = selected[selected.selectedIndex].value;
+
             return {
-                value: parseFloat(document.querySelector(DOMStrings.val).value),
+                value: parseFloat(index),
                 weight: parseFloat(document.querySelector(DOMStrings.weight).value)
             }
+
         },
 
 
@@ -90,10 +98,14 @@ const UICtrl = ((dataCtrl) => {
             let input = UICtrl.getInput();
             console.log(`input value: ${input.value} input weight: ${input.weight} `);
 
-            let html = "<h2>" + input.value + "(" + input.weight + ")" + "</h2>";
-            document.querySelector(DOMStrings.marks).insertAdjacentHTML("afterBegin", html);
+            // add the mark
+            dataCtrl.addMark(input.value, input.weight);
+
+            let html = "<h2 class='mark'>" + input.value + "(" + input.weight + ")" + "</h2>";
+            document.querySelector(DOMStrings.marks).insertAdjacentHTML("beforeBegin", html);
             // get weighted average
-            dataCtrl.getData();
+            let e = dataCtrl.getData();
+            document.querySelector(DOMStrings.avg).innerHTML = e;
         },
 
 
@@ -111,44 +123,53 @@ const UICtrl = ((dataCtrl) => {
 })(dataCtrl);
 
 
-
-
-dataCtrl.addMark(1, 10);
-dataCtrl.addMark(5, 10);
-dataCtrl.getData();
-
-//UICtrl.add2DOM(); // got from input
-UICtrl.init(); // why ???
+UICtrl.init(); 
 ```
 
 ```html
-
-<input type="number" id = "value" placeholder="Enter mark" value="1" min="1" max="5" />
-<input type="number" id = "weight" placeholder="Enter weight" value="10" min = "1" max = "10"/>
-
-<button id="btn">+</button>
+<section id="input">
+    <select id="value">
+<optgroup>
     
+    <option value="1">1</option>
+       <option value="2">2</option>
+       <option value="3">3</option>
+       <option value="4">4</option>
+       <option value="5">5</option>
+    </optgroup>
+
+
+</select>
+
+
+    <input type="number" id="weight" placeholder="Enter weight" value="10" min="1" max="10" />
+
+
+
+    <button id="btn">+</button>
+
+</section>
 
 
 
 
-
-
+<h2 id="avg">add some marks</h2>
 <section id="marks">
 
-<!-----This will be managed by the app------>
+    <!-----This will be managed by the app------>
 </section>
 
 <style>
     * {
-    margin: 0;
-    padding: 0;
+        margin: 0;
+        padding: 0;
+        font-family: Arial;
     }
-    
+
     input {
         padding: 1em;
     }
-    
+
     button {
         background: orange;
         color: #fff;
@@ -160,12 +181,37 @@ UICtrl.init(); // why ???
 
     #marks {
         padding: 1em;
+
     }
-  
+
+    .mark {
+        color: blue;
+        padding: 0.6em;
+    }
+
+    select {
+        padding: 2em;
+    }
+
+    h2 {
+        padding: 1em;
+    }
+
+
+    #input {
+        background: gray;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    #input>* {
+        margin: 1em;
+    }
 </style>
 
 <!-------ALWAYS AT THE BOTTOM--------->
 <script src="practice.js">
-	</script>
+</script>
 
 ```

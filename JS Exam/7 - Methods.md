@@ -16,11 +16,11 @@ when using ``` "Text".length;``` JS automatically boxes the value (wraps to ```S
 * repeat
 * replace
 * search
-* splice
+* slice
 * split
 * substring
 * toString
-* trim
+* trim - removes whitespace on the sides
 * valueOf
 * match - str.match(re) - re = regular expression
 * fromCodePoint

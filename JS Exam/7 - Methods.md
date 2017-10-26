@@ -30,7 +30,7 @@ when using ``` "Text".length;``` JS automatically boxes the value (wraps to ```S
 ## repeat
 ```javascript
 'oh '.repeat(2);
-//"oh oh "
+// "oh oh "
 ```
 
 ## String.fromCodePoint

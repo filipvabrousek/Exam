@@ -42,4 +42,4 @@ program or interpreter which executes JS code
 * aims to develop standards and technical reports to facilitate and standardize the use of information communication technology and consumer electronics
 * < than 400 Ecma Standards
  
- 
+* beginning - 1.9.2015 - 7:48 - 2nd floor of GJS Zlin :)

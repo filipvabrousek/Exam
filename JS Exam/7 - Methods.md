@@ -284,46 +284,31 @@ let numbers = T(1, 2, 3);
 console.log(numbers);               // 2,3,4
 ```
 
-## find, findIndex
+
+## other
 ```js
 let n = [8, 16];
 
 console.log(n.find(n => n > 10));         // 16
 console.log(n.findIndex(n => n > 10));    // 1
-```
 
-## shift, unshift
-```javascript
 const f = ["Terka", "Filip", "Karel", "Lucy"];
 f.shift(); // "Terka"
 f.unshift(); // 4
-```
-## Slice
-```javascript
-let p = ["Terka", "Filip", "Karel", "Lucy"];
-let boys = p.slice(1, 3);
-```
-## Splice
-```javascript
-let p = ["Terka", "Filip", "Karel", "Lucy"];
-let boys = p.splice(1, 2);
-```
 
-## Reduce
-```javascript
+
+let b = f.slice(1, 3); //   ["Karel", "Lucy"]
+let o = f.splice(1, 2); // same
+
+
 const n = [65, 44, 12, 4];
 let sum = (total, num) => total + num;
-n.reduce(sum);
-```
+n.reduce(sum) // 125
 
 
-
-
-## Filter, Some, Every
-```javascript
 var ages = [22, 21, 17];
 const check = (age) => age >= 18;
-ages.filter(check);
+ages.filter(check); // 22, 21
 ```
 
 

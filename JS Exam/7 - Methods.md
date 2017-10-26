@@ -34,10 +34,7 @@ when using ``` "Text".length;``` JS automatically boxes the value (wraps to ```S
 // "oh oh "
 ```
 
-## String.fromCodePoint
-```javascript
-console.log(String.fromCodePoint(134071));
-```
+
 
 ## Template literals
 ```javascript
@@ -103,6 +100,9 @@ console.log(pad);
 
 let norm = '\u1E9B\u0323'.normalize('NFC') // NFC, NFD, NFKC, NFKD
 console.log(norm); // ẛ̣
+
+
+console.log(String.fromCodePoint(134071)); // 𠮷
 ```
 
 

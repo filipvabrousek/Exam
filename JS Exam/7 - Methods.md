@@ -23,6 +23,7 @@ when using ``` "Text".length;``` JS automatically boxes the value (wraps to ```S
 * trim - removes whitespace on the sides
 * valueOf
 * match - str.match(re) - re = regular expression
+* normalize
 * fromCodePoint
 
 
@@ -76,7 +77,33 @@ function vowels(str) {
 
 vowels("Hello!"); // ["e","o"]
 ```
+# Other
+```js
+let s = "Hi there !";
 
+
+let sliced = s.slice(1, -2);
+console.log(sliced); // i there
+
+let split = s.split(' ', 2);
+console.log(split); // ["Hi", "there"]
+
+
+let re = /[A-Z]/g;
+let search = s.search(re); 
+console.log(search); // 0
+
+
+let sub = s.substr(0, 2);
+console.log(sub); // Hi
+
+
+let pad = "abc".padEnd(6, "123456"); // abc 123
+console.log(pad);
+
+let norm = '\u1E9B\u0323'.normalize('NFC') // NFC, NFD, NFKC, NFKD
+console.log(norm); // ẛ̣
+```
 
 
 ----------------------------------------------------------------------------------

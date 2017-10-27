@@ -313,6 +313,9 @@ const a = ["A", "B", "C", "D"];
 a.splice(1);    // B C D -> (same as (1, 3))
 a.splice(1, 2);   // B C 
 a.splice(0, -2); // [] EMPTY
+a.splice(2, 0, "Filip"); // ["A", "B", "Filip", "C", "D"]
+a.splice(1, 1, "Filip"); // ["B"]
+
 
 a.slice(1);    // B C D 
 a.slice(1, 2); // B

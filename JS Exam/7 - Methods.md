@@ -296,21 +296,29 @@ const f = ["Terka", "Filip", "Karel", "Lucy"];
 f.shift(); // "Terka"
 f.unshift(); // 4
 
-
-let b = f.slice(1, 3); //   ["Karel", "Lucy"]
-let o = f.splice(1, 2); // same
-
-
 const n = [65, 44, 12, 4];
 let sum = (total, num) => total + num;
 n.reduce(sum) // 125
-
 
 var ages = [22, 21, 17];
 const check = (age) => age >= 18;
 ages.filter(check); // 22, 21
 ```
 
+```js
+
+// SPLICE mutates the original array !!!!!! (uncomment other mutation when testing)
+const a = ["A", "B", "C", "D"];
+
+a.splice(1);    // B C D -> (same as (1, 3))
+a.splice(1, 2);   // B C 
+a.splice(0, -2); // [] EMPTY
+
+a.slice(1);    // B C D 
+a.slice(1, 2); // B
+a.slice(0, -2); // A B
+
+```
 
 ## isArray polyfill
 ```js

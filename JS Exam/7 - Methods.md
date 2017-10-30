@@ -18,7 +18,8 @@ when using ``` "Text".length;``` JS automatically boxes the value (wraps to ```S
 * search
 * slice
 * split
-* substring
+* substr - (start, length)
+* substring - (start, index)
 * toString
 * trim - removes whitespace on the sides
 * valueOf

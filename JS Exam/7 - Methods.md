@@ -130,7 +130,7 @@ integer (10 and 10.0 - no decimal value)
 
 ## Properties
 * MAX_SAFE_INTEGER
-* MAX_SAFE_INTEGER
+* MIN_SAFE_INTEGER
 
 ```js
 (2).toFixed(2);

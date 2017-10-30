@@ -158,7 +158,7 @@ Object constructor creates an object wrapper
 * hasOwnProperty
 * isPrototypeOf
 * getPrototypeOf
-* setProtoTypeOf
+* setPrototypeOf
 * getOwnPropertyDescriptors
 * preventExtensions
 * toString

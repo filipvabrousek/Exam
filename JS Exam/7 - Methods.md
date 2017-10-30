@@ -159,7 +159,9 @@ Object constructor creates an object wrapper
 * isPrototypeOf
 * getPrototypeOf
 * setPrototypeOf
+* getOwnPropertyDescriptor
 * getOwnPropertyDescriptors
+* getOwnPropertyNames
 * preventExtensions
 * toString
 * valueOf
@@ -213,6 +215,24 @@ Object.defineProperty(obj, "a", {
 obj.a; // 4
 obj.a = 6;
 obj.a; // 4
+
+```
+
+```js
+let obj = {
+    name: "Filip",
+    age: 18
+};
+
+let des = Object.getOwnPropertyDescriptor(obj, "name");
+// {value: "Filip", writable: true, enumerable: true, configurable: true}
+let alldes = Object.getOwnPropertyDescriptors(obj);
+// age: {v.....} 
+// name:{v.....}
+let names = Object.getOwnPropertyNames(obj);
+ // ["name", "age"]
+
+
 ```
 ## freeze, seal
 * seal: prevents addign or deleting

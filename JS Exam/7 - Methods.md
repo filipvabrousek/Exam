@@ -76,34 +76,44 @@ function vowels(str) {
 vowels("Hello!"); // ["e","o"]
 ```
 # Other
+**slice**
+* start = neg. -> slice() will set char from the end of the str.
+* stop = neg. -> slice() will set stop to (string.length - 1) - stop
+
+**substr (start, length)**
+**substring(start, stop)**
+* if start = stop, it returns an empty String
+* if start > stop args will be swapped 
+* if we omit stop chars to the end of the string are extracted
+* treates negative and NaN as 0
 ```js
 let s = "Hi there !";
 
 
-let sliced = s.slice(1, -2);
-console.log(sliced); // i there
+let sliced = s.slice(1, -2); // i there
+
 
 let split = s.split(' ', 2);
-console.log(split); // ["Hi", "there"]
+ // ["Hi", "there"]
 
+
+
+let v = s.substr(1, 3); //(i t)
+
+
+let q = s.substring(1, 3) //i
 
 let re = /[A-Z]/g;
-let search = s.search(re); 
-console.log(search); // 0
-
-
-let sub = s.substr(0, 2);
-console.log(sub); // Hi
-
+let search = s.search(re); // 0
 
 let pad = "abc".padEnd(6, "123456"); // abc 123
-console.log(pad);
-
-let norm = '\u1E9B\u0323'.normalize('NFC') // NFC, NFD, NFKC, NFKD
-console.log(norm); // ẛ̣
 
 
-console.log(String.fromCodePoint(134071)); // 𠮷
+let norm = '\u1E9B\u0323'.normalize('NFC') // NFC, NFD, NFKC, NFKD     // ẛ̣
+
+
+String.fromCodePoint(134071); // 𠮷
+
 ```
 
 

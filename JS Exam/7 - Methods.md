@@ -344,6 +344,7 @@ a.splice(1, 2);   // B C
 a.splice(0, -2); // [] EMPTY
 a.splice(2, 0, "Filip"); // ["A", "B", "Filip", "C", "D"]
 a.splice(1, 1, "Filip"); // ["B"]
+a.splice(1, 2, "Filip"); // ["A", "Filip", "D"]
 
 
 a.slice(1);    // B C D 

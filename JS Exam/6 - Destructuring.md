@@ -13,86 +13,76 @@ console.log(b); // 1
 
 # 2
 ```javascript
-let a, b, res;
-[a, b, ...rest] = [10, 20, 30, 40, 50];
-console.log(a); // 10
-console.log(b); // 20
-console.log(rest); // [30, 40, 50]
+let e, s, w, rest;
+[e, s, w,  ...rest] = [10, 20, 30, 100];
+// rest is 100
 ```
 
 # 3
 ```javascript
-let {foo, bar} = {foo: 'lorem', bar: 'ipsum', choo: 'uhoh'};
-console.log("foo:", foo, "bar:", bar);
+let {x, y} = {x: 2, y: 1};
+ // x:2, y:1
 ```
 
 # 4
 ```javascript
-let list = [ 7, 42 ];
-let [a = 1, b = 2, c = 3, d] = list;
-console.log( a,  b,  c,  d);
-// 7, 42, 3, undefined
+let list = [2];
+let [a = 1, b = 3, c] = list
+console.log(a, b, c); 
+// 2, 3, UNDEFINED
 ```
 # 5
 ```js
-let colors = [ "red" ];
-let [ a, b = "green" ] = colors;
-console.log(a);        // "red"
-console.log(b);       // "green"
-
+let colors = ["red"];
+let [a, b = "green"] = colors;
+// a is "red"
+// b is "green"
 ```
+
+
+
 
 # 6
 ```javascript
-let set = new Set([1, 2, 3]);
-set = new Set([...set].map(x => x * 2));
-console.log(set);
-// 2, 4, 6
-```
+const people = [
+    "Filip",
+    ["Terka", "Lucka"]
+];
 
+const [man, [g1, g2]] = people;
+// g1 is Terka
+```
 
 # 7
 ```javascript
-const people = [
-  'Filip', 
-  ['Terka', 'Lucka'] 
-];
 
-
-const [man, [g1, g2]] = people;
-console.log(g1);
-// Terka
+const p2 = {
+     filip:"Filip",
+    terka: "Terka",
+    lucka: "Lucka"
+}
+   const {
+       filip: a,
+       terka: b,
+       lucka: c
+   } = p2;
+   
+ // b is Terka
 ```
 
 # 8
 ```javascript
-const people = {
+const p3 = {
     filip: "Filip",
-    terka: "Terka",
-    lucka: "Lucka"
-};
-
-const { 
-  filip: a, 
-  terka: b, 
-  lucka: c 
-} = people;
-
-console.log(b);
-```
-
-# 9
-```javascript
-const people = {
-  filip: "Filip",
-  friends: {
-    best: {
-      karel: 'Karel',
-      terka: 'Terka',
+    friends: {
+        best:{
+            karel: "Karel",
+            terka: "Terka"
+        }
     }
-  }
 };
 
-const { friends: { best } } = people;
-best;
+const { friends: {best}} = p3;
+console.log(best); 
+// {karel: "Karel", terka: "Terka"}
 ```

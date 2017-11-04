@@ -4,31 +4,66 @@
 either *global* or *function*
 
 
-## Creation phase
+## Phases
+* creation:
 A)   
 Argument object is created with all the parameters passed into function    
-   Code is scanned for **function declarations**   
-   Code is scanned for **variable declarations** (set to undefined = hoisting happens)  
-   
- B) **scope chain** is created
+Code is scanned for **function declarations**   
+Code is scanned for **variable declarations** (set to undefined = hoisting happens)  
+
+B) **scope chain** is created
  
- C) **this** value is determined
+C) **this** value is determined
 
-
-## Execution phase
+* execution:
 Code is ran line by line
 
-![execution](http://i.imgur.com/2gXCI47.png)
+
+
+
+## Compilation
+
+1) tokenizing/lexing 
+* breaking up a string of charactres into meaningful (to JS engine) chunks, called tokens
+var a = 2; // -> var, a, =, 2,;
+
+2) parsing
+* taking stream of tokens and turning it into AST (tree of nested elements (variable declaration (val. is a) child. identifier, num literal))
+
+3) code generation
+* AST -> executable code (etc. creating space for variables)
+
+
+
+
+
 ## Perform execution
 * Engine - responsible for start to finish compilation
 * Compiler - one of engine's friends, handlers parsing and code generation
 * Scope - maintains list of variables and enforces accessibility rules
+
 ```js
 var a = 2;
 
 ```
 * JS Engine sees 2 statements: ```var a``` and ```a = 2```
 * 1st: compiler phase task, 2nd: execution phase task
+* LHS - assigning to a variable (left hand side asignment)
+* RHS - retrieving its value
+
+```js
+function F(a){
+    console.log(a);
+}
+
+F(2);
+
+```
+- E: RHS for "F()" ?, 
+- E: LHS for "a" ? (scope has, compiler declared it as a param. to F()),
+- E: time to assing 2 to "a"
+- E: RHS checking for "console", double checking for "a" passing it into log
+
 
 
 ------------------------------------------------------------------------------------------------------------
@@ -318,45 +353,6 @@ Window.prototype.__proto__ == Window.prototype.constructor.prototype.__proto__ /
 ```
 
 
--------------------------
-## RHS = Right-hand side assignment
-we are looking up for the value of "a"
-
-```js 
-console.log(a);
-```
-
-
-## LHS - Left-hand side assignment
-we don't care about value, we simply want to find the variable as a target for the assignment operation
-
-```js
-a = 2 
-```
-
-## Conversation
-
-```js
-function F(a){
-    console.log(a);
-}
-
-F(2);
-
-```
-
-- Engine: I have an RHS refrence for "F()". Ever heard of it?
-- Scope: Yes I have. Compiler declared it just a second ago
-- Engine: Hey, Scope, I've got an LHS reference for "a", ever heard of it?
-- Scope: Why yes, I have. Compiler declared it as a formal parameter to "F()" just recently. Here you go.
-- Engine: Now, time to assign 2 to a.
-- Engine: I need RHS look up for the console
-- Scope: OK
-- Engine: Perfect. Looking up log(..). OK, it's a function.
-- Engine: Can you help me with RHS refernce with "a"? I just want to double check.
-- Scope: Hasn't changed
-- Engine: Cool. Passing the value of "a" which is "2" into "log(..)"
-
 
 ## New 
 ```js
@@ -382,3 +378,4 @@ let filip = shiny(Person, "Filip");
 filip.greet();
 
 ```
+![execution](http://i.imgur.com/2gXCI47.png)

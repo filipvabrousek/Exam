@@ -5,17 +5,17 @@ either *global* or *function*
 
 
 ## Phases
-* creation:
-A)   
-Argument object is created with all the parameters passed into function    
+**creation** :
+  
+A) Argument object is created with all the parameters passed into function    
 Code is scanned for **function declarations**   
 Code is scanned for **variable declarations** (set to undefined = hoisting happens)  
 
-B) **scope chain** is created
+B) scope chain is created
  
 C) **this** value is determined
 
-* execution:
+**execution**:
 Code is ran line by line
 
 
@@ -37,7 +37,7 @@ Code is ran line by line
 
 
 
-## Perform execution
+## executinng code
 * Engine - responsible for start to finish compilation
 * Compiler - one of engine's friends, handlers parsing and code generation
 * Scope - maintains list of variables and enforces accessibility rules

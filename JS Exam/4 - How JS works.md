@@ -25,7 +25,7 @@ Code is ran line by line
 
 1) tokenizing/lexing 
 * breaking up a string of charactres into meaningful (to JS engine) chunks, called tokens
-var a = 2; // -> var, a, =, 2,;
+```var a = 2; // -> var, a, =, 2,;```
 
 2) parsing
 * taking stream of tokens and turning it into AST (tree of nested elements (variable declaration (val. is a) child. identifier, num literal))

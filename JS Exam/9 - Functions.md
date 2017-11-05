@@ -241,7 +241,8 @@ var e = new Function( "a", "return a * 2;" );
 e(4);
 ```
 
-# Top level functions (not associated with any object)
+# Top level functions
+(not associated with any object)
 
 * eval()
 * uneval() - opposite of eval

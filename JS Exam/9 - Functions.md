@@ -240,3 +240,19 @@ arr[1](arr[0].name);
 var e = new Function( "a", "return a * 2;" );
 e(4);
 ```
+
+# Top level functions (not associated with any object)
+
+* eval()
+* uneval() - opposite of eval
+* isNaN(), isFinite()....
+* encodeURI
+* decodeURI
+
+```js
+let set3 = "ABC 123";
+let e = encodeURI(set3);
+// ABC%20123
+```
+
+

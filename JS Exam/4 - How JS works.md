@@ -219,7 +219,7 @@ console.log(me.name);       // "Filip"
 
 ```
 
-2) explicit binding - using the specified object
+2) explicit binding - using ```call, bind, apply``` and the the specified object
 
 ```js
 function P() {

@@ -62,6 +62,7 @@ for (prop in filip){
 ```
 
 ## for of
+* exits when there is no more value
 ```js
 let values = [1, 2, 3];
 

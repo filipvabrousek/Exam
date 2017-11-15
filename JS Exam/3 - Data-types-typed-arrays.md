@@ -2,6 +2,7 @@
 * JS is high-level, dynamic, untyped, interpreted run-time language  
 * variables don't have types - value have types  
 * has 7 data types (6 primitives + Object)
+* you can use two dots to call the method ``` 123..toString() ``` with just on, parser would think its decimal
 ----------------------------------------------------------------------------------------
 ### Number 
 ### String

@@ -344,6 +344,22 @@ p.pa(arr);
 (() => 'foobar')();
 ```
 
+# new
+```js
+function numbers(...values) {
+
+    if (typeof new.target === "undefined") {
+        throw new Error("This f. must be called wth new");
+    }
+
+    this.values = values;
+}
+
+let instance = new numbers(1, 2, 3);
+console.log(instance.values);
+
+numbers(1, 2, 3);
+```
 
 
 # Top level functions

@@ -38,11 +38,14 @@
 ----------------------------------------------------------------------------------------
 
 # number
-* NaN is not equal to itself
+* NaN is not equal to itself (more approprietly "invalid number")
 * ```-(2^53 - 1) to (2^53 - 1)``` both inclusive
 * Number.MAX_SAFE_INTEGER
 * Number.MIN_SAFE_INTEGER
 * Number.EPSILON (distance between 1 and smallest floating point number grater than 1)
+* Number.POSITIVE_INFINITY (and neg.)
+
+
 ```js
 let m = 1e6; // 1000000
 
@@ -54,6 +57,7 @@ function notN(n){
 notN(NaN); // TRUE
 
 0.1 + 0.2 !== 0.3 // TRUE!
+1 / 0 // -> Infinity (Number.positiveInfinity)
 ```
 
 
@@ -100,10 +104,15 @@ console.log("%cDo you %c♥%c web? → %cjoinUs();", "color: #ADADAD; font-weigh
 
 
 # Coercion
+
+
 * ```JSON.stringify``` will omit ```undefined```, ```function``` and ```symbol``` values
 * will be coerced to false: ```undefined```, ```null```, ```false```, ```+0```, ```-0```, ```NaN```
 * **typeof** returns a string indicating the type of the unevaluated operand
 * when comparing use === (won't allow coercion)
+
+
+
 
 ```js
 let d = new Date( "Mon, 18 Aug 2014 08:53:06 CDT" );

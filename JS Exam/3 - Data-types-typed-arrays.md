@@ -42,7 +42,7 @@
 * ```-(2^53 - 1) to (2^53 - 1)``` both inclusive
 * Number.MAX_SAFE_INTEGER
 * Number.MIN_SAFE_INTEGER
-* Number.EPSILON (distance between 1 and smalllest floating point number grater than 1)
+* Number.EPSILON (distance between 1 and smallest floating point number grater than 1)
 ```js
 let m = 1e6; // 1000000
 

@@ -118,3 +118,31 @@ console.log("%cDo you %c♥%c web? → %cjoinUs();", "color: #ADADAD; font-weigh
 let d = new Date( "Mon, 18 Aug 2014 08:53:06 CDT" );
 +d; // 1408369986000
 ```
+
+```js
+parseInt("Infinity", 19) // 18 (I coerces to 18, n has no representation and parsing stops)
+
+let x = true;
+let y = "42";
+
+x == y; // false - true is corced to 1 and "42" to 42 (1 == 42 is false)
+
+
+0 == [] // true
+0 == {} // false
+
+// if either side of comparison is TRUE or FALSE dont ever use == (also [], "", 0)
+
+let a = {b:42};
+let b = {b: 43};
+
+a < b; // false
+a == b; // false
+a <= b // TRUE (because a <= b will evaulate b < a first and then NEGATE the result)
+
+
+[] + 6 // "6" both are coerced into string
+
+
+
+```

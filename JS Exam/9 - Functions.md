@@ -128,13 +128,14 @@ console.log(res); //28, 9
 - **Closure is when a function can remember and access its lexical scope even when it's invoked outside its lexical scope**
 
 - B() has lexical scope access to scope of ```A()```  
-- after we excute ```A()```, we assign the value it returned (inner ```B()``` function) to a variable called ```F```
+- after we excute ```A()```, we assign the value it returned (inner ```B()``` function) to var. ```F```
+
 - ```F()``` invokes inner ```B()```, but in this case, ```B()``` it's executed outside of its declared lexical scope
-- after ```A()``` executed, normally we would expect the inner scope of ```A()``` go away, because of the engine's Garbage collector
-- but the magic of closures won't let it happen
+- after ```A()``` executed, normally we would expect the inner scope of ```A()``` go away, due to engine's Garbage collector
+- magic of closures won't let it happen :D
+
 - the inner scope of ```A()``` is still in use - by ```B()```  
-- ```B()``` has a lexical scope closure over the inner scope of ```A()```
-- this keeps the scope alive for ```B()``` to reference it any time  
+- ```B()``` has a lexical scope closure over the inner scope of ```A()``` (it can reference it any time)
 - ```B()``` still has a reference to that scope, and this reference is called the **CLOSURE**
 
 ```js

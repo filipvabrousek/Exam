@@ -386,6 +386,8 @@ let d = new Date(99,6,20,20,28,00,0);
 * random - from interval <0, 1)
 * sqrt
 * pow
+* LOG10
+* SQRT1_2
 
 ```js
 let e = Math.pow(9, 3);

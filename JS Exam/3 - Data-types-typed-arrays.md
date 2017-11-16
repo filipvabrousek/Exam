@@ -3,6 +3,7 @@
 * variables don't have types - value have types  
 * has 7 data types (6 primitives + Object)
 * you can use two dots to call the method ``` 123..toString() ``` with just on, parser would think its decimal
+* you can change types in another assignment
 ----------------------------------------------------------------------------------------
 ### Number 
 ### String
@@ -39,10 +40,11 @@
 # number
 * NaN is not equal to itself
 * ```-(2^53 - 1) to (2^53 - 1)``` both inclusive
-
+* Number.MAX_SAFE_INTEGER
+* Number.MIN_SAFE_INTEGER
+* Number.EPSILON (distance between 1 and smalllest floating point number grater than 1)
 ```js
 let m = 1e6; // 1000000
-
 
 
 function notN(n){
@@ -51,8 +53,7 @@ function notN(n){
 
 notN(NaN); // TRUE
 
-0.1 + 0.2 !== 0.3 // TRUE
-
+0.1 + 0.2 !== 0.3 // TRUE!
 ```
 
 # Typed arrays

@@ -166,24 +166,37 @@ wait("Hi");
 
 ```
 
-* doesn't work ): - (works with ```let```)
+# Closures in for loop
+* doesn't work :(
+```js
+let resb = [];
 
-```js
-for (var i=1; i<=5; i++) {
-	setTimeout( function timer(){
-		console.log( i );
-	}, i*1000 );
+for (var i = 0; i < 3; i++) {  // or use let
+	resb[i] = function() {
+		console.log(i);
+	};
 }
+
+resb[0]() // 3 expected 0
+resb[1]() // 3 expected 1 ...
+
 ```
-* does work :) 
+* works :)
 ```js
-for (var i=1; i<=5; i++) {
-	(function(j){
-		setTimeout( function timer(){
-			console.log( j );
-		}, j*1000 );
-	})( i );
+
+let res = [];
+
+for (var i = 0; i < 3; i++) {
+	res[i] = (function inner(x) {
+		// aditional enclosing context below
+		return function() {
+			console.log(x);
+		}
+	})(i);
 }
+
+res[0](); // 0 as expected
+res[1](); // 1 as expected
 ```
 
 

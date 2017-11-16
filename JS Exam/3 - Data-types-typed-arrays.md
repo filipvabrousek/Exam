@@ -36,6 +36,24 @@
 * Symbol()
 ----------------------------------------------------------------------------------------
 
+# number
+* NaN is not equal to itself
+* ```-(2^53 - 1) to (2^53 - 1)``` both inclusive
+
+```js
+let m = 1e6; // 1000000
+
+
+
+function notN(n){
+    return n !== n;
+};
+
+notN(NaN); // TRUE
+
+0.1 + 0.2 !== 0.3 // TRUE
+
+```
 
 # Typed arrays
 * differences from arrays:

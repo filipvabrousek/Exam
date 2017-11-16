@@ -117,7 +117,6 @@ String.fromCodePoint(134071); // 𠮷
 # Number
 wrapper object allowing you to work with numerical values (number constructor)
 ```Number.prototype``` returns object with all the methods (inheritenance))
-integer (10 and 10.0 - no decimal value)
 
 * isFinite
 * isNaN
@@ -127,13 +126,11 @@ integer (10 and 10.0 - no decimal value)
 * toPrecision
 * valueOf
 * isSafeInteger - number between -(2<sup>53</sup> - 1) and (2<sup>53</sup> - 1)
-
-## Properties
-* MAX_SAFE_INTEGER
-* MIN_SAFE_INTEGER
+* toLocaleString
 
 ```js
 (2).toFixed(2);
+12000..toLocaleString("de-DE", {style: "currency", currency: "EUR"}); //  // 12.000,00 € (Germany)
 ```
 ```js
 if (!Number.isNaN){

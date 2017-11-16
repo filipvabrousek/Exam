@@ -56,6 +56,8 @@ notN(NaN); // TRUE
 0.1 + 0.2 !== 0.3 // TRUE!
 ```
 
+
+
 # Typed arrays
 * differences from arrays:
 * same type of items 

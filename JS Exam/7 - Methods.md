@@ -29,22 +29,7 @@ when using ``` "Text".length;``` JS automatically boxes the value (wraps to ```S
 
 
 
-## repeat
-```javascript
-'oh '.repeat(2);
-// "oh oh "
-```
 
-
-
-## Template literals
-```javascript
-let count = 10,
-    price = 0.25,
-    message = `${count} items cost $${(count * price).toFixed(2)}.`;
-
-console.log(message);       // "10 items cost $2.50."
-```
 
 ## Raw 
 * only method of template literals
@@ -63,18 +48,7 @@ F`I am ${desc}`;
 ```
 
 
-## get vowels
-```js
-function vowels(str) {
-	let matches;
 
-	if (str && (matches = str.match( /[aeiou]/g ))) {
-		return matches;
-	}
-}
-
-vowels("Hello!"); // ["e","o"]
-```
 # Other
 **slice**
 * start = neg. -> slice() will set char from the end of the str.

@@ -307,28 +307,25 @@ ages.filter(check); // 22, 21
 
 
 ## Slice vs Splice
-**Slice** - does not change original array, returns selected els. as a new object
-**Splice** - changes original array  
-arg 1: index (neg. values to count from the end)
-arg 2: optional, how many removed, 0: nothing remvoed, missing: all items from the selected index removed  
-arg 3: what should be added  
+* **Slice(start, end)** - does not change original array, returns selected els. as a new object
+- end > start, or end omitted, els to the end removed
+
+* **Splice(start, delete, item1...)** - changes original array  
+- arg 1: index (neg. values to count from the end)
+- arg 2: how many to delete 0: 0 removed, missing: all items from the selected index removed  
+- arg 3, 4..: what should be added 
 
 ```js
-// SPLICE mutates the original array !!!!!! (uncomment other mutation when testing)
 const a = ["A", "B", "C", "D"];
 
-a.splice(1);    // B C D -> (same as (1, 3))
-a.splice(1, 2);   // B C 
-a.splice(0, -2); // [] EMPTY
-a.splice(2, 0, "Filip"); // ["A", "B", "Filip", "C", "D"]
-a.splice(1, 1, "Filip"); // ["B"]
-a.splice(1, 2, "Filip"); // ["A", "Filip", "D"]
-
-
-a.slice(1);    // B C D 
-a.slice(1, 2); // B
+a.slice(1); // BCD
+a.slice(1, 3); // BC
 a.slice(0, -2); // A B
 
+//------------------------------------------
+a.splice(1, 2); // returns [B, C] -> mutes to [A, D]
+a.splice(1, 0, "Filip"); // ["A", "Filip", "B", "C", "D"] (1, "Filip) does nothing
+a.splice(1, 1, "Filip"); // ["A", "Filip", "C", "D"]
 ```
 
 ## isArray polyfill

@@ -305,8 +305,15 @@ const check = (age) => age >= 18;
 ages.filter(check); // 22, 21
 ```
 
-```js
 
+## Slice vs Splice
+**Slice** - does not change original array, returns selected els. as a new object
+**Splice** - changes original array  
+arg 1: index (neg. values to count from the end)
+arg 2: optional, how many removed, 0: nothing remvoed, missing: all items from the selected index removed  
+arg 3: what should be added  
+
+```js
 // SPLICE mutates the original array !!!!!! (uncomment other mutation when testing)
 const a = ["A", "B", "C", "D"];
 

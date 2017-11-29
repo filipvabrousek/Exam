@@ -70,18 +70,13 @@ let split = s.split(' ', 2);
  // ["Hi", "there"]
 
 let v = s.substr(1, 3); //(i t)
-
 let q = s.substring(1, 3) //i
-
 
 let re = /[A-Z]/g;
 let search = s.search(re); // 0
 
-
 let pad = "abc".padEnd(6, "123456"); // abc 123
-
 let norm = '\u1E9B\u0323'.normalize('NFC') // NFC, NFD, NFKC, NFKD     // ẛ̣
-
 String.fromCodePoint(134071); // 𠮷
 
 ```
@@ -318,14 +313,14 @@ ages.filter(check); // 22, 21
 ```js
 const a = ["A", "B", "C", "D"];
 
-a.slice(1); // BCD
-a.slice(1, 3); // BC
-a.slice(0, -2); // A B
+a.slice(1);     // BCD
+a.slice(1, 3);  // BC
+a.slice(0, -2); // AB
 
 //------------------------------------------
-a.splice(1, 2); // returns [B, C] -> mutes to [A, D]
-a.splice(1, 0, "Filip"); // ["A", "Filip", "B", "C", "D"] (1, "Filip") does nothing
-a.splice(1, 1, "Filip"); // ["A", "Filip", "C", "D"]
+a.splice(1, 2);     // returns [B, C] -> mutes to [A, D]
+a.splice(1, 0, "Filip");    // ["A", "Filip", "B", "C", "D"] (1, "Filip") does nothing
+a.splice(1, 1, "Filip");    // ["A", "Filip", "C", "D"]
 ```
 
 ## isArray polyfill

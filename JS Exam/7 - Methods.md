@@ -324,7 +324,7 @@ a.slice(0, -2); // A B
 
 //------------------------------------------
 a.splice(1, 2); // returns [B, C] -> mutes to [A, D]
-a.splice(1, 0, "Filip"); // ["A", "Filip", "B", "C", "D"] (1, "Filip) does nothing
+a.splice(1, 0, "Filip"); // ["A", "Filip", "B", "C", "D"] (1, "Filip") does nothing
 a.splice(1, 1, "Filip"); // ["A", "Filip", "C", "D"]
 ```
 

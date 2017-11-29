@@ -248,8 +248,8 @@ array with empty lots (holes) = sparse array
 * push
 * pop
 * of
-* shift
-* unshift
+* shift - removes and returns the first element
+* unshift - adds elements to the beginning and returns its new length
 * fill
 * filter
 * find
@@ -269,32 +269,19 @@ array with empty lots (holes) = sparse array
 * slice
 * splice
 
-## from
 
-```javascript
-function T() {
-    return Array.from(arguments, (value) => value + 1);
-}
-let numbers = T(1, 2, 3);
-console.log(numbers);               // 2,3,4
-```
-
-
-## other
+## find, findIndex, reduce, filter
 ```js
-let n = [8, 16];
+let arr = [8, 16];
+console.log(arr.find(n => n > 10));         // 16
+console.log(arr.findIndex(n => n > 10));    // 1
 
-console.log(n.find(n => n > 10));         // 16
-console.log(n.findIndex(n => n > 10));    // 1
-
-const f = ["Terka", "Filip", "Karel", "Lucy"];
-f.shift(); // "Terka"
-f.unshift(); // 4
-
-const n = [65, 44, 12, 4];
+// Reduce
+const arr = [65, 44, 12, 4];
 let sum = (total, num) => total + num;
-n.reduce(sum) // 125
+arr.reduce(sum) // 125
 
+// Filter
 var ages = [22, 21, 17];
 const check = (age) => age >= 18;
 ages.filter(check); // 22, 21
@@ -344,6 +331,8 @@ if (!Array.isArr){
 let d = new Date(99,6,20,20,28,00,0);
 // Tue Jul 20 1999 20:28:00 GMT+0200 (CEST)
 ```
+
+---------------------------------------------------------------
 # Math 
 
 * sin

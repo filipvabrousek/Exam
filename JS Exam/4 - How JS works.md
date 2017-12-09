@@ -302,7 +302,7 @@ let filip = new P();
 
 P.prototype === filip.__proto__ // TRUE 
 P.__proto__ === Function.prototype // TRUE
-P.__proto__.__proto__ === Object.prototype === Function.prototype.__proto__ // "TRUE" (compare just 2 !!)
+P.__proto__.__proto__ === Function.prototype.__proto__ === Object.prototype // "TRUE" (compare just 2 !!)
 P.__proto__.__proto__.__proto__ === null;
 
 

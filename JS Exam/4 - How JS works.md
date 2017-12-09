@@ -319,18 +319,8 @@ console.log(a == b); // TRUE
 console.log(a === b); // FALSE 
 
 
-
-
-function P(name){
-    this.name = name;
-}
-
-P.prototype.age = 18;
-
-let w = new P("Terka")
-console.log(w.__proto__.age === P.prototype.age) // TRUE
 ```
-
+![https://i.imgur.com/TmdDB4M.png]
 
 
 ## Prototype is an Object

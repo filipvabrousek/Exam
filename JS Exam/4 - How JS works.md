@@ -288,7 +288,6 @@ Object.setPrototypeOf(filip, human); // this actually sets the __proto__ !!!!!!
 human.age = 18;
 
 
-console.log(filip.group) 	// Diblastica
 console.log(filip.__proto__) 	// {group: "Diblastica", age: 18}
 console.log(filip.age) 		// 18
 

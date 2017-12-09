@@ -271,8 +271,8 @@ console.log(this.a);
 
 ### .prototype 
 * is created just on functions in case you want to use the constructors with "new"  
-* sets what will become the __proto__ property on the constructed object  
-* it is a protototype of things constructed with the function (NOT ITS PROTOTYPE)   
+* sets what will become the __proto__ property on the constructed object
+* it is a protototype of things constructed with the function (NOT ITS PROTOTYPE)   
 
 ```js
 

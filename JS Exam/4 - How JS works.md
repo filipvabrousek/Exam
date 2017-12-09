@@ -295,52 +295,30 @@ console.log(filip.age) 		// 18
 ```
 
 ```js
-function Person() {}
-Person.prototype.name = "Karel";
+function P() {}
+P.prototype.name = "Filip";
+let filip = new P();
 
-let karel = new Person();
-console.log(karel.name)
-console.log(Person.prototype === karel.__proto__) // TRUE karel.__proto__ is {name: "Karel", constructor: ƒ} 
-console.log(Person.__proto__ === Function.prototype) // TRUE
 
-console.log(Person.prototype)	 // {name: "Karel", constructor: ƒ}
-console.log(Person.__proto__) 	 // ƒ () { [native code] }
-```
+P.prototype === filip.__proto__ // TRUE 
+P.__proto__ === Function.prototype // TRUE
+P.__proto__.__proto__ === Object.prototype === Function.prototype.__proto__ // "TRUE" (compare just 2 !!)
+P.__proto__.__proto__.__proto__ === null;
 
-## Another example
-```js
-// .prototype sets what will become the proto property on the constructed object
+
+
 let a = new Number(9);
 let b = 9;
-console.log(Number.prototype === b.__proto__); // TRUE
-
-
-console.log(a == b); // TRUE
-console.log(a === b); // FALSE 
-
-
+Number.prototype === b.__proto__; // TRUE
 ```
 ![inheritenance](https://i.imgur.com/TmdDB4M.png)
 
 
-## Prototype is an Object
-```js
-function Foo() { /* .. */ }
-
-Foo.prototype = { /* .. */ }; // create a new prototype object
-
-var a1 = new Foo();
-console.log(a1.constructor === Foo) // FALSE because we set the prototype to Object
-console.log(a1.constructor === Object)// TRUE because we set the prototype to Object
-
-```
 
 ## Beware
-* The ability of a JS function to access ```call(..)```, ```apply(..)```, and ```bind(..)``` is because functions themselves are objects, and function-objects also have a ```[[Prototype]]``` linkage, to the ```Function.prototype``` object, which defines those default methods that any function object can delegate to. 
+* The ability of a JS function to access ```call(..)```, ```apply(..)```, and ```bind(..)``` is because functions themselves are objects, and function-objects also have a ```[[Prototype]]``` linkage, to the ```Function.prototype``` object, which defines those default methods that any function object can delegate to
 
-```js
-Window.prototype.__proto__ == Window.prototype.constructor.prototype.__proto__ // true
-```
+
 
 
 

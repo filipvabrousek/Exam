@@ -320,7 +320,7 @@ console.log(a === b); // FALSE
 
 
 ```
-![https://i.imgur.com/TmdDB4M.png]
+![inheritenance](https://i.imgur.com/TmdDB4M.png)
 
 
 ## Prototype is an Object

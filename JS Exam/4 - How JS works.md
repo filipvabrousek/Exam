@@ -266,7 +266,7 @@ console.log(this.a);
 
 ### __proto__  or [[Prototype]] 
 * each object has a private property - __proto__ (holds a link to another object down in the prototype chain)
-* that prototype object has a __proto__ of its own **null** is the end of the chain
+* that prototype object has a __proto__ of its own **null**, (end of the chain)
 * ```setPrototypeOf``` methods sets the __proto__ (it has **NOTHING** to do with the **.prototype** !!!!)
 
 ### .prototype 

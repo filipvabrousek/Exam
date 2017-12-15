@@ -266,7 +266,7 @@ console.log(this.a);
 
 ### __proto__  or [[Prototype]] 
 * each object has a private property - __proto__ (holds a link to another object down in the prototype chain)
-* that prototype object has a __proto__ of its own, and so on until an object is reached with **null** as its __proto__ (end of the chain)  
+* that prototype object has a __proto__ of its own **null** is the end of the chain
 * ```setPrototypeOf``` methods sets the __proto__ (it has **NOTHING** to do with the **.prototype** !!!!)
 
 ### .prototype 
@@ -288,7 +288,7 @@ Object.setPrototypeOf(filip, human); // this actually sets the __proto__ !!!!!!
 human.age = 18;
 
 
-console.log(filip.__proto__) 	// {group: "Diblastica", age: 18}
+console.log(filip.__proto__) 	// {group: "Triblastica", age: 18}
 console.log(filip.age) 		// 18
 
 ```
@@ -315,8 +315,7 @@ Number.prototype === b.__proto__; // TRUE
 
 
 ## Beware
-* The ability of a JS function to access ```call(..)```, ```apply(..)```, and ```bind(..)``` is because functions themselves are objects, and function-objects also have a ```[[Prototype]]``` linkage, to the ```Function.prototype``` object, which defines those default methods that any function object can delegate to
-
+* JS can access ```call(..)```, because functions themselves are objects, and function-objects also have a ```[[Prototype]]``` linkage, to the ```Function.prototype``` object
 
 
 

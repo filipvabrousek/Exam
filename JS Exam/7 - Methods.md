@@ -57,9 +57,7 @@ F`I am ${desc}`;
 **substring(start, stop)** 
 * if start = stop, it returns an empty String
 * if start > stop args will be swapped 
-* if we omit stop chars to the end of the string are extracted
-* treates negative and NaN as 0
-
+* -, NaN -> 0
 **substr (start, length)**
 ```js
 let s = "Hi there !";

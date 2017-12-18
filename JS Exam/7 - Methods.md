@@ -47,35 +47,31 @@ let desc = `Filip`
 F`I am ${desc}`;
 ```
 
-
-
 # Other
-* common: stop omitted - chars to the end extracted
+* accepts negative position from the end of the string, substring does not
 
 **slice(start, end)**
-* start = neg. -> slice() will set char from the end of the str.
-* * if start > stop args WILL NOT  be swapped   
-**substring(start, stop)** 
+* if start > stop args WILL NOT  be swapped,  
 
-* if start > stop args WILL be swapped 
-* -, NaN -> 0  
 **substr (start, length)**
+* * if start > stop args WILL NOT  be swapped,  
+* negative start -> goes from end
+
+
+**substring(start, inclusive stop)** 
+* if start > stop args WILL be swapped 
+* x > 0, NaN -> 0, end omitted -> chars to end :)
+
 ```js
-let s = "Hi there !";
+let s = "ABCDEF";
+s.slice(1, 2); // B
+s.substring(1, 2); // B
+s.substr(1, 2); // BC
+s.search(/[A-Z]/g); // 0
 
-let sliced = s.slice(1, -2); // i there
-
-let split = s.split(' ', 2);
- // ["Hi", "there"]
-
-let v = s.substr(1, 3); //(i t)
-let q = s.substring(1, 3) //i
-
-let re = /[A-Z]/g;
-let search = s.search(re); // 0
-
-let pad = "abc".padEnd(6, "123456"); // abc 123
-let norm = '\u1E9B\u0323'.normalize('NFC') // NFC, NFD, NFKC, NFKD     // ẛ̣
+    
+"abc".padEnd(6, "123456"); // abc 123
+'\u1E9B\u0323'.normalize('NFC') // NFC, NFD, NFKC, NFKD     // ẛ̣
 String.fromCodePoint(134071); // 𠮷
 
 ```

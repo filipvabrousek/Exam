@@ -54,7 +54,7 @@ F`I am ${desc}`;
 
 **slice(start, end)**
 * start = neg. -> slice() will set char from the end of the str.
-* * if start > stop args WILL NOT  be swapped 
+* * if start > stop args WILL NOT  be swapped   
 **substring(start, stop)** 
 
 * if start > stop args WILL be swapped 

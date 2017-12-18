@@ -50,14 +50,14 @@ F`I am ${desc}`;
 
 
 # Other
-**slice**
+**slice(start, end)**
 * start = neg. -> slice() will set char from the end of the str.
 * stop = neg. -> slice() will set stop to (string.length - 1) - stop
 
 **substring(start, stop)** 
 * if start = stop, it returns an empty String
 * if start > stop args will be swapped 
-* -, NaN -> 0
+* -, NaN -> 0  
 **substr (start, length)**
 ```js
 let s = "Hi there !";

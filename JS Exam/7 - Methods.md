@@ -54,7 +54,7 @@ F`I am ${desc}`;
 * if start > stop args WILL NOT  be swapped,  
 
 **substr (start, length)**
-* * if start > stop args WILL NOT  be swapped,  
+* if start > stop args WILL NOT  be swapped,  
 * negative start -> goes from end
 
 
@@ -79,8 +79,6 @@ String.fromCodePoint(134071); // 𠮷
 
 ----------------------------------------------------------------------------------
 # Number
-wrapper object allowing you to work with numerical values (number constructor)
-```Number.prototype``` returns object with all the methods (inheritenance))
 
 * isFinite
 * isNaN

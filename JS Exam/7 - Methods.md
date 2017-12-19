@@ -232,6 +232,9 @@ array with empty lots (holes) = sparse array
 * sort
 * slice
 * splice
+* keys
+* values
+* lastIndexOf
 
 
 ## find, findIndex, reduce, filter
@@ -274,14 +277,30 @@ a.splice(1, 0, "Filip");    // ["A", "Filip", "B", "C", "D"] (1, "Filip") does n
 a.splice(1, 1, "Filip");    // ["A", "Filip", "C", "D"]
 ```
 
-## isArray polyfill
 ```js
-if (!Array.isArr){
-    Array.isArr = function(arg){
-        return Object.prototype.toString.call(arg) === "[object Array]";
-    };
+Array.prototype.addToStart = function(a){
+    return this.unshift(a);
 }
+
+let r = [1, 2, 3];
+console.log(r.addToStart("K")); // [K, 1, 2, 3]
 ```
+    
+```js    
+let indicies = [];
+let arr = ["A", "B", "A", "D"];
+let el = "A";
+let idx = arr.lastIndexOf(el);
+    
+    
+while(idx != -1){
+    indicies.push(idx);
+    idx = (idx > 0 ? arr.lastIndexOf(el, idx - 1) : -1);
+}
+    
+indicies // [2, 0]
+```
+
 
 
 ----------------------------------------------------------------------------------
@@ -312,22 +331,7 @@ let d = new Date(99,6,20,20,28,00,0);
 * LOG10
 * SQRT1_2
 
-```js
-let e = Math.pow(9, 3);
-console.log(e);
-```
------------------------------------------------------
 
-## Defining own methods
-
-
-```js
-String.prototype.longerThan = function(limit){
-    return this.length > limit;
-}
-
-console.log("Car".longerThan(2));
-```
 
 
 

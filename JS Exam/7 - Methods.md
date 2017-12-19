@@ -240,8 +240,8 @@ array with empty lots (holes) = sparse array
 ## find, findIndex, reduce, filter
 ```js
 let arr = [8, 16];
-console.log(arr.find(n => n > 10));         // 16
-console.log(arr.findIndex(n => n > 10));    // 1
+arr.find(n => n > 10);         // 16
+arr.findIndex(n => n > 10);    // 1
 
 // Reduce
 const arr = [65, 44, 12, 4];
@@ -283,7 +283,7 @@ Array.prototype.addToStart = function(a){
 }
 
 let r = [1, 2, 3];
-console.log(r.addToStart("K")); // [K, 1, 2, 3]
+r.addToStart("K"); // [K, 1, 2, 3]
 ```
     
 ```js    

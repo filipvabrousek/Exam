@@ -50,7 +50,8 @@ F`I am ${desc}`;
 # Other
 * accepts negative position from the end of the string, substring does not
 
-**slice(start, end)**  
+**slice(start, end)**
+
 **substr (start, length)**
 * negative start -> goes from end
 

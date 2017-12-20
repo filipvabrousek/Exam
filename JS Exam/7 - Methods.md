@@ -50,16 +50,12 @@ F`I am ${desc}`;
 # Other
 * accepts negative position from the end of the string, substring does not
 
-**slice(start, end)**
-* if start > stop args WILL NOT  be swapped,  
-
+**slice(start, end)**  
 **substr (start, length)**
-* if start > stop args WILL NOT  be swapped,  
 * negative start -> goes from end
 
-
 **substring(start, inclusive stop)** 
-* if start > stop args WILL be swapped 
+* only method to swap arguments (start > stop) 
 * x > 0, NaN -> 0, end omitted -> chars to end :)
 
 ```js

@@ -86,3 +86,35 @@ for (i in localStorage){
 }
 
 ```
+
+
+## Animation
+
+```js
+    let el = document.querySelector("div");
+
+    let change = [{
+    		transform: 'translateX(0)',
+    		background: '#1abc9c'
+    	},
+    	{
+    		offset: 0.8,
+    		transform: 'translateX(15em)',
+    		background: 'blue'
+    	},
+    	{
+    		transform: 'translate(15em)',
+    		background: 'green'
+    	}
+    ]
+
+
+
+
+    el.addEventListener("click", () => {
+    	el.animate(change, {
+    		duration: 400,
+    		fill: 'forwards'
+    	});
+    });
+```

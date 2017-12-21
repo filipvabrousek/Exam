@@ -38,6 +38,19 @@ q.call(document, 'body');
 * history (back, forward)
 * alert, confirm, setTimeout, setInterval
 * cookies
+* geolocation
+
+```js
+navigator.geolocation.getCurrentPosition(show);
+
+function show(position){
+    console.log(`${position.coords.latitude} + ${position.coords.longitude}`)
+}
+```
+
+```js
+navigator.onLine
+```
 
 # JSON
 * JavaScript Standart Object Notation

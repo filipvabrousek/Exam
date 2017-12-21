@@ -49,7 +49,7 @@ function show(position){
 ```
 
 ```js
-navigator.onLine
+navigator.onLine ? 1 : console.log("You are offline");
 ```
 
 # JSON

@@ -93,7 +93,8 @@ for (i in localStorage){
 ```js
     let el = document.querySelector("div");
 
-    let change = [{
+    let change = [
+        {
     		transform: 'translateX(0)',
     		background: '#1abc9c'
     	},

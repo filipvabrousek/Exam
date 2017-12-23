@@ -29,17 +29,30 @@
 | ES 2015 (ES6) | June 2015  |
 | ES 2016 (ES7) | June 2016  |
  
-## JS Engines
-program or interpreter which executes JS code
-* 2008 - 2009 JS Engine war
-* 2010 - JS Engine race (Opera, Firefox, Safari, IE 9)
- 
- 
+
  
 ## ECMA
 * 1961
 * located in Geneva
 * aims to develop standards and technical reports to facilitate and standardize the use of information communication technology and consumer electronics
 * < than 400 Ecma Standards
+ 
+ ## Browsers
+ * 1990 - Timothy berners Lee (CSS)
+ * Erwise -> Mosaic -> Netscape Nav. -> IE 1995 -> Opera -> Firefox -> SF -> Chrome
+ * prefix of the URL defines how the page will be interpreted (mailto launches client)
+ * layout engine renders received markup into website
+ * Engines: Gecko, WebKit, Blink
+ 
+ ## JS Engines
+program or interpreter which executes JS code
+* 2008 - 2009 JS Engine war
+* 2010 - JS Engine race (Opera, Firefox, Safari, IE 9)
+ * V8, Spidermonkey (1st)...
+ 
+ 
+ 
+ 
+ 
  
 * beginning - 1.9.2015 - 7:48 - 2nd floor of GJS Zlin :)

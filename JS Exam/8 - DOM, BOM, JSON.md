@@ -127,7 +127,7 @@ navigator.vibrate(200)
 
 ## Audio API
 ```js
-let type= "square";
+let type = "square";
 let context = new AudioContext();
 let osc = context.createOscillator();
 osc.type = type;

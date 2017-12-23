@@ -2,27 +2,9 @@
 * "Document object Model"
 * connects web pages to scripts or programming languages
 
-
-## Window object
 ```js
 window.isSecureContext
-```
-
-## Document
-
-*  represents any web page loaded in the browser and serves as an entry point into the web page's content, which is the DOM tree
-
-
-```js
-
 console.log(document.styleSheets);
-
-function q() {
-    return document.querySelectorAll(...arguments);
-}
-
-q.call(document, 'body');
-
 ```
 
 

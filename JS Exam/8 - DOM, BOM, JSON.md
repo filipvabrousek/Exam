@@ -6,8 +6,6 @@
 ## Window object
 ```js
 window.isSecureContext
-
-
 ```
 
 ## Document

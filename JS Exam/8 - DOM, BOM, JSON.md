@@ -105,6 +105,14 @@ for (i in localStorage){
 navigator.vibrate(200)
 ```
 
+## Touch
+```js
+window.addEventListener("touchstart", () => {
+    console.log("Touched !");
+});
+    
+```
+
 ## Audio API
 ```js
 let type = "square";

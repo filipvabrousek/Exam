@@ -119,3 +119,10 @@ for (i in localStorage){
     	});
     });
 ```
+
+## Other APIs
+```js
+navigator.vibrate(200)
+
+
+```

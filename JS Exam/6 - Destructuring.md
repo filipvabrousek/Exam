@@ -12,20 +12,19 @@ console.log(b); // 1
 ```
 
 # 2
-```javascript
-let e, s, w, rest;
+```js
 [e, s, w,  ...rest] = [10, 20, 30, 100];
 // rest is 100
 ```
 
 # 3
-```javascript
+```js
 let {x, y} = {x: 2, y: 1};
  // x:2, y:1
 ```
 
 # 4
-```javascript
+```js
 let list = [2];
 let [a = 1, b = 3, c] = list
 console.log(a, b, c); 

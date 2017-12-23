@@ -120,9 +120,18 @@ for (i in localStorage){
     });
 ```
 
-## Other APIs
+## Vibrate API
 ```js
 navigator.vibrate(200)
+```
 
-
+## Audio API
+```js
+let type= "square";
+let context = new AudioContext();
+let osc = context.createOscillator();
+osc.type = type;
+osc.frequency.value = 400;
+osc.connect(context.destination);
+osc.start();
 ```

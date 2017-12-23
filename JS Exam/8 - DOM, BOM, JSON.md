@@ -134,3 +134,14 @@ let marks = performance.getEntriesByType("mark");
 console.log(`Time: ${marks[1].startTime - marks[0].startTime}`);
 
 ```
+
+## Visibility API
+
+```js
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden){
+        console.log("User has lost focus");
+    }
+});
+
+```

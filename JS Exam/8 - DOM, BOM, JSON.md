@@ -123,3 +123,14 @@ osc.frequency.value = 400;
 osc.connect(context.destination);
 osc.start();
 ```
+
+## Performance API
+```js
+performance.mark('');
+console.log("Hello");
+performance.mark('');
+    
+let marks = performance.getEntriesByType("mark");
+console.log(`Time: ${marks[1].startTime - marks[0].startTime}`);
+
+```

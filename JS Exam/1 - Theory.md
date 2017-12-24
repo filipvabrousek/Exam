@@ -1,3 +1,9 @@
+# JS
+* dynamicly typed (type associated with value)
+* prototype based
+* functions as methods / as object constructors
+
+
 # HISTORY
 
 ## Brendan Eich ( July 4, 1961 )
@@ -12,8 +18,8 @@
  * => April 1995 Netscape Communications Corporation  
  * intending to put Scheme (dialect of the Lisp language) in the browser
  * => instead commissioned to create JS (lang. that reassembled Java for the  Netscape Navigator Web browser)
- * developed under **Mocha** (May 1995) officially called **LiveScript** (Sept. 1995 Navigator 2.0) => **JS** (dec.)
- * June 1997 JS => ECMA standard
+ * written in 10 days (May 1995) **Mocha** -> officially called **LiveScript** ( NN 2.0 Sept. 1995) -> **JS** (dec.)
+ * 996 - June 1997 JS => ECMA 262 standard (TC 39)
  
 ## JS Versions
  
@@ -32,24 +38,32 @@
 
  
 ## ECMA
-* 1961
-* located in Geneva
-* aims to develop standards and technical reports to facilitate and standardize the use of information communication technology and consumer electronics
-* < than 400 Ecma Standards
+* 1961, Geneva
+* aims to develop standards and technical reports to facilitate and standardize the use of information communication technology and consumer electronics (< 400 standards)
  
  ## Browsers
  * 1990 - Timothy berners Lee (CSS)
  * Erwise -> Mosaic -> Netscape Nav. -> IE 1995 -> Opera -> Firefox -> SF -> Chrome
- * prefix of the URL defines how the page will be interpreted (mailto launches client)
- * layout engine renders received markup into website
+ * WAR: Netscape x IE (best viewed in)
  * Engines: Gecko, WebKit, Blink
+ 
+ ### How they work
+ 1) client send http(s) request to some adress (GET request) - it can deny / accept
+ 2) layout engine renders received markup into website
+ POST request: send message, etc..
+ PUT request: change user name, ..etc
+ * prefix of the URL defines how the page will be interpreted (mailto launches client)
+ 
+ 
  
  ## JS Engines
 program or interpreter which executes JS code
 * 2008 - 2009 JS Engine war
 * 2010 - JS Engine race (Opera, Firefox, Safari, IE 9)
- * V8, Spidermonkey (1st)...
- 
+* V8, Spidermonkey (1st)...
+
+
+
  
  
  

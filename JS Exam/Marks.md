@@ -124,6 +124,7 @@ const UICtrl = ((dataCtrl) => {
 
 
 UICtrl.init(); 
+
 ```
 
 ```html
@@ -153,7 +154,8 @@ UICtrl.init();
 
 
 
-<h2 id="avg">add some marks</h2>
+<h2 id="avg">Average will appear here (currently works just with same weights)</h2>
+
 <section id="marks">
 
     <!-----This will be managed by the app------>
@@ -209,9 +211,5 @@ UICtrl.init();
         margin: 1em;
     }
 </style>
-
-<!-------ALWAYS AT THE BOTTOM--------->
-<script src="practice.js">
-</script>
 
 ```

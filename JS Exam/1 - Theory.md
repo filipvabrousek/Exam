@@ -50,9 +50,9 @@
  ### How they work
  1) client send http(s) request to some adress (GET request) - it can deny / accept
  2) layout engine renders received markup into website
- POST request: send message, etc..
- PUT request: change user name, ..etc
- * prefix of the URL defines how the page will be interpreted (mailto launches client)
+ POST request: send message, etc..  
+ PUT request: change user name, ..etc  
+ prefix of the URL defines how the page will be interpreted (mailto launches client)
  
  
  

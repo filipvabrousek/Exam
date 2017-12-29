@@ -96,9 +96,58 @@ Int8Array.of(127, 126, 125).map(x => 2 * x)
 Int8Array // [ -2, -4, -6 ]
 ```
 
-# Formatting text in console 
+
+# Console
 ```js
-console.log("%cDo you %c♥%c web? → %cjoinUs();", "color: #ADADAD; font-weight: bold; font-size: 18px;", "color: #f63939; font-weight: bold; font-size: 22px;", "color: #ADADAD; font-weight: bold; font-size: 18px;", "color: #4ac366; font-weight: bold; font-size: 18px;")
+console.info("Info");
+console.warn("Warning");
+console.error('%cI will kill you!', 'font-size: 4em');
+console.dir(document.body); // JS Object HTML representation
+console.assert(2 > 1, "No!");
+
+
+// time
+console.time();
+console.log(98 * 89);
+console.timeEnd(); //40ms
+
+
+
+// count
+let label = "Function is called";
+console.count(label);
+console.count(label);
+
+function foo(){
+    console.count(label);
+}
+foo(); // "F is called 3"
+
+
+
+
+
+// group, groupEnd, table
+class User{
+    constructor(name){
+        this.name = name;
+    }
+}
+
+let users = [
+    new User("Filip")
+  //......
+]
+
+for (var i = 0; i < users.length; i++){
+    console.group("User"); //groupColapseed
+    console.log(users[i].name);
+    console.groupEnd();
+    
+    console.table(users);
+}
+
+
 
 ```
 

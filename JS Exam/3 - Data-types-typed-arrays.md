@@ -40,8 +40,8 @@
 # number
 * NaN is not equal to itself (more approprietly "invalid number")
 * ```-(2^53 - 1) to (2^53 - 1)``` both inclusive
-* Number.MAX_SAFE_INTEGER
-* Number.MIN_SAFE_INTEGER
+* Number.MAX_SAFE_INTEGER  
+* Number.MIN_SAFE_INTEGER
 * Number.EPSILON (distance between 1 and smallest floating point number grater than 1)
 * Number.POSITIVE_INFINITY (and neg.)
 
@@ -181,18 +181,16 @@ for (let byte of ui8) {
 ```
 
 
-```javascript
+```js
 let typedArray = new Uint8Array([0,1,2]);
 console.log(typedArray.length); // 3
 typedArray[0] = 5;
 let normalArray = [...typedArray]; // [5,1,2]
 ```
 
-```javascript
-TypedArray.of(...items)
-```
 
-```javascript
+
+```js
 Int8Array.of(127, 126, 125).map(x => 2 * x)
 Int8Array // [ -2, -4, -6 ]
 ```

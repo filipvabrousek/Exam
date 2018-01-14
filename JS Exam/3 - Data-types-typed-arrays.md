@@ -37,7 +37,7 @@
 * Symbol()
 ----------------------------------------------------------------------------------------
 
-# number
+# Number
 * NaN is not equal to itself (more approprietly "invalid number")
 * ```-(2^53 - 1) to (2^53 - 1)``` both inclusive
 * Number.MAX_SAFE_INTEGER  
@@ -120,15 +120,10 @@ for (var i = 0; i < users.length; i++){
 
 
 # Coercion
-
-
 * ```JSON.stringify``` will omit ```undefined```, ```function``` and ```symbol``` values
 * will be coerced to false: ```undefined```, ```null```, ```false```, ```+0```, ```-0```, ```NaN```
 * **typeof** returns a string indicating the type of the unevaluated operand
 * when comparing use === (won't allow coercion)
-
-
-
 
 ```js
 let d = new Date( "Mon, 18 Aug 2014 08:53:06 CDT" );

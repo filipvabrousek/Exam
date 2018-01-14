@@ -19,7 +19,7 @@
  * intending to put Scheme (dialect of the Lisp language) in the browser
  * => instead commissioned to create JS (lang. that reassembled Java for the  Netscape Navigator Web browser)
  * written in 10 days (May 1995) **Mocha** -> officially called **LiveScript** ( NN 2.0 Sept. 1995) -> **JS** (dec.)
- * 996 - June 1997 JS => ECMA 262 standard (TC 39)
+ * 1996 - June 1997 JS => ECMA 262 standard (TC 39)
  
 ## JS Versions
  

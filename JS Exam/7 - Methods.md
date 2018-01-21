@@ -1,35 +1,11 @@
-# METHODS
-
 # String
-constructor for strings, or a sequence of characters
-```String.prototype``` returns object with all the methods (inheritenance)
-when using ``` "Text".length;``` JS automatically boxes the value (wraps to ```String(...)```)
-* startsWith
-* endsWith
-* includes
-* charAt
-* charCodeAt
-* repeat
-* concat
-* includes
-* indexOf
-* repeat
-* replace
-* search
-* slice
-* split
-* substr - (start, length)
-* substring - (start, index)
-* toString
-* trim - removes whitespace on the sides
-* valueOf
-* match - str.match(re) - re = regular expression
-* normalize
-* fromCodePoint
 
-
-
-
+Name | Name | Name| Name
+------------ | ------------- | -------------| -------------
+startsWith | repeat| concat| substring
+endsWith | indexOf| search | toString 
+substring | trim  | valueOf  | match
+normalize| from code p.
 
 ## Raw 
 * only method of template literals
@@ -47,17 +23,12 @@ let desc = `Filip`
 F`I am ${desc}`;
 ```
 
-# Other
-* accepts negative position from the end of the string, substring does not
-
+## Slice, Substr, Subsstring
 **slice(start, end)**
 
-**substr (start, length)** 
-* negative start -> goes from end
+**substr (start, length)** negative start -> goes from end
 
-**substring(start, inclusive stop)** 
-* only method to swap arguments (start > stop) 
-* x > 0, NaN -> 0, end omitted -> chars to end :)
+**substring(start, inclusive stop)** only method to swap arguments (start > stop) x > 0, NaN -> 0, end omitted -> chars to end :)
 
 ```js
 let s = "ABCDEF";
@@ -74,60 +45,42 @@ String.fromCodePoint(134071); // 𠮷
 ```
 
 
-----------------------------------------------------------------------------------
 # Number
 
-* isFinite
-* isNaN
-* toExponential
-* toFixed
-* toString
-* toPrecision
-* valueOf
-* isSafeInteger - number between -(2<sup>53</sup> - 1) and (2<sup>53</sup> - 1)
-* toLocaleString
+Name | Name | Name| Name
+------------ | ------------- | -------------| -------------
+toExponential | toString| isFinite| isNan
+toPrecision | valueOf| toFixed | isSafeInteger 
+toLocaleString 
 
 ```js
 (2).toFixed(2);
 12000..toLocaleString("de-DE", {style: "currency", currency: "EUR"}); //  // 12.000,00 € (Germany)
-```
-```js
+
 if (!Number.isNaN){
     Number.isNaN = function(n) {
         return n !== n
     }
 }
 
-```
-
-## binary and octal literals
-```js
+// binary and octals litelars
 0b111110111 === 503 // true
 0o767 === 503 // true
 
 ```
 
-----------------------------------------------------------------------------------
 # Object
-Object constructor creates an object wrapper
 
-* hasOwnProperty
-* isPrototypeOf
-* getPrototypeOf
-* setPrototypeOf
-* getOwnPropertyDescriptor - 2 arg.
-* getOwnPropertyDescriptors - 1
-* getOwnPropertyNames - 1
-* getOwnPropertySymbols - 1
-* preventExtensions
-* toString
-* valueOf
-* assign
-* defineProperty
-* seal
-* freeze
-* isSealed
-* isFrozen
+Name | Name | Name| Name
+------------ | ------------- | -------------| -------------
+hasOwnProperty| getPrototypeOf| setPrototypeOf| getOwnPropertyDescriptor
+getOwnPropertyDescriptors | getOwnPropertyNames| getOwnPropertySymbols |  preventExtensions 
+| valueOf| assign |  defineProperty  | seal 
+| freeze | isSealed | isFrozen
+
+
+
+
 
 ```js
 let obj = {
@@ -163,12 +116,9 @@ Object.getOwnPropertyNames(obj);
 
 
 let copy = Object.assign({}, obj);
-
 ```
 
-
-## isPrototypeOf (is __proto__ of)
-```javascript
+```js
 function A(){}
 function B(){}
 function C(){}
@@ -180,58 +130,17 @@ console.log(C.prototype.isPrototypeOf(c)); // TRUE
 console.log(c.__proto__ == C.prototype); // TRUE
 ```
 
+# Array
 
-
-
-
-## Get 
-```js
-let obj = {
-   arr: ["Filip", "Terka"],
-    get latest(){
-        if (this.arr.length !== 0){
-            return this.arr[this.arr.length - 1];
-        }
-    }
-}
-
-console.log(obj.latest);
-
-
-```
-
-----------------------------------------------------------------------------------
-# Array 
-global object that is used in the construction of arrays
-array with empty lots (holes) = sparse array
-
-* join
-* push
-* pop
-* of
-* shift - removes and returns the first element
-* unshift - adds elements to the beginning and returns its new length
-* fill
-* filter
-* find
-* from
-* forEach
-* reverse
-* include
-* reduce
-* entries
-* bind
-* call
-* apply
-* some
-* every
-* all
-* sort
-* slice
-* splice
-* keys
-* values
-* lastIndexOf
+Name | Name | Name| Name
+------------ | ------------- | -------------| -------------
+join | push |pop |of
+shift | unshift| fill| filter
+find| from |forEach| reverse
+include |reduce |entries| bind
+call |apply |some| every 
+all |sort| slice |splice
+keys |values| lastIndexOf | xxx
 
 
 ## find, findIndex, reduce, filter
@@ -299,37 +208,26 @@ indicies // [2, 0]
 ```
 
 
-
-----------------------------------------------------------------------------------
 # Date
 
-* toString
-* toUTCString
-* toDateString
+Name | Name | Name| Name
+------------ | ------------- | -------------| -------------
+toString | toUTCString |toDateString |xxx
 
-```javascript
+```js
 let d = new Date(99,6,20,20,28,00,0);
 // Tue Jul 20 1999 20:28:00 GMT+0200 (CEST)
 ```
 
----------------------------------------------------------------
-# Math 
 
-* sin
-* cos
-* tan
-* pi
-* round
-* max
-* min
+# Math
+
+Name | Name | Name| Name
+------------ | ------------- | -------------| -------------
+sin | cos |tg |pi
+min | max |round |random
+sqrt | pow |LOG10 |SQRT1_2
+
 * random - from interval <0, 1)
-* sqrt
-* pow
-* LOG10
-* SQRT1_2
-
-
-
-
 
 

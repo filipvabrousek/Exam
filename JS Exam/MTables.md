@@ -214,4 +214,7 @@ Name | Name | Name| Name
 ------------ | ------------- | -------------| -------------
 toString | toUTCString |toDateString |xxx
 
-
+```js
+let d = new Date(99,6,20,20,28,00,0);
+// Tue Jul 20 1999 20:28:00 GMT+0200 (CEST)
+```

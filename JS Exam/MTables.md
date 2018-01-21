@@ -26,12 +26,9 @@ F`I am ${desc}`;
 ## Slice, Substr, Subsstring
 **slice(start, end)**
 
-**substr (start, length)**
-* negative start -> goes from end
+**substr (start, length)** negative start -> goes from end
 
-**substring(start, inclusive stop)** 
-* only method to swap arguments (start > stop) 
-* x > 0, NaN -> 0, end omitted -> chars to end :)
+**substring(start, inclusive stop)** only method to swap arguments (start > stop) x > 0, NaN -> 0, end omitted -> chars to end :)
 
 ```js
 let s = "ABCDEF";

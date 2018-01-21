@@ -132,6 +132,8 @@ console.log(c.__proto__ == C.prototype); // TRUE
 
 ## Array
 
+Name | Name | Name| Name
+------------ | ------------- | -------------| -------------
 join | push |pop |of
 shift | unshift| fill| filter
 find| from |forEach| reverse

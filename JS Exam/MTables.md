@@ -74,25 +74,12 @@ if (!Number.isNaN){
 Name | Name | Name| Name
 ------------ | ------------- | -------------| -------------
 hasOwnProperty| getPrototypeOf| setPrototypeOf| getOwnPropertyDescriptor
-getOwnPropertyDescriptors | getOwnPropertyNames| getOwnPropertySymbols 
- preventExtensions | valueOf| assign |  defineProperty
- | seal | freeze | isSealed | isFrozen
+getOwnPropertyDescriptors | getOwnPropertyNames| getOwnPropertySymbols |  preventExtensions 
+| valueOf| assign |  defineProperty  | seal 
+| freeze | isSealed | isFrozen
 
 
 
-
-
-
-
-
-
-
-
-
-seal
-freeze
-isSealed
-isFrozen
 
 
 ```js

@@ -73,8 +73,8 @@ if (!Number.isNaN){
 
 Name | Name | Name| Name
 ------------ | ------------- | -------------| -------------
-hasOwnProperty| getPrototypeOf| setPrototypeOf| getOwnPropertyDescriptor - 2 arg.
-getOwnPropertyDescriptors - 1 | getOwnPropertyNames - 1| getOwnPropertySymbols - 1
+hasOwnProperty| getPrototypeOf| setPrototypeOf| getOwnPropertyDescriptor
+getOwnPropertyDescriptors | getOwnPropertyNames| getOwnPropertySymbols 
  preventExtensions | valueOf| assign |  defineProperty
  | seal | freeze | isSealed | isFrozen
 

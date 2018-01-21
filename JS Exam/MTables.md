@@ -130,7 +130,7 @@ console.log(C.prototype.isPrototypeOf(c)); // TRUE
 console.log(c.__proto__ == C.prototype); // TRUE
 ```
 
-## Array
+# Array
 
 Name | Name | Name| Name
 ------------ | ------------- | -------------| -------------
@@ -208,7 +208,7 @@ indicies // [2, 0]
 ```
 
 
-## Date
+# Date
 
 Name | Name | Name| Name
 ------------ | ------------- | -------------| -------------
@@ -218,3 +218,16 @@ toString | toUTCString |toDateString |xxx
 let d = new Date(99,6,20,20,28,00,0);
 // Tue Jul 20 1999 20:28:00 GMT+0200 (CEST)
 ```
+
+
+# Math
+
+Name | Name | Name| Name
+------------ | ------------- | -------------| -------------
+sin | cos |tg |pi
+min | max |round |random
+sqrt | pow |LOG10 |SQRT1_2
+
+* random - from interval <0, 1)
+
+

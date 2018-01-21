@@ -143,3 +143,68 @@ all |sort| slice |splice
 keys |values| lastIndexOf | xxx
 
 
+## find, findIndex, reduce, filter
+```js
+let arr = [8, 16];
+arr.find(n => n > 10);         // 16
+arr.findIndex(n => n > 10);    // 1
+
+// Reduce
+const arr = [65, 44, 12, 4];
+let sum = (total, num) => total + num;
+arr.reduce(sum) // 125
+
+// Filter
+var ages = [22, 21, 17];
+const check = (age) => age >= 18;
+ages.filter(check); // 22, 21
+```
+
+
+## Slice vs Splice
+* **Slice(start, end)** - does not change original array, returns selected els. as a new object
+- end > start, or end omitted, els to the end removed
+
+* **Splice(start, delete, item1...)** - changes original array  
+- arg 1: index (neg. values to count from the end)
+- arg 2: how many to delete 0: 0 removed, missing: all items from the selected index removed  
+- arg 3, 4..: what should be added 
+
+```js
+const a = ["A", "B", "C", "D"];
+
+a.slice(1);     // BCD
+a.slice(1, 3);  // BC
+a.slice(0, -2); // AB
+
+//------------------------------------------
+a.splice(1, 2);     // returns [B, C] -> mutes to [A, D]
+a.splice(1, 0, "Filip");    // ["A", "Filip", "B", "C", "D"] (1, "Filip") does nothing
+a.splice(1, 1, "Filip");    // ["A", "Filip", "C", "D"]
+```
+
+```js
+Array.prototype.addToStart = function(a){
+    return this.unshift(a);
+}
+
+let r = [1, 2, 3];
+r.addToStart("K"); // [K, 1, 2, 3]
+```
+    
+```js    
+let indicies = [];
+let arr = ["A", "B", "A", "D"];
+let el = "A";
+let idx = arr.lastIndexOf(el);
+    
+    
+while(idx != -1){
+    indicies.push(idx);
+    idx = (idx > 0 ? arr.lastIndexOf(el, idx - 1) : -1);
+}
+    
+indicies // [2, 0]
+```
+
+

@@ -130,4 +130,14 @@ console.log(C.prototype.isPrototypeOf(c)); // TRUE
 console.log(c.__proto__ == C.prototype); // TRUE
 ```
 
+## Array
+
+join | push |pop |of
+shift | unshift| fill| filter
+find| from |forEach| reverse
+include |reduce |entries| bind
+call |apply |some| every 
+all |sort| slice |splice
+keys |values| lastIndexOf | xxx
+
 

@@ -1,6 +1,4 @@
-# Methods
-
-## String
+# String
 
 Name | Name | Name| Name
 ------------ | ------------- | -------------| -------------
@@ -48,3 +46,29 @@ s.search(/[A-Z]/g); // 0
 String.fromCodePoint(134071); // 𠮷
 
 ```
+
+
+# Number
+
+Name | Name | Name| Name
+------------ | ------------- | -------------| -------------
+toExponential | toString| isFinite| isNan
+toPrecision | valueOf| toFixed | isSafeInteger 
+toLocaleString 
+
+```js
+(2).toFixed(2);
+12000..toLocaleString("de-DE", {style: "currency", currency: "EUR"}); //  // 12.000,00 € (Germany)
+
+if (!Number.isNaN){
+    Number.isNaN = function(n) {
+        return n !== n
+    }
+}
+
+// binary and octals litelars
+0b111110111 === 503 // true
+0o767 === 503 // true
+
+```
+

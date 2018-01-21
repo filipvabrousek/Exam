@@ -52,7 +52,7 @@ F`I am ${desc}`;
 
 **slice(start, end)**
 
-**substr (start, length)**
+**substr (start, length)** 
 * negative start -> goes from end
 
 **substring(start, inclusive stop)** 

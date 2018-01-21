@@ -69,3 +69,66 @@ if (!Number.isNaN){
 
 ```
 
+# Object
+
+Name | Name | Name| Name
+------------ | ------------- | -------------| -------------
+hasOwnProperty| getPrototypeOf| setPrototypeOf| getOwnPropertyDescriptor - 2 arg.
+getOwnPropertyDescriptors - 1 | getOwnPropertyNames - 1| getOwnPropertySymbols - 1
+ preventExtensions | valueOf| assign |  defineProperty
+ | seal | freeze | isSealed | isFrozen
+
+
+
+
+
+
+
+
+
+
+
+
+seal
+freeze
+isSealed
+isFrozen
+
+
+```js
+let obj = {
+    name: "Terka"
+};
+
+
+Object.seal();
+// prevents adding or deleting
+// Object.freeze prevents changing properties
+
+
+// can change sealed Object
+Object.defineProperty(obj, "name", {
+    value: "Filip",
+    writable: false,
+    configurable: true, // if may be changed and deleted
+    enumerable: false // included when iterated through - required
+});
+
+
+
+obj.name = "xxx";
+console.log(obj.name); // still Filip, because sealed
+
+
+
+Object.getOwnPropertyDescriptor(obj, "name");
+// {value: "Filip", writable......
+Object.getOwnPropertyNames(obj);
+// ["name"]
+
+
+
+let copy = Object.assign({}, obj);
+```
+
+

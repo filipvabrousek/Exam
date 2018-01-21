@@ -118,4 +118,16 @@ Object.getOwnPropertyNames(obj);
 let copy = Object.assign({}, obj);
 ```
 
+```js
+function A(){}
+function B(){}
+function C(){}
+
+B.prototype = Object.create(A.prototype)
+
+const c = new C(); 
+console.log(C.prototype.isPrototypeOf(c)); // TRUE
+console.log(c.__proto__ == C.prototype); // TRUE
+```
+
 

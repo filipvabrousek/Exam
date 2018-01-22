@@ -162,3 +162,19 @@ const sum = arr.filter(isBig).map(power);
 console.log(sum);
 
 ```
+
+```js
+function up(arr){
+const sum = arr.reduce((a,b) => a + b, 0);
+const mean = sum / arr.length;
+const res = arr.filter(y => y > mean);
+return res;
+}
+
+// get members above average
+let res = up([2, 4, 6, 8]); // 6, 8
+console.log(res);
+    
+
+
+```

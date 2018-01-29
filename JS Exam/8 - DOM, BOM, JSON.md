@@ -146,7 +146,107 @@ document.addEventListener("visibilitychange", () => {
 
 ```
 
-## Video
-```js
+## Video player
+```html
+       <div id="controls">
+      <button>►</button>
+ <input value="0" type="range"/>   
+    </div>   
 
+    <video width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop>
+  
+
+        
+    <script>
+        
+    let video = document.querySelector("video");
+    let btn = document.querySelector("button");
+    let seekBar = document.querySelector("input");
+    let controls = document.querySelector("#controls");    
+        
+        
+    function toggle(){
+        const method = video.paused ? "play" : "pause";
+        video[method]();
+        btn.textContent = video.paused ? "►" : "❚❚";
+    }    
+          
+    seekBar.addEventListener("change", () => {
+       let time = video.duration * (seekBar.value / 100);
+    video.currentTime = time;
+    });
+        
+    function handleChange(){
+        const percent = (video.currentTime / video.duration) * 100;
+        seekBar.value = percent;
+    }
+        
+   window.addEventListener("keyup", e => {
+       if (e.keyCode === 32){
+           video.paused ? video.play() : video.pause();
+           btn.textContent = video.paused ? "►" : "❚❚";
+       }
+   });
+        
+    video.addEventListener("mousemove", e =>{
+        console.log("L")
+        if (e.offsetTop > 100){
+            video.requestFullscreen();
+        }
+    })
+        
+    
+
+        
+        
+btn.addEventListener("click", toggle);
+seekBar.addEventListener("mousedown", () => video.pause());
+seekBar.addEventListener("mouseup", () => video.play());
+setInterval(handleChange, 500);
+ 
+// controls.addEventListener("mouseenter", () => controls.classList.add(".hide"));   
+
+    </script>
+        
+    <style>
+       
+        input{
+            width: 66em;
+        }
+        
+        video{
+            margin: 1em;
+            position: absolute;
+            z-index: -1;
+        }
+        
+        div{
+            position: absolute;
+            top: 26em;
+            left: 1.5em;
+            padding-top: 0.6em;
+            background: #000;
+            height: 2em;
+            opacity: 0.8;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 10%, black 90%);   
+        }
+        
+        button{
+            background: none;
+            color: #fff;
+            font-size: 1.2em;
+        }
+        
+        /* dead classes */
+        .show{
+           opacity: 1;
+            transition: 0.6s;
+        }
+        
+        .hide{
+            opacity: 0;
+            
+        }
+        
+        </style>
 ```

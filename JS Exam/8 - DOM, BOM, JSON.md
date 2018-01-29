@@ -148,105 +148,139 @@ document.addEventListener("visibilitychange", () => {
 
 ## Video player
 ```html
-       <div id="controls">
-      <button>►</button>
- <input value="0" type="range"/>   
-    </div>   
 
-    <video width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop>
-  
+	<div id="controls">
+		<button>►</button> <input type="range" value="0">
+	</div>
+	
+	<section id="title">
+		<h2>Time (total)</h2>
+	</section>
+	
+	<video data-time="4:03" height="430" loop="" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" width="765"/>
+	
+	
+	<script>
+	       
+	   let video = document.querySelector("video");
+	   let btn = document.querySelector("button");
+	   let seekBar = document.querySelector("input");
+	   let controls = document.querySelector("#controls");
+	   let title = document.querySelector("#title");
 
-        
-    <script>
-        
-    let video = document.querySelector("video");
-    let btn = document.querySelector("button");
-    let seekBar = document.querySelector("input");
-    let controls = document.querySelector("#controls");    
-        
-        
-    function toggle(){
-        const method = video.paused ? "play" : "pause";
-        video[method]();
-        btn.textContent = video.paused ? "►" : "❚❚";
-    }    
-          
-    seekBar.addEventListener("change", () => {
-       let time = video.duration * (seekBar.value / 100);
-    video.currentTime = time;
-    });
-        
-    function handleChange(){
-        const percent = (video.currentTime / video.duration) * 100;
-        seekBar.value = percent;
-    }
-        
-   window.addEventListener("keyup", e => {
-       if (e.keyCode === 32){
-           video.paused ? video.play() : video.pause();
-           btn.textContent = video.paused ? "►" : "❚❚";
-       }
-   });
-        
-    video.addEventListener("mousemove", e =>{
-        console.log("L")
-        if (e.offsetTop > 100){
-            video.requestFullscreen();
-        }
-    })
-        
-    
+	   function toggle() {
+	       const method = video.paused ? "play" : "pause";
+	       video[method]();
+	       btn.textContent = video.paused ? "►" : "❚❚";
+	   }
 
-        
-        
-btn.addEventListener("click", toggle);
-seekBar.addEventListener("mousedown", () => video.pause());
-seekBar.addEventListener("mouseup", () => video.play());
-setInterval(handleChange, 500);
- 
-// controls.addEventListener("mouseenter", () => controls.classList.add(".hide"));   
+	   seekBar.addEventListener("change", () => {
+	       let time = video.duration *  (seekBar.value / 100);
+	       video.currentTime = time;
+	   });
 
-    </script>
-        
-    <style>
-       
-        input{
-            width: 66em;
-        }
-        
-        video{
-            margin: 1em;
-            position: absolute;
-            z-index: -1;
-        }
-        
-        div{
-            position: absolute;
-            top: 26em;
-            left: 1.5em;
-            padding-top: 0.6em;
-            background: #000;
-            height: 2em;
-            opacity: 0.8;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 10%, black 90%);   
-        }
-        
-        button{
-            background: none;
-            color: #fff;
-            font-size: 1.2em;
-        }
-        
-        /* dead classes */
-        .show{
-           opacity: 1;
-            transition: 0.6s;
-        }
-        
-        .hide{
-            opacity: 0;
-            
-        }
-        
-        </style>
+	   function handleChange() {
+	       const percent = (video.currentTime / video.duration) * 100;
+	       seekBar.value = percent;
+	   }
+
+	   window.addEventListener("keyup", e => {
+	       if (e.keyCode === 32) { // spacebar
+	           video.paused ? video.play() : video.pause();
+	           btn.textContent = video.paused ? "►" : "❚❚";
+	       }
+	       e.keyCode === 13 ? video.webkitRequestFullScreen() : 0; // enter
+	   });
+
+
+	   btn.addEventListener("click", toggle);
+	   seekBar.addEventListener("mousedown", () => video.pause());
+	   seekBar.addEventListener("mouseup", () => video.play());
+	   setInterval(handleChange, 500);
+
+	   controls.addEventListener("mouseover", () => {
+	       controls.classList.add("show");
+	       controls.classList.remove("hide");
+	   });
+
+	   controls.addEventListener("mouseout", () => {
+	       controls.classList.add("hide");
+	       controls.classList.remove("show");
+	   });
+
+
+
+	   /*------------------------------------------------------------------------------*/
+	   const nodes = Array.from(document.querySelectorAll("[data-time]"));
+	   const seconds = nodes.map(node => node.dataset.time)
+	       .map(timeCode => {
+	           const [mins, secs] = timeCode.split(":").map(parseFloat);
+	           return (mins * 60) + secs;
+	       })
+	       .reduce((total, seconds) => total + seconds);
+
+	   // get hours and minutes from the seconds
+	   let secondsLeft = seconds;
+	   const hours = Math.floor(secondsLeft / 3600);
+	   secondsLeft = secondsLeft % 3600; // 11 % 5 -> 1
+	   let mins = Math.floor(secondsLeft / 60);
+	   secondsLeft = secondsLeft % 60;
+
+	   // log real time here: console.log(hours, mins, secondsLeft);
+	   secondsLeft <= 9 ? secondsLeft = "0" + secondsLeft % 60 : secondsLeft % 60;
+	   mins <= 9 ? mins = "0" + mins : mins;
+
+	   document.querySelector("h2").innerHTML = hours + ":" + mins + ":" + secondsLeft; 
+        // if we added another video, sum would increase
+	</script>
+	<style>
+	       *{
+	       font-family: Arial, "sans-serif";
+	       }
+	       
+	       .title{
+	           position: absolute;
+	           top: 2em;
+	       }
+	       input{
+	           width: 66em;
+	       }
+	       
+	       video{
+	           margin: 1em;
+	           position: absolute;
+	           top: 3.8em;
+	           z-index: -1;
+	       }
+	       
+	       div{
+	           position: absolute;
+	           top: 29em;
+	           left: 1.5em;
+	           padding-top: 0.6em;
+	           background: #000;
+	           height: 2em;
+	           opacity: 0.8;
+	           background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 10%, black 90%);   
+	       }
+	       
+	       button{
+	           background: none;
+	           color: #fff;
+	           font-size: 1.2em;
+	       }
+	       
+	       .show{
+	          opacity: 1;
+	       transition: 0.6s;
+	       }
+	       
+	       .hide{
+	           opacity: 0;
+	           transition: 0.6s;
+	       }
+	       
+	</style>
+
+
 ```

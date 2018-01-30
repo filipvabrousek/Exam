@@ -23,7 +23,7 @@ let desc = `Filip`
 F`I am ${desc}`;
 ```
 
-## Slice, Substr, Subsstring
+## Slice, Substr, Substring
 **slice(start, stop)**
 
 **substr (start, length)** negative start -> goes from end

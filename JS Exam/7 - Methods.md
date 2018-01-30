@@ -24,7 +24,7 @@ F`I am ${desc}`;
 ```
 
 ## Slice, Substr, Subsstring
-**slice(start, end)**
+**slice(start, stop)**
 
 **substr (start, length)** negative start -> goes from end
 

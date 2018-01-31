@@ -137,8 +137,8 @@ Name | Name | Name| Name
 join | push |pop |of
 shift | unshift| fill| filter
 find| from |forEach| reverse
-include |reduce |entries| bind
-call |apply |some| every 
+include |reduce |entries| 
+ | |some| every 
 all |sort| slice |splice
 keys |values| lastIndexOf | xxx
 

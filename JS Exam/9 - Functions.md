@@ -41,12 +41,12 @@ boundGet(); // 81
 ```
 ## Call
 * method calls a function with a given *this* (null) and args provided individually
-* the slice method from array prototype is **called** on args
+* the slice method from array prototype is **called** on args, but it is not found in argument prototype se we call it from array's
 
 
 
 
-```javascript
+```js
 const students = ["Filip", "Tereza", "Kaja"];
 
 function w(){
@@ -64,9 +64,8 @@ w(...students);
 * The first arg to apply() sets the **this**, but **this** is not defined in Math.max, so we pass null (non - existent)
 
 ```javascript
-var numbers = [5, 6, 2, 3, 7];
-var max = Math.max.apply(null, numbers); 
-
+let numbers = [5, 6, 2, 3, 7];
+let max = Math.max.apply(null, numbers); 
 // max = Math.max(numbers) -> NaN
 ```
 
@@ -78,28 +77,20 @@ console.log(b); // BIGGER
 
 
 # Using with objects
-* **this:** terka object, **argument**: "evening" 
-
 ```javascript
-const filip = {
-  name: "Filip",
-  P(time) {
-    console.log(`Good ${time}. I am ${this.name}.`);
-  }
-};
+let circle = {
+    pi: 3.14,
+    area(r){
+        return this.pi * r * r;
+    }
+}
 
-const terka = {
-  name: "Terka"
-};
+let n = circle.area(2);
 
-filip.P("morning");
-
-filip.P.bind(terka)("evening");
-filip.P.call(terka, "morning");
-filip.P.apply(terka, ["evening"]);
-
-
-
+let rec = circle.area.call({pi: 3.14159}, 2);
+let rea = circle.area.apply({pi: 3.14159}, [2]);
+let reb = circle.area.bind({pi: 3.141592});
+reb(2);
 ```
 
 

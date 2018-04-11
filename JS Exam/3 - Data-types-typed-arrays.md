@@ -12,6 +12,16 @@
 ### Null  
 ### Undefined
 
+
+
+### Unefined vs null
+´´´js
+let a;
+typeof a; // undefined (declared, but has no value)
+typeof b; // undefined (undeclared)
+
+´´´
+
 ### Object  
      1) regular objects  
      2) Function - code snippet that can be called by other code or by itself, or a variable that refers to the function  

@@ -14,7 +14,7 @@
 
 
 
-### Unefined vs null
+### Undefined vs null
 ```js
 let a;
 typeof a; // undefined (declared, but has no value)

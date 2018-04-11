@@ -57,18 +57,42 @@ typeof b; // undefined (undeclared)
 
 
 ```js
-let m = 1e6; // 1000000
+let m = 1.1E3; // 1000000
+0xf3 // 243 hex
+0o363; // octal 243
+0b11110011; // binary 243
 
 
-function notN(n){
-    return n !== n;
-};
-
+const notN(n) => n !== n;
 notN(NaN); // TRUE
 
 0.1 + 0.2 !== 0.3 // TRUE!
 1 / 0 // -> Infinity (Number.positiveInfinity)
 ```
+
+# Array
+* sparse arr = empty slots, if you don´t fill it it is undefined
+
+´´´js
+let str = "filip";
+Array.prototype.join.call(str, "-");
+´´´
+
+# String
+* collection of characters
+
+´´´js
+let str = "filip";
+Array.prototype.join.call(str, "-");
+
+let stra = "FILIP";
+stra
+.split("") // becomes array
+.reverse()
+.join() // back to string
+    
+
+´´´
 
 
 

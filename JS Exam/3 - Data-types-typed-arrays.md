@@ -15,12 +15,12 @@
 
 
 ### Unefined vs null
-´´´js
+```js
 let a;
 typeof a; // undefined (declared, but has no value)
 typeof b; // undefined (undeclared)
 
-´´´
+```
 
 ### Object  
      1) regular objects  
@@ -73,15 +73,15 @@ notN(NaN); // TRUE
 # Array
 * sparse arr = empty slots, if you don´t fill it it is undefined
 
-´´´js
+```js
 let str = "filip";
 Array.prototype.join.call(str, "-");
-´´´
+```
 
 # String
 * collection of characters
 
-´´´js
+```js
 let str = "filip";
 Array.prototype.join.call(str, "-");
 
@@ -92,7 +92,7 @@ stra
 .join() // back to string
     
 
-´´´
+```
 
 
 

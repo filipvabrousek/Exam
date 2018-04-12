@@ -1,8 +1,9 @@
 ## Big O Notation
+*  mathematical expression of how long algorithm takes to run depending on the length of the input
 
-
-
-```js// O(1) - constant time complexity
+```js
+// = mathematical expression of how long algorithm takes to run depending on the length of the input
+// O(1) - constant time complexity
 let arr = [2,3];
 arr[0];
     
@@ -70,7 +71,7 @@ let res = bubble(arr);
 console.log(res);  
     
     
-// O(2^n)
+// O(2^n) or O (C^n)  
 function fib(n){
     return fib(n - 1) + fib(n -2)
 }

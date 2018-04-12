@@ -2,34 +2,78 @@
 
 
 
-```js
-// O(1) - constant time complexity
-// accessing array index    
+```js// O(1) - constant time complexity
+let arr = [2,3];
+arr[0];
     
     
-// O(n) - linear time complexity
-// for loop over array
+// O(n) - linear time complexity (for "n" elements, we will require "n" iterations)
+for (let i = 0; i < arr.length; i++){
+    console.log(arr[i]);
+}
     
 // O(log n) - logaritmic time complexity
-// i = i * 2
+let arr = [8, 2, 6, 7];
+
+function quick(arr){
+    if (arr.length < 2) {return arr}
+    
+    let pivot = arr[0], left = [], right = [];
+    
+    for (let i = 1; i < arr.length; i++){
+       
+       switch(true){
+            case (arr[i] < pivot) :
+                left.push(arr[i]);
+                break;
+                
+            case (arr[i] >= pivot):
+               if (arr[i]){
+                   right.push(arr[i]);  
+                   break;
+               }  
+        }
+   }
+    return [].concat(quick(left), pivot, quick(right));
+} 
+   
+let qs = quick(arr);
+console.log(qs);
+    
+
     
     
-for (var i = 1; i < n; i = i * 2)
-  console.log(i);
-}
-
-
-
-// O(n^2) - quadratic time complexity
     
-for(var i = 0; i < length; i++) {     //has O(n) time complexity
-    for(var j = 0; j < length; j++) { //has O(n^2) time complexity
-      // More loops?
+// O(n^2) - quadratic time complexity (bubble sort)
+ 
+let arr = [8, 2, 6, 7];
+
+function bubble(arr){
+    
+for (let j = 0; j < arr.length - 1; j++){ //has O(n) time complexity
+    
+    for (let i = 0; i < (arr.length - j - 1); i++){ //has O(n^2) time complexity (more.. O(n^4))
+        
+    if (arr[i] > arr[i + 1]){
+        let temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
     }
-}    
+    }
+    
+}
+    
+return arr;
+}
+    
+let res = bubble(arr);
+console.log(res);  
     
     
-// bubble sort  
+// O(2^n)
+function fib(n){
+    return fib(n - 1) + fib(n -2)
+}
 ```
 
 
@@ -92,64 +136,7 @@ for(var i = 0; i < arr.length; i++){
 
 
 
-## bubble sort
-```js
-let arr = [8, 2, 6, 7];
 
-function bubble(arr){
-    
-for (let j = 0; j < arr.length - 1; j++){
-    
-    for (let i = 0; i < (arr.length - j - 1); i++){
-        
-    if (arr[i] > arr[i + 1]){
-        let temp = arr[i];
-        arr[i] = arr[i + 1];
-        arr[i + 1] = temp;
-    }
-    }
-    
-}
-    
-return arr;
-}
-    
-let res = bubble(arr);
-console.log(res);  
-
-```
-
-## Quick sort
-
-```js
-let arr = [8, 2, 6, 7];
-
-function quick(arr){
-    if (arr.length < 2) {return arr}
-    
-    let pivot = arr[0], left = [], right = [];
-    
-    for (let i = 1; i < arr.length; i++){
-       
-       switch(true){
-            case (arr[i] < pivot) :
-                left.push(arr[i]);
-                break;
-                
-            case (arr[i] >= pivot):
-               if (arr[i]){
-                   right.push(arr[i]);  
-                   break;
-               }  
-        }
-   }
-    return [].concat(quick(left), pivot, quick(right));
-} 
-   
-let qs = quick(arr);
-console.log(qs);
-
-```
 
 
 ## Other

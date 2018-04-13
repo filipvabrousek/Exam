@@ -80,21 +80,13 @@ console.log(PX.apply(null, [3, 4]));
 you can assign to name because it EXIST ON TARGET already
 
 ```js
-let T = {
-    name: "Filip"
-}
-
-
+    
+let T = {}
 let PX = new Proxy(T, {
-   set(TR, K, V, R){
-       
-       if(!TR.hasOwnProperty(K)){
-           if (isNaN(V)){
-               throw Error("Not a number");
-           } 
-       }
-       
-       Reflect.set(TR, K, V, R);
+   
+    set(TR, K, V, R){
+    if (isNaN(V)) { throw "Error"; }
+    Reflect.set(TR, K, V, R);
    } 
 });
 
@@ -103,7 +95,6 @@ let PX = new Proxy(T, {
 PX.count = 1;
 console.log(PX.count);
 // PX.n = "Text"; // -> Error
-
 ```
 
 

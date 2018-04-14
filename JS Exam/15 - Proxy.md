@@ -100,13 +100,6 @@ console.log(PX.count);
 
 ## Hiding property existence
 * with ```js handler.has()``` you can hide any property you want
-* works with "deleteProperty"
-
-```
-let R2 = delete proxy.name;
-console.log(R2);               
-console.log("name" in proxy);
-```
 
 ```js
 let T = {

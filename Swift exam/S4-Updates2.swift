@@ -1,14 +1,6 @@
 import UIKit
 
 
-
-
-
-
-
-
-
-
 /*
  let duplicates = [("one" 1), ("one", 2), ("three", 3)]
  let nonDupDict = Dictionary(duplicates, uniquingKeysWith: { (first, _) in first })

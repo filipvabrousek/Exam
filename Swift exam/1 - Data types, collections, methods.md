@@ -111,3 +111,53 @@ for code in air.keys {
 let names = [String](air.values)
 print(names)
 ```
+
+## Sets
+
+```swift
+// ---------------------Set
+let ha: Set = ["🐶", "🐱"]
+let fa: Set = ["🐮", "🐔", "🐑", "🐶", "🐱"]
+let ca: Set = ["🐦", "🐭"]
+
+ha.isSubset(of: fa)
+fa.isSuperset(of: ha)
+fa.isDisjoint(with: ca)
+// all are true
+
+let odd: Set = [1, 3, 5, 7, 10]
+let even: Set = [0, 2, 4, 6, 10]
+odd.intersection(even).sorted()
+
+var letters = Set<Character>()
+letters.insert("A")
+print(letters) // ["A"]\n"
+
+
+let datas:Set = [1.0, 2.0]
+let red = datas.reduce(0.0, +)
+print(red)
+```
+
+
+
+## Dictionaries
+```js
+let evenKeys = ["two", "four", "six", "eight", "ten"]
+var sequence = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+sequence = sequence.filter { $0 % 2 == 0 } // even numbers
+let evenDict = Dictionary(uniqueKeysWithValues: zip(evenKeys, sequence))
+print(evenDict)
+
+var dict: Dictionary = [String: String]()
+dict["swift"] = "great language"
+dict["JS"] = "the best language"
+print(dict["JS"])
+
+
+let nearest = ["A", "B", "C"]
+let dist = [3, 6, 4]
+let dicty = Dictionary(uniqueKeysWithValues: zip(nearest, dist))
+let closest = dicty.filter{ $0.value < 6}
+print(closest)
+```

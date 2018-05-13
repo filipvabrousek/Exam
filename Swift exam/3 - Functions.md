@@ -90,13 +90,32 @@ print(isOpen)
 ```
 
 
-## Map (add more)
+## MinMax
 ```swift
-let numbers = [2, 4, 6]
-let mappedNumbers = numbers.map({ number in 3 * number })
-print(mappedNumbers)
 
+
+func minMax(arr: [Int]) -> (min: Int, max: Int){
+    var currMax = arr[0]
+    var currMin = arr[0]
+    
+    for val in arr[1..<arr.count]{
+        if val > currMax{
+            currMax = val
+        }
+        
+        if val > currMin{
+            currMin = val
+        }
+    }
+    return (currMin, currMax)
+}
+
+
+let bounds = minMax(arr: [2, 3, 8])
+print("min: \(bounds.min), max: \(bounds.max) ")
 ```
+
+
 ## Closure
 ```swift
 let names = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]

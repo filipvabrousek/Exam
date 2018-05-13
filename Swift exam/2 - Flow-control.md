@@ -38,7 +38,7 @@ print(teamScore)
 
 
 
-
+## while, repeat, for in
 ```swift
 var n = 2
 while n < 100 {
@@ -62,12 +62,7 @@ for index in 1...7 {
     print("\(index) times 7 is \(index * 7)")
 }
 
-//names
-let names = ["Anna", "Alex", "Brian", "Jack"]
-let count = names.count
-for i in 0..<count {
-    print("Person \(i + 1) is called \(names[i])")
-}
+
 ```
 ## Switch
 ```swift

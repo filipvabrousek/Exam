@@ -146,18 +146,18 @@ print(red)
 let evenKeys = ["two", "four", "six", "eight", "ten"]
 var sequence = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 sequence = sequence.filter { $0 % 2 == 0 } // even numbers
-let evenDict = Dictionary(uniqueKeysWithValues: zip(evenKeys, sequence))
-print(evenDict)
+let evenDict = Dictionary(uniqueKeysWithValues: zip(evenKeys, sequence)) // ["six": 6, "four": 4, "eight": 8, "ten": 10, "two": 2] 
+
 
 var dict: Dictionary = [String: String]()
 dict["swift"] = "great language"
 dict["JS"] = "the best language"
-print(dict["JS"])
+print(dict["JS"]) // Optional("the best language")\n"
 
 
 let nearest = ["A", "B", "C"]
 let dist = [3, 6, 4]
 let dicty = Dictionary(uniqueKeysWithValues: zip(nearest, dist))
 let closest = dicty.filter{ $0.value < 6}
-print(closest)
+print(closest) //...
 ```

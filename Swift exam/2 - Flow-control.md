@@ -152,32 +152,10 @@ let winnerPriceMoney = Results(places: .first).desc()
 ```
 # Codable
 ```swift
-soon...
-```
-
-# MinMax
-```swift
 
 
-func minMax(arr: [Int]) -> (min: Int, max: Int){
-    var currMax = arr[0]
-    var currMin = arr[0]
-    
-    for val in arr[1..<arr.count]{
-        if val > currMax{
-            currMax = val
-        }
-        
-        if val > currMin{
-            currMin = val
-        }
-    }
-    return (currMin, currMax)
-}
 
 
-let bounds = minMax(arr: [2, 3, 8])
-print("min: \(bounds.min), max: \(bounds.max) ")
 
 ```
 

@@ -150,16 +150,6 @@ struct Results {
 let winnerPriceMoney = Results(places: .first).desc()
 
 ```
-# Codable
-```swift
-
-
-
-
-
-```
-
-
 
 # Operators
 ```swift

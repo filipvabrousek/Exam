@@ -62,6 +62,7 @@ x.square()
 
 ## Kind
 ```swift
+
 extension Int{
     enum K{
         case negative, zero, positive
@@ -82,23 +83,23 @@ extension Int{
 
 func show(_ numbers: [Int]){
     for n in numbers{
-        switch n.kind {
+       
+        switch n.kind{
         case .negative:
-            print("- ", terminator: "")
+         print("-")
         case .zero:
-            print("0 ", terminator: "")
+            print("0")
         case .positive:
-            print("+ ", terminator: "")
+            print("+")
         }
-        
-        print("")
-        
     }
 }
 
 
 let n = [-8, 0, 8]
 show(n) // - 0 +
+
+
 
 
 ```

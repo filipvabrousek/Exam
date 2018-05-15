@@ -36,74 +36,44 @@ let addStr = add(a: "Hi, ", b: "Filip")
 ```
 
 
-## Equatable
+## Container
 ```swift
 
-struct Q<Element: Equatable>{
-    fileprivate var arr: [Element] = []
-    
-    mutating func enqueue(new: Element){
-        arr.append(new)
-    }
-    
-    mutating func dequeue() -> Element? {
-        guard !arr.isEmpty else { return nil }
-        return arr.remove(at: 0)
-    }
-    
-    
-    
+protocol Container {
+    associatedtype Thing
+    func size() -> Int
+    func add(thing: Thing)
 }
 
-
-extension Q {
-    func isHomogenous() -> Bool {
-        guard let first = arr.first else {return true}
-        return !arr.contains {$0 != first}
+class Crate<Thing> : Container {
+    var items = [Thing]()
+    
+    func size() -> Int {
+        return items.count
+    }
+    
+    func add(thing: Thing) {
+        items.append(thing)
     }
 }
 
-var q = Q<Int>()
-q.enqueue(new: 4)
-q.enqueue(new: 2)
-q.isHomogenous()
-
-
-q.dequeue()
-q.dequeue()
-
-q.isHomogenous()
-
-class Box<T>{
-    
+func similarCrates<C1: Container, C2: Container> (crate1: C1, crate2: C2) -> Bool where C1.Thing == C2.Thing {
+    return crate1.size() == crate2.size()
 }
 
-class Gift<T>: Box<T>{
-    func wrap(){
-        print("plain paper wrap")
-    }
-}
+var stringCrate = Crate<String>()
+stringCrate.add(thing: "stickers")
 
-class Rose{
-    
-}
-
-class Valentine: Gift<Rose>{
-    override func wrap(){
-        print("Wrap with ♥♥♥ paper")
-    }
-}
+var intCrate = Crate<Int>()
+intCrate.add(thing: 22)
 
 
-let gift = Gift<Rose>()
-let valentine = Valentine()
-gift.wrap()
-valentine.wrap()
+/* similarCrates(stringCrate, intCrate) */
 
-
-// plain paper wrap
-// Wrap with ♥♥♥ paper
-
+var anotherStringCrate = Crate<String>()
+similarCrates(crate1: stringCrate, crate2: anotherStringCrate)                 // false
+anotherStringCrate.add(thing: "goo")
+similarCrates(crate1: stringCrate, crate2: anotherStringCrate)
 
 
 ```

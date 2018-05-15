@@ -60,6 +60,21 @@ x.square()
 
 ```
 
+## Sum of array elements
+```swift
+extension Array where Element: Numeric{
+    func sum() -> Element{
+        return reduce(0, +)
+    }
+}
+
+let n = [1, 3, 8]
+n.sum() // 12
+
+```
+
+## 
+
 ## Kind
 ```swift
 

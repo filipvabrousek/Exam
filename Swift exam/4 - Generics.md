@@ -90,7 +90,7 @@ similiar(a: strs, b: another) // TRUE
 ```swift
 func find<T:Equatable>(of value: T, in array: [T]) -> Int? {
     for (i, val) in array.enumerated(){ // like forEach in JS
-        if val == value{ return i}
+        if val == value{ return i }
     }
     return nil
 }

@@ -67,13 +67,15 @@ a.reserveCapacity(10)
 print(a)
 ```
 
+
+
 ```swift
 let arr = [2, 4, 6]
 let half = (arr.count - 1) / 2
 let openFirst = arr[0..<half]
 ```
 
-## Filter, contains, map, reduce
+## Filter, contains
 ```swift
 let scores = ["ba", "c"]
 let filtered = scores.filter({$0.hasSuffix("a")})
@@ -86,8 +88,9 @@ print(f) // [F]
 for (i, val) in l.enumerated(){
     print("Item \(i + 1) + \(val)")
 }
+```
 
-
+```
 let points = ["Filip": 100, "Terka": 60]
 let reduced = points.reduce(10){
     (res, tuple) in res + tuple.value // tuple.key + ""
@@ -96,9 +99,23 @@ print(reduced) // 170
 
 let arrs = [1, 2, 3].filter{$0 % 2 == 0}.map{$0 * $0}.reduce(0, +)
 print(arrs) // sum of even numbers
+```
 
-var list = ["Filip", "Terka", "Karel", "Kája"]
-list[2...3] = ["X", "X"]
+
+## Map
+```swift
+let arr = [1.0, 2.0]
+
+let squares = arr.map{(value: Double) -> Double in
+return value * value
+}
+print(squares)
+
+let sq = arr.map { val in val * val}
+print(sq)
+```
+
+```swift
 
 
 var air = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]

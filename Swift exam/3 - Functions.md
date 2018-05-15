@@ -23,19 +23,7 @@ sumOf(numbers: 21, 31, 71)
 ```
 
 
-## Recursive 
-```swift
- func printRec(max: Int){
-    if max > 0{
-        printRec(max: max - 1)
-    }
-    
-    print(max)
- }
- 
- printRec(max: 3)
-
-```
+## Factorial
 ```swift
 func factorial(num: Int) -> Int{
     
@@ -118,17 +106,15 @@ print("min: \(bounds.min), max: \(bounds.max) ")
 
 ## Closure
 ```swift
-let names = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
+let names = ["Filip", "Sára", "Karel"]
 
 func backward(_ s1: String, _ s2: String) -> Bool {
     return s1 > s2
 }
-var reversedNames = names.sorted(by: backward)
-// reversedNames is equal to ["Ewa", "Daniella", "Chris", "Barry", "Alex"]
-reversedNames = names.sorted(by: { s1, s2 in return s1 > s2 } )
 
-reversedNames = names.sorted(by: { s1, s2 in s1 > s2 } )
-print(reversedNames)
+var rev = names.sorted(by: backward)
+var reva = names.sorted(by: { s1, s2 in s1 > s2 } )
+// both: [Sára, Karel, Filip]
 ```
 
 ## Capturing
@@ -156,6 +142,8 @@ let alsoIncrementByTen = incByTen
 alsoIncrementByTen()
 // returns a value of 50 (reference type)
 ```
+
+
 ## Escaping closures - compHs = completition handlers
  * A closure is said to escape a function when the closure is passed as an argument to the function,
  but is called after the function returns. When you declare a function that takes a closure as one of its parameters,

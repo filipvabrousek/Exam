@@ -1,51 +1,63 @@
 # GENERICS
+* enables you to write functions which can be used with any type
 
-## Swap
+
+*  inout means: passing by REFERENCE, witout this, initial values would stay the same beacuse copy would be created
+## Swapping ints
 ```swift
+func nswap(_ a: inout Int, _ b: inout Int){
+    let temp = a
+    a = b
+    b = temp
+}
 
-func swap<T>(_ a: inout T, _ b: inout T){
+var x = 2
+var y = 3
+nswap(&x, &y)
+print(x) // 3
+
+
+// Genric example
+func swap<T>(_ a: inout T, _ b:inout T){
     let tempA = a
     a = b
     b = tempA
 }
 
-var str = "Hello"
-var str2 = "world"
-swap(&str, &str2)
-print(str2)         // "Hello"
-
-
+var a = 1
+var b = 2
+swap(&a, &b)
+print(a) // 2
 ```
 
-```swift
 
-protocol Sum { static func +(lhs:Self, rhs: Self) -> Self }
+## Usage with protocols
+```swift
+protocol Sum {
+    static func +(lhs:Self, rhs:Self) -> Self // has to be "+" self becomes "str" ??
+}
 
 extension Int: Sum {}
 
-func add<T: Sum>(a:T, b: T) -> T {
+func add<T:Sum>(a: T, b:T) -> T{
     return a + b
 }
 
-let f = add(a: 20, b: 10)
+let f = add(a: 1, b: 2) // 3
 
 extension String: Sum{}
-let addStr = add(a: "Hi, ", b: "Filip")
-
-
+let st = add(a: "a", b: "b") // "ab"
 ```
 
-
-## Container
+## Library example
 ```swift
-
-protocol Container {
+protocol S {
     associatedtype Thing
     func size() -> Int
     func add(thing: Thing)
 }
 
-class Crate<Thing> : Container {
+class Library<Thing> : S {
     var items = [Thing]()
     
     func size() -> Int {
@@ -57,53 +69,39 @@ class Crate<Thing> : Container {
     }
 }
 
-func similarCrates<C1: Container, C2: Container> (crate1: C1, crate2: C2) -> Bool where C1.Thing == C2.Thing {
-    return crate1.size() == crate2.size()
+func similiar<C1: S, C2: S> (a: C1, b: C2) -> Bool where C1.Thing == C2.Thing {
+    return a.size() == b.size()
 }
 
-var stringCrate = Crate<String>()
-stringCrate.add(thing: "stickers")
+var strs = Library<String>()
+strs.add(thing: "stickers")
 
-var intCrate = Crate<Int>()
-intCrate.add(thing: 22)
-
-
-/* similarCrates(stringCrate, intCrate) */
-
-var anotherStringCrate = Crate<String>()
-similarCrates(crate1: stringCrate, crate2: anotherStringCrate)                 // false
-anotherStringCrate.add(thing: "goo")
-similarCrates(crate1: stringCrate, crate2: anotherStringCrate)
+var ints = Library<Int>()
+ints.add(thing: 22)
 
 
+var another = Library<String>()
+similiar(a: strs, b: another)  // FALSE
+another.add(thing: "goo")
+similiar(a: strs, b: another) // TRUE
 ```
 
-
-
-
-## find
+## Finding index of item
 ```swift
-
-
-func find<T: Equatable>(of value: T, in array:[T]) -> Int?  {
-    for (i, val) in array.enumerated(){
-        if val == value{
-            return i
-        }
+func find<T:Equatable>(of value: T, in array: [T]) -> Int? {
+    for (i, val) in array.enumerated(){ // like forEach in JS
+        if val == value{ return i}
     }
-    
     return nil
 }
 
-let index = find(of: "B", in: ["A", "B", "C"])
-print(index)        // 1
+let index = find(of: "B", in: ["A", "B", "C"]) // 1
+
 
 ```
 
 
 ## sin wave
-
-
 ```swift
 let sinArr = 64
 let f = 4.0

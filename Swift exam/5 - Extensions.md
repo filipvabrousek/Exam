@@ -60,6 +60,43 @@ x.square()
 
 ```
 
+## Equatable (rhs, lhs)
+```swift
+
+struct P{
+    let age:Double
+}
+
+
+extension P: Equatable{
+    static func ==(lhs: P, rhs:P) -> Bool{
+        return lhs.age == rhs.age
+    }
+}
+
+P(age: 18) == P(age: 18) // -> True
+```
+
+## Use with enum
+```swift
+enum OS{
+    case iOS
+    case android
+}
+
+extension OS:Comparable{
+    static func <(lhs: OS, rhs:OS) -> Bool{
+        return lhs == .iOS ? true : false
+    }
+}
+
+OS.iOS < OS.android // TRUE
+
+
+
+
+```
+
 ## Sum of array elements
 ```swift
 extension Array where Element: Numeric{
@@ -73,7 +110,7 @@ n.sum() // 12
 
 ```
 
-## 
+
 
 ## Kind
 ```swift

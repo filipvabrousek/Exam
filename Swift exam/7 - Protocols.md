@@ -161,4 +161,39 @@ for account in arr{
 
 ```
 
+## Optional
+```swift
+
+protocol P{
+    var name: String {get set}
+    func greet()
+}
+
+
+protocol Ethan:P{
+    var canFly:Bool {get set}
+}
+
+extension Ethan{
+    func say(){
+        print("J")
+    }
+}
+
+struct S:Ethan{
+    var name:String = "Ethan"
+    func greet() {
+        print("Hi there")
+    }
+    var canFly: Bool = true
+    func say() {
+        print("Hi")
+    }
+}
+
+let conforms = S(name: "Filip", canFly: true)
+print(conforms.name) // Filip
+
+
+```
 

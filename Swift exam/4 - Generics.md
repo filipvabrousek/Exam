@@ -101,6 +101,22 @@ let index = find(of: "B", in: ["A", "B", "C"]) // 1
 ```
 
 
+## generic callbacks
+```swift
+func map<T, U>(arr: [T], cb: (T) -> U) -> [U]{
+    var res: [U] = []
+    for i in 0..<arr.count{
+        res.append(cb(arr[i]))
+    }
+    return res
+}
+
+let res = map(arr: [2, 4, 6], cb: {$0 * $0})
+print(res) // [4, 16, 36]
+```
+
+
+
 ## sin wave
 ```swift
 let sinArr = 64

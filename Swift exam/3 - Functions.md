@@ -166,7 +166,33 @@ func testFunctionWithEscapingClosure2(closure: @escaping () -> Void) {
     completionHandlers.append(closure)
 }
 ```
+## Capture lists
+```swift
 
+var a = 0
+var b = 0
+let smart: () -> () = { [a, b] in // without this it would return 2, 3
+    print(a, b)
+}
+
+a = 2
+b = 3
+
+smart() // still 0, 0 (capture list in closure has been created)
+
+
+
+var barr: [() -> ()] = []
+
+var i = 0
+for _ in 1...3{
+    barr.append { [i] in // without this, it would print 3 every time
+        print(i)
+    }
+    i += 1
+}
+barr[0]() // 0
+```
 
 # SUBSCRIPT
 * enables you to query instances of a type by writing one or more values in square brackets after the instance name

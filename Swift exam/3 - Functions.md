@@ -194,6 +194,19 @@ for _ in 1...3{
 barr[0]() // 0
 ```
 
+## Trailing closures
+```swift
+func greet(name: String, closure: () -> ()){
+    print("Hello \(name)")
+    closure()
+}
+
+greet(name: "Filip"){
+    print("The closure was run")
+}
+```
+
+
 # SUBSCRIPT
 * enables you to query instances of a type by writing one or more values in square brackets after the instance name
 ```swift

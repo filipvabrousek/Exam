@@ -144,7 +144,7 @@ alsoIncrementByTen()
 ```
 
 
-## Escaping closures - compHs = completition handlers
+## Escaping closures 
  * a closure is said to escape a function when the closure is passed as an argument to the function,
  but is called after the function returns
 ```swift

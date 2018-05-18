@@ -176,6 +176,27 @@ print(inst.x) // 100
 ```
 
 
+
+## Autoclosures
+```swift
+
+var line = ["Filip", "Sára", "Karel"]
+let provider = { line.remove(at: 0)}
+print(line.count) // 2
+
+func serve(customer provider: () -> String){
+    print("Now serving \(provider())")
+}
+
+serve(customer: {line.remove(at: 0)})
+
+func servee(customer provider: @autoclosure () -> String){
+    print("Serving \(provider())")
+}
+servee(customer: line.remove(at: 0)) // @autoclosure means that i can use argument as a normal parament
+```
+
+
 ## Capture lists
 ```swift
 

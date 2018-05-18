@@ -145,27 +145,37 @@ alsoIncrementByTen()
 
 
 ## Escaping closures - compHs = completition handlers
- * A closure is said to escape a function when the closure is passed as an argument to the function,
- but is called after the function returns. When you declare a function that takes a closure as one of its parameters,
- you can write @escaping before the parameter’s type to indicate that the closure is allowed to escape.
+ * a closure is said to escape a function when the closure is passed as an argument to the function,
+ but is called after the function returns
 ```swift
-func testFunctionWithNonescapingClosure(closure:() -> Void) {
+// Escaping closures
+var handlers: [() -> Void] = []
+
+func escaping(h: @escaping () -> Void){
+    handlers.append(h)
+}
+
+func nonescaping(closure: () -> Void){
     closure()
 }
 
 
-func testFunctionWithEscapingClosure(closure:@escaping () -> Void) {
-    DispatchQueue.main.async {
-        closure()
+class P{
+    var x = 10
+    func perform(){
+        escaping {self.x = 100}
+        nonescaping {self.x = 200}
     }
 }
 
-
-var completionHandlers: [() -> Void] = []
-func testFunctionWithEscapingClosure2(closure: @escaping () -> Void) {
-    completionHandlers.append(closure)
-}
+let inst = P()
+inst.perform()
+print(inst.x) // 200
+handlers.first?()
+print(inst.x) // 100
 ```
+
+
 ## Capture lists
 ```swift
 

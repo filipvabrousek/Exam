@@ -150,11 +150,23 @@ func show(_ numbers: [Int]){
 
 let n = [-8, 0, 8]
 show(n) // - 0 +
-
-
-
-
 ```
+
+## prefix
+```swift
+struct V{
+    var x = 0.0, y = 0.0
+}
+
+extension V{
+    static prefix func -(vector: inout V) -> V{
+        return V(x: -vector.x, y: -vector.y)
+    }
+}
+
+var inv = V(x: 0, y: 1) // inv.x
+```
+
 
 ## Subscript
 ```swift

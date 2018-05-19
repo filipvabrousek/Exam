@@ -2,6 +2,10 @@
 
 ## CLASS
 * reference type, not copied (reference to the same, existing instance)
+* static -> property won't be copied to instances
+* final - prevents property from being overriden
+* ```Any``` = instance of any type
+* ```AnyObject``` = instance of any class type
 
 
 ```swift

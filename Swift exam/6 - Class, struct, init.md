@@ -391,7 +391,6 @@ class O{
     var person = P()
     class P{
         var name = "Filip"
-        
         func greet() -> String{
             return self.name
         }

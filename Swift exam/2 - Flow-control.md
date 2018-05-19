@@ -143,6 +143,29 @@ struct Results {
 }
 
 let winnerPriceMoney = Results(places: .first).desc()
+```
+
+## inidirect enum
+* allows recursion in enums
+```swift
+indirect enum exp { // w/o indirect it won't work
+    case number(Int)
+    case addition(exp, exp)
+}
+
+
+func evaluate(_ expr: exp) -> Int{
+    switch expr{
+    case let .number(val):
+        return val
+        
+    case let .addition(lhs, rhs):
+        return evaluate(lhs) + evaluate(rhs)
+    }
+}
+
+let sum = exp.addition(exp.number(1), exp.number(2))
+print(evaluate(sum)) // 3
 
 ```
 

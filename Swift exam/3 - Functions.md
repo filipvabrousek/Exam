@@ -148,31 +148,14 @@ alsoIncrementByTen()
  * a closure is said to escape a function when the closure is passed as an argument to the function,
  but is called after the function returns
 ```swift
-// Escaping closures
 var handlers: [() -> Void] = []
 
-func escaping(h: @escaping () -> Void){
+func escaping(h: @escaping () -> Void){ // without @escaping error - with @escaping closure is invoked before function returns
     handlers.append(h)
 }
 
-func nonescaping(closure: () -> Void){
-    closure()
-}
-
-
-class P{
-    var x = 10
-    func perform(){
-        escaping {self.x = 100}
-        nonescaping {self.x = 200}
-    }
-}
-
-let inst = P()
-inst.perform()
-print(inst.x) // 200
-handlers.first?()
-print(inst.x) // 100
+escaping { var x = 0 }
+print(handlers.count)
 ```
 
 

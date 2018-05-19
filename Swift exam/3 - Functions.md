@@ -254,3 +254,17 @@ struct T{
 let three = T(m: 3)
 print("6 times 3 is \(three[6])") // 18
 ```
+
+# Defer
+* runs before current scope disappears
+```swift
+func simple(){
+    defer{
+        print("I will be run before the current scope disappears")
+    }
+    
+    print("I will be run first")
+}
+
+simple()
+```

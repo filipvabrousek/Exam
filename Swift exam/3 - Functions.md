@@ -178,6 +178,8 @@ print(inst.x) // 100
 
 
 ## Autoclosures
+* autoclosures work only with anonymous arguments (not even generics)
+* not need to use complex brackets
 ```swift
 
 var line = ["Filip", "Sára", "Karel"]
@@ -193,7 +195,7 @@ serve(customer: {line.remove(at: 0)})
 func servee(customer provider: @autoclosure () -> String){
     print("Serving \(provider())")
 }
-servee(customer: line.remove(at: 0)) // @autoclosure means that i can use argument as a normal parament
+servee(customer: line.remove(at: 0)) // @autoclosure means that I can use argument as a normal parament
 ```
 
 

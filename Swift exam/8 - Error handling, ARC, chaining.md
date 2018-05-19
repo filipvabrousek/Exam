@@ -25,6 +25,7 @@ do {
 
 
 # ARC
+* automatically frees up memory, when object is not used anymore
 
 ## 1
 ```swift
@@ -60,31 +61,50 @@ filip = nil
 
 ```
 
-## 2
+## Weak, strong reference cycle
+* we need to add ```weak``` before ```var person: P? ``` so it will have WEAK reference, there will be a weak retain cycle 
+* and if one variable becomes nil, the second WILL NOT be dealocatted as well
 ```swift
-class Country {
-    let name: String
-    var capitalCity: City!
-    init(name: String, capitalName: String) {
+
+
+class P{
+    var name: String
+    var h:H?
+    init(name:String){
         self.name = name
-        self.capitalCity = City(name: capitalName, country: self)
+    }
+    
+    deinit{
+        print("deinit")
     }
 }
 
-class City {
-    let name: String
-    unowned let country: Country
-    init(name: String, country: Country) {
-        self.name = name
-        self.country = country
-    }
+/*
+var me:P? = P(name: "Filip")
+var ref = me // has STRONG refernce to where me was pointing ot
+me = nil
+
+// ref = nil -> "deinit"
+*/
+
+class H{
+    var hobby:String = "running"
+    var person: P? // with "WEAK" ("deinit" is loggedd)
 }
 
-var country = Country(name: "Canada", capitalName: "Ottawa")
-print("\(country.name)'s capital city is called \(country.capitalCity.name)")
-// Prints "Canada's capital city is called Ottawa"
+var me: P? = P(name: "Filip") // has a STRONG refernce cycle to property "hobby" which points at "H"
+var hobby: H? = H() // has a property person with a STRONG refernce pointing at employee
+me?.h = hobby
+hobby?.person = me
+me = nil
+hobby = nil 
+// Nothing logs to the console (we made a STRONG REFERNCE cycle)
+// STRONG REFERNCE CYCLES means that if one goes nil, both instances will be deallocated
 
 ```
+
+
+
 
 # Access control
 * restricts access to parts of your code from code in other source files and modules

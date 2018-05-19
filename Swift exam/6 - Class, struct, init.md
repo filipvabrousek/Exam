@@ -383,3 +383,22 @@ let myAge = me[keyPath: ageKeyPath]
 print(myAge)
 
 ```
+
+
+## Nested types
+```swift
+class O{
+    var person = P()
+    class P{
+        var name = "Filip"
+        
+        func greet() -> String{
+            return self.name
+        }
+    }
+}
+
+
+let res = O()
+res.person.greet() // "Filip"
+```

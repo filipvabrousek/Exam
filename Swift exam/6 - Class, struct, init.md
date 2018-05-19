@@ -8,7 +8,7 @@
 * ```lazy``` value won't be computed until actually used (for complex operations)
 
 
-## initialization
+### initialization
 * **Designated** init = primary, normal init
 * **Convenience** init = default init (if no arguments are passed to a class)
 

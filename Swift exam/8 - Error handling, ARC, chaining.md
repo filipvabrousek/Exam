@@ -27,40 +27,6 @@ do {
 # ARC
 * automatically frees up memory, when object is not used anymore
 
-## 1
-```swift
-class Customer {
-    let name: String
-    var card: CreditCard?
-    init(name: String) {
-        self.name = name
-    }
-    deinit { print("\(name) is being deinitialized") }
-}
-
-class CreditCard {
-    let number: UInt64
-    unowned let customer: Customer
-    init(number: UInt64, customer: Customer) {
-        self.number = number
-        self.customer = customer
-    }
-    deinit { print("Card #\(number) is being deinitialized") }
-}
-
-var filip: Customer?
-
-
-filip = Customer(name: "Filip Vabrousek")
-filip!.card = CreditCard(number: 1234_5678_9012_3456, customer: filip!)
-
-filip = nil
-// Prints "Filip Vabrousek is being deinitialized"
-// Prints "Card #1234567890123456 is being deinitialized"
-
-
-```
-
 ## Weak, strong reference cycle
 * we need to add ```weak``` before ```var person: P? ``` so it will have WEAK reference, there will be a weak retain cycle 
 * and if one variable becomes nil, the second WILL NOT be dealocatted as well
@@ -104,34 +70,62 @@ hobby = nil
 ```
 
 
+## Unowned
+* unowned is used when there is NO POSSIBILITY for the reference becoming nil until the ```self``` object exists
+
+```swift
+class P{
+    var name: String = "Filip"
+    var card: CD?
+    init(name:String){
+        self.name = name
+    }
+    deinit { print("deinit") }
+}
+
+class CD{
+    var id:Int
+    unowned var person: P // to use "weak" I would have to make it optional by adding "?" which we don't want
+    init(uid:Int, iperson:P){
+        id = uid
+        person = iperson
+    }
+    deinit { print("deinit 2") }
+}
+
+var me: P? = P(name: "Filip") // has a STRONG refernce cycle to property "hobby" which points at "H"
+var card: CD? = CD(uid: 29109, iperson: me!) // has a property person with a STRONG refernce pointing at employee
+me?.card = card
+
+me = nil
+card = nil
+
+// Both are being deinitilized :)
+
+```
+
+
 
 
 # Access control
 * restricts access to parts of your code from code in other source files and modules
 * this feature enables you to hide the implementation details of your code
+* variables and classes are implicitly internal
 ```swift
 
-public class SomePublicClass {}
-internal class SomeInternalClass {}
-fileprivate class SomeFilePrivateClass {}
-private class SomePrivateClass {}
+public class P {}
+internal class I {}
+fileprivate class SFP {}
+private class SP {}
  
-public var somePublicVariable = 0
-internal let someInternalConstant = 0
-fileprivate func someFilePrivateFunction() {}
-private func somePrivateFunction() {}
+public var SPV = 0
+internal let SIC = 0
+fileprivate func SFP() {}
+private func SPF() {}
 ```
 
-```swift
-class SomeInternalClass {}              // implicitly internal
-let someInternalConstant = 0            // implicitly internal
-
-
-
-```
 
 # OPTIONAL CHAINING
-
 ```swift
 class P {
     var amount: Money?

@@ -125,14 +125,6 @@ class AUTOMATIC: CAR{
         }
     }
 }
-
-
-
-
-
-
-
-
 ```
 
 ## Property observers
@@ -336,6 +328,28 @@ print(me3 == nil)
 
 ```
 
+## struct with 2 inits
+
+```swift
+
+struct Color{
+    let r, g, b: Double
+    
+    init(r:Double, g:Double, b:Double){
+        self.r = r
+        self.g = g
+        self.b = b
+    }
+    
+    init(w:Double){
+        r = w
+        g = w
+        b = w
+    }
+}
+
+let c = Color(w: 0.6) // transparent
+```
 ## Codable
 
 ```swift

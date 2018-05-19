@@ -7,6 +7,20 @@
 * ```AnyObject``` = instance of any class type
 * ```lazy``` value won't be computed until actually used (for complex operations)
 
+
+## initialization
+* **Designated** init = primary, normal init
+* **Convenience** init = default init (if no arguments are passed to a class)
+
+### Rules:
+* designeted inits must always delegate up
+* convenience inits must alwas delegate across (must call designated)
+
+### 4 safety checks
+1 - designated init must make sure all elements are initialized  
+2 - designated init must delegate to superclass before assigning value to inherited property  
+3 - convenience init must delegate to another init, before assigning ANY property  
+4 - init cannot use any inst. methods, properties or refer to ```self``` until initialization is complete  
 ```swift
 
 

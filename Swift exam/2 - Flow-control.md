@@ -86,73 +86,86 @@ default:
 * defines a common type for a group of related values and enables you to work with those values in a type-safe way within your code
 
 ```swift
-
-
-enum Climate{
-    case Iceland
-    case Santorini
-}
-
-var season = Climate.Iceland
-
-
-
-switch season {
+enum sports:Int{
+    case running
+    case climbing
     
-case .Iceland:
-    print("Climate is cold")
-    
-case .Santorini:
-    print("Climate is hot")
-    
-default:
-    "Climate is not predictable"
-}
-
-
-```
-
-```swift
-enum Places: Int {
-    case first = 1
-    case second, third
-    
-    func desc() -> String {
-        switch self {
-        case .first:
-            return "8000"
-        case .second:
-            return "6000"
-        case .third:
-            return "3000"
-        default:
-            return "0"
+    func desc() -> String{
+        switch self{
+        case .running:
+            return "the best"
+        case .climbing:
+            return "Amazing"
         }
     }
 }
 
-let winnerRawValue = Places.first.rawValue
+let activity = sports.running.rawValue // without the types listed, enums can't get get .rawValue
 
-
-struct Results {
-    var places: Places
-    
-    func desc() -> String {
-        return "Winner has won \(places.desc()) USD"
+struct List{
+    var sport:sports
+    func desc() -> String{
+        return "Running is \(sport.desc())"
     }
 }
 
-let winnerPriceMoney = Results(places: .first).desc()
+let info = List(sport: .running).desc()
+print(sports.running) // "running"
+let first = sports.running.rawValue // 1
 ```
 
-## inidirect enum
-* allows recursion in enums
 ```swift
+// 2 Function inside enum
+enum Position{
+    case center(Double, Double)
+    case ncenter(x:Double, y:Double)
+    
+    func sum() -> Double{
+        switch self { // has to be exahustive
+        case .center(let x, let y): return x * y
+        case .ncenter(let x, let y): return x * y
+        }
+    }
+}
+
+var point = Position.center(3, 2)
+point.sum() // 2
+
+switch point{
+case .center(let x, let y):
+    print("It is some point with x \(x)")
+    
+case let .ncenter(x: xval, y: yval): // with parameters, let has to be used
+    print("Some other point with specifed x: \(xval)")
+}
+```
+
+```
+// 3 mutating
+enum Color { // does NOT have rawValue (type not specified)
+    case black
+    case white
+    
+    mutating func change(){
+        switch self{
+        case .black: self = .white
+        case .white: self = .black
+        }
+    }
+}
+
+var color = Color.black
+color.change()
+print(color)
+```
+
+
+```swift
+// 4 indirect enum
 indirect enum exp { // w/o indirect it won't work
     case number(Int)
     case addition(exp, exp)
 }
-
 
 func evaluate(_ expr: exp) -> Int{
     switch expr{
@@ -167,6 +180,7 @@ func evaluate(_ expr: exp) -> Int{
 let sum = exp.addition(exp.number(1), exp.number(2))
 print(evaluate(sum)) // 3
 
+// https://medium.com/@micosmin/swift-enums-basics-b2b306750e7e
 ```
 
 # Operators

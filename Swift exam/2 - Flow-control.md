@@ -85,6 +85,7 @@ default:
 # Enum
 * defines a common type for a group of related values and enables you to work with those values in a type-safe way within your code
 
+## Basic enum
 ```swift
 enum sports:Int{
     case running
@@ -114,6 +115,7 @@ print(sports.running) // "running"
 let first = sports.running.rawValue // 1
 ```
 
+## enum with methods
 ```swift
 // 2 Function inside enum
 enum Position{
@@ -140,8 +142,8 @@ case let .ncenter(x: xval, y: yval): // with parameters, let has to be used
 }
 ```
 
+## mutating method in enum
 ```
-// 3 mutating
 enum Color { // does NOT have rawValue (type not specified)
     case black
     case white
@@ -159,7 +161,7 @@ color.change()
 print(color)
 ```
 
-
+## indirect enums
 ```swift
 // 4 indirect enum
 indirect enum exp { // w/o indirect it won't work

@@ -99,7 +99,13 @@ enum sports:Int{
             return "Amazing"
         }
     }
+    
+    init(){
+        self = .running
+    }
 }
+
+let def = sports() // running (from init)
 
 let activity = sports.running.rawValue // without the types listed, enums can't get get .rawValue
 
@@ -143,7 +149,7 @@ case let .ncenter(x: xval, y: yval): // with parameters, let has to be used
 ```
 
 ## mutating method in enum
-```
+```swift
 enum Color { // does NOT have rawValue (type not specified)
     case black
     case white

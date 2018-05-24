@@ -168,30 +168,18 @@ var inv = V(x: 0, y: 1) // inv.x
 ```
 
 
-## Subscript
+# Subscripts
+* enables you to query instances of a type by writing one or more values in square brackets after the instance name
+
 ```swift
-
-let primeNumbers = [3, 7, 5, 19, 11, 13]
-
-extension Array where Element: Comparable {
-    
-    subscript(minValue: Element, maxValue: Element) -> [Element] {
-        var array: [Element] = []
-        if let minimum = self.min(), minimum == minValue {
-            array.append(minValue)
-        }
-        if let maximum = self.max(), maximum == maxValue {
-            array.append(maxValue)
-        }
-        return array
+struct T{
+    let m: Int
+    subscript(index: Int) -> Int{
+        return m * index
     }
 }
 
 
-let greetings = ["Hello", "Hey", "Hi", "Goodbye", "Bye"]
-
-let onlyMin = primeNumbers[3, 13] //    3
-let onlyLast = greetings["Goodbye", "Hi"] //    "Hi"
-
-
+let three = T(m: 3)
+print("6 times 3 is \(three[6])") // 18
 ```

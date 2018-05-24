@@ -168,7 +168,7 @@ var inv = V(x: 0, y: 1) // inv.x
 ```
 
 
-# Subscripts
+# SUBSCRIPTS
 * enables you to query instances of a type by writing one or more values in square brackets after the instance name
 
 ```swift

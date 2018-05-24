@@ -222,22 +222,6 @@ greet(name: "Filip"){
 }
 ```
 
-
-# SUBSCRIPT
-* enables you to query instances of a type by writing one or more values in square brackets after the instance name
-```swift
-struct T{
-    let m: Int
-    subscript(index: Int) -> Int{
-        return m * index
-    }
-}
-
-
-let three = T(m: 3)
-print("6 times 3 is \(three[6])") // 18
-```
-
 # Defer
 * runs before current scope disappears
 ```swift

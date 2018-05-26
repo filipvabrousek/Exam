@@ -61,6 +61,11 @@ print(total)
 for index in 1...7 {
     print("\(index) times 7 is \(index * 7)")
 }
+
+for i in 0..<10 where i % 2 == 0{
+    print(i) // 0, 2, 4, 6, 8
+}
+
 ```
 ## letter combo
 ```swift

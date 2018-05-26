@@ -116,8 +116,8 @@ print(res) // [4, 16, 36]
 ```
 
 
-
 ## sin wave
+* UIKit required
 ```swift
 let sinArr = 64
 let f = 4.0

@@ -107,6 +107,8 @@ let reduced = points.reduce(10){
 }
 print(reduced) // 170
 
+[2, 4, 6].reduce(+)
+
 let arrs = [1, 2, 3].filter{$0 % 2 == 0}.map{$0 * $0}.reduce(0, +)
 print(arrs) // sum of even numbers
 ```
@@ -126,7 +128,6 @@ print(sq)
 ```
 
 ```swift
-
 
 var air = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]
 

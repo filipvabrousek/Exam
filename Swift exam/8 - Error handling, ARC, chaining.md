@@ -74,33 +74,27 @@ hobby = nil
 * unowned is used when there is NO POSSIBILITY for the reference becoming nil until the ```self``` object exists
 
 ```swift
-class P{
-    var name: String = "Filip"
-    var card: CD?
+class Test{
+    var name: String
+    
     init(name:String){
         self.name = name
     }
-    deinit { print("deinit") }
-}
+    
+    lazy var greet:String = { [weak self] in
+        guard let strong = self else { return ""}
+        return "Hello \(strong.name) !"
+        }()
+    
+    lazy var greetA:String = { [unowned un = self] in //should be used if we are sure it won't be nil
+        return "Hello \(un.name)"
+        }()
+} // lazy only for class / struct members
 
-class CD{
-    var id:Int
-    unowned var person: P // to use "weak" I would have to make it optional by adding "?" which we don't want
-    init(uid:Int, iperson:P){
-        id = uid
-        person = iperson
-    }
-    deinit { print("deinit 2") }
-}
+var test = Test(name: "Filip")
+let res = test.greet
+print(res)  // Hello Filip, (without assignment) unresolve l-value
 
-var me: P? = P(name: "Filip") // has a STRONG refernce cycle to property "hobby" which points at "H"
-var card: CD? = CD(uid: 29109, iperson: me!) // has a property person with a STRONG refernce pointing at employee
-me?.card = card
-
-me = nil
-card = nil
-
-// Both are being deinitilized :)
 
 ```
 

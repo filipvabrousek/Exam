@@ -76,6 +76,15 @@ let half = (arr.count - 1) / 2
 let openFirst = arr[0..<half]
 ```
 
+```swift
+var arr = ["one", "two", "three"]
+if let idx = arr.index(of: "two"){ // has to be there to check if el. exists
+    arr.remove(at: idx)
+}
+
+print(arr)
+```
+
 ## Filter, contains
 ```swift
 let scores = ["ba", "c"]

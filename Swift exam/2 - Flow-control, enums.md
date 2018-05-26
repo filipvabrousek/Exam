@@ -36,6 +36,20 @@ for score in individual {
 print(teamScore)
 ```
 
+## Character switch
+```string
+let char: Character = "a"
+switch char{ // you can switch the expression
+case "a":
+    print("The a")
+fallthrough // default will alway be executed
+default:
+    print("is a letter")
+}
+// The letter "a"
+// is a letter
+```
+
 ## Switching tuples
 ```swift
 let arr = [("Filip", 18), ("Sara", 17)]

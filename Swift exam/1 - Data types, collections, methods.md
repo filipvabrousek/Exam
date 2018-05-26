@@ -10,6 +10,10 @@
 * Set
 * Dictionary
 * Character
+* tuple
+* Any
+* self
+* (others less important)
 
 
 # COLLECTIONS

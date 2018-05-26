@@ -49,20 +49,6 @@ let substr = str[str.startIndex...end]
 print(substr)
 ```
 
-## Character switch
-```string
-let char: Character = "a"
-switch char{ // you can switch the expression
-case "a":
-    print("The a")
-fallthrough // default will alway be executed
-default:
-    print("is a letter")
-}
-// The letter "a"
-// is a letter
-```
-
 
 ## Arrays
 ```swift

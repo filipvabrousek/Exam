@@ -36,7 +36,25 @@ for score in individual {
 print(teamScore)
 ```
 
+## Switching tuples
+```swift
+let arr = [("Filip", 18), ("Sara", 17)]
 
+for data in arr{
+    switch data{
+    case ("Filip", let age):
+        print("You are Filip \(age)")
+    case (_, 0...17):
+        print("You are old but not Filip")
+    case (_, _):
+        print("No data available")
+    }
+}
+
+// You are Filip 18
+// You are old but not Filip
+
+```
 
 ## while, repeat, for in
 ```swift

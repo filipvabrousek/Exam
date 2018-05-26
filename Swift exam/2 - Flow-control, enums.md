@@ -36,39 +36,7 @@ for score in individual {
 print(teamScore)
 ```
 
-## Character switch
-```string
-let char: Character = "a"
-switch char{ // you can switch the expression
-case "a":
-    print("The a")
-fallthrough // default will alway be executed
-default:
-    print("is a letter")
-}
-// The letter "a"
-// is a letter
-```
 
-## Switching tuples
-```swift
-let arr = [("Filip", 18), ("Sara", 17)]
-
-for data in arr{
-    switch data{
-    case ("Filip", let age):
-        print("You are Filip \(age)")
-    case (_, 0...17):
-        print("You are old but not Filip")
-    case (_, _):
-        print("No data available")
-    }
-}
-
-// You are Filip 18
-// You are old but not Filip
-
-```
 
 ## while, repeat, for in
 ```swift
@@ -93,9 +61,22 @@ print(total)
 for index in 1...7 {
     print("\(index) times 7 is \(index * 7)")
 }
-
-
 ```
+## letter combo
+```swift
+let letters = ["A", "B", "C"]
+let num = [1, 2, 3]
+
+let combo = letters.map { letter in
+    num.map{ num in
+        (letter, num)
+    }
+}
+
+print(combo) // ("A", 1), ("A", 2), ("A", 3) ... ("B", 1)....
+```
+
+
 ## Switch
 ```swift
 let event = "hard race"
@@ -112,6 +93,39 @@ default:
     print("It will be something interesting")
     
 }
+```
+
+```string
+let char: Character = "a"
+switch char{ // you can switch the expression
+case "a":
+    print("The a")
+fallthrough // default will alway be executed
+default:
+    print("is a letter")
+}
+// The letter "a"
+// is a letter
+```
+
+
+```swift
+let arr = [("Filip", 18), ("Sara", 17)]
+
+for data in arr{
+    switch data{
+    case ("Filip", let age):
+        print("You are Filip \(age)")
+    case (_, 0...17):
+        print("You are old but not Filip")
+    case (_, _):
+        print("No data available")
+    }
+}
+
+// You are Filip 18
+// You are old but not Filip
+
 ```
 
 # Enum

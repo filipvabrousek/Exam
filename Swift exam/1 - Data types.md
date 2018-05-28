@@ -1,37 +1,47 @@
 # DATA TYPES
 
-* String
-* Boolean
-* Rang
-* Int
-* Double
-* Floating point
-* Array
-* Set
-* Dictionary
-* Character
-* tuple
-* Any
-* self
-* (others less important)
 
 
-## Fundamental data types
+
+## Basic and numeric Values
 ```swift
-int, Double, String
-
+struct Bool
+struct Int
+struct Double
+struct Float
+struct Range
+struct ClosedRange
+protocol Error - type representing Error that can be thown
+enum Optional - type representing wrapped value / nil - has to be unwrapped
+https://developer.apple.com/documentation/swift/numbers_and_basic_values
 ```
+
+## Strings
+```
+struct String 
+struct Character
+enum Unicode
+struct staticString
+```
+
 ## Collections
 ```swift
 struct Array
 struct Dictionary
-struct Sets
-protocol Option set
+struct Set
+protocol OptionSet
+(strides, ranges, sequence, zip, collection of one, emptyCollection, DictionaryLiteral
 ```
-* top level functions
+
+
+
+## Basic behaviors
+```swift
+ protocol Comparable, Equatable, Codable, Encodable, Decodable, Encoder, Decoder, Expressable by Array literal
 ```
-stride, repeatElement, sequence, zip
-```
+
+
+
 
 ## Dictionary
 

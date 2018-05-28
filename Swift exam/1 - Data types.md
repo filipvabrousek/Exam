@@ -16,6 +16,22 @@
 * (others less important)
 
 
+## Fundamental data types
+```swift
+int, Double, String
+
+```
+## Collections
+```swift
+struct Array
+struct Dictionary
+struct Sets
+protocol Option set
+```
+* top level functions
+```
+stride, repeatElement, sequence, zip
+```
 
 ## Dictionary
 

@@ -42,3 +42,13 @@ dictf["add"]?(1,2) // 3
 
 
 ```
+
+
+```swift
+let text = """
+ One line
+ Second line
+ Third line
+ """
+print(text)
+```

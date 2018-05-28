@@ -222,16 +222,3 @@ greet(name: "Filip"){
 }
 ```
 
-# Defer
-* runs before current scope disappears
-```swift
-func simple(){
-    defer{
-        print("I will be run before the current scope disappears")
-    }
-    
-    print("I will be run first")
-}
-
-simple()
-```

@@ -13,7 +13,6 @@ struct Range {}
 struct ClosedRange {}
 protocol Error {} - type representing Error that can be thown
 enum Optional {} - type representing wrapped value / nil - has to be unwrapped
-https://developer.apple.com/documentation/swift/numbers_and_basic_values
 ```
 
 ## Strings

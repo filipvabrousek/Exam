@@ -100,7 +100,7 @@ default:
 }
 ```
 
-```string
+```swift
 let char: Character = "a"
 switch char{ // you can switch the expression
 case "a":

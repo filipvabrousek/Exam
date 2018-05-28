@@ -401,6 +401,21 @@ print(myAge)
 
 ```
 
+## Keypaths
+```swift
+struct P {
+    var name: String
+    
+    func greet() -> String{
+        return "Hello \(name)"
+    }
+}
+
+let kp = \P.name
+var p = P(name: "Sára")
+p[keyPath: kp] = "Filip"
+p.greet()
+```
 
 ## Nested types
 ```swift

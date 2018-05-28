@@ -5,31 +5,31 @@
 
 ## Basic and numeric Values
 ```swift
-struct Bool
-struct Int
-struct Double
-struct Float
-struct Range
-struct ClosedRange
-protocol Error - type representing Error that can be thown
-enum Optional - type representing wrapped value / nil - has to be unwrapped
+struct Bool {}
+struct Int {}
+struct Double {}
+struct Float {}
+struct Range {}
+struct ClosedRange {}
+protocol Error {} - type representing Error that can be thown
+enum Optional {} - type representing wrapped value / nil - has to be unwrapped
 https://developer.apple.com/documentation/swift/numbers_and_basic_values
 ```
 
 ## Strings
 ```
-struct String 
-struct Character
-enum Unicode
-struct staticString
+struct String {}
+struct Character {}
+enum Unicode {}
+struct staticString {}
 ```
 
 ## Collections
 ```swift
-struct Array
-struct Dictionary
-struct Set
-protocol OptionSet
+struct Array {}
+struct Dictionary {}
+struct Set {}
+protocol OptionSet {}
 (strides, ranges, sequence, zip, collection of one, emptyCollection, DictionaryLiteral
 ```
 

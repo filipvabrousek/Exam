@@ -64,51 +64,71 @@ print("Here's a random number: \(generator.random())")
 
 ## 3
 ```swift
-protocol P{
-    var desc: String { get }
-    mutating func adjust()
+protocol S{
+    var desc: String {get}
+    mutating func square()
 }
 
-//---------------Simple class derived from example porotocol--------------
-class C: P{
-    var desc: String = "Simple class."
-    var prop: Int = 69105
-    func adjust() {
-        desc += " 100% adjusted."
-    }
-}
-var a = C()
-a.adjust()
-print(a.desc)
-
-
-//------------------------------Extension of example protocol---------------------
-extension Int: P {
-    var desc: String {
+extension Int:S{
+    var desc: String{
         return "The number \(self)"
     }
-    mutating func adjust() {
-        self += 42
+    
+    mutating func square(){
+        self = self * self
     }
 }
 
-print(7.desc)
-
-let protocolValue: P = a
-print(protocolValue.desc)
+print(8.desc)
 ```
+
+
+## Protocol inheritenance
+```swift
+
+protocol P{
+    var name: String {get set}
+    func greet()
+}
+
+
+protocol Ethan:P{
+    var canFly:Bool {get set}
+}
+
+extension Ethan{
+    func say(){
+        print("J")
+    }
+}
+
+struct S:Ethan{
+    var name:String = "Ethan"
+    func greet() {
+        print("Hi there")
+    }
+    var canFly: Bool = true
+    func say() {
+        print("Hi")
+    }
+}
+
+let conforms = S(name: "Filip", canFly: true)
+print(conforms.name) // Filip
+
+
+```
+
+
 
 ## 4
 ```swift
 
 protocol A: CustomStringConvertible{
-    
     var isActive: Bool { get set}
     var description: String { get }
     mutating func activate()
-    
 }
-
 
 
 struct U1:A{
@@ -167,42 +187,6 @@ var arr: Array<A> = [user, user2]
 for account in arr{
     print("\(account.description)")
 }
-
-```
-
-## Optional
-```swift
-
-protocol P{
-    var name: String {get set}
-    func greet()
-}
-
-
-protocol Ethan:P{
-    var canFly:Bool {get set}
-}
-
-extension Ethan{
-    func say(){
-        print("J")
-    }
-}
-
-struct S:Ethan{
-    var name:String = "Ethan"
-    func greet() {
-        print("Hi there")
-    }
-    var canFly: Bool = true
-    func say() {
-        print("Hi")
-    }
-}
-
-let conforms = S(name: "Filip", canFly: true)
-print(conforms.name) // Filip
-
 
 ```
 

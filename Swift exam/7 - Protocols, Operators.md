@@ -122,19 +122,19 @@ print(conforms.name) // Filip
 
 
 ## 4
-```swift
+* CSC - type with customizable textual representation
 
-protocol A: CustomStringConvertible{
-    var isActive: Bool { get set}
-    var description: String { get }
+```swift
+protocol K: CustomStringConvertible{
+    var description: String { get }  // required by CSC
+    var isActive: Bool {get set}
     mutating func activate()
 }
 
-
-struct U1:A{
+struct U:K{
     var isActive: Bool = false
     
-    var description: String {
+    var description: String{
         if isActive{
             return "active"
         } else {
@@ -143,49 +143,18 @@ struct U1:A{
     }
     
     mutating func activate() {
-        if isActive {
-            print("already active")
-        } else {
-            isActive = true
-            print("just activated")
-        }
+        isActive = true
     }
 }
 
 
-class U2:A{
-    var isActive: Bool = false
-    
-    var description: String {
-        if isActive{
-            return "active"
-        } else {
-            return "non-active"
-        }
-    }
-    
-    func activate() {
-        if isActive {
-            print("already active")
-        } else {
-            isActive = true
-            print("just activated")
-        }
-    }
-}
-
-var user = U1()
+var user = U()
+var userb = U()
 user.activate()
 
-var user2 = U2()
-user2.activate()
-
-
-
-var arr: Array<A> = [user, user2]
-
+var arr: Array<U> = [user, userb]
 for account in arr{
-    print("\(account.description)")
+    print(account.description) // active, non active
 }
 
 ```

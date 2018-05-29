@@ -1,5 +1,13 @@
 # Protocols
 
+* Comparable -type that can be compared using <, >,<=, >=
+*  Equatable - type that can be compared for value equality* Codable - type, that can convert itself into and out of an * external represnetation
+```swift typealias Codable = Decodable & Encodable```
+* Encodable, Decodable - type that can enode / decode itself from actual repreentation
+* Encoder
+* Decoder
+
+
 ## 1
 ```swift
 protocol N {

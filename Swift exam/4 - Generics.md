@@ -33,20 +33,18 @@ print(a) // 2
 
 ## Usage with protocols
 ```swift
-protocol Sum {
-    static func +(lhs:Self, rhs:Self) -> Self // has to be "+" self becomes "str" ??
+protocol Sum{
+    static func +(lhs: Self, rhs:Self) -> Self
 }
 
-extension Int: Sum {}
+extension Int: Sum {} // or String
 
 func add<T:Sum>(a: T, b:T) -> T{
     return a + b
 }
 
-let f = add(a: 1, b: 2) // 3
-
-extension String: Sum{}
-let st = add(a: "a", b: "b") // "ab"
+let res = add(a: 1, b: 2) // 3
+print(res)
 ```
 
 ## Library example

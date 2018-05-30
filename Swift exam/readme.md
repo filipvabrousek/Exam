@@ -1,6 +1,6 @@
 # Swift exam
 
-## 1 - Data types
+## 1 - History, Data types
 ## 2 - Methods
 ## 3 - Flow control, enums
 ## 4 - Functions

@@ -129,3 +129,14 @@ let rowHeight = contentHeight + (hasHeader ? 50 : 20)
 // rowHeight is equal to 90
 ```
 
+## Singleton
+```swift
+// https://medium.com/if-let-swift-programming/the-swift-singleton-pattern-442124479b19
+final class Singleton{
+    static let shared = Singleton()
+    var info = "Filip loves Swift"
+    private init() {}
+}
+
+Singleton.shared.info // Filip loves Swift
+```

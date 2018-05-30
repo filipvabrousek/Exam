@@ -21,9 +21,8 @@
 2 - designated init must delegate to superclass before assigning value to inherited property  
 3 - convenience init must delegate to another init, before assigning ANY property  
 4 - init cannot use any inst. methods, properties or refer to ```self``` until initialization is complete  
+
 ```swift
-
-
  class S{
     var name: String
     init(name: String){
@@ -112,36 +111,34 @@ print(mix.triangle.len) // 50
 ## INHERITANCE
 * ```final``` - pervents property from being overriden
 ```swift
-
-class V {
-    var speed = 0.0
-    
+class V{
+    var speed:Double = 0.0
     var desc: String{
-        return "speed: \(speed)"
+        return "I can ride with \(speed) km/h "
     }
 }
 
-
-class CAR: V{
-    var hp = 1
+class Car:V{
+    var hp = 200
     override var desc: String{
-        return super.desc + " hp: \(hp)"
+        return super.desc + "(\(hp)) hp"
     }
 }
 
-let car = CAR()
-car.speed = 320
-car.hp = 250
-print(car.desc)
 
-
-class AUTOMATIC: CAR{
+class AUTOMATIC: Car{
     override var speed: Double{
         didSet{
-            hp = Int(speed / 10.0 + 1)
+            hp = Int(speed / 10.0) // called before value is stored
         }
     }
 }
+
+let acar = AUTOMATIC()
+print(acar.hp) // 200
+acar.speed = 20
+print(acar.desc) // I can ride with 20 km/h (20 hp ???)
+
 ```
 
 ## Property observers
@@ -176,51 +173,41 @@ sc.total = 360
 
 ```
 ---------------------------------------------------------------------
-## STRUCT
-* copied
-* use for few simple data values
+## STRUCT VS CLASS
+
+### STRUCT
+* can't inherit
+* passed by value (900 x faster)
+* used for few  simple values
+* values in instancies will be copied NOT referenced
 * ```String```, ```Array```, ```Dictionary```
 
 
+### CLASS
+* has deinit
+* allow type casting
+* instances will be refernced
+
 ```swift
-
-
-struct RES {
-    var w = 0
-    var h = 0
+struct Point{
+    var x = 0.0
+    var y = 0.0
 }
 
-
-let hd = RES(w: 1920, h: 1080)
-var ultra = hd
-ultra.w = 3160
+let p = Point(x: 0, y: 0)
+// p.x = 3 Error: p is let constant
 
 
-
-
-let a = "hd has \(hd.w) and  ultra has \(ultra.w)"
-print(a)
-
-
-
-
-class AUltra{
-    var w = 0
-    var h = 0
-    
-    init(w: Int, h:Int){
-        self.w = w
-        self.h = h
-    }
+class Cpoint{
+    var x = 0.0
+    var y = 0.0
 }
 
-
-let mode = AUltra(w: 100, h: 100)
-mode.h = 20
-
-var alsoUltra = mode
-alsoUltra.w = 0
-print(alsoUltra.w) // 0 (h: 20)
+let c = Cpoint()
+c.x = 2
+print(c.x)
+// in class, immutable constant is the refernce to the class itself
+// NOT its instance variables
 
 
 ```
@@ -308,7 +295,7 @@ for item in database{
 ```
 
 ```swift
-class P{
+class P{ // has init
     var born = 0
 }
 
@@ -319,18 +306,13 @@ class DIR:P{
     }
 }
 
-
 let me2 = DIR()
-print(me2.born)
-
-
-
 
 ```
 
 
+## failable init
 ```swift
-
 struct PS{
     let title: String
     init?(title: String){
@@ -346,7 +328,6 @@ print(me3 == nil)
 ```
 
 ## struct with 2 inits
-
 ```swift
 
 struct Color{
@@ -394,11 +375,6 @@ let decoder = JSONDecoder()
 let decodedMe = try decoder.decode(P.self, from: data)
 let info = "\(decodedMe.name)"
 print(info)
-
-let ageKeyPath = \P.age
-let myAge = me[keyPath: ageKeyPath]
-print(myAge)
-
 ```
 
 ## Keypaths

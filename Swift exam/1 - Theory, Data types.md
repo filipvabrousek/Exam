@@ -1,10 +1,19 @@
 # History
-## Chris Lattner
-* 1978, LLVM
+## Chris Lattner (1978-)
+*  works at Google, Tesla, Apple
+* University of Portland, Oregon (OS Dev. DYNIX)
+* creator of LLVM - platform independent Swift, Obj-C D, Go, Rust compilator
+* written in C++
+* develepment started in July 2010 (JS just 10 days :D)
+* one of the fastest growing languages in history
 
 ## Swift versions
-* ...
-
+* 2/6/2014 released (WWDC first Swift app)
+* 9/9/2014 Swift 1.0 (strings are collections)
+* 21/9/2015 Swift 2.0
+* 13/9/2016 Swift 3.0 (are not)
+* 19/9/2017 Swift 4.0 (are again)
+* waiting for Swift 5 :D
 
 # DATA TYPES
 

@@ -2,12 +2,13 @@
 
 ## 1 - Data types
 ## 2 - Methods
-## 3 - Functions
-## 4 - Generics
-## 5 - Extensions, subscripts
-## 6 - Class, struct, init
-## 7 - Protocols, Operators
-## 8 - Error handling, ARC, chaining
-## 9 - App - running
-## 10 - APIs (...)
+## 3 - Flow control
+## 4 - Functions
+## 5 - Generics
+## 6 - Extensions, subscripts
+## 7 - Class, struct, init
+## 8 - Protocols, Operators
+## 9 - Error handling, ARC, chaining
+## 10 - Running app
+## 11 - APIs (...)
 

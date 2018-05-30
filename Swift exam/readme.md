@@ -2,7 +2,7 @@
 
 ## 1 - Data types
 ## 2 - Methods
-## 3 - Flow control
+## 3 - Flow control, enums
 ## 4 - Functions
 ## 5 - Generics
 ## 6 - Extensions, subscripts

@@ -91,3 +91,14 @@ let text = """
  """
 print(text)
 ```
+
+
+## Typealias
+```swift
+typealias Name = String // a fake name
+func greet(name: Name){
+    print(name)
+}
+
+greet(name: "Filip")
+```

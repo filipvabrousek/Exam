@@ -186,7 +186,7 @@ sc.total = 360
 ### CLASS
 * has deinit
 * allow type casting
-* instances will be refernced
+* instances will be referenced
 
 ```swift
 struct Point{

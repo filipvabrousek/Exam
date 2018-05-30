@@ -105,17 +105,9 @@ print(res)  // Hello Filip, (without assignment) unresolve l-value
 * restricts access to parts of your code from code in other source files and modules
 * this feature enables you to hide the implementation details of your code
 * variables and classes are implicitly internal
+* used for class, var, let
 ```swift
-
-public class P {}
-internal class I {}
-fileprivate class SFP {}
-private class SP {}
- 
-public var SPV = 0
-internal let SIC = 0
-fileprivate func SFP() {}
-private func SPF() {}
+internal, public, private fileprivate
 ```
 
 

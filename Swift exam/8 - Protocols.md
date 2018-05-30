@@ -182,3 +182,23 @@ czechia == USA // false, obviously
 ```
 
 
+
+## inheritenance with protocols
+```swift
+struct G{
+    func greet(g:String) -> String {return "Hello \(g)"}
+}
+
+protocol Livable{
+    func say(greetr: G)
+}
+
+struct Person: Livable{
+    func say(greetr: G) {
+        greetr.greet(g: "Filip")
+    }
+}
+
+let p = Person()
+```
+

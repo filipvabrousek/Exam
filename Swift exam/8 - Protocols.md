@@ -181,6 +181,20 @@ czechia == USA // false, obviously
 
 ```
 
+```swift
+enum OS{
+    case iOS
+    case Android
+}
+
+extension OS:Equatable{
+    static func > (lhs: OS, rhs:OS){
+        lhs == .iOS ? true : false
+    }
+}
+
+OS.iOS > OS.Android
+```
 
 
 ## inheritenance with protocols

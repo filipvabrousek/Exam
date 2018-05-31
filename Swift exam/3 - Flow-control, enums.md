@@ -22,6 +22,21 @@ let fullName: String = "Filip Vabrousek"
 let informalGreeting = "Hi \(nickName ?? fullName)"
 ```
 
+## Guard
+```swift
+let a:Double? = 3 // if nil guard with go
+
+func check(){
+    guard let a = a else {
+        print("No value")
+        return
+        
+    }
+}
+
+check() // 3
+```
+
 ## Loops
 ```swift
 let individual = [75, 43, 103, 87, 12]

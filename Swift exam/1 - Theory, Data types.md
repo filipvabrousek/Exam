@@ -103,6 +103,29 @@ func greet(name: Name){
 greet(name: "Filip")
 ```
 
+
+## Bubble sort
+```swift
+func bubble(_ array: [Int]) -> [Int] {
+    var arr = array
+    for j in 0..<arr.count - 1{
+        for i in 0..<arr.count - j - 1{
+            if (arr[i] > arr[i + 1]){
+                let temp = arr[i]
+                arr[i] = arr[i + 1]
+                arr[i + 1] = temp
+            }
+        }
+    }
+    return arr
+}
+
+let res = bubble([8, 2, 6, 7]) // _ array in function means that we do not have to specify label
+print(res)
+```
+
+
+
 # Operators
 ```swift
 let b = 10

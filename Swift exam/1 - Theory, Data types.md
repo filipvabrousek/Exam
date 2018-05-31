@@ -128,28 +128,21 @@ print(res)
 
 # Operators
 ```swift
-let b = 10
-var a = 5
-a = b
-// a is now equal to 10
+var a = 10
+var b = 20
+a = b // a is 10
+
+let m = -a
+let also = +a // - 10
+
 let (x, y) = (1, 2)
-// x is equal to 1, and y is equal to 2
-9 % 4    // equals 1
--9 % 4   // equals -1
-let three = 3
-let minusThree = -three       // minusThree equals -3
-let plusThree = -minusThree   // plusThree equals 3, or "minus minus three"
 
-let minusSix = -6
-let alsoMinusSix = +minusSix  // alsoMinusSix equals -6
+let res = (3, "apple") < (3, "bird") // true (apple is less than bird)
+print(res)
 
-(3, "apple") < (3, "bird")    // true because 3 is equal to 3, and "apple" is less than "bird"
-(4, "dog") == (4, "dog")      // true because 4 is equal to 4, and "dog" is equal to "dog"
-
-let contentHeight = 40
-let hasHeader = true
-let rowHeight = contentHeight + (hasHeader ? 50 : 20)
-// rowHeight is equal to 90
+let allow = true
+let row = allow ? 20 : 30
+print(row)
 ```
 
 ## Singleton

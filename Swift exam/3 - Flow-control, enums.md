@@ -189,28 +189,24 @@ let first = sports.running.rawValue // 1
 
 ## enum with methods
 ```swift
-// 2 Function inside enum
-enum Position{
+enum P {
     case center(Double, Double)
-    case ncenter(x:Double, y:Double)
     
     func sum() -> Double{
-        switch self { // has to be exahustive
-        case .center(let x, let y): return x * y
-        case .ncenter(let x, let y): return x * y
+        switch self{
+        case .center(let x, let y):
+            return x + y
         }
+        
     }
 }
 
-var point = Position.center(3, 2)
-point.sum() // 2
+var point = P.center(3, 3)
+point.sum() // 6
 
 switch point{
 case .center(let x, let y):
-    print("It is some point with x \(x)")
-    
-case let .ncenter(x: xval, y: yval): // with parameters, let has to be used
-    print("Some other point with specifed x: \(xval)")
+    print("Some point with [\(x), \(y)]")
 }
 ```
 

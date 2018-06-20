@@ -229,6 +229,40 @@ color.change()
 print(color)
 ```
 
+## UIKit like usage
+```swift
+class Trans{
+    
+    enum O{
+        case lower
+        case uppen
+    }
+    
+    var into: O
+    var val: String
+    
+    init(val:String, into: O){
+        self.val = val
+        self.into = into
+    }
+    
+    func res() -> String{
+        switch into{
+        case .lower:
+            return val.lowercased()
+        case .uppen:
+            return val.uppercased()
+            
+        }
+    }
+}
+
+
+let up = Trans(val: "filip", into: .uppen)
+up.res()
+```
+
+
 ## indirect enums
 ```swift
 // 4 indirect enum

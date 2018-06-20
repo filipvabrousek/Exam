@@ -229,7 +229,7 @@ color.change()
 print(color)
 ```
 
-## UIKit like usage
+## Trans
 ```swift
 class Trans{
     

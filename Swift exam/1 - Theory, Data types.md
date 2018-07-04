@@ -57,8 +57,6 @@ protocol OptionSet {}
 
 
 ## Dictionary
-
-
 ```swift
 
 var names: Dictionary = [String: Int]()
@@ -127,6 +125,10 @@ print(res)
 
 
 # Operators
+* **unary**: prefix or postfix (!b or b!)
+* **binary** infix (between targets) (1 + 1)
+* **ternary** on 3 targets (a ? b : c)
+
 ```swift
 var a = 10
 var b = 20

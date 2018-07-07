@@ -1,56 +1,43 @@
-// 23.4.2016
-a {
-  font-size: 120px;
-  text-decoration: none;
-  color: #3498db;
-  display: inline-block;
-  font-weight: bold;
-}
+// <button class="button"><span>Add</span></button>
 
-/*vloží obsah do elementu span, který ale nebude vidět (opacity.0)*/
-a span:after {
-  opacity: 0;
-  /*přidá srdce k tlačítku*/
-  content: '♡';
-  /*přechod bude trvat 0,6 vteřiny*/
-  transition: .6s all;
-  color: #e74c3c;
-}
-
-/*způsobí pozvolnou změnu barvy po najetí myši a po kliknutí*/
-a:hover,
-a:visited {
-  color: #e74c3c;
-  transition: all 0.6s;
-}
-
-/*zviditelní srdce po najetí myši (opacity: 1)*/
-a:hover span:after {
-  opacity: 1;
-  /*posune tlačítko o 36px doleva*/
-  transition: all 0.6s;
-  padding-left: 36px;
-}
-
-/*----------------------styly pro "body" a "h1"-----------------------*/
-body {
-  padding: 30px;
+.button {
+  border-radius: 4px;
+  background-color: #3498db;
+  border: none;
+  color: #FFFFFF;
   text-align: center;
-  font-family: 'Segoe UI', arial, sans-serif;
+  font-size: 28px;
+  padding: 20px;
+  cursor: pointer;
+  margin: 5px;
+  }
+
+.button span {
+  /*definuje pozici el. span*/
+  display: inline-block;
+  position: relative;
+  /*způsobí pozvolné prodloužení tlačítka*/
+  transition: 0.4s;
 }
 
-h1 {
-  font-family: Arial, sans-serif;
-  color: #3498db;
+/*vytvoří znaménko +, která ale není vidět (opacity=0)*/
+.button span:after {
+  content: '+';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  /*způsobí pozvolné objevení a zmizení znaménka +*/
+  right: -20px;
+  transition: 0.4s;
 }
 
+/*Způsobí prodloužení tlačítka po akci :hover*/
+.button:hover span {
+  padding-right: 25px;
+}
 
-
-/*
-<h1>Like button concept</h1>
-<a href="#">Like<span></span></a>
-<p>Created by Filip Vabroušek</p>
-
-*/
-
-// http://codepen.io/anon/pen/YqjOow
+/*Ukáže šipku po akci :hover - zvidtelní el. span (opacity=1)*/
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}

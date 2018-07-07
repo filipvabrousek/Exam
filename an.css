@@ -1,146 +1,54 @@
-.button {
-  border-radius: 4px;
-  background-color: #3498db;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 28px;
-  padding: 20px;
-  cursor: pointer;
-  margin: 5px;
-  }
 
-.button span {
-  /*definuje pozici el. span*/
+a {
+  font-size: 120px;
+  text-decoration: none;
+  color: #3498db;
   display: inline-block;
-  position: relative;
-  /*způsobí pozvolné prodloužení tlačítka*/
-  transition: 0.4s;
+  font-weight: bold;
 }
 
-/*vytvoří znaménko +, která ale není vidět (opacity=0)*/
-.button span:after {
-  content: '+';
-  position: absolute;
+/*vloží obsah do elementu span, který ale nebude vidět (opacity.0)*/
+a span:after {
   opacity: 0;
-  top: 0;
-  /*způsobí pozvolné objevení a zmizení znaménka +*/
-  right: -20px;
-  transition: 0.4s;
+  /*přidá srdce k tlačítku*/
+  content: '♡';
+  /*přechod bude trvat 0,6 vteřiny*/
+  transition: .6s all;
+  color: #e74c3c;
 }
 
-/*Způsobí prodloužení tlačítka po akci :hover*/
-.button:hover span {
-  padding-right: 25px;
+/*způsobí pozvolnou změnu barvy po najetí myši a po kliknutí*/
+a:hover,
+a:visited {
+  color: #e74c3c;
+  transition: all 0.6s;
 }
 
-/*Ukáže šipku po akci :hover - zvidtelní el. span (opacity=1)*/
-.button:hover span:after {
+/*zviditelní srdce po najetí myši (opacity: 1)*/
+a:hover span:after {
   opacity: 1;
-  right: 0;
+  /*posune tlačítko o 36px doleva*/
+  transition: all 0.6s;
+  padding-left: 36px;
 }
 
-// <button class="button"><span>Add</span></button>
-// http://codepen.io/anon/pen/oxJawQ
-
-
-
-
-
-
-
-// ::::::::::::: LOADER
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-section {
-  display: flex;
-  justify-content: center;
-  margin-top: 160px;
-}
-
-h2 {
-  font-family: Arial;
-  margin-top: 40px;
+/*----------------------styly pro "body" a "h1"-----------------------*/
+body {
+  padding: 30px;
   text-align: center;
-  font-size: 40px;
-  color: #95a5a6;
+  font-family: 'Segoe UI', arial, sans-serif;
 }
 
-div {
-  border-radius: 100%;
-  position: absolute;
-  opacity: 0.3;
+h1 {
+  font-family: Arial, sans-serif;
+  color: #3498db;
 }
-
-
-/*--------------------------------DIVS--------------------------------*/
-
-div:nth-child(1) {
-  background: #3498db;
-  width: 175px;
-  height: 190px;
-  animation: Do1 2s infinite ease-in-out;;
-}
-
-@keyframes Do1 {
-  100% {
-    transform: rotate(360deg);
-    width: 190px;
-    background: #e74c3c;
-  }
-}
-
-
-/*--------------------------------DIV 2--------------------------------*/
-
-div:nth-child(2) {
-  background: #2ecc71;
-  width: 170px;
-  height: 180px;
-  animation: Do2 2s infinite ease-in-out;
-}
-
-@keyframes Do2 {
-  100% {
-    transform: rotate(360deg);
-    height: 217px;
-    background: #3498db;
-  }
-}
-
-
-/*--------------------------------DIV 3--------------------------------*/
-
-div:nth-child(3) {
-  background: #f1c40f;
-  width: 202px;
-  height: 180px;
-  animation: Do3 2s infinite ease-in-out;;
-}
-
-@keyframes Do3 {
-  100% {
-    transform: rotate(360deg);
-    width: 216px;
-    background: #8e44ad;
-  }
-}
-
-/*http://codepen.io/filipvabrousek/pen/bZadAr?editors=1100*/
 
 
 
 /*
-<h2>Loading...</h2>
-<section>
+<h1>Like button concept</h1>
+<a href="#">Like<span></span></a>
+<p>Created by Filip Vabroušek</p>
 
-  <div></div>
-  <div></div>
-  <div></div>
-
-</section>
 */

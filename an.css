@@ -1,2 +1,146 @@
 // Great canvas demo
 // http://codepen.io/filipvabrousek/pen/QKyjGB
+
+
+
+
+/*
+<body>
+  <div id="video-container">
+    <!-- Video -->
+    <video id="video" width="640" height="365">
+		  
+		  <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+		 
+		    
+		</video>
+    <!-- Video Controls -->
+    <div id="video-controls">
+      <button type="button" id="play-pause" class="play">Play</button>
+      <input type="range" id="seek-bar" value="0">
+      <button type="button" id="mute">Mute</button>
+      <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+      <button type="button" id="full-screen">Full-Screen</button>
+    </div>
+  </div>
+
+ 
+
+*/
+
+
+/*
+#video-container {
+  width: 640px;
+  height: 365px;
+  position: relative;
+}
+
+#video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+#video-container:hover #video-controls {
+  opacity: .7;
+  margin-bottom: 7px;
+  background: #000;
+}
+
+button {
+  background: rgba(0, 0, 0, .5);
+  border: 0;
+  color: #EEE;
+  border-radius: 3px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+#seek-bar {
+  width: 360px;
+}
+
+#volume-bar {
+  width: 60px;
+}
+*/
+window.onload = function() {
+
+  //-------------------- Video--------------------
+  var video = document.querySelector("#video");
+
+  // --------------------Other variables--------------------
+  var playButton = document.querySelector("#play-pause");
+  var muteButton = document.querySelector("#mute");
+  var fullScreenButton = document.querySelector("#full-screen");
+  var seekBar = document.querySelector("#seek-bar");
+  var volumeBar = document.querySelector("#volume-bar");
+
+  // --------------------Play/pause video after button click--------------------
+  playButton.addEventListener("click", function() {
+    
+    if (video.paused == true) {
+      video.play();
+      playButton.innerHTML = "Pause";
+    } else {
+      video.pause();
+      playButton.innerHTML = "Play";
+    }
+  });
+
+  // --------------------Mute video after click--------------------
+  muteButton.addEventListener("click", function() {
+    
+    if (video.muted == false) {
+      video.muted = true;
+      muteButton.innerHTML = "Unmute";
+    } else {
+      video.muted = false;
+      muteButton.innerHTML = "Mute";
+    }
+  });
+
+  // --------------------make video fullscreen after click--------------------
+  fullScreenButton.addEventListener("click", function() {
+    
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.webkitRequestFullScreen) {
+      video.webkitRequestFullScreen();
+    } else if (video.mozRequestFullScreen) {
+      video.mozRequestFullScreen();
+    }
+  });
+
+  //--------------------Forward video to desired time--------------------
+  seekBar.addEventListener("change", function() {
+    var time = video.duration * (seekBar.value / 100);
+    video.currentTime = time;
+  });
+
+  video.addEventListener("timeupdate", function() {
+    var value = (100 / video.duration) * video.currentTime;
+    seekBar.value = value;
+  });
+
+  //--------------------Pause vide when dragging--------------------
+  seekBar.addEventListener("mousedown", function() {
+    video.pause();
+  });
+
+  seekBar.addEventListener("mouseup", function() {
+    video.play();
+  });
+
+  //--------------------change volume after value change--------------------
+  volumeBar.addEventListener("change", function() {
+    video.volume = volumeBar.value;
+  });
+}

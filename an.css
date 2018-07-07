@@ -42,3 +42,92 @@
 
 // <button class="button"><span>Add</span></button>
 // http://codepen.io/anon/pen/oxJawQ
+
+
+
+
+
+
+
+// ::::::::::::: LOADER
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  margin-top: 160px;
+}
+
+h2 {
+  font-family: Arial;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 40px;
+  color: #95a5a6;
+}
+
+div {
+  border-radius: 100%;
+  position: absolute;
+  opacity: 0.3;
+}
+
+
+/*--------------------------------DIVS--------------------------------*/
+
+div:nth-child(1) {
+  background: #3498db;
+  width: 175px;
+  height: 190px;
+  animation: Do1 2s infinite ease-in-out;;
+}
+
+@keyframes Do1 {
+  100% {
+    transform: rotate(360deg);
+    width: 190px;
+    background: #e74c3c;
+  }
+}
+
+
+/*--------------------------------DIV 2--------------------------------*/
+
+div:nth-child(2) {
+  background: #2ecc71;
+  width: 170px;
+  height: 180px;
+  animation: Do2 2s infinite ease-in-out;
+}
+
+@keyframes Do2 {
+  100% {
+    transform: rotate(360deg);
+    height: 217px;
+    background: #3498db;
+  }
+}
+
+
+/*--------------------------------DIV 3--------------------------------*/
+
+div:nth-child(3) {
+  background: #f1c40f;
+  width: 202px;
+  height: 180px;
+  animation: Do3 2s infinite ease-in-out;;
+}
+
+@keyframes Do3 {
+  100% {
+    transform: rotate(360deg);
+    width: 216px;
+    background: #8e44ad;
+  }
+}
+
+/*http://codepen.io/filipvabrousek/pen/bZadAr?editors=1100*/

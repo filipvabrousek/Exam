@@ -1,43 +1,120 @@
-// <button class="button"><span>Add</span></button>
+/*
 
-.button {
-  border-radius: 4px;
-  background-color: #3498db;
-  border: none;
-  color: #FFFFFF;
+<div class="wrapper">
+<h1>Stopwatch</h1>
+<h2>Based on pure Javascript</h2> 
+<p><span id="seconds">00</span>:<span id="tens">00</span></p>
+<button id="button-start">Start</button>
+<button id="button-stop">Stop</button>
+<button id="button-reset">Reset</button>
+</div> 
+
+*/
+
+
+/*
+/* Mixin's */
+body {
+  background: #ffa600;
+  font-family: Arial;
+}
+
+.wrapper {
+  width: 800px;
+  margin: 150px auto;
+  color: #fff;
   text-align: center;
-  font-size: 28px;
-  padding: 20px;
+}
+
+h1, h2, h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 2.6em;
+  text-transform: uppercase;
+}
+
+#seconds, #tens {
+  font-size: 2em;
+}
+
+button {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -khtml-border-radius: 5px;
+  background: #ffa600;
+  color: #fff;
+  border: solid 1px #fff;
+  text-decoration: none;
   cursor: pointer;
-  margin: 5px;
+  font-size: 1.2em;
+  padding: 18px 10px;
+  width: 180px;
+  margin: 10px;
+  outline: none;
+}
+button:hover {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  background: #fff;
+  border: solid 1px #fff;
+  color: #ffa600;
+}
+*/
+
+
+window.onload = function() {
+
+  var seconds = 00;
+  var tens = 00;
+  var appendTens = document.getElementById("tens")
+  var appendSeconds = document.getElementById("seconds")
+  var buttonStart = document.getElementById('button-start');
+  var buttonStop = document.getElementById('button-stop');
+  var buttonReset = document.getElementById('button-reset');
+  var Interval;
+
+  buttonStart.onclick = function() {
+    clearInterval(Interval);
+    Interval = setInterval(startTimer, 10);
   }
 
-.button span {
-  /*definuje pozici el. span*/
-  display: inline-block;
-  position: relative;
-  /*způsobí pozvolné prodloužení tlačítka*/
-  transition: 0.4s;
-}
+  buttonStop.onclick = function() {
+    clearInterval(Interval);
+  }
 
-/*vytvoří znaménko +, která ale není vidět (opacity=0)*/
-.button span:after {
-  content: '+';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  /*způsobí pozvolné objevení a zmizení znaménka +*/
-  right: -20px;
-  transition: 0.4s;
-}
+  buttonReset.onclick = function() {
+    clearInterval(Interval);
+    tens = "00";
+    seconds = "00";
+    appendTens.innerHTML = tens;
+    appendSeconds.innerHTML = seconds;
+  }
 
-/*Způsobí prodloužení tlačítka po akci :hover*/
-.button:hover span {
-  padding-right: 25px;
-}
+  function startTimer() {
+    tens++;
 
-/*Ukáže šipku po akci :hover - zvidtelní el. span (opacity=1)*/
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
+    if (tens < 9) {
+      appendTens.innerHTML = "0" + tens;
+    }
+
+    if (tens > 9) {
+      appendTens.innerHTML = tens;
+
+    }
+
+    if (tens > 99) {
+      seconds++;
+      appendSeconds.innerHTML = "0" + seconds;
+      tens = 0;
+      appendTens.innerHTML = "0" + 0;
+    }
+
+    if (seconds > 9) {
+      appendSeconds.innerHTML = seconds;
+    }
+
+  }
+
 }

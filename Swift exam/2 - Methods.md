@@ -14,7 +14,59 @@ n.unsafeAdding(2) | ...  | ...
 
 Name | Name | Name
 ------------ | ------------- | -------------
-d.addProduct(2, 3)  | d.squareRoot()| d.exponent 
+d.addProduct(2, 3)  | d.squareRoot()| d.formSquareRoot()
+d.advancedBy(2.0)  | d.exponent | d.formSquareRoot()
+
+
+
+## String
+Name | Name | Name
+------------ | ------------- | -------------
+s.lowercased() |s.uppercased()| s.dropFirst()
+s.dropLast()| s.append("CH")| s.append("CH")
+s.isEmpty| s.insert("A", at: s.startIndex)| s.index(s.startIndex, offsetBy: 3)
+s.lexicographicallyPrecedes("I")
+
+
+
+```swift
+let str = "I am Filip"
+str.lexicographicallyPrecedes("S") // Prefix, Split
+let o = str.split(whereSeparator: {$0 == " "})
+
+var s = "Filip 😁"
+for char in s{
+    print(char)
+}
+
+for scalar in s.unicodeScalars{
+    print(scalar.value) // or hasValue
+}
+
+
+
+var m = "Filip"
+let range = m.index(m.endIndex, offsetBy: -2)..<m.endIndex
+m.removeSubrange(range)
+
+let end = s.index(s.startIndex, offsetBy: 3)
+let substr = s[s.startIndex...end]
+print(substr)
+
+
+let s = "A, B, C"
+s.split(separator: ",") // ["A", "B", "C"]
+
+let table = zip(1..., "ABCDEFGHIJ")
+for (code, char) in table{
+    print(code, char, separator: ": ")
+}
+
+
+```
+
+
+
 
 
 ## Array
@@ -97,53 +149,6 @@ arr.forEach { num in
 
 ```
 
-## String
-Name | Name | Name
------------- | ------------- | -------------
-s.lexicographicallyPrecedes("S") | s.split(...)| s.index(..)
-s.dropFirst| s.insert("j", at:...)| a.index(...)
-a.isEmpty| a.removeSubrange(...)| a.forEach
-
-
-```swift
-let str = "I am Filip"
-str.lexicographicallyPrecedes("S") // Prefix, Split
-let o = str.split(whereSeparator: {$0 == " "})
-
-var s = "Filip 😁"
-for char in s{
-    print(char)
-}
-
-for scalar in s.unicodeScalars{
-    print(scalar.value) // or hasValue
-}
-
-s.count
-s.isEmpty
-s.dropFirst() // dropLast()
-s.insert("j", at: s.index(before: s.endIndex))
-
-var m = "Filip"
-let range = m.index(m.endIndex, offsetBy: -6)..<m.endIndex
-m.removeSubrange(range)
-
-let str = "Filip"
-let end = str.index(str.startIndex, offsetBy: 3)
-let substr = str[str.startIndex...end]
-print(substr)
-
-
-let s = "A, B, C"
-s.split(separator: ",") // ["A", "B", "C"]
-
-let table = zip(1..., "ABCDEFGHIJ")
-for (code, char) in table{
-    print(code, char, separator: ": ")
-}
-
-
-```
 
 
 ## Set

@@ -25,48 +25,49 @@ do {
 
 
 # ARC
-* automatically frees up memory, when object is not used anymore
+* ARC - handles memory management of objects for us
+* for each objects keeps count of how many strong references are pointing to that object
 
-## Weak, strong reference cycle
-* we need to add ```weak``` before ```var person: P? ``` so it will have WEAK reference, there will be a weak retain cycle 
-* and if one variable becomes nil, the second WILL NOT be dealocatted as well
 ```swift
-
-
-class P{
-    var name: String
-    var h:H?
-    init(name:String){
+class P {
+    let name: String
+    var macbook:Macbook?
+    init(name:String, macbook: Macbook?){
         self.name = name
+        self.macbook = macbook
     }
     
-    deinit{
-        print("deinit")
+    deinit {
+        print("\(name) deinit")
     }
 }
 
-/*
-var me:P? = P(name: "Filip")
-var ref = me // has STRONG refernce to where me was pointing ot
-me = nil
 
-// ref = nil -> "deinit"
-*/
-
-class H{
-    var hobby:String = "running"
-    var person: P? // with "WEAK" ("deinit" is loggedd)
+class Macbook{
+    let name:String
+    weak var owner: P? // allows  "Filip" to be deinitialized
+    /*with weak before "owner" "deinit" is logged
+    NO strong refernce form "Eda" to "Filip" (Filip to Eda still has)
+     */
+    
+    init(name: String, owner: P?){
+        self.name = name
+        self.owner = owner
+    }
+    
+    deinit { // if this gets called, we DO NOT have retain cycle
+        print(" \(name) deinit")
+    }
 }
 
-var me: P? = P(name: "Filip") // has a STRONG refernce cycle to property "hobby" which points at "H"
-var hobby: H? = H() // has a property person with a STRONG refernce pointing at employee
-me?.h = hobby
-hobby?.person = me
-me = nil
-hobby = nil 
-// Nothing logs to the console (we made a STRONG REFERNCE cycle)
-// STRONG REFERNCE CYCLES means that if one goes nil, both instances will be deallocated
 
+var filip:P? = P(name: "Filip", macbook: nil) // Filip has STRONG ref. to itself
+var eda:Macbook? = Macbook(name: "Eda", owner: nil) // eda has STRONG ref. to itself
+
+filip?.macbook = eda // RETAIN CYCLE (both refs point to each other)
+eda?.owner = filip
+
+filip = nil // "Filip deinit" with "weak before var owner" (if eda = nil nothing is logged)
 ```
 
 

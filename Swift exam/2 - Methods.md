@@ -23,9 +23,8 @@ d.advancedBy(2.0)  | d.exponent | d.formSquareRoot()
 Name | Name | Name
 ------------ | ------------- | -------------
 s.lowercased() |s.uppercased()| s.dropFirst()
-s.dropLast()| s.append("CH")| s.append("CH")
-s.isEmpty| s.insert("A", at: s.startIndex)| s.index(s.startIndex, offsetBy: 3)
-s.lexicographicallyPrecedes("I")
+s.dropLast()| s.append("CH")| s.isEmpty
+s.insert("A", at: s.startIndex)| s.index(s.startIndex, offsetBy: 3) | s.lexicographicallyPrecedes("I")
 
 
 

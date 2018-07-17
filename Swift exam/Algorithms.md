@@ -7,15 +7,10 @@ func sumOfIntegersInString(_ str: String) -> Int {
 
     let ints = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     var arr:[Character] = []
-    
-
-    
     var pure:[[Int]] = []
     
     // 1 - get all characters other than a number and replace them with "X" symbol
     // "A122a1" -> ["X", "1", "2", "2", "X", "1"]
-    
-    
     
     for i in 0..<str.characters.count {
         let index = str.index(str.startIndex, offsetBy: i)
@@ -28,11 +23,10 @@ func sumOfIntegersInString(_ str: String) -> Int {
         }
     }
     
-    print(arr) // ["X", "1", "2", "2", "X", "1", "X", "2"]
+    // arr is ["X", "1", "2", "2", "X", "1", "X", "2"]
     
     
     
- 
     var sub = [Int]()
     
     for i in 0..<arr.count {
@@ -54,17 +48,14 @@ func sumOfIntegersInString(_ str: String) -> Int {
                 pure.append(sub)
             }
             
-        }
-        
-        
+        } 
     }
     
-    // pure: [[], [1, 2, 2], [1]]
+    // pure is [[], [1, 2, 2], [1]]
     
  
     var sume = 0
     for subarr in pure{
-        //  print("S\(subarr)")
         
         var count = ""
         for char in subarr{
@@ -99,13 +90,13 @@ func dashatize(_ number: Int) -> String {
         num = abs(num)
     }
     
-    
     let inp = String(num) // 6815  num
     var arr = [Int]()
     
     for char in inp {
         arr.append(Int(String(char))!)
     }
+    
     
     
     var sub = [String]()
@@ -161,10 +152,6 @@ dashatize(-28369)
  */
 
 // 21:09 done :D
-
-
-
-
 ```
 
 

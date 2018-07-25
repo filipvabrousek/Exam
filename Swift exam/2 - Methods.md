@@ -148,6 +148,19 @@ arr.forEach { num in
 
 ```
 
+```swift
+let arrs = [[1, 2], [3, 4], [3, 4, 5], [2]]
+
+extension Array {
+    func flatSum() -> Int{
+        return arrs.reduce([], +).reduce(0, +)
+    }
+}
+
+let sum = arrs.flatSum()
+
+```
+
 
 
 ## Set

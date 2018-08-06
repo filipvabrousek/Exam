@@ -165,20 +165,16 @@ print(handlers.count)
 * not need to use complex brackets
 ```swift
 
-var line = ["Filip", "Sára", "Karel"]
-let provider = { line.remove(at: 0)}
-print(line.count) // 2
-
-func serve(customer provider: () -> String){
-    print("Now serving \(provider())")
+func f(p: @autoclosure () -> Bool){
+    if p(){
+        print("true")
+    }
 }
 
-serve(customer: {line.remove(at: 0)})
+f(p: {2 > 1}())
+f(p: 2 > 1)
+// without @autoclosure f(p: {2 > 1})
 
-func servee(customer provider: @autoclosure () -> String){
-    print("Serving \(provider())")
-}
-servee(customer: line.remove(at: 0)) // @autoclosure means that I can use argument as a normal parament
 ```
 
 

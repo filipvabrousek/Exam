@@ -52,24 +52,6 @@ filip?.mac = eda
 eda?.person = filip
 
 filip = nil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ```
 
 

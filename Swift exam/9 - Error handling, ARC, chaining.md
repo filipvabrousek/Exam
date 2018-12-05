@@ -29,45 +29,47 @@ do {
 * for each objects keeps count of how many strong references are pointing to that object
 
 ```swift
+
+
+// 1 -----------------------------------------------------------------
 class P {
-    let name: String
-    var macbook:Macbook?
-    init(name:String, macbook: Macbook?){
-        self.name = name
-        self.macbook = macbook
-    }
-    
+    var mac: Mac?
     deinit {
-        print("\(name) deinit")
+        print("Person deinit")
     }
 }
 
-
-class Macbook{
-    let name:String
-    weak var owner: P? // allows  "Filip" to be deinitialized
-    /*with weak before "owner" "deinit" is logged
-    NO strong refernce form "Eda" to "Filip" (Filip to Eda still has)
-     */
-    
-    init(name: String, owner: P?){
-        self.name = name
-        self.owner = owner
-    }
-    
-    deinit { // if this gets called, we DO NOT have retain cycle
-        print(" \(name) deinit")
+class Mac {
+   weak var person: P? // with "weak" before Person deinit
+    deinit { // if this gets called, we do not have a retain cycle
+        print("Mac deinit")
     }
 }
 
+var filip:P? = P()
+var eda:Mac? = Mac()
+filip?.mac = eda
+eda?.person = filip
 
-var filip:P? = P(name: "Filip", macbook: nil) // Filip has STRONG ref. to itself
-var eda:Macbook? = Macbook(name: "Eda", owner: nil) // eda has STRONG ref. to itself
+filip = nil
 
-filip?.macbook = eda // RETAIN CYCLE (both refs point to each other)
-eda?.owner = filip
 
-filip = nil // "Filip deinit" with "weak before var owner" (if eda = nil nothing is logged)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```
 
 
@@ -75,26 +77,50 @@ filip = nil // "Filip deinit" with "weak before var owner" (if eda = nil nothing
 * unowned is used when there is NO POSSIBILITY for the reference becoming nil until the ```self``` object exists
 
 ```swift
-class Test{
-    var name: String
-    
-    init(name:String){
-        self.name = name
-    }
-    
-    lazy var greet:String = { [weak self] in
-        guard let strong = self else { return ""}
-        return "Hello \(strong.name) !"
-        }()
-    
-    lazy var greetA:String = { [unowned un = self] in //should be used if we are sure it won't be nil
-        return "Hello \(un.name)"
-        }()
-} // lazy only for class / struct members
+// 2 -----------------------------------------------------------------
+// Weak vs Unowned
 
-var test = Test(name: "Filip")
-let res = test.greet
-print(res)  // Hello Filip, (without assignment) unresolve l-value
+
+
+class PE {
+    var card: C?
+}
+
+class C {
+    unowned let me: PE
+    init(me: PE){
+        self.me = me
+    }
+}
+
+var marco:PE? = PE()
+var cd:C? = C(me: marco!)
+
+marco = nil
+cd
+
+
+/* "PE" may or may not have "C", but a "C" will always be associted with PE
+ "PE"s card is allowed to be nil and "C"s me cannot be nil
+
+ UNOWNED: "C"s me is always expected to have value it GUARANTEES
+ that when "PE" gets deallocated, the "C" gets deallocated as well
+ ensures "C" will never  outlive its "PE" instance
+ 
+ WEAK: is allowed to have NO value, allowed to be OPTIONAL (?)
+
+
+ PE === (strong) ===> C
+ PE <=== (unowned) === C
+ 
+ 
+ */
+
+// grafika ponělí 1. týd. v březnu
+//
+
+// https://stackoverflow.com/questions/41061217/what-good-are-unowned-references
+
 
 
 ```

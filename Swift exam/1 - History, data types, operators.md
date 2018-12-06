@@ -1,6 +1,10 @@
 # History
+
+## Apple
+* 
+
 ## Chris Lattner (1978-)
-*  works at Google, Tesla, Apple
+* works at Google, Tesla, Apple
 * University of Portland, Oregon (OS Dev. DYNIX)
 * creator of LLVM - platform independent Swift, Obj-C D, Go, Rust compilator
 * written in C++
@@ -13,7 +17,8 @@
 * 21/9/2015 Swift 2.0
 * 13/9/2016 Swift 3.0 (are not)
 * 19/9/2017 Swift 4.0 (are again)
-* waiting for Swift 5 :D
+* 17/9/2018 Swift 4.2
+* waiting for Swift 5 in early 2019 :D
 
 
 
@@ -24,14 +29,34 @@
 
 * 1991 - Quick Time
 * 1996 - Open Doc
-* 
+* 2008 - App Store (delivered as software update)
+* 2012 - Apple Maps
+* 2018 - iOS 12
 
 
 ## xCode
 
+* supports Swift, Objective-C, Objectiv C++,  C, C++, Java, AppleScript, Python, Ruby
+* version 1.0 - fall 2003
+* 10.0 - fall 2018, drops support for 32-bit Mac Apps
+* interface builder 2008
 
+### LLVM
+* written in C++
+* development started at 2000 at the university of Illions - Cris Lattner
+* he posted questions about Objective-C, later got attention of Apple
 
-## LLVM
+### Cocoa
+* written in C, C++, Objective-C, Swift
+* Cocoa: Foundation, AppKit (Mac)
+* Cocoa Touch: UIKit (iOS)
+
+**Layers:**
+* Cocoa Touch
+* Media / Application Services
+* Core Servies
+* Core OS / Kernel
+
 
 # DATA TYPES
 

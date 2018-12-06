@@ -232,3 +232,28 @@ func simple(){
 
 simple()
 ```
+
+
+# Addition
+```swift
+
+```swift
+let text = """
+ One line
+ Second line
+ Third line
+ """
+print(text)
+```
+
+
+## Typealias
+```swift
+typealias Name = String // a fake name
+func greet(name: Name){
+    print(name)
+}
+
+greet(name: "Filip")
+```
+```

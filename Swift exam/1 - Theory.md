@@ -15,6 +15,24 @@
 * 19/9/2017 Swift 4.0 (are again)
 * waiting for Swift 5 :D
 
+
+
+## WWDC
+* began 1987 in Santa Clara
+* $ 1599 USD, onlie loterry
+* WWDC 2018 - 6000 attendees
+
+* 1991 - Quick Time
+* 1996 - Open Doc
+* 
+
+
+## xCode
+
+
+
+## LLVM
+
 # DATA TYPES
 
 ## Basic and numeric Values
@@ -46,36 +64,10 @@ protocol OptionSet {}
 (strides, ranges, sequence, zip, collection of one, emptyCollection, DictionaryLiteral
 ```
 
-
-
 ## Basic behaviors
 ```swift
  protocol Comparable, Equatable, Codable, Encodable, Decodable, Encoder, Decoder, Expressable by Array literal
 ```
-
-
-```swift
-let text = """
- One line
- Second line
- Third line
- """
-print(text)
-```
-
-
-## Typealias
-```swift
-typealias Name = String // a fake name
-func greet(name: Name){
-    print(name)
-}
-
-greet(name: "Filip")
-```
-
-
-
 
 
 # Operators
@@ -99,16 +91,4 @@ print(res)
 let allow = true
 let row = allow ? 20 : 30
 print(row)
-```
-
-## Singleton
-```swift
-// https://medium.com/if-let-swift-programming/the-swift-singleton-pattern-442124479b19
-final class Singleton{
-    static let shared = Singleton()
-    var info = "Filip loves Swift"
-    private init() {}
-}
-
-Singleton.shared.info // Filip loves Swift
 ```

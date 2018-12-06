@@ -59,51 +59,20 @@ filip = nil
 * unowned is used when there is NO POSSIBILITY for the reference becoming nil until the ```self``` object exists
 
 ```swift
-// 2 -----------------------------------------------------------------
-// Weak vs Unowned
-
-
-
-class PE {
-    var card: C?
-}
-
-class C {
-    unowned let me: PE
-    init(me: PE){
-        self.me = me
+class S {
+    let m:String = "Mobile"
+    
+    lazy var summary: () -> String = { [unowned self] in
+        return "\(self.m)"
     }
+    /* without UNOWNED, memory leak would happen, because closures have to capture entire block
+    and if anything reffers to self, it never gets deallocated, even when the "S" class may have been deallocated */
 }
 
-var marco:PE? = PE()
-var cd:C? = C(me: marco!)
+var s = S()
+s.summary()
 
-marco = nil
-cd
-
-
-/* "PE" may or may not have "C", but a "C" will always be associted with PE
- "PE"s card is allowed to be nil and "C"s me cannot be nil
-
- UNOWNED: "C"s me is always expected to have value it GUARANTEES
- that when "PE" gets deallocated, the "C" gets deallocated as well
- ensures "C" will never  outlive its "PE" instance
- 
- WEAK: is allowed to have NO value, allowed to be OPTIONAL (?)
-
-
- PE === (strong) ===> C
- PE <=== (unowned) === C
- 
- 
- */
-
-// grafika ponělí 1. týd. v březnu
-//
-
-// https://stackoverflow.com/questions/41061217/what-good-are-unowned-references
-
-
+// https://medium.com/@sergueivinnitskii/most-common-memory-leak-trap-in-swift-4565dbae5445
 
 ```
 

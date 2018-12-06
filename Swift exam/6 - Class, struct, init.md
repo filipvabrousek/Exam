@@ -73,43 +73,40 @@ var triangle = TR(len: 3.0, name: "Trinagle")
 triangle.P = 9.9
 triangle.len // 3.3
 
+```
+## Property observers
+* willSet - called just before the value is stored
+* didSet - called imediatelly after new value is stored
 
-//----------------------------------------MIX-----------------------------------
-class MIX{
-    var triangle: TR{
-        willSet{
-            square.len = newValue.len
+```swift
+class S {
+    var total: Int = 0{
+        willSet(new){
+            print("about to set total to \(new)")
+        }
+        
+        didSet{
+            if total > oldValue{
+                print("Added \(total - oldValue) steps")
+            }
         }
     }
     
-    var square: SQ {
-        willSet{
-            triangle.len = newValue.len
-        }
-    }
     
-    init(size: Double, name: String){
-        square = SQ(len: size, name: name)
-        triangle = TR(len: size, name: name)
-    }
 }
 
 
-var mix = MIX(size: 10, name: "mixed shape")
-print(mix.square.len) // 10
-print(mix.triangle.len) // 10
-mix.square = SQ(len: 50, name: "large square")
-print(mix.triangle.len) // 50
 
-
-
-
-
+let sc = S()
+sc.total = 200
+sc.total = 360
 ```
 
 
-## INHERITANCE
+
+## Inheritenance
 * ```final``` - pervents property from being overriden
+
 ```swift
 class V{
     var speed:Double = 0.0
@@ -141,37 +138,7 @@ print(acar.desc) // I can ride with 20 km/h (20 hp ???)
 
 ```
 
-## Property observers
-* willSet - called just before the value is stored
-* didSet - called imediatelly after new value is stored
 
-
-```swift
-class S {
-    var total: Int = 0{
-        willSet(new){
-            print("about to set total to \(new)")
-        }
-        
-        didSet{
-            if total > oldValue{
-                print("Added \(total - oldValue) steps")
-            }
-        }
-    }
-    
-    
-}
-
-
-
-let sc = S()
-sc.total = 200
-sc.total = 360
-
-
-
-```
 ---------------------------------------------------------------------
 ## STRUCT VS CLASS
 

@@ -1,7 +1,9 @@
 # History
 
 ## Apple
-* 
+* 1/4/1976 - Steve Jobs and Steve Wozniak
+* Steve Jobs 1955 - 2011
+
 
 ## Chris Lattner (1978-)
 * works at Google, Tesla, Apple
@@ -43,7 +45,7 @@
 
 ### LLVM
 * written in C++
-* development started at 2000 at the university of Illions - Cris Lattner
+* development started at 2000 at the university of Illions - Chris Lattner
 * he posted questions about Objective-C, later got attention of Apple
 
 ### Cocoa

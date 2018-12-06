@@ -55,7 +55,7 @@ filip = nil
 ```
 
 
-## Unowned
+## Unowned vs weak in closures
 * unowned is used when there is NO POSSIBILITY for the reference becoming nil until the ```self``` object exists
 
 ```swift
@@ -63,14 +63,19 @@ class S {
     let m:String = "Mobile"
     
     lazy var summary: () -> String = { [unowned self] in
-        return "\(self.m)"
+        return "\(self.m)" // if self.m is nil, it will crash the whole program
     }
     /* without UNOWNED, memory leak would happen, because closures have to capture entire block
-    and if anything reffers to self, it never gets deallocated, even when the "S" class may have been deallocated */
+     and if anything reffers to self, it never gets deallocated, even when the "S" class may have been deallocated */
+    
+    lazy var summaryb: () -> String = { [weak self] in
+        return "\(self!.m)"
+    }
 }
 
 var s = S()
 s.summary()
+s.summaryb()
 
 // https://medium.com/@sergueivinnitskii/most-common-memory-leak-trap-in-swift-4565dbae5445
 

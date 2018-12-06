@@ -1,10 +1,9 @@
 # Collection types
 
-```swift
+
 
 ## Dictionary
 ```swift
-
 var names: Dictionary = [String: Int]()
 names["Filip"] = 18
 names["Sara"] = 17

@@ -74,6 +74,23 @@ protocol Error {} - type representing Error that can be thown
 enum Optional {} - type representing wrapped value / nil - has to be unwrapped
 ```
 
+```swift
+
+let big = 1.25e2
+let valid = 0034
+let also = 100_000
+
+let decimal = 17
+let binary = 0b10001
+let octal = 0o21
+let hexad = 0x11
+
+precondition(2 > 1) // if we change sign => error
+assert(2>1, "true")
+
+
+```
+
 ## Strings
 ```
 struct String {}

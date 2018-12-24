@@ -112,10 +112,6 @@ print(sq)
 
 ## filter, reduce
 ```swift
-let scores = ["ba", "c"]
-let filtered = scores.filter({$0.hasSuffix("a")})
-print(filtered) // ba
-
 let l = ["S", "F"]
 let f = l.filter {$0.contains("F")}
 print(f) // [F]
@@ -133,7 +129,7 @@ let reduced = points.reduce(10){
 }
 print(reduced) // 170
 
-[2, 4, 6].reduce(+) // ???
+[2, 4, 6].reduce(0, +)
 
 let arrs = [1, 2, 3].filter{$0 % 2 == 0}.map{$0 * $0}.reduce(0, +)
 print(arrs) // sum of even numbers

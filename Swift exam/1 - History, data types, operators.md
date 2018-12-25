@@ -137,27 +137,28 @@ let row = allow ? 20 : 30
 print(row)
 ```
 
+
+## Advanced operators
 ```swift
-// Advanced Operators
 
 // NOT
 let n: UInt8 = 0b00001111
 ~n // inverts bits 11110000
 
-// AND
+// AND = if both 1, write 1
 let first: UInt8 = 0b11111100
 let last: UInt8  = 0b00111111
 let middle = first & last // 00111100
 
-// OR
+// OR = if at least one 1, write 1
 let f: UInt8 = 0b10110010
 let c: UInt8 = 0b01011110
-let combinedbits = f | c  // equals 11111110 if 1 writes 1 if 0 write nothing
+let combinedbits = f | c  // equals 11111110
 
-// XOR
+// XOR = both have bits set to 1, where other one has not
 let c2 = f ^ c // f and c have bits set to one where other one does not 00010001
 
-// SHIFT
+// SHIFT = << shifts bits to the left
 let shift: UInt8 = 8
 shift << 1 // 16
 ```

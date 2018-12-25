@@ -153,12 +153,12 @@ let middle = first & last // 00111100
 // OR = if at least one 1, write 1
 let f: UInt8 = 0b10110010
 let c: UInt8 = 0b01011110
-let combinedbits = f | c  // equals 11111110
+let combo = f | c  // 11111110
 
 // XOR = both have bits set to 1, where other one has not
-let c2 = f ^ c // f and c have bits set to one where other one does not 00010001
+let c2 = f ^ c // 00010001
 
 // SHIFT = << shifts bits to the left
-let shift: UInt8 = 8
-shift << 1 // 16
+var p = 1 // 00000001
+p << 3 //   00001000 (8) - 3 spaces left
 ```

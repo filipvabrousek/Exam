@@ -114,4 +114,54 @@ if let money = Filip.amount?.value{
 ```
 
 
+## Write vs read access
+```swift
+var one = 1 // write access to the memory
+print(one) // read access from the memory
+```
 
+```swift
+// multiple access to location in the same time => CONFLICT
+func add(to: Int) -> Int { // instantaneous access (OK)
+    return to + 1
+}
+
+var s = 1
+s = add(to: s)
+print(s) // 2
+
+```
+
+
+## Conflicting arguments
+```swift
+func qal(a: inout Int, b: inout Int){
+a = b / 2
+}
+
+var w = 1
+var o = 2
+qal(a: &w, b: &o) // OK
+// qal(a: &w, b: &w) -> ERROR arguments not allowed to alias each other
+```
+
+## Conflicting access to self
+
+```swift
+
+// Conflicting access to "self"
+struct P {
+    var age: Int // try this with class !!!!
+}
+
+extension P {
+    mutating func equal(p: inout P){ // passing by value
+        self.age = p.age
+    }
+}
+
+var j = P(age: 18)
+var r = P(age: 19)
+// j.equal(p: &j) -> ERROR arguments not allowed to alias each other
+j.equal(p: &r) // OK
+```

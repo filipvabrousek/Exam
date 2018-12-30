@@ -158,7 +158,7 @@ let combo = f | c  // 11111110
 // XOR = both have bits set to 1, where other one has not
 let c2 = f ^ c // 00010001
 
-// SHIFT = << shifts bits to the left
+// SHIFT
 var p = 1 // 00000001
-p << 3 //   00001000 (8) - 3 spaces left
+p << 3 // 00001000 (8) - 1 is shifted 3 spaces left
 ```

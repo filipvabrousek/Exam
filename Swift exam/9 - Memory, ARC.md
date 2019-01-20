@@ -89,6 +89,10 @@ s.summaryb()
 * this feature enables you to hide the implementation details of your code
 * variables and classes are implicitly internal
 * used for class, var, let
+
+* private accessible by extension in the same file
+* private no access from subclass (fileprivate yes)
+
 ```swift
 internal, public, private fileprivate
 ```

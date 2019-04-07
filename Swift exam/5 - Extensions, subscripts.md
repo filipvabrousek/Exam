@@ -16,6 +16,20 @@ let feet = 3.ft
 print(feet)
 ```
 
+
+## String Interpolation
+```swift
+extension String.StringInterpolation {
+    mutating func appendInterpolation(_ value: String){
+        appendLiteral("\(2 * Int(value)!)")
+    }
+}
+
+
+var e = 24
+print("I am \(String(e))") // I am 24
+```
+
 ## String extension
 ```swift
 import UIKit

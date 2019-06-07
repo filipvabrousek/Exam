@@ -26,9 +26,7 @@ struct AllView: View {
 struct UCell: View {
     var user: User
     
-    
     var size: CGFloat = 18.0
-    // var lsize: CGFloat = 20.0
     
     
     var body: some View {

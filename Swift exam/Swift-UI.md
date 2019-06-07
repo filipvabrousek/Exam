@@ -1,17 +1,28 @@
 # Swift UI
 
 ```swift
+struct User: Identifiable {
+    var id: Int
+    let name: String
+    let age: Int
+}
+
+
+let users:[User] = [User(id: 0, name: "Filip", age: 19), User(id: 1, name: "Terka", age: 20)]
+
+
 struct ContentView: View {
     var body: some View {
+        
         NavigationView {
-            List {
-                ForEach(users.identified(by: \.name)){ user in
-                    UCell(user: user)
-                }
+            List(users) { user in
+                UCell(user: user)
             }
         }
     }
 }
+
+
 
 
 struct UCell: View {
@@ -19,15 +30,13 @@ struct UCell: View {
     
     var body: some View {
         return NavigationButton(destination: Text(user.name)) {
+            Image("butterfly").frame(width: 70, height: 70)
+                .clipped().clipShape(Circle())
+                .padding(.trailing, 10)
             
-            
-            Image("butterfly").frame(width: 50, height: 50).clipped().clipShape(Circle())
-            Text(user.name).font(.headline)
-            
-            Spacer()
             VStack(alignment: .leading) {
-                Text("Next").font(.headline)
-                Text("→").font(.subheadline).fontWeight(.heavy)
+                Text(user.name).fontWeight(.heavy).font(.system(size: 23))
+                Text("Age \(user.age)")
             }
         }
     }

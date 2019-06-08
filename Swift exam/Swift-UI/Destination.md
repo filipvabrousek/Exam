@@ -61,7 +61,7 @@ struct DetailView : View {
     var name: String
     
     var body: some View {
-        Text("\(name)").font(.system(size: 30)).foregroundColor(Color.green)
+        Text("\(name)").font(.system(size: 30))
     }
 }
 ```

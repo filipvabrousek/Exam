@@ -1,6 +1,7 @@
 ## Running app
 
 ```swift
+
 struct ContentView : View {
     var body: some View {
         TabbedView {
@@ -12,26 +13,39 @@ struct ContentView : View {
 
 
 struct ActivityView: View {
-    @State var manager = LMO()
+    
+    @State var manager = SLM(start: CLLocation(latitude: 0.0, longitude: 0.0))
+    
     var body: some View {
         VStack {
-            Text("\(manager.location.latitude)").font(.system(size: 40)).offset(x: 0, y: 70)
-            Text("0.0").font(.system(size: 40)).offset(x: 0, y: 90)
-            
+           
+            Spacer()
+            VStack {
+                  Text("\(manager.distance / 1000)").font(.system(size: 30))
+                  Text("Distance").font(.system(size: 19)).bold()
+            }
+         
             Button(action: {
-                let run = Run(dist: "3.2")
+                let run = Run(dist: "\(self.manager.distance)")
                 let s = Saver(ename: "Activities", key: "runs", obj: run)
                 s.save()
-                
                 print("Saved")
             }) {
                 Text("Save manually")
-                }.offset(x: 0, y: 160) // Trully weird :D
+                } // Trully weird :D
             
-            MapView(loc2D: CLLocationCoordinate2D(latitude: manager.location.latitude, longitude: manager.location.longitude)).offset(x: 0, y: 200)
+            Spacer()
+            
+            MapView(loc2D: CLLocationCoordinate2D(latitude: manager.lastLoc.coordinate.latitude, longitude: manager.lastLoc.coordinate.longitude))
+            
         }
     }
 }
+```
+
+
+## DetailView
+```swift
 
 
 class FV: BindableObject {
@@ -51,19 +65,25 @@ class FV: BindableObject {
 }
 
 
+
 struct DetailView: View {
     @State var manager = FV()
     
     var body: some View {
-       
         NavigationView {
             VStack {
-                List(manager.runs.identified(by: \.dist)) {
-                    RunCell(run: $0)
+                List {
+                    ForEach(manager.runs.identified(by: \.dist)){ run in
+                        RunCell(run: run)
+                        }.onDelete(perform: delete)
                 }
-              // return List(manager.runs, rowContent: RunCell.init)
             }
         }
+    }
+    
+    func delete(at offsets: IndexSet){
+        guard let index = Array(offsets).first else {return}
+        manager.runs.remove(at: index)
     }
 }
 
@@ -74,91 +94,89 @@ struct RunCell: View {
     var body: some View {
         NavigationButton(destination: RunDetail(run: run)) {
             HStack {
-             Image("iceland").resizable().frame(width: 60, height: 60).clipShape(Circle())
+                Image("iceland").resizable().frame(width: 60, height: 60).clipShape(Circle())
                 VStack(alignment: .leading) {
                     Text(run.dist).font(.system(size: 20))
                     Text("08.06.2019")
                 }
             }
         }
-       // PresentationButton(Text("Show"), destination: RunDetail(run: run)) - WEIRD STYLE
+        // PresentationButton(Text("Show"), destination: RunDetail(run: run)) - WEIRD STYLE
     }
 }
 
 
+// https://stackoverflow.com/questions/56553527/show-user-location-on-map-swiftui
+```
 
+## SLM
+```swift
 
-struct MapView: UIViewRepresentable {
-    var loc2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+class SLM: NSObject, CLLocationManagerDelegate, BindableObject {
+    private var manager = CLLocationManager()
+    var didChange = PassthroughSubject<SLM, Never>()
     
-    init(loc2D: CLLocationCoordinate2D){
-        self.loc2D = loc2D
-    }
-    
-    var LM: CLLocationManager = {
-        let lm = CLLocationManager()
-        lm.desiredAccuracy = kCLLocationAccuracyBest
-        lm.requestAlwaysAuthorization()
-        return lm
-    }()
-    
-    func makeUIView(context: UIViewRepresentableContext<MapView>) -> MapView.UIViewType {
-        // MKMapView(frame: .zero)
-        
-        let map: MKMapView = {
-            let map = MKMapView()
-            map.showsUserLocation = true
-            // user tracing mode
-            return map
-        }()
-        
-        return map
-        
-    }
-    
-    func updateUIView(_ view: MKMapView, context: Context) {
-        //  LM.startUpdatingLocation()
-        
-        let coord = LM.location?.coordinate
-        print("COORD  \(String(describing: coord?.latitude))")
-        
-        print("\(loc2D.latitude)  OJ")
-        
-        if coord != nil {
-            let coord = CLLocationCoordinate2D(latitude: loc2D.latitude, longitude: loc2D.longitude)
-            let span = MKCoordinateSpan(latitudeDelta: 0.007, longitudeDelta: 0.007) // 0.005
-            
-            let region = MKCoordinateRegion(center: coord, span: span)
-            view.setRegion(region, animated: false)
-        }
-    }
-}
-
-
-
-class LMO: BindableObject {
-    
-    var didChange = PassthroughSubject<LMO, Never>()
-    
-    var location: CLLocationCoordinate2D {
-        didSet{
+    var lastLoc: CLLocation {
+        didSet {
             didChange.send(self)
         }
     }
     
+    var firstLoc: CLLocation {
+        didSet {
+            didChange.send(self)
+        }
+    }
     
-    init(){
-        let LM: CLLocationManager = {
-            let lm = CLLocationManager()
-            lm.desiredAccuracy = kCLLocationAccuracyBest
-            lm.requestWhenInUseAuthorization()
-            return lm
-        }()
-        
-        self.location = LM.location?.coordinate ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
+    var distance: Double {
+        didSet {
+            didChange.send(self)
+        }
+    }
+    
+    var start: CLLocation
+    
+    init(manager: CLLocationManager = CLLocationManager(), start: CLLocation){
+        self.start = start
+        self.manager = manager
+        self.lastLoc = CLLocation(latitude: 0.0, longitude: 0.0)
+        self.firstLoc = CLLocation(latitude: 0.0, longitude: 0.0)
+        self.distance = 0.0
+        super.init()
+        self.startUpdate()
+    }
+    
+    
+    func startUpdate(){
+        self.manager.delegate = self
+        self.manager.requestWhenInUseAuthorization()
+        self.manager.startUpdatingLocation()
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if locations.last != nil {
+            
+            // let rand = Int.random(in: 1000...100000)
+            
+            if UserDefaults.standard.value(forKey: "poi") == nil {
+                firstLoc = locations.last!
+                UserDefaults.standard.set("mo", forKey: "poi")
+            }
+            
+            lastLoc = locations.last!
+            distance = locations.last!.distance(from: firstLoc) // from: start
+            print("DIST \(distance)")
+        }
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            manager.startUpdatingLocation()
+        }
     }
 }
-
 
 ```
 
@@ -188,6 +206,4 @@ struct RunDetail: View {
         
     }
 }
-
-
 ```

@@ -157,8 +157,6 @@ class SLM: NSObject, CLLocationManagerDelegate, BindableObject {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if locations.last != nil {
             
-            // let rand = Int.random(in: 1000...100000)
-            
             if UserDefaults.standard.value(forKey: "poi") == nil {
                 firstLoc = locations.last!
                 UserDefaults.standard.set("mo", forKey: "poi")

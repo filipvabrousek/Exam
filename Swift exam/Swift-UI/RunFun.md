@@ -197,11 +197,16 @@ struct RunDetail: View {
                 }.presentation($show){
                     Alert(title: Text("Message"), message: Text("Message"), dismissButton: .default(Text("Yup!")))
             }
+            
             Spacer()
-            Text(run.dist).font(.system(size: 30)).color(Color.green)
+            
+            Text(run.dist)
+                .font(.system(size: 30)).color(Color.green)
+                .gesture(TapGesture().onEnded {_ in
+                 print("Hey")
+            })
             
             }.frame(width: 300, height: 200)
-        
     }
 }
 ```

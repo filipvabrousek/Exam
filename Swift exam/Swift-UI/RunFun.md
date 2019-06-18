@@ -5,7 +5,7 @@
 struct ContentView : View {
     var body: some View {
         TabbedView {
-            ActivityView().tabItemLabel(Text("Activity")).tag(0)
+            ActivityView().tabItemLabel(Text("Activity")).tag(0) // beta 1 CRASH
             DetailView().tabItemLabel(Text("History")).tag(1)
         }
     }
@@ -209,4 +209,17 @@ struct RunDetail: View {
             }.frame(width: 300, height: 200)
     }
 }
+```
+
+
+
+
+```txt
+2019-06-18 13:03:41.425458+0200 RunFun[425:45543] [Assert] COMPATIBILITY BUG IN CLIENT OF UIKIT: Moving method canvasToolbar from UICanvas to UIWindowScene
+2019-06-18 13:03:41.425796+0200 RunFun[425:45543] [Assert] Registering Canvas Component Class _UICanvasUserActivityManager, please update to Frame Components
+2019-06-18 13:03:41.431040+0200 RunFun[425:45543] [Assert] Calling deprecated SPI on UICanvas. This method and class will dissapear prior to GM
+2019-06-18 13:03:41.435132+0200 RunFun[425:45543] [TraitCollection] Class _UISheetPresentationController overrides the -traitCollection getter, which is not supported. If you're trying to override traits, you must use the appropriate API.
+2019-06-18 13:03:41.435205+0200 RunFun[425:45543] [TraitCollection] Class _UIRootPresentationController overrides the -traitCollection getter, which is not supported. If you're trying to override traits, you must use the appropriate API.
+2019-06-18 13:03:41.458154+0200 RunFun[425:45543] [TraitCollection] Class UIPopoverPresentationController overrides the -traitCollection getter, which is not supported. If you're trying to override traits, you must use the appropriate API.
+
 ```

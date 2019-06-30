@@ -1,4 +1,4 @@
-# SPREAD
+# Spread
 
 * allows an expression to be expanded in places where multiple arguments (for function calls) or multiple elements (for array literals) or multiple variables (for destructuring assignment) are expected
 * ```...``` way to split items in an array into separate function parameters
@@ -123,7 +123,7 @@ d instanceof Date; // true, Date methods work
 
 
 
-# REGULAR EXPRESSIONS
+# Regular expressions
 * patterns used to match character combinations in strings
 * test, exec used also with string methods: search, split, replace, match
 
@@ -138,7 +138,6 @@ RegExp(pattern[, flags])
 * ```/./``` matches any character
 * ```/[0-9a-zA-Z]/``` matches alphanumeric strings
 * ```/a{2}/``` doesn't match the "a" in "candy", but it matches all of the "a"'s in "caandy"
-* ```/b[aeiou]t/``` matches "bat", "bet", "bit", "bot" and "but" and "bitter lemon"
 
 ```js
 // Tes, exec, search

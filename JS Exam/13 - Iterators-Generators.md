@@ -1,4 +1,4 @@
-# GENERATORS, ITERATORS
+# Generators
 
 * they break the typical “run to completion” model of normal functions (can start, pause, and reset)
 * generator is a function that returns an iterator
@@ -147,18 +147,15 @@ for (const x of ret()){
 
 ## 10
 ```js
-var o = {
-    *make(items){
-    for (let i = 0; i < items.length; i++){
-    yield items[i];
+ // x FOR EACH cannot yield inside a function that is not a GeneratorFunction
+function* make(items) {
+  for (var i in items) {
+          yield i;
+     }
 }
-}
-};
 
-
-let it = o.make([1, 2, 3]);
+let it = make([1, 2, 3]);
 it.next();
-
 ```
 
 

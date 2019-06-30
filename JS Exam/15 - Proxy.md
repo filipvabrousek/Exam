@@ -1,30 +1,12 @@
 # PROXY
 * used to define custom behavior for fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc)
 
-## Trap handlers
-* has - traps ```in```
-* get
-* set
-* deleteProperty - traps ``` delete```
-* defineProperty - traps ``` Object.defineProperty()```
-* enumerate - traps ``` for...in```
-* ownKeys - traps ``` Object.keys()``` ```Object.getOwnPropertyNames / Symbols```
-* apply - traps function calls
-* construct - traps function calls with ```new```
-* getOwnPropertyDescriptor
-* getPrototypeOf
-* setPrototypeOf
-* preventExtensions
-* isExtensible
-
-
 
 ## 1
 ```js
-
 const obj = {
     get(target, name){
-        return name in target ? target[name] : "doesnt exist";
+        return name in target ? target[name] : "doesn't exist";
     }
 };
 
@@ -32,55 +14,18 @@ const P = new Proxy({}, obj);
 P.a = 1;
 console.log(P.a);
 console.log("c" in P, P.c);
-
 ```
 
-## 2
-
-```js
-let T = {};
-
-let PX = new Proxy(T, {});
-
-PX.name = "proxy";
-console.log(PX.name);        // "proxy"
-console.log(T.name);       // "proxy"
-
-T.name = "target";
-console.log(PX.name);        // "target"
-console.log(T.name);       // "target"
 
 
-```
-## 3
-```js
-let twice = {
-    apply(target, ctx, args){
-        return Reflect.apply(... arguments) * 2;
-    }
-}
-
-const sum = (a, b) => a + b;
-
-let PX = new Proxy(sum, twice);
-
-console.log(PX(1,2));
-console.log(PX(...[3,4]));
-console.log(PX.apply(null, [3, 4]));
-
-
-
-```
-## Validating properties using set trap
+## 2 - Validating properties using set trap
 **set Trap** receives 4 args:
 * **TR** trap target - object, that will recive property
 * **K** key - the property key (String / Symbol) to write to
 * **V** value - value being written to property
 * **R** receiver - the object on which the operation took place
 you can assign to name because it EXIST ON TARGET already
-
 ```js
-    
 let T = {}
 let PX = new Proxy(T, {
    
@@ -90,17 +35,33 @@ let PX = new Proxy(T, {
    } 
 });
 
-
-
 PX.count = 1;
 console.log(PX.count);
-// PX.n = "Text"; // -> Error
 ```
 
 
-## Hiding property existence
-* with ```js handler.has()``` you can hide any property you want
+## 3 - Define property trap
+```js
+let proxy = new Proxy({}, {
+    defineProperty(t, k, d){
+        
+        if (typeof k === "symbol"){
+            return false;
+        }
+        
+        return Reflect.defineProperty(t, k, d);
+    }
+});
 
+
+let s = Symbol("Hi");
+
+Object.defineProperty(proxy, s, {
+    value: "proxy"
+});
+```
+
+## 4 - Hiding property existence
 ```js
 let T = {
     name: "target",
@@ -120,7 +81,8 @@ console.log("toString" in PX);   // true
 ```
 
 
-## Proxy.revokable()
+
+## 5 - Proxy.revocable
 ```js
 let T = {
     name: "target"
@@ -132,78 +94,39 @@ console.log(proxy.name);        // "target"
 revoke();
 
 // console.log(proxy.name); -> ERROR
-
-
 ```
 
-## Prototype proxy traps
 
-
+## 6 - Apply = function call trap
 ```js
-let T = {};
-
-let PX = new Proxy(T, {
-
-    getPrototypeOf(trapT) {
-        return null;
-    },
-    
-    setPrototypeOf(trapT, proto) {
-        return false;
+let twice = {
+    apply(target, ctx, args){
+        return Reflect.apply(... arguments) * 2;
     }
-});
+}
 
+const sum = (a, b) => a + b;
 
-let TP = Object.getPrototypeOf(T); //Object object
-let proxyProto = Object.getPrototypeOf(PX); // (null, because of trap)
-console.log(TP === Object.prototype);      // true
+let PX = new Proxy(sum, twice);
 
-Object.setPrototypeOf(T, {});
-//  Object.setPrototypeOf(PX, {}); -> ERROR
+console.log(PX(1,2));
+console.log(PX(...[3,4]));
 ```
 
-# Defining properties
-```js
-let T = {};
 
 
-let PX = new Proxy(T, {
-    defineProperty(TR, K, D) {
-        return Reflect.defineProperty(TR, K, D);
-    },
-    getOwnPropertyDescriptor(TR, K) {
-        return Reflect.getOwnPropertyDescriptor(TR, K);
-    }
-});
-
-
-Object.defineProperty(PX, "name", {
-    value: "Filip"
-});
-
-
-
-let desc = Object.getOwnPropertyDescriptor(PX, "name");
-console.log(desc.value); // Filip
-
-```
-
-## Object.create
-```js
-
-
-let T = {};
-let thing = Object.create(new Proxy(T, {
-    get(TR, K, R){
-        throw new ReferenceError(`${key} doesn't exist`);
-    }
-}));
-
-
-thing.name = "thing";
-
-console.log(thing.name);        // "thing"
-// let unknown = thing.unknown
-
-
-```
+## Trap handlers
+* has - traps ```in```
+* get
+* set
+* deleteProperty - traps ``` delete```
+* defineProperty - traps ``` Object.defineProperty()```
+* enumerate - traps ``` for...in```
+* ownKeys - traps ``` Object.keys()``` ```Object.getOwnPropertyNames / Symbols```
+* apply - traps function calls
+* construct - traps function calls with ```new```
+* getOwnPropertyDescriptor
+* getPrototypeOf
+* setPrototypeOf
+* preventExtensions
+* isExtensible

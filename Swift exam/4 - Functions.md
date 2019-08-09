@@ -9,6 +9,16 @@ return a*b
 
 multiply(a: 3,b: 7)
 ```
+
+## No need for return 
+```swift
+func square(x: Int) -> Int {
+    x * x
+}
+
+square(x: 8)
+```
+
 ## Rest
 ```swift
 func sumOf(numbers: Int...) -> Int {

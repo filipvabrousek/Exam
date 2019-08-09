@@ -194,9 +194,19 @@ var some = Point(x: 1.0, y: 1.0)
 some.moveBy(y: 2, y: 3)
 
 print("Coords: \(some.x), \(some.y)")
-
-
 ```
+
+## Default arguments
+```swift
+struct User {
+    var name: String
+    var age: Int = 20
+}
+
+let filip = User(name: "Filip") // has age of 20
+```
+
+
 
 ---------------------------------------------------------------------
 ## INITIALIZATION, TYPE CASTING

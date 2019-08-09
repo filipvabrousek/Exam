@@ -56,11 +56,7 @@ extension RNG {
 
 
 print("Here's a random number: \(generator.random())")
-
-
-
 ```
-
 
 ## 3
 ```swift
@@ -216,23 +212,14 @@ struct Person: Livable{
 let p = Person()
 ```
 
+
 # Some
+* we only care about the return protocol
 ```swift
-protocol Rocket { var fuel: Double {get set} }
-
-struct SLS: Rocket {
-    var fuel: Double = 3000
+func make() -> some Collection {
+    return [1.0, 2.0]
 }
 
-struct XR: Rocket {
-    var fuel: Double = 4000
-}
-
-// What is the some ???
-func launch() -> some Rocket {
-    return SLS()
-}
-
-launch()
+make()
 ```
 

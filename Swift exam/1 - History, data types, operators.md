@@ -20,6 +20,8 @@
 * 13/9/2016 Swift 3.0 (are not)
 * 19/9/2017 Swift 4.0 (are again)
 * 17/9/2018 Swift 4.2
+* Swift 5 April 2019
+*20.9.2019 Swift 5
 * waiting for Swift 5 in early 2019 :D
 
 

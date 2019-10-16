@@ -26,14 +26,13 @@
 
 ## WWDC
 * began 1987 in Santa Clara
-* $ 1599 USD, onlie loterry
-* WWDC 2018 - 6000 attendees
 
 * 1991 - Quick Time
 * 1996 - Open Doc
 * 2008 - App Store (delivered as software update)
 * 2012 - Apple Maps
 * 2018 - iOS 12
+* 2019 - iOS 13
 
 
 ## xCode
@@ -48,10 +47,15 @@
 * development started at 2000 at the university of Illions - Chris Lattner
 * he posted questions about Objective-C, later got attention of Apple
 
-### Cocoa
-* written in C, C++, Objective-C, Swift
-* Cocoa: Foundation, AppKit (Mac)
+### SwiftUI
+* unveiled 6/3/2019
+* development began in 2015 inside WatchOS Team, other teams wanted to use it as well
+* one level higher than UIKit
+
+### Older
+* Cocoa: AppKit (Mac)
 * Cocoa Touch: UIKit (iOS)
+* written in C, C++, Objective-C, Swift
 
 **Layers:**
 * Cocoa Touch

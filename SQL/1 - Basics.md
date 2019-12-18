@@ -1,34 +1,46 @@
 ## SQL
 
 ### Create
+* proc :)
 ```sql
-CREATE DATABASE F
+CREATE DATABASE S;
 
 CREATE TABLE Users(
 id int PRIMARY KEY not null,
 name varchar(50) not null,
 age int not null
-)
+);
 
-CREATE TABLE Posts(
-id int PRIMARY KEY not null
-)
+CREATE TABLE Photos(
+uid int PRIMARY KEY,
+photo BLOB
+);
 
-ALTER TABLE Users
-ADD photo BLOB not null
+INSERT INTO Users
+VALUES (1, "Filip", 20), (2, "Sofi", 21)
 
-DROP TABLE Users
-```
+INSERT INTO Photos
+VALUES (1, "...");
+
+SELECT * FROM Users WHERE id = 1
+SELECT Photos.photo FROM Photos LEFT JOIN Users ON Users.id = Photos.uid WHERE Users.id = 1;
+SELECT Count(*) FROM Users;
+SELECT AVG(age) FROM Users;
 
 
-### Select
-```sql
-SELECT * FROM D WHERE id = 1
-SELECT name FROM D LEFT JOIN M ON name.id = other.id
-SELECT Count(*) FROM D
-```
+CREATE TABLE Changes(
+uid int not null,
+d date not null
+);
 
-### Other
-```sql
-UPDATE D SET name = "Filip" WHERE id = 1
+
+
+CREATE TRIGGER X AFTER UPDATE 
+ON Photos 
+FOR EACH ROW
+INSERT INTO Changes(uid, d) 
+VALUES (uid, GETDATE())
+
+-- ???
+UPDATE Users SET name = "D" WHERE id = 1;
 ```

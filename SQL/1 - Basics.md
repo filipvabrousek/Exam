@@ -10,6 +10,10 @@ name varchar(50) not null,
 age int not null
 )
 
+CREATE TABLE Posts(
+id int PRIMARY KEY not null
+)
+
 ALTER TABLE Users
 ADD photo BLOB not null
 

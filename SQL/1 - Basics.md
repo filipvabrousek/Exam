@@ -1,6 +1,6 @@
 ## SQL
 
-### Crete
+### Create
 ```sql
 CREATE DATABASE F
 
@@ -9,6 +9,11 @@ id int PRIMARY KEY not null,
 name varchar(50) not null,
 age int not null
 )
+
+ALTER TABLE Users
+ADD photo BLOB not null
+
+DROP TABLE Users
 ```
 
 
@@ -16,10 +21,10 @@ age int not null
 ```sql
 SELECT * FROM D WHERE id = 1
 SELECT name FROM D LEFT JOIN M ON name.id = other.id
+SELECT Count(*) FROM D
 ```
 
 ### Other
 ```sql
 UPDATE D SET name = "Filip" WHERE id = 1
-
 ```

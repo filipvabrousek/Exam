@@ -58,7 +58,6 @@ END AS r
 FROM Users
 ```
 
-
 ## Not working in my DB
 ```sql
 CREATE PROCEDURE Fetch()
@@ -76,6 +75,18 @@ CREATE TABLE Changes(
 uid int not null,
 d date not null
 );
+```
 
+
+## Scalar functions
+
+```sql
+
+SELECT COS(3) AS x
+SELECT CONCAT("Hey", "Filip")
+SELECT REVERSE("Tutorial")
+SELECT REPLICATE('Another', 3)
+SELECT REPLACE("Milip", "M", "F")
+SELECT STR(180) 
 
 ```

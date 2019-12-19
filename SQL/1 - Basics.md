@@ -92,8 +92,7 @@ SELECT REPLACE("Milip", "M", "F")
 SELECT STR(180) 
 ```
 
-## OTher
-
+## Other
 ```sql
 SELECT DATEDIFF('2018/07/23', '2019/06/23');
 SELECT COALESCE(null, 3)

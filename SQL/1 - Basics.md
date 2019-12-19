@@ -1,9 +1,6 @@
 ## SQL
 
-### Create
-* missing: Procedures
-
-## Creation
+## Create
 ```sql
 CREATE DATABASE S;
 

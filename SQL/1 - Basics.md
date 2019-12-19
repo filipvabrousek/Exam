@@ -4,7 +4,7 @@
 ```sql
 CREATE DATABASE S;
 
-CREATE TABLE Usersa(
+CREATE TABLE Users (
 id int PRIMARY KEY not null,
 name varchar(50) not null,
 age int not null
@@ -27,7 +27,7 @@ CREATE INDEX idx ON Users(age);
 INSERT INTO Photos
 VALUES (1, "...");
 
-INSERT INTO Usersa(id, name, age)
+INSERT INTO Users(id, name, age)
 VALUES (1, "Filip", 20);
 ```
 
@@ -88,5 +88,15 @@ SELECT REVERSE("Tutorial")
 SELECT REPLICATE('Another', 3)
 SELECT REPLACE("Milip", "M", "F")
 SELECT STR(180) 
+```
 
+## OTher
+
+```sql
+SELECT DATEDIFF('2018/07/23', '2019/06/23');
+SELECT COALESCE(null, 3)
+
+
+DECLARE @a INT
+SET @a = 3;
 ```

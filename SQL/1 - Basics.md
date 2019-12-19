@@ -42,6 +42,8 @@ SELECT * FROM Users WHERE name LIKE "F%";
 SELECT * FROM Users WHERE name IN ("Filip", "Petr");
 SELECT TOP 10 FROM Users;
 
+SELECT * FROM Users GROUP BY age
+
 -- same number of columns;
 SELECT uid FROM Users 
 UNION 
@@ -98,5 +100,5 @@ SELECT COALESCE(null, 3)
 
 
 DECLARE @a INT
-SET @a = 3;
+SET @a = 3
 ```
